@@ -9,7 +9,7 @@ using SISFORM_WEB.Filters;
 
 namespace SISFORM_WEB.Controllers
 {
-    [AutorizacionModulos("1")]
+    //[AutorizacionModulos("1")]
     public class TrabajadorController : Controller
     {
         // GET: Trabajador 59

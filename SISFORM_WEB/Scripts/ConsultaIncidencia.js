@@ -83,6 +83,7 @@ window.onload = function () {
 
         if (validarRequeridos('DB')) {
             Http.post("Incidencia/GrabarIncidencia", MostrarGrabarBarrera, frm);
+            btnModalImagen.style.display = "inline-block";
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
 

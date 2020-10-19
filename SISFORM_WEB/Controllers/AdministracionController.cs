@@ -6,7 +6,7 @@ using SISFORM_WEB.ServicioWcf;
 
 namespace SISFORM_WEB.Controllers
 {
-    [AutorizacionModulos("6")]
+    //[AutorizacionModulos("6")]
     public class AdministracionController : Controller
     {
         // GET: Administracion
@@ -21,7 +21,7 @@ namespace SISFORM_WEB.Controllers
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.ListarCtrlModulosCboCsvAsync();
+                //rpta = await servicio.ListarCtrlModulosCboCsvAsync();
                 return rpta;
             }
             catch (Exception ex)
@@ -49,7 +49,7 @@ namespace SISFORM_WEB.Controllers
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.AutorizacionUsuarioCsvAsync(idUsuario);
+                //rpta = await servicio.AutorizacionUsuarioCsvAsync(idUsuario);
                 return rpta;
             }
             catch (Exception ex)
@@ -57,20 +57,20 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> Grabar(CtrlAccion oCtrlAccion)
-        {
-            int rpta = 0;
+        //public async Task<string> Grabar(CtrlAccion oCtrlAccion)
+        //{
+        //    int rpta = 0;
 
-            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-            rpta = await servicio.CtrlAccionOperacionAsync(oCtrlAccion);
-            if (rpta == 0)
-            {
-                return "";
-            }
-            else
-            {
-                return rpta.ToString();
-            }
-        }
+        //    ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+        //    rpta = await servicio.CtrlAccionOperacionAsync(oCtrlAccion);
+        //    if (rpta == 0)
+        //    {
+        //        return "";
+        //    }
+        //    else
+        //    {
+        //        return rpta.ToString();
+        //    }
+        //}
     }
 }

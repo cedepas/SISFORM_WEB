@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using SISFORM_WEB.Filters;
 namespace SISFORM_WEB.Controllers
 {
-    [AutorizacionModulos("3")]
+    //[AutorizacionModulos("3")]
     public class PruebaCovidController : Controller
     {
         public ActionResult PruebaCovid()

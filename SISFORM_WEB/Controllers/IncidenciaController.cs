@@ -7,7 +7,7 @@ using SISFORM_WEB.Filters;
 
 namespace SISFORM_WEB.Controllers
 {
-    [AutorizacionModulos("5")]
+    //[AutorizacionModulos("5")]
     public class IncidenciaController : Controller
     {
         public ActionResult Incidencia()

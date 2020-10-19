@@ -6,7 +6,7 @@ using SISFORM_WEB.Filters;
 
 namespace SISFORM_WEB.Controllers
 {
-    [AutorizacionModulos("4")]
+    //[AutorizacionModulos("4")]
     public class ReporteController : Controller
     {
         // GET: Reporte
