@@ -1,0 +1,183 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Modals start -->
+@section modals{
+    <div class="modal" id="demo-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <a href="#" class="close" role="button" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+                <h5 class="modal-title">No JavaScript. Pretty cool, right?</h5>
+                <div class="form-group">
+                    <label class="required">Puto</label>
+                    <select class="form-control">
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>I don't care</option>
+                    </select>
+                </div>
+                <a href="#" class="btn btn-primary btn-block" role="button" onclick="enviar()">Submit</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-full ie-scroll-fix" id="trabajador-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content w-lg-three-quarter">
+                <a href="#" class="close" role="button" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-sm-1">
+                            <h5 class="modal-title">Modal de registro</h5>
+                            <div class="form-row row-eq-spacing-sm">
+                                <div class="col-sm">
+                                    <label for="first-name" class="required">First name</label>
+                                    <input type="text" class="form-control" id="first-name" placeholder="First name" required="required">
+                                </div>
+                                <div class="col-sm">
+                                    <label for="last-name">Last name</label>
+                                    <input type="text" class="form-control" id="last-name" placeholder="Last name">
+                                </div>
+                            </div>
+
+                            <!-- Second row container -->
+                            <div>
+                                <!-- Label -->
+                                <label for="day-of-birth" class="required">Date of birth</label>
+                                <!-- Second row -->
+                                <div class="form-row row-eq-spacing">
+                                    <div class="col">
+                                        <input type="date" class="form-control" id="day-of-birth" inputmode="numeric" required="required">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" id="month-of-birth" placeholder="Month" pattern="[0-9]*" inputmode="numeric" required="required">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" id="year-of-birth" placeholder="Year" pattern="[0-9]*" inputmode="numeric" required="required">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Third row container -->
+                            <div>
+                                <label for="state" class="required">School</label>
+                                <!-- Third row -->
+                                <div class="form-row row-eq-spacing-md">
+                                    <div class="col-md-3">
+                                        <select class="form-control" id="state" required="required">
+                                            <option value="" selected="selected" disabled="disabled">State</option>
+                                            <option value="NY">NY</option>
+                                            <option value="NJ">NJ</option>
+                                            <option value="PA">PA</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" id="school-name" placeholder="Name of school" required="required">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit button container -->
+                            <div class="text-right">
+                                <!-- text-right = text-align: right -->
+                                <input class="btn btn-primary" type="submit" value="Submit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "prueba";
+    </script>
+}
+<!-- Modals end -->
+<!-- Optional JS library section start  -->
+<div id="optional-js-library">
+    <div class="content">
+        <h2 class="content-title">
+            Optional JavaScript library
+            <a href="#optional-js-library" class="ml-5">#</a>
+        </h2>
+        <p>
+            Many of the components found in Halfmoon are built to work without JavaScript,
+            including things like modals and tooltips. Given below is an example.
+        </p>
+    </div>
+    <div class="card p-0">
+        <div class="content">
+            <p>
+                The following button opens a modal with a tooltip attached to it. All of this
+                works without any JavaScript.
+            </p>
+            <a href="#demo-modal" class="btn btn-primary" data-toggle="tooltip" data-title="Tooltip message" role="button">Open modal</a>
+            <a href="#trabajador-modal" class="btn btn-primary" data-toggle="tooltip" data-title="Tooltip message" role="button">Open modal</a>
+            <button class="btn btn-success" type="button" onclick="toastSuccessAlert()">Success</button>
+            <button class="btn btn-danger" type="button" onclick="toastDangerAlert()">Danger</button>
+        </div>
+    </div>
+</div>
+<!-- Optional JS library section end  -->
+<!-- Bootstrap like classes section start  -->
+<div id="bootstrap-like-classes">
+    <div class="content">
+        <h2 class="content-title">
+            Bootstrap like classes
+            <a href="#bootstrap-like-classes" class="ml-5">#</a>
+        </h2>
+        <p>
+            Halfmoon is designed to have classes very similar to the ones found in Bootstrap,
+            which is by far the most popular CSS framework in the world. This is because most
+            designers are already familiar with those class names, and can therefore immediately
+            jump into Halfmoon.
+        </p>
+    </div>
+</div>
+<!-- Bootstrap like classes section end  -->
+<div class="content mb-0">
+    <hr class="mb-20">
+</div>
+<!-- Responsive table -->
+<div class="mw-full">
+    <!-- w-400 = width: 40rem (400px), mw-full = max-width: 100% -->
+    <div class="card p-0 bg-very-dark-dm">
+        <!-- p-0 = padding: 0, bg-very-dark-dm = background-color: very-dark-color (only in dark mode) -->
+        <div class="table-responsive">
+            <table class="table table-inner-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Heading</th>
+                        <th>Heading</th>
+                        <th>Heading</th>
+                        <th>Heading</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        function enviar() {
+            toastSuccessAlert("El Trabajador se registro correctamente", "!Exito¡");
+        }
+    </script>
+}

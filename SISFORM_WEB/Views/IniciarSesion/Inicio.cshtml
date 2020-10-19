@@ -1,0 +1,98 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Chrome, Firefox OS and Opera mobile address bar theming -->
+    <meta name="theme-color" content="#000000">
+    <!-- Windows Phone mobile address bar theming -->
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <!-- iOS Safari mobile address bar theming -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+
+    <!-- Fav and Title -->
+    <link rel="icon" href="~/Content/icon_empresa.png">
+    <title>CEDEPAS | @ViewBag.Title</title>
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/2d837de497.js" crossorigin="anonymous"></script>
+    <!-- Roboto font (Used when Apple system fonts are not available) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    @Styles.Render("~/Styles/halfmoon.css")
+    @Styles.Render("~/Styles/halfmoon-highlight-js-theme.css")
+    @Styles.Render("~/Styles/documentation-styles-3.css")
+    <style>
+        .padre {
+            padding: 5% 0;
+        }
+
+        .hijo {
+            padding: 4% 0;
+        }
+    </style>
+</head>
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars" data-sidebar-shortcut-enabled="true" data-dm-shortcut-enabled="true">
+    <!-- Modals start -->
+
+    <div class="sticky-alerts"></div>
+    <!-- Modals end -->
+
+    <div class="container-fluid padre">
+        <div class="row align-items-center hijo">
+            <!-- align-items-center = align-items: center, h-100 = height: 10rem (100px) -->
+            <div class="col-sm-4 offset-4 mt-xl-20">
+                <div class="row my-20">
+                    <div class="col align-self-center">
+                        <a href="#" class="navbar-brand ml-10 ml-sm-15 float-left">
+                            <img src="~/Content/logo.svg" class="hidden-dm mr-5 mr-sm-10" alt="bamani-logo">
+                            <img src="~/Content/logo-white.svg" class="hidden-lm mr-5 mr-sm-10" alt="bamani-logo-white">
+                            <span class="badge font-size-12 text-monospace px-5 px-sm-10">
+                                v1.0.1
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col align-self-center">
+                        <button class="btn btn-action border rounded-circle" type="button" onclick="halfmoon.toggleDarkMode()" aria-label="Toggle dark mode">
+                            <i class="fa fa-moon-o" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="p-10 bg-dark-dm">
+                    <div class="m-20">
+                        <div class="form-group">
+                            <label for="username" class="required">Usuario</label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Usuario" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="required">Contraseña</label>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required="required" onkeypress="logear(event)">
+                        </div>
+                        <input class="btn btn-primary btn-block" type="button" value="Iniciar sesion" id="iniciarSesion">
+                    </div>
+                </div>
+                <div class="progress mt-15">
+                    <div id="progressLogin" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input id="hdfRaiz" type="hidden" value='@Url.Content("~")' />
+    <!-- JS -->
+    @Scripts.Render("~/Scripts/halfmoon.min.js")
+    @Scripts.Render("~/Scripts/General.js")
+    @Scripts.Render("~/Scripts/ConsultaIniciarSesion.js")
+    <script src="~/Scripts/buttons.js"></script>
+</body>
+</html>
