@@ -25,7 +25,6 @@ window.onload = function () {
         if (validarRequeridos('E')) {
             Http.post("Incidencia/RegistrarSolucion", MostrarGrabarSolucion, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
-
     }
 }
 function consulta(e) {
@@ -72,20 +71,57 @@ function obtenerRegistroPorId(id) {
 
     Http.get("Incidencia/ObtenerIncidenciaPorIdParaSolucionCsv?idIncidencia=" + id, AsignarCamposBusqueda);
 }
-function codificarImg(element) {
+function cargar(event) {
+    for (let i = 0; i < 2; i++) {
+        var selectFile = event.files[0];
+        var reader = new FileReader();
 
-    console.log(element);
-    var file = element.files[0];
-    var reader = new FileReader();
-    reader.onloadend = function () {
-        imgVistaPrevia.style.display = "inline-block";
-        imagB64 = reader.result;
-        imgVistaPrevia.src = reader.result;
 
-        //document.getElementById("imgVistaPrevia").src=reader.result;
+
+
+        reader.onload = function (e) {
+
+            img = e.target.result;
+            imgVistaPrevia.src = img;
+        }
+        reader.readAsDataURL(selectFile);
+
+        imgVistaPrevia.onload = function () {
+            if (img) {
+                imgre = resizing(img, 650, 500);
+                imgVistaPrevia.style.display = "inline-block";
+                imgVistaPrevia.src = imgre;
+            }
+        }
     }
-    reader.readAsDataURL(file);
+}
+function resizing(base64, maxWidth, maxHeight) {
+    if (typeof (maxWidth) === 'undefined') var maxWidth = 500;
+    if (typeof (maxHeight) === 'undefined') var maxHeight = 500;
 
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+    var copyCanvas = document.createElement("canvas");
+    var copyCtx = copyCanvas.getContext("2d");
+
+    var img = new Image();
+    img.src = base64;
+
+    var ratio = 1;
+    if (img.width > maxWidth)
+        ratio = maxWidth / img.width;
+    else if (img.height > maxHeight)
+        ratio = maxHeight / img.height;
+
+    copyCanvas.width = img.width;
+    copyCanvas.height = img.height;
+    copyCtx.drawImage(img, 0, 0);
+
+    canvas.width = img.width * ratio;
+    canvas.height = img.height * ratio;
+    ctx.drawImage(copyCanvas, 0, 0, copyCanvas.width, copyCanvas.height, 0, 0, canvas.width, canvas.height);
+
+    return canvas.toDataURL();
 }
 function obtenerIdTrabajador(rpta) {
     if (rpta) {

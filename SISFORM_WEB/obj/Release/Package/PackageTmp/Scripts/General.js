@@ -11,10 +11,6 @@ var Http = (function () {
         requestServer(url, "post", callBack, data);
     }
 
-    Http.postDownload = function (url, callBack, data) {
-        requestServer(url, "post", callBack, data, "arraybuffer");
-    }
-
     function requestServer(url, metodoHttp, callBack, data, tipoRpta) {
         var urlBase = window.sessionStorage.getItem("urlBase");
         if (urlBase == null) urlBase = "";
@@ -420,7 +416,6 @@ function validarRequeridos(clase) {
 function limpiarControles(clase) {
     //spnValida.innerHTML = "";
     var controles = document.getElementsByClassName(clase);
-    console.log(controles);
     var ncontroles = controles.length;
     for (var j = 0; j < ncontroles; j++) {
         controles[j].value = "";

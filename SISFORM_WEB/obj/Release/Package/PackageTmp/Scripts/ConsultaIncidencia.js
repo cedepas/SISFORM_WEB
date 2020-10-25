@@ -21,7 +21,8 @@ var lstCboTipoBarrera;
 var lstCboEmpresaIncidente;
 var lstCboTipoEmpresa;
 var idTipoEmpresa;
-
+var imagB64;
+var imgre;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -83,6 +84,18 @@ window.onload = function () {
 
         if (validarRequeridos('DB')) {
             Http.post("Incidencia/GrabarIncidencia", MostrarGrabarBarrera, frm);
+            btnModalImagen.style.display = "inline-block";
+        } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+    }
+
+    btnImagenIndicencia.onclick = function () {
+        var frm = new FormData();
+        frm.append("FK_ID_Incidencia", idIncidencia);
+        frm.append("imagen", imgre);
+        frm.append("FK_ID_TipoImagen", 1);
+        frm.append("FK_ID_SolucionIncidencia", 0);
+        if (validarRequeridos('E')) {
+            Http.post("Incidencia/IncidenciaImagen", MostrarIncidenciaImagen, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
     //Llenar Combo Ubicación
@@ -105,7 +118,7 @@ window.onload = function () {
     cboTipoEmpresa.onchange = function () {
         idTipoEmpresa = cboTipoEmpresa.value;
         listarEmpresaPorTipoCbo();
-        
+
     }
 
 
@@ -226,7 +239,7 @@ function MostrarGrabarCabecera(rpta) {
         idIncidencia = rpta;
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
-}function MostrarGrabarTipoEvento(rpta) {
+} function MostrarGrabarTipoEvento(rpta) {
     if (rpta) {
         toastSuccessAlert("El registro del Tipo de Evento se registró correctamente", "¡Exito!");
         lblRegTitu.style.visibility = "visible";
@@ -246,10 +259,19 @@ function MostrarGrabarBarrera(rpta) {
         lblAlertaRegistro.style.visibility = "visible";
         document.getElementById("lblAlertaRegistro").innerHTML = "3/4 Completos";
         btnGrabarIncidencia.style.display = "none";
-        btnModalBarrera.style.display = "inline-block";
+        btnModalBarrera.style.display = "none";
         btnModalTipoEvento.style.display = "none";
         idIncidencia = rpta;
         Http.get("Incidencia/EnviarCorreo?idIncidencia=" + idIncidencia, mostrarEnvioCorreo);
+    }
+    else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
+}
+function MostrarIncidenciaImagen(rpta) {
+    if (rpta) {
+        toastSuccessAlert("El registro de la incidencia fue correcto", "¡Exito!");
+        btnModalImagen.style.display = "none";
+        idIncidencia = rpta;
+        //Http.get("Incidencia/EnviarCorreo?idIncidencia=" + idIncidencia, mostrarEnvioCorreo);
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
@@ -289,13 +311,15 @@ function AsignarCampos(rpta) {
         cboBarrera.value = campos[12];
         cboTipoBarrera.value = campos[13];
         txtBarrera.value = campos[14];
-        if (cboTipoEvento.value == 0 || cboTipoEvento.value=="" ) {
+        if (cboTipoEvento.value == 0 || cboTipoEvento.value == "") {
+            btnGrabarIncidencia.style.display = "none";
             btnModalTipoEvento.style.display = "inline-block";
             lblRegTitu.style.visibility = "visible";
             lblAlertaRegistro.style.visibility = "visible";
             document.getElementById("lblAlertaRegistro").innerHTML = "1/4 Completos";
         } else {
             if (cboTipoEvento.value > 0) {
+                btnGrabarIncidencia.style.display = "none";
                 btnModalTipoEvento.style.display = "none";
                 lblRegTitu.style.visibility = "visible";
                 lblAlertaRegistro.style.visibility = "visible";
@@ -309,4 +333,52 @@ function AsignarCampos(rpta) {
     } else {
         limpiarControles('form-control');
     }
+}
+function cargar(event) {
+    for (let i = 0; i < 2; i++) {
+        var selectFile = event.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            img = e.target.result;
+            imgVistaPrevia.src = img;
+        }
+        reader.readAsDataURL(selectFile);
+
+        imgVistaPrevia.onload = function () {
+            if (img) {
+                imgre = resizing(img, 650, 500);
+                imgVistaPrevia.style.display = "inline-block";
+                imgVistaPrevia.src = imgre;
+            }
+        }
+    }
+}
+function resizing(base64, maxWidth, maxHeight) {
+    if (typeof (maxWidth) === 'undefined') var maxWidth = 500;
+    if (typeof (maxHeight) === 'undefined') var maxHeight = 500;
+
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+    var copyCanvas = document.createElement("canvas");
+    var copyCtx = copyCanvas.getContext("2d");
+
+    var img = new Image();
+    img.src = base64;
+
+    var ratio = 1;
+    if (img.width > maxWidth)
+        ratio = maxWidth / img.width;
+    else if (img.height > maxHeight)
+        ratio = maxHeight / img.height;
+
+    copyCanvas.width = img.width;
+    copyCanvas.height = img.height;
+    copyCtx.drawImage(img, 0, 0);
+
+    canvas.width = img.width * ratio;
+    canvas.height = img.height * ratio;
+    ctx.drawImage(copyCanvas, 0, 0, copyCanvas.width, copyCanvas.height, 0, 0, canvas.width, canvas.height);
+
+    return canvas.toDataURL();
 }

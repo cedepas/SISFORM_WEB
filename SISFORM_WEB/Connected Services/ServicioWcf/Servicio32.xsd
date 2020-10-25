@@ -192,6 +192,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PruebasCovid" nillable="true" type="tns:PruebasCovid" />
+  <xs:complexType name="CtrlAccion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_CtrlModulo" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_CtrlAccion" type="xs:int" />
+      <xs:element minOccurs="0" name="StAdicionar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StEliminar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StListar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StModificar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StReporte" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CtrlAccion" nillable="true" type="tns:CtrlAccion" />
   <xs:complexType name="Incidencia">
     <xs:sequence>
       <xs:element minOccurs="0" name="EstadoCumplimiento" nillable="true" type="xs:string" />
@@ -210,7 +223,7 @@
       <xs:element minOccurs="0" name="FK_ID_Zona" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Incidencia" type="xs:int" />
       <xs:element minOccurs="0" name="detalleBarrera" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="detalleHecho" type="xs:int" />
+      <xs:element minOccurs="0" name="detalleHecho" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="diasCumplimiento" type="xs:int" />
       <xs:element minOccurs="0" name="fechaHecho" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="fechaLimiteSolucion" nillable="true" type="xs:string" />

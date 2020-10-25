@@ -179,6 +179,7 @@ function MostrarGrabar(rpta) {
         btnModalSal.style.visibility = "visible";
         btnModalDef.style.visibility = "visible";
         btnNuevo.style.visibility = "visible";
+        btnGrabar.style.visibility = "hidden";
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
