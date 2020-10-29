@@ -179,6 +179,7 @@
     <Content Include="Scripts\buttons.js" />
     <Content Include="Scripts\ConsultaCovid.js" />
     <Content Include="Scripts\ConsultaIncidencia.js" />
+    <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\ConsultaPermisos.js" />
     <Content Include="Scripts\ConsultaProgramacionCovid.js" />
     <Content Include="Scripts\ConsultaEmpresa.js" />
@@ -229,6 +230,30 @@
     <None Include="Connected Services\ServicioWcf\Servicio32.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Empresa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.ProgresoEmpresa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Trabajador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Ubigeo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.VistaUsuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -239,6 +264,7 @@
     <Content Include="Views\Incidencia\SolucionIncidencia.cshtml" />
     <Content Include="Views\Administracion\Permisos.cshtml" />
     <Content Include="Views\PruebaCovid\ProgramacionMasivaPruebaCovid.cshtml" />
+    <Content Include="Views\Incidencia\BusquedaIncidencia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
