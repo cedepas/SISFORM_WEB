@@ -183,6 +183,7 @@
     <Content Include="Scripts\ConsultaProgramacionCovid.js" />
     <Content Include="Scripts\ConsultaEmpresa.js" />
     <Content Include="Scripts\ConsultaIniciarSesion.js" />
+    <Content Include="Scripts\ConsultaProgramacionMasiva.js" />
     <Content Include="Scripts\ConsultaReporte.js" />
     <Content Include="Scripts\ConsultaTrabajador.js" />
     <Content Include="Scripts\General.js" />
@@ -218,21 +219,6 @@
     <Content Include="Properties\DataSources\Dominio.Trabajador.datasource" />
     <Content Include="Properties\DataSources\Dominio.Ubigeo.datasource" />
     <Content Include="Properties\DataSources\Dominio.VistaUsuario.datasource" />
-    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy1.pubxml" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="Views\PruebaCovid\ProgramacionPruebaCovid.cshtml" />
-    <Content Include="Views\Reporte\Consulta.cshtml" />
-    <Content Include="Views\PruebaCovid\PruebaCovid.cshtml" />
-    <Content Include="Views\Incidencia\Incidencia.cshtml" />
-    <Content Include="Views\Incidencia\SolucionIncidencia.cshtml" />
-    <Content Include="Views\Administracion\Permisos.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServicioWcf\Servicio1.wsdl" />
     <None Include="Connected Services\ServicioWcf\Servicio3.xsd">
       <SubType>Designer</SubType>
@@ -243,6 +229,22 @@
     <None Include="Connected Services\ServicioWcf\Servicio32.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\PruebaCovid\ProgramacionPruebaCovid.cshtml" />
+    <Content Include="Views\Reporte\Consulta.cshtml" />
+    <Content Include="Views\PruebaCovid\PruebaCovid.cshtml" />
+    <Content Include="Views\Incidencia\Incidencia.cshtml" />
+    <Content Include="Views\Incidencia\SolucionIncidencia.cshtml" />
+    <Content Include="Views\Administracion\Permisos.cshtml" />
+    <Content Include="Views\PruebaCovid\ProgramacionMasivaPruebaCovid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Views\Home\Prueba.cshtml" />
     <Content Include="Views\Trabajador\Operacion.cshtml" />

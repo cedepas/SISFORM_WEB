@@ -19,6 +19,11 @@ namespace SISFORM_WEB.Controllers
             ViewBag.Title = "Programación Prueba Covid";
             return View();
         }
+        public ActionResult ProgramacionMasivaPruebaCovid()
+        {
+            ViewBag.Title = "Programación Masiva Prueba Covid";
+            return View();
+        }
         public async Task<string> ObtenerTrabajadorPorId(string idTrabajador)
         {
             try
@@ -75,6 +80,20 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarPruebas()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarPruebasCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         public async Task<string> ListarResultadoPruebaCbo()
         {
             try
@@ -104,6 +123,21 @@ namespace SISFORM_WEB.Controllers
 
             ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
             rpta = await servicio.PruebasCovidOperacionAsync(oPruebasCovid, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
+        public async Task<string> GrabarPruebasCovidMasivo(string data, string idUsuario)
+        {
+            int rpta = 0;
+
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.PruebasCovidMasivoAsync(data,idUsuario);
             if (rpta == 0)
             {
                 return "";

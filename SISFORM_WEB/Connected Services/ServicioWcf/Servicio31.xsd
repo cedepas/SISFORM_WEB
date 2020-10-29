@@ -228,6 +228,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="PruebasCovidMasivo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="data" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PruebasCovidMasivoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PruebasCovidMasivoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CtrlAccionOperacion">
     <xs:complexType>
       <xs:sequence>
@@ -533,6 +548,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListarPruebasCsv">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarPruebasCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarPruebasCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarTipoEventoCsv">
     <xs:complexType>
       <xs:sequence />
@@ -750,6 +777,33 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ListarTipoSolucionIncidenciaCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTipoFiltroIncidenciaCsv">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTipoFiltroIncidenciaCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarTipoFiltroIncidenciaCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIncidenciaPorFiltroCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID_TipoFilto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Filtro" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIncidenciaPorFiltroCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerIncidenciaPorFiltroCsvResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

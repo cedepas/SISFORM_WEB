@@ -127,6 +127,13 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/PruebasCovidOperacion", ReplyAction="http://tempuri.org/IServicio/PruebasCovidOperacionResponse")]
         System.Threading.Tasks.Task<int> PruebasCovidOperacionAsync(Dominio.PruebasCovid oPruebasCovid, string op);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/PruebasCovidMasivo", ReplyAction="http://tempuri.org/IServicio/PruebasCovidMasivoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/PruebasCovidMasivoErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int PruebasCovidMasivo(string data, string idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/PruebasCovidMasivo", ReplyAction="http://tempuri.org/IServicio/PruebasCovidMasivoResponse")]
+        System.Threading.Tasks.Task<int> PruebasCovidMasivoAsync(string data, string idUsuario);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/CtrlAccionOperacion", ReplyAction="http://tempuri.org/IServicio/CtrlAccionOperacionResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/CtrlAccionOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         int CtrlAccionOperacion(Dominio.CtrlAccion oCtrlAccion);
@@ -288,6 +295,13 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCtrlModulosCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarCtrlModulosCboCsvResponse")]
         System.Threading.Tasks.Task<string> ListarCtrlModulosCboCsvAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarPruebasCsv", ReplyAction="http://tempuri.org/IServicio/ListarPruebasCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarPruebasCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarPruebasCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarPruebasCsv", ReplyAction="http://tempuri.org/IServicio/ListarPruebasCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarPruebasCsvAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoEventoCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoEventoCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarTipoEventoCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarTipoEventoCsv();
@@ -406,6 +420,20 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoSolucionIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoSolucionIncidenciaCsvResponse")]
         System.Threading.Tasks.Task<string> ListarTipoSolucionIncidenciaCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarTipoFiltroIncidenciaCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarTipoFiltroIncidenciaCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerIncidenciaPorFiltroCsv(string ID_TipoFilto, string Filtro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerIncidenciaPorFiltroCsvAsync(string ID_TipoFilto, string Filtro);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarSolucion", ReplyAction="http://tempuri.org/IServicio/RegistrarSolucionResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/RegistrarSolucionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -575,6 +603,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<int> PruebasCovidOperacionAsync(Dominio.PruebasCovid oPruebasCovid, string op) {
             return base.Channel.PruebasCovidOperacionAsync(oPruebasCovid, op);
+        }
+        
+        public int PruebasCovidMasivo(string data, string idUsuario) {
+            return base.Channel.PruebasCovidMasivo(data, idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<int> PruebasCovidMasivoAsync(string data, string idUsuario) {
+            return base.Channel.PruebasCovidMasivoAsync(data, idUsuario);
         }
         
         public int CtrlAccionOperacion(Dominio.CtrlAccion oCtrlAccion) {
@@ -761,6 +797,14 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.ListarCtrlModulosCboCsvAsync();
         }
         
+        public string ListarPruebasCsv() {
+            return base.Channel.ListarPruebasCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarPruebasCsvAsync() {
+            return base.Channel.ListarPruebasCsvAsync();
+        }
+        
         public string ListarTipoEventoCsv() {
             return base.Channel.ListarTipoEventoCsv();
         }
@@ -895,6 +939,22 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarTipoSolucionIncidenciaCsvAsync() {
             return base.Channel.ListarTipoSolucionIncidenciaCsvAsync();
+        }
+        
+        public string ListarTipoFiltroIncidenciaCsv() {
+            return base.Channel.ListarTipoFiltroIncidenciaCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarTipoFiltroIncidenciaCsvAsync() {
+            return base.Channel.ListarTipoFiltroIncidenciaCsvAsync();
+        }
+        
+        public string ObtenerIncidenciaPorFiltroCsv(string ID_TipoFilto, string Filtro) {
+            return base.Channel.ObtenerIncidenciaPorFiltroCsv(ID_TipoFilto, Filtro);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerIncidenciaPorFiltroCsvAsync(string ID_TipoFilto, string Filtro) {
+            return base.Channel.ObtenerIncidenciaPorFiltroCsvAsync(ID_TipoFilto, Filtro);
         }
         
         public string RegistrarSolucion(Dominio.Solucion oSolucion) {

@@ -22,10 +22,10 @@
     <MetadataSource Address="https://cedepasws.azurewebsites.net/Servicio.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Servicio3.xsd" MetadataType="Schema" ID="c6f1ce6c-5806-4847-8eae-2b0cfad75295" SourceId="1" SourceUrl="https://cedepasws.azurewebsites.net/Servicio.svc?xsd=xsd1" />
-    <MetadataFile FileName="Servicio31.xsd" MetadataType="Schema" ID="5ba68a31-50b0-4253-bdb7-1abb2b88c137" SourceId="1" SourceUrl="https://cedepasws.azurewebsites.net/Servicio.svc?xsd=xsd0" />
-    <MetadataFile FileName="Servicio1.wsdl" MetadataType="Wsdl" ID="b72911f6-e5d8-4a15-8968-3d047650737b" SourceId="1" SourceUrl="https://cedepasws.azurewebsites.net/Servicio.svc?wsdl" />
-    <MetadataFile FileName="Servicio32.xsd" MetadataType="Schema" ID="6168c35b-d010-4149-856a-1ba868610319" SourceId="1" SourceUrl="https://cedepasws.azurewebsites.net/Servicio.svc?xsd=xsd2" />
+    <MetadataFile FileName="Servicio3.xsd" MetadataType="Schema" ID="4b459cd4-6866-4d7f-af95-11787dce9c3b" SourceId="1" SourceUrl="https://cedepasws.azurewebsites.net/Servicio.svc?xsd=xsd1" />
+    <MetadataFile FileName="Servicio31.xsd" MetadataType="Schema" ID="40cad15d-163e-4128-8661-adda5accfd81" SourceId="1" SourceUrl="https://cedepasws.azurewebsites.net/Servicio.svc?xsd=xsd0" />
+    <MetadataFile FileName="Servicio1.wsdl" MetadataType="Wsdl" ID="fbb23ed4-2209-4fef-9af7-8f58ef119b4f" SourceId="1" SourceUrl="https://cedepasws.azurewebsites.net/Servicio.svc?wsdl" />
+    <MetadataFile FileName="Servicio32.xsd" MetadataType="Schema" ID="337d6b75-ec6f-4056-a7a9-770dd56a5baa" SourceId="1" SourceUrl="https://cedepasws.azurewebsites.net/Servicio.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
