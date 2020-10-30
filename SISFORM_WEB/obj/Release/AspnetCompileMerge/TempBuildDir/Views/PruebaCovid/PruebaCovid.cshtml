@@ -12,11 +12,11 @@
 <!-- Modals end -->
 
 <div class="content">
-    <div class="title"><h5>Registro de pruebas COVID</h5></div>
-    <div style="display:none">
+    <div class="title"><h5>Registro de Pruebas COVID</h5></div>
+    @*<div style="display:none">
         <input type="hidden" class="form-control form-control-sm E" id="txtIdTrabajador" readonly="readonly" />
         <input type="hidden" class="form-control form-control-sm E" id="txtIdPruebasCovid" placeholder="Codigo" readonly="readonly" />
-    </div>
+    </div>*@
     <div class="form-row">
         <div class="col-sm-4">
             <label for="txtDocumentoTrabajador" class="required">N° Documento</label>
@@ -30,12 +30,12 @@
     <div class="form-row">
         <div class="col-sm-3">
             <label for="txtNumeroPrueba" class="required">N° Prueba</label>
-            <input type="text" class="form-control form-control-sm E" id="txtNumeroPrueba" placeholder="N° Prueba" readonly="readonly" />
+            <input type="text" class="form-control form-control-sm E" id="txtNumeroPrueba" placeholder="N° Prueba" required="required" />
         </div>
-        <div class="col-sm-3">
-            <label for="txtFechaPrueba">Fecha Prueba</label>
+        @*<div class="col-sm-3">
+            <label for="txtFechaPrueba">Fecha de Programación de la Prueba</label>
             <input type="date" class="form-control form-control-sm E" id="txtFechaPrueba" />
-        </div>
+        </div>*@
         <div class="col-sm-3">
             <label for="cboResultadoPrueba" class="required">Resultado de prueba</label>
             <select class="form-control form-control-sm E" id="cboResultadoPrueba" required="required"></select>

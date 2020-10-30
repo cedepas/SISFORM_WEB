@@ -1,9 +1,13 @@
 ﻿var lstPrueba;
+var idEmpresaTrab;
+var idTrabajador;
+var fechaPrueba;
+
 
 window.onload = function () {
     if (!isMobile.any()) {
-        Http.get("Trabajador/ListarPruebasCovid", CrearTablaCsv);
-        Http.get("Trabajador/ListarResultadoPruebaCbo", mostrarCbo);
+        Http.get("PruebaCovid/ListarPruebasCovid", CrearTablaCsv);
+        Http.get("PruebaCovid/ListarResultadoPruebaCbo", mostrarCbo);
 
         var divRows = document.getElementsByClassName('form-row');
         for (var i = 0; i < divRows.length; i++) {
@@ -12,15 +16,15 @@ window.onload = function () {
     }
     btnGrabar.onclick = function () {
         var frm = new FormData();
-        frm.append("ID_Empresa", (txtIdPruebasCovid.value == "" ? "0" : txtIdPruebasCovid.value));
-        frm.append("FK_ID_Trabajador", txtIdTrabajador.value);
-        frm.append("fechaPrueba", txtFechaPrueba.value);
+        frm.append("ID_Empresa", idEmpresaTrab);
+        frm.append("FK_ID_Trabajador", idTrabajador);
+        frm.append("fechaPrueba", fechaPrueba);
         frm.append("numeroPrueba", txtNumeroPrueba.value);
         frm.append("resultadoPrueba", cboResultadoPrueba.value);
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
 
         if (validarRequeridos('E')) {
-            Http.post("Trabajador/GrabarPrueba", MostrarGrabar, frm);
+            Http.post("PruebaCovid/GrabarPrueba", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
 
@@ -33,10 +37,10 @@ window.onload = function () {
 function MostrarGrabar(rpta) {
     if (rpta) {
         if (!isMobile.any()) {
-            Http.get("Trabajador/ListarPruebasCovid", CrearTablaCsv);
+            Http.get("PruebaCovid/ListarPruebasCovid", CrearTablaCsv);
         }
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
-        txtIdPruebasCovid.value = rpta;
+        //txtIdPruebasCovid.value = rpta;
         btnNuevo.style.visibility = "visible";
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
@@ -44,18 +48,25 @@ function MostrarGrabar(rpta) {
 
 function consulta(e) {
     if (e.keyCode === 13 && !e.shiftKey) {
-        Http.get("Trabajador/ObtenerporDni?dni=" + txtDocumentoTrabajador.value, AsignarCampos);
+        Http.get("PruebaCovid/ObtenerporDni?dni=" + txtDocumentoTrabajador.value, AsignarCampos);
     }
 }
 
+function obtenerRegistroPorId(id) {
+    Http.get("PruebaCovid/ObtenerProgramacionPruebaCovidPorIDCsv?idPruebaCovid=" + id, AsignarCampos);
+}
 function AsignarCampos(rpta) {
     if (rpta) {
         btnNuevo.style.visibility = "visible";
         var campos = rpta.split('|');
         if (campos[0]) {
-            txtIdTrabajador.value = campos[0];
-            txtNombreTrabajador.value = campos[1];
-            txtNumeroPrueba.value = campos[2];
+            //txtIdTrabajador.value = campos[0];
+            txtDocumentoTrabajador.value = campos[1]
+            idTrabajador = campos[0];
+            txtNombreTrabajador.value = campos[2];
+            txtNumeroPrueba.value = campos[3];
+            fechaPrueba = campos[4];
+            idEmpresaTrab = campos[5];
         }
     }
 }

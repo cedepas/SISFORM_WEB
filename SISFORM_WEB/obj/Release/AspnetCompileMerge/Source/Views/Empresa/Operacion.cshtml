@@ -253,41 +253,35 @@
     <div class="title"><h5>Registro de empresas</h5></div>
     <div class="form-row">
         <div class="col-sm">
-            <label for="txtIdEmpresa">Codigo</label>
-            <input type="text" class="form-control form-control-sm E" id="txtIdEmpresa" placeholder="Codigo" readonly="readonly" />
-        </div>
-        <div class="col-sm">
-            <label for="txtCodigo" class="required">Codigo Empresa</label>
-            <input type="text" class="form-control form-control-sm E" id="txtCodigo" placeholder="Codigo Empresa" required="required" />
-        </div>
-        <div class="col-sm">
             <label for="cboTipoEmpresa" class="required">Tipo de Empresa</label>
             <select class="form-control form-control-sm E" id="cboTipoEmpresa" required="required"></select>
         </div>
         <div class="col-sm">
+            <label for="txtNombreComercial" class="required">Nombre Comercial</label>
+            <input type="text" class="form-control form-control-sm E" id="txtNombreComercial" placeholder="Nombre Comercial" required="required" />
+        </div>
+        @*<div class="col-sm">
             <label for="txtSeguimiento" class="required">Seguimiento</label>
             <input type="text" class="form-control form-control-sm E" id="txtSeguimiento" placeholder="Seguimiento" required="required" />
-        </div>
+        </div>*@
     </div>
-    <div class="form-row">
-        <div class="col-sm">
+    <!--<div class="form-row">-->
+        @*<div class="col-sm">
             <label for="txtTipoEstablecimiento" class="required">Tipo Establecimiento</label>
             <input type="text" class="form-control form-control-sm E" id="txtTipoEstablecimiento" placeholder="Tipo Establecimiento" required="required" />
         </div>
         <div class="col-sm">
             <label for="txtCondicion" class="required">Condicion</label>
             <input type="text" class="form-control form-control-sm E" id="txtCondicion" placeholder="Condicion" required="required" />
-        </div>
-        <div class="col-sm">
-            <label for="txtNombreComercial" class="required">Nombre Comercial</label>
-            <input type="text" class="form-control form-control-sm E" id="txtNombreComercial" placeholder="Nombre Comercial" required="required" />
-        </div>
+        </div>*@
+
+        
+    <!--</div>-->
+    <div class="form-row">
         <div class="col-sm">
             <label for="txtRazonSocial" class="required">Razon Social</label>
             <input type="text" class="form-control form-control-sm E" id="txtRazonSocial" placeholder="Razon Social" required="required" />
         </div>
-    </div>
-    <div class="form-row">
         <div class="col-sm">
             <label for="txtTieneRuc" class="required">Tiene RUC</label>
             <div class="custom-control">
@@ -318,10 +312,17 @@
         <div class="col-sm-8">
             <label for="txtDireccion" class="required">Direccion</label>
             <input type="text" class="form-control form-control-sm E" id="txtDireccion" placeholder="Direccion" required="required" />
+        </div>        
+
+    </div>
+    <div class="form-row">
+        <div class="col-sm-8">
+            <label for="txtEmail" class="required">Email</label>
+            <input type="email" class="form-control form-control-sm E" id="txtEmail" placeholder="Email" required="required" />
         </div>
     </div>
     <div class="form-row">
-        <div class="col-sm">
+        @*<div class="col-sm">
             <label for="cboLibroReclamaciones" class="required">Libro Reclamaciones</label>
             <select class="form-control form-control-sm E" id="cboLibroReclamaciones" required="required"></select>
         </div>
@@ -332,7 +333,7 @@
         <div class="col-sm">
             <label for="cboAsesoriaPersonalizada" class="required">Asesoria Personalizada</label>
             <select class="form-control form-control-sm E" id="cboAsesoriaPersonalizada" required="required"></select>
-        </div>
+        </div>*@
         <div class="col-sm">
             <label for="txtEstado" class="required">Estado</label>
             <div class="custom-control">

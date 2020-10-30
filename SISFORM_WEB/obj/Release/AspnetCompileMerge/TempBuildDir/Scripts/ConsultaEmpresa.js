@@ -11,6 +11,8 @@ var lstCboCerti;
 var lstCboAuto;
 var lstCboEstReal;
 
+var idEmpresa;
+
 window.onload = function () {
     Http.get("Empresa/ListarTipoEmpresaCbo", mostrarTipoEmpresaCbo);
 
@@ -25,12 +27,8 @@ window.onload = function () {
 
     btnGrabar.onclick = function () {
         var frm = new FormData();
-        frm.append("ID_Empresa", (txtIdEmpresa.value == "" ? "0" : txtIdEmpresa.value));
-        frm.append("codigo", txtCodigo.value);
+        frm.append("ID_Empresa", (idEmpresa == "" ? "0" : idEmpresa));
         frm.append("FK_ID_TipoEmpresa", cboTipoEmpresa.value);
-        frm.append("seguimiento", txtSeguimiento.value);
-        frm.append("tipoEstablecimiento", txtTipoEstablecimiento.value);
-        frm.append("condicion", txtCondicion.value);
         frm.append("nombreComercial", txtNombreComercial.value);
         frm.append("razonSocial", txtRazonSocial.value);
         frm.append("tieneRuc", (txtTieneRuc.checked == true ? "SI" : "NO"));
@@ -39,11 +37,9 @@ window.onload = function () {
         frm.append("ruc", txtRuc.value);
         frm.append("telefono", txtTelefono.value);
         frm.append("direccion", txtDireccion.value);
-        frm.append("libroReclamaciones", cboLibroReclamaciones.value);
-        frm.append("colaborador", cboColaborador.value);
-        frm.append("asesoriaPersonalizada", cboAsesoriaPersonalizada.value);
         frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
+        frm.append("email", txtEmail.value);
 
         if (validarRequeridos('E')) {
             Http.post("Empresa/Grabar", MostrarGrabar, frm);
@@ -142,14 +138,14 @@ function mostrarTipoEmpresaCbo(rpta) {
         lstCboPersona = rptaPersona.split('¬');
         CrearCombo(lstCboPersona, cboTipoPersona, "Seleccione");
 
-        var rptaLibro = 'SI TIENE|SI TIENE¬NO TIENE|NO TIENE¬EN PROCESO|EN PROCESO¬ACTUALIZAR|ACTUALIZAR';
-        lstCboLibro = rptaLibro.split('¬');
-        CrearCombo(lstCboLibro, cboLibroReclamaciones, "Seleccione");
+        //var rptaLibro = 'SI TIENE|SI TIENE¬NO TIENE|NO TIENE¬EN PROCESO|EN PROCESO¬ACTUALIZAR|ACTUALIZAR';
+        //lstCboLibro = rptaLibro.split('¬');
+        //CrearCombo(lstCboLibro, cboLibroReclamaciones, "Seleccione");
 
-        var rptaAsePer = 'SI TIENE|SI TIENE¬NO TIENE|NO TIENE¬BUENA|BUENA¬REGULAR|REGULAR¬MALA|MALA';
-        lstCboColAse = rptaAsePer.split('¬');
-        CrearCombo(lstCboColAse, cboColaborador, "Seleccione");
-        CrearCombo(lstCboColAse, cboAsesoriaPersonalizada, "Seleccione");
+        //var rptaAsePer = 'SI TIENE|SI TIENE¬NO TIENE|NO TIENE¬BUENA|BUENA¬REGULAR|REGULAR¬MALA|MALA';
+        //lstCboColAse = rptaAsePer.split('¬');
+        //CrearCombo(lstCboColAse, cboColaborador, "Seleccione");
+        //CrearCombo(lstCboColAse, cboAsesoriaPersonalizada, "Seleccione");
 
         var rptaContrato = 'PROPIETARIO|PROPIETARIO¬CON CONTRATO|CON CONTRATO¬SIN CONTRATO|SIN CONTRATO';
         lstCboContrato = rptaContrato.split('¬');
@@ -178,11 +174,12 @@ function MostrarGrabar(rpta) {
         }
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
         txtIdEmpresa.value = rpta;
-        btnModalObs.style.visibility = "visible";
-        btnModalLic.style.visibility = "visible";
-        btnModalSal.style.visibility = "visible";
-        btnModalDef.style.visibility = "visible";
+        btnModalObs.style.visibility = "hidden";
+        btnModalLic.style.visibility = "hidden";
+        btnModalSal.style.visibility = "hidden";
+        btnModalDef.style.visibility = "hidden";
         btnNuevo.style.visibility = "visible";
+        btnGrabar.style.visibility = "hidden";
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
@@ -251,24 +248,18 @@ function AsignarCampos(rpta) {
         var campos = [];
         if (listas[0]) {
             campos = listas[0].split('|');
-            txtIdEmpresa.value = campos[0];
-            txtCodigo.value = campos[1];
-            cboTipoEmpresa.value = campos[2];
-            txtSeguimiento.value = campos[3];
-            txtTipoEstablecimiento.value = campos[4];
-            txtCondicion.value = campos[5];
-            txtNombreComercial.value = campos[6];
-            txtRazonSocial.value = campos[7];
-            txtTieneRuc.value = (campos[8] == "SI" ? true : false);
-            cboRegimenTributario.value = campos[9];
-            cboTipoPersona.value = campos[10];
-            txtRuc.value = campos[11];
-            txtTelefono.value = campos[12];
-            txtDireccion.value = campos[13];
-            cboLibroReclamaciones.value = campos[14];
-            cboColaborador.value = campos[15];
-            cboAsesoriaPersonalizada.value = campos[16];
-            txtEstado.value = (campos[17] == "ACT" ? true : false);
+            idEmpresa = campos[0];
+            cboTipoEmpresa.value = campos[1];
+            txtNombreComercial.value = campos[2];
+            txtRazonSocial.value = campos[3];
+            txtTieneRuc.value = (campos[4] == "SI" ? true : false);
+            cboRegimenTributario.value = campos[5];
+            cboTipoPersona.value = campos[6];
+            txtRuc.value = campos[7];
+            txtTelefono.value = campos[8];
+            txtDireccion.value = campos[9];
+            txtEstado.value = (campos[10] == "ACT" ? true : false);
+            txtEmail.value = campos[11] ;
         }
 
         if (listas[1]) {
@@ -291,7 +282,7 @@ function AsignarCampos(rpta) {
             txtNoCuentanConCarnet.value = campos[15];
             cboDeclaracionJuradaAutoAvaluo.value = campos[16];
             if (!isMobile.any()) {
-                Http.get("Empresa/ListarProgresoEmpresaCsv?idEmpresa=" + txtIdEmpresa.value, CrearTablaCsvObs);
+                Http.get("Empresa/ListarProgresoEmpresaCsv?idEmpresa=" + idEmpresa, CrearTablaCsvObs);
             }
         } else {
             limpiarControles('C1')

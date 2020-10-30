@@ -199,13 +199,6 @@
     <Content Include="Styles\halfmoon-highlight-js-theme.css" />
     <Content Include="Styles\halfmoon.css" />
     <Content Include="Styles\halfmoon.min.css" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -229,9 +222,6 @@
     <None Include="Connected Services\ServicioWcf\Servicio32.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy1.pubxml" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\PruebaCovid\ProgramacionPruebaCovid.cshtml" />
     <Content Include="Views\Reporte\Consulta.cshtml" />
     <Content Include="Views\PruebaCovid\PruebaCovid.cshtml" />
@@ -239,6 +229,14 @@
     <Content Include="Views\Incidencia\SolucionIncidencia.cshtml" />
     <Content Include="Views\Administracion\Permisos.cshtml" />
     <Content Include="Views\PruebaCovid\ProgramacionMasivaPruebaCovid.cshtml" />
+    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

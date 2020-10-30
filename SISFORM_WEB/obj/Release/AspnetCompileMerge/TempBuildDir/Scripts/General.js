@@ -11,10 +11,6 @@ var Http = (function () {
         requestServer(url, "post", callBack, data);
     }
 
-    Http.postDownload = function (url, callBack, data) {
-        requestServer(url, "post", callBack, data, "arraybuffer");
-    }
-
     function requestServer(url, metodoHttp, callBack, data, tipoRpta) {
         var urlBase = window.sessionStorage.getItem("urlBase");
         if (urlBase == null) urlBase = "";
@@ -41,7 +37,6 @@ function navegar(url) {
 
 function Grilla(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
     var matriz = [];
-    var ordenIndice = 0;
 
     var indicePagina = 0;
     if (registrosPagina == null) registrosPagina = 20;
@@ -241,36 +236,6 @@ function Grilla(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
         mostrarMatriz();
     }
 
-    function ordenar(span, indice) {
-        ordenIndice = indice;
-        var simbolo = "▲";
-        ordenTipo = 0;
-        if (span.innerHTML.indexOf("▲") > -1 || span.innerHTML.indexOf("▼") > -1) {
-            if (span.innerHTML.indexOf("▲") > -1) simbolo = "▼";
-            matriz.reverse();
-        }
-        else matriz.sort(ordenaAsc);
-        borrarSimboloOrden();
-        span.innerHTML += " " + simbolo;
-        mostrarMatriz();
-    }
-
-    function ordenaAsc(x, y) {
-        var valX = x[ordenIndice];
-        var valY = y[ordenIndice];
-        return (valX > valY ? 1 : -1);
-    }
-
-    function borrarSimboloOrden() {
-        var enlaces = document.getElementsByClassName(divGrilla + "Enlace");
-        var nEnlaces = enlaces.length;
-        var enlace;
-        for (var i = 0; i < nEnlaces; i++) {
-            enlace = enlaces[i];
-            enlace.innerHTML = enlace.innerHTML.replace("▲", "").replace("▼", "");
-        }
-    }
-
     function paginar(indice) {
         if (indice > -1) indicePagina = indice;
         else {
@@ -420,7 +385,6 @@ function validarRequeridos(clase) {
 function limpiarControles(clase) {
     //spnValida.innerHTML = "";
     var controles = document.getElementsByClassName(clase);
-    console.log(controles);
     var ncontroles = controles.length;
     for (var j = 0; j < ncontroles; j++) {
         controles[j].value = "";

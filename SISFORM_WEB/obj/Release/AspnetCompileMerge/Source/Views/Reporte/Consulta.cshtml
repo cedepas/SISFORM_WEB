@@ -27,27 +27,29 @@
 
 <div class="content">
     <div class="title"><h5>Reporte de pruebas COVID</h5></div>
-    <div class="form-row">
-        <div class="col-sm-3">
-            <label for="txtFechaInicio">Fecha Inicio</label>
-            <input type="date" class="form-control form-control-sm E" id="txtFechaInicio" required="required"/>
+    <iframe width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiZjBmMjI5ZDQtNGQ0MC00MWViLWJjODEtMGI1NzA1MzIyMGJlIiwidCI6ImM0YTY2YzM0LTJiYjctNDUxZi04YmUxLWIyYzI2YTQzMDE1OCIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+    @*<div class="form-row">
+            <div class="col-sm-3">
+                <label for="txtFechaInicio">Fecha Inicio</label>
+                <input type="date" class="form-control form-control-sm E" id="txtFechaInicio" required="required"/>
+            </div>
+            <div class="col-sm-3">
+                <label for="txtFechaFin">Fecha Fin</label>
+                <input type="date" class="form-control form-control-sm E" id="txtFechaFin" required="required"/>
+            </div>
+            <div class="col-sm-6 text-right">
+                <input class="btn btn-success" id="btnConsulta" type="button" value="Consultar">
+            </div>
         </div>
-        <div class="col-sm-3">
-            <label for="txtFechaFin">Fecha Fin</label>
-            <input type="date" class="form-control form-control-sm E" id="txtFechaFin" required="required"/>
-        </div>
-        <div class="col-sm-6 text-right">
-            <input class="btn btn-success" id="btnConsulta" type="button" value="Consultar">
-        </div>
-    </div>
-    <div class="form-row row">
-        <div class="col-12">
-            <div id="divReporte" class="chart"></div>
-        </div>
-    </div>
+        <div class="form-row row">
+            <div class="col-12">
+                <div id="divReporte" class="chart"></div>
+            </div>
+        </div>*@
 
 </div>
 <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+
 
 @section scripts{
     @Scripts.Render("~/Scripts/loader.js")

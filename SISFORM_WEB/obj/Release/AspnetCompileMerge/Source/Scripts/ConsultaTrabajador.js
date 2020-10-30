@@ -2,6 +2,7 @@
 var lstCboTipoDoc;
 var lstCboPuesto;
 var lstCboEmpresa;
+var idTrabajador;
 
 window.onload = function () {
     Http.get("Trabajador/ListarTipoDocumentoCbo", mostrarTipoDocumentoCbo);
@@ -28,7 +29,10 @@ window.onload = function () {
 
     btnGrabar.onclick = function () {
         var frm = new FormData();
-        frm.append("ID_Trabajador", (txtIdTrabajador.value == "" ? "0" : txtIdTrabajador.value));
+        if (idTrabajador) {
+            frm.append("ID_Trabajador", idTrabajador);
+        }
+        //frm.append("ID_Trabajador", (txtIdTrabajador.value == "" ? "0" : txtIdTrabajador.value));
         frm.append("FK_ID_TipoDocumento", cboTipoDocumento.value);
         frm.append("numeroDocumento", txtNuDoc.value);
         frm.append("nombreTrabajador", txtNombre.value.toUpperCase());
@@ -36,10 +40,10 @@ window.onload = function () {
         frm.append("apellidoMaterno", txtApeMaterno.value.toUpperCase());
         frm.append("fechaNacimiento", dtFecNac.value);
         frm.append("ubigeo", cboDepartamento.value + cboProvincia.value + cboDistrito.value);
-        frm.append("lugarProcedencia", txtLugarProc.value.toUpperCase());
+        frm.append("referencia", txtReferencia.value.toUpperCase());
         frm.append("telefono", txtTelefono.value);
         frm.append("direccion", txtDireccion.value.toUpperCase());
-        frm.append("condicionTrabajador", (txtCondicion.checked == true ? "SI" : "NO"));
+        //frm.append("condicionTrabajador", (txtCondicion.checked == true ? "SI" : "NO"));
         frm.append("familiarContacto", txtFamiliarContacto.value.toUpperCase());
         frm.append("telefonoContacto", txtTelefonoContacto.value);
         frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
@@ -53,7 +57,8 @@ window.onload = function () {
     btnGrabarPuesto.onclick = function () {
         var frm = new FormData();
         frm.append("ID_TrabajadorPuesto", (txtIdTrabajadorPuesto.value == "" ? "0" : txtIdTrabajadorPuesto.value));
-        frm.append("FK_ID_Trabajador", txtIdTrabajador.value);
+        frm.append("FK_ID_Trabajador", (idTrabajador == "" ? "0" : idTrabajador));
+        //frm.append("FK_ID_Trabajador", txtIdTrabajador.value);
         frm.append("FK_ID_PuestoTrabajo", cboPuestoTrabajo.value);
         frm.append("FK_ID_Empresa", cboEmpresa.value);
         frm.append("fechaIngreso", txtFechaIngreso.value);
@@ -209,7 +214,7 @@ function AsignarCampos(rpta) {
         var campos = [];
         if (listas[0]) {
             campos = listas[0].split('|');
-            txtIdTrabajador.value = campos[0];
+            idTrabajador = campos[0];
             cboTipoDocumento.value = campos[1];
             txtNuDoc.value = campos[2];
             txtNombre.value = campos[3];
@@ -221,13 +226,13 @@ function AsignarCampos(rpta) {
             cboProvincia.value = campos[7].substr(2, 2);
             listarDistritos();
             cboDistrito.value = campos[7].substr(4, 2);
-            txtLugarProc.value = campos[8];
+            txtReferencia.value = campos[8];
             txtTelefono.value = campos[9];
             txtDireccion.value = campos[10];
-            txtCondicion.checked = (campos[11] == "SI" ? true : false);
-            txtFamiliarContacto.value = campos[12];
-            txtTelefonoContacto.value = campos[13];
-            txtEstado.checked = (campos[14] == "ACT" ? true : false);
+            //txtCondicion.checked = (campos[11] == "SI" ? true : false);
+            txtFamiliarContacto.value = campos[11];
+            txtTelefonoContacto.value = campos[12];
+            txtEstado.checked = (campos[13] == "ACT" ? true : false);
         }
 
         if (listas[1]) {

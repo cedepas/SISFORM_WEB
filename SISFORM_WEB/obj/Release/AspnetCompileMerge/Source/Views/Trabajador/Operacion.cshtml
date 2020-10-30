@@ -67,10 +67,10 @@
 <div class="content">
     <div class="title"><h5>Registro de trabajadores</h5></div>
     <div class="form-row">
-        <div class="col-sm">
+        @*<div class="col-sm">
             <label for="txtIdTrabajador">Codigo</label>
             <input type="text" class="form-control form-control-sm T" id="txtIdTrabajador" placeholder="Codigo" readonly="readonly" />
-        </div>
+        </div>*@
         <div class="col-sm">
             <label for="cboTipoDocumento" class="required">Tipo de documento</label>
             <select class="form-control form-control-sm T" id="cboTipoDocumento" required="required"></select>
@@ -79,12 +79,12 @@
             <label for="txtNuDoc" class="required">N° Documento</label>
             <input type="text" class="form-control form-control-sm T" id="txtNuDoc" placeholder="N° Documento" required="required" />
         </div>
-    </div>
-    <div class="form-row">
         <div class="col-sm">
             <label for="txtNombre" class="required">Nombre</label>
             <input type="text" class="form-control form-control-sm T" id="txtNombre" placeholder="Nombre" required="required" />
         </div>
+    </div>
+    <div class="form-row">
         <div class="col-sm">
             <label for="txtApePaterno" class="required">Apellido Paterno</label>
             <input type="text" class="form-control form-control-sm T" id="txtApePaterno" placeholder="Apellido Paterno" required="required" />
@@ -111,7 +111,7 @@
                 <select class="form-control form-control-sm T" id="cboDistrito" required="required"></select>
             </div>
             <div class="col-sm">
-                <input type="text" class="form-control form-control-sm T" id="txtLugarProc" placeholder="Lugar de Procedencia" required="required" />
+                <input type="text" class="form-control form-control-sm T" id="txtReferencia" placeholder="Referencia" required="required" />
             </div>
         </div>
     </div>
@@ -124,7 +124,7 @@
             <label for="txtDireccion" class="required">Direccion</label>
             <input type="text" class="form-control form-control-sm T" id="txtDireccion" placeholder="Direccion" required="required" />
         </div>
-        <div class="col-sm">
+        @*<div class="col-sm">
             <label for="txtCondicion" class="required">Condicion</label>
             <div class="custom-control">
                 <div class="custom-switch">
@@ -132,7 +132,7 @@
                     <label for="txtCondicion">Condicion</label>
                 </div>
             </div>
-        </div>
+        </div>*@
         <div class="col-sm">
             <label for="txtEstado" class="required">Estado</label>
             <div class="custom-control">

@@ -174,10 +174,10 @@ function MostrarGrabar(rpta) {
         }
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
         txtIdEmpresa.value = rpta;
-        btnModalObs.style.visibility = "visible";
-        btnModalLic.style.visibility = "visible";
-        btnModalSal.style.visibility = "visible";
-        btnModalDef.style.visibility = "visible";
+        btnModalObs.style.visibility = "hidden";
+        btnModalLic.style.visibility = "hidden";
+        btnModalSal.style.visibility = "hidden";
+        btnModalDef.style.visibility = "hidden";
         btnNuevo.style.visibility = "visible";
         btnGrabar.style.visibility = "hidden";
     }
