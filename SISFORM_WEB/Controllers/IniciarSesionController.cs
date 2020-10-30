@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Web.Mvc;
-using Dominio;
+//using Dominio;
 using SISFORM_WEB.ServicioWcf;//ServicioWcfClient
 
 namespace SISFORM_WEB.Controllers

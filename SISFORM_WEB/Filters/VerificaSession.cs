@@ -1,5 +1,6 @@
-﻿using Dominio;
+﻿//using Dominio;
 using SISFORM_WEB.Controllers;
+using SISFORM_WEB.ServicioWcf;
 using System;
 using System.Web;
 using System.Web.Mvc;

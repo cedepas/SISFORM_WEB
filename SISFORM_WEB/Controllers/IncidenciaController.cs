@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Dominio;
 using SISFORM_WEB.ServicioWcf;
 using SISFORM_WEB.Filters;
 
@@ -18,6 +17,11 @@ namespace SISFORM_WEB.Controllers
         public ActionResult SolucionIncidencia()
         {
             ViewBag.Title = "SolucionIncidencia";
+            return View();
+        }
+        public ActionResult BusquedaIncidencia()
+        {
+            ViewBag.Title = "BusquedaIncidencia";
             return View();
         }
         public async Task<string> ListarTipoEventoCsv()
@@ -258,7 +262,37 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
-        }         
+        }
+        public async Task<string> ListarTipoFiltroIncidenciaCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarTipoFiltroIncidenciaCsvAsync();
+                return rpta;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ObtenerIncidenciaPorFiltroCsv(string ID_TipoFilto, string Filtro)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerIncidenciaPorFiltroCsvAsync(ID_TipoFilto, Filtro);
+                return rpta;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         public async Task<string> EnviarCorreo(string idIncidencia)
         {
             try
