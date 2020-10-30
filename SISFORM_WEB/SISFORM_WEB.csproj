@@ -150,7 +150,6 @@
     <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IncidenciaController.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
     <Compile Include="Controllers\PruebaCovidController.cs" />
     <Compile Include="Controllers\ReporteController.cs" />
@@ -178,8 +177,6 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\buttons.js" />
     <Content Include="Scripts\ConsultaCovid.js" />
-    <Content Include="Scripts\ConsultaIncidencia.js" />
-    <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\ConsultaPermisos.js" />
     <Content Include="Scripts\ConsultaProgramacionCovid.js" />
     <Content Include="Scripts\ConsultaEmpresa.js" />
@@ -194,7 +191,6 @@
     <Content Include="Scripts\list.js" />
     <Content Include="Scripts\loader.js" />
     <Content Include="Scripts\prueba.js" />
-    <Content Include="Scripts\SolucionIncidencia.js" />
     <Content Include="Styles\documentation-styles-2.css" />
     <Content Include="Styles\documentation-styles-3.css" />
     <Content Include="Styles\halfmoon-highlight-js-theme.css" />
@@ -213,65 +209,31 @@
     <Content Include="Properties\DataSources\Dominio.Trabajador.datasource" />
     <Content Include="Properties\DataSources\Dominio.Ubigeo.datasource" />
     <Content Include="Properties\DataSources\Dominio.VistaUsuario.datasource" />
-    <None Include="Connected Services\ServicioWcf\Servicio1.wsdl" />
-    <None Include="Connected Services\ServicioWcf\Servicio3.xsd">
+    <None Include="Connected Services\ServicioWcf\Servicio.wsdl" />
+    <None Include="Connected Services\ServicioWcf\Servicio.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicioWcf\Servicio31.xsd">
+    <None Include="Connected Services\ServicioWcf\Servicio1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicioWcf\Servicio32.xsd">
+    <None Include="Connected Services\ServicioWcf\Servicio2.xsd">
       <SubType>Designer</SubType>
     </None>
-<<<<<<< HEAD
-=======
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio2.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio3.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Empresa.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.ProgresoEmpresa.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Trabajador.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Ubigeo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.VistaUsuario.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
->>>>>>> d1e87b086a89d9526088a8a897f93b2fb127bdc5
     <Content Include="Views\PruebaCovid\ProgramacionPruebaCovid.cshtml" />
     <Content Include="Views\Reporte\Consulta.cshtml" />
     <Content Include="Views\PruebaCovid\PruebaCovid.cshtml" />
-    <Content Include="Views\Incidencia\Incidencia.cshtml" />
-    <Content Include="Views\Incidencia\SolucionIncidencia.cshtml" />
     <Content Include="Views\Administracion\Permisos.cshtml" />
-    <Content Include="Views\PruebaCovid\ProgramacionMasivaPruebaCovid.cshtml" />
-<<<<<<< HEAD
-    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <Content Include="web.config" />
+    <Content Include="Views\PruebaCovid\ProgramacionMasivaPruebaCovid.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
-=======
-    <Content Include="Views\Incidencia\BusquedaIncidencia.cshtml" />
->>>>>>> d1e87b086a89d9526088a8a897f93b2fb127bdc5
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
