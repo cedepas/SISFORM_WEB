@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using SISFORM_WEB.ServicioWcf;

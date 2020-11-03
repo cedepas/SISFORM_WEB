@@ -14,9 +14,6 @@ window.onload = function () {
     btnGrabar.onclick = function () {
         var nDatos = ids.length;
         if (nDatos > 0) {
-            //limpiarControles('form-control');
-            //btnNuevo.style.visibility = "visibility";
-
             var data = "";
 
             for (var i = 0; i < nDatos; i++) {
@@ -32,10 +29,29 @@ window.onload = function () {
         } else toastDangerAlert("No selecciono ningun trabajador", "¡Aviso!");
     }
 
+    btnCargar.onclick = function () {
+        if (validarRequeridos('F')) {
+            var frm = new FormData();
+            frm.append("file", txtFile.files[0]);
+            Http.post("PruebaCovid/CargarExcel?idUsuario=" + window.sessionStorage.getItem('idUsuario'), MostrarFile, frm);
+        }
+    }
+
     btnNuevo.onclick = function () {
         limpiarControles('form-control');
         btnNuevo.style.visibility = "hidden";
     }
+}
+
+function MostrarFile(rpta) {
+    if (rpta) {
+        if (!isMobile.any()) {
+            ids = [];
+            Http.get("PruebaCovid/ListarPruebas", CrearTablaCsv);
+        }
+        toastSuccessAlert("Los registros se cargaron correctamente", "¡Exito!");
+    }
+    else toastDangerAlert("No se pudieron cargar los registros", "¡Error!");
 }
 
 function CrearTablaCsv(rpta) {
@@ -163,10 +179,18 @@ function Grilla2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
             for (var i = inicio; i < fin; i++) {
                 if (i < nRegistros) {
                     seleccionada = (ids.indexOf(matriz[i][0]) > -1);
-                    html += "<tr onclick='seleccionarFila(this);' ondblclick='obtenerRegistroPorId(\"";
-                    html += matriz[i][0];
-                    html += "\");'>";
+                    html += "<tr ";
+                    if (matriz[i][5]>7) {
+                        html += "class='table-danger'";
+                    } else if (matriz[i][5] >= 4 & matriz[i][5] <= 7) {
+                        html += "class='table-secondary'";
+                    } else if (matriz[i][5] >= 0 & matriz[i][5] <= 3) {
+                        html += "class='table-success'";
+                    } else if (matriz[i][5] < 0 ) {
+                        html += "class='table-primary'";
+                    }
 
+                    html += ">";
                     html += "<td><input class='check' type='checkbox' ";
                     html += (seleccionada ? 'checked ' : '');
                     html += "onclick='seleccionar(this,";
@@ -230,10 +254,10 @@ function Grilla2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
         var indiceUltimoBloque = Math.floor(nRegistros / registrosBloque);
         if (nRegistros % registrosBloque == 0) indiceUltimoBloque--;
         if (indiceBloque > 0) {
-            contenido += "<input type='button' class='Pagina ";
+            contenido += "<input type='button' class='Pagina btn btn-square btn-sm btn-success rounded-circle mx-5  ";
             contenido += divGrilla;
             contenido += "Pagina' value='<<' data-pag='-1'/>";
-            contenido += "<input type='button' class='Pagina ";
+            contenido += "<input type='button' class='Pagina btn btn-square btn-sm btn-success rounded-circle mx-5  ";
             contenido += divGrilla;
             contenido += "Pagina' value='<' data-pag='-2'/>";
         }
@@ -252,10 +276,10 @@ function Grilla2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
             else break;
         }
         if (indiceBloque < indiceUltimoBloque) {
-            contenido += "<input type='button' class='Pagina ";
+            contenido += "<input type='button' class='Pagina btn btn-square btn-sm btn-success rounded-circle mx-5  ";
             contenido += divGrilla;
             contenido += "Pagina' value='>' data-pag='-3'/>";
-            contenido += "<input type='button' class='Pagina ";
+            contenido += "<input type='button' class='Pagina btn btn-square btn-sm btn-success rounded-circle mx-5  ";
             contenido += divGrilla;
             contenido += "Pagina' value='>>' data-pag='-4'/>";
         }
@@ -326,7 +350,6 @@ function seleccionar(check, id) {
     if (check.checked) {
         if (ids.length == 0 || (ids.length > 0 && pos == -1)) {
             ids.push(id);
-            fila.className = "FilaSeleccionada";
         }
     }
     else {
@@ -335,7 +358,6 @@ function seleccionar(check, id) {
             for (var i = 0; i < n; i++) {
                 if (ids[i] == id) {
                     ids.splice(i, 1);
-                    fila.className = "FilaDatos";
                 }
             }
         }
@@ -350,7 +372,6 @@ function selecionarTodo(checkCabecera) {
     for (var i = 0; i < nchecks; i++) {
         fila = checks[i].parentNode.parentNode;
         checks[i].checked = seleccion;
-        fila.className = (seleccion ? "FilaSeleccionada" : "FilaDatos");
     }
     ids = [];
     if (seleccion) {

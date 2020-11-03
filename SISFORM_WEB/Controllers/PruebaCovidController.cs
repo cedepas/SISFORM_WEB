@@ -1,9 +1,14 @@
-﻿//using Dominio;
+﻿using Dominio;
 using SISFORM_WEB.ServicioWcf;
+using SISFORM_WEB.Filters;
+using SISFORM_WEB.General;
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using SISFORM_WEB.Filters;
+using System.Web;
+using System.Collections.Generic;
+using GeneralTrabajos;
+
 namespace SISFORM_WEB.Controllers
 {
     //[AutorizacionModulos("3")]
@@ -146,6 +151,34 @@ namespace SISFORM_WEB.Controllers
             {
                 return rpta.ToString();
             }
+        }
+        public async Task<string> CargarExcel(HttpPostedFileBase file, string idUsuario)
+        {
+            try
+            {
+                int rpta = 0;
+                List<CargaMasiva> lstCarga = ImportarExcel.ExcelToList(file);
+
+                if (lstCarga.Count > 0)
+                {
+                    ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                    rpta = await servicio.PruebasCovidCargaAsync(lstCarga.ToArray(), idUsuario);
+                }
+
+                if (rpta == 0)
+                {
+                    return "";
+                }
+                else
+                {
+                    return rpta.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                ObjetoLog.Grabar(ex.Message, ex.StackTrace);
+                return "";
+            }            
         }
     }
 }

@@ -14,9 +14,6 @@ window.onload = function () {
     btnGrabar.onclick = function () {
         var nDatos = ids.length;
         if (nDatos > 0) {
-            //limpiarControles('form-control');
-            //btnNuevo.style.visibility = "visibility";
-
             var data = "";
 
             for (var i = 0; i < nDatos; i++) {
@@ -32,10 +29,29 @@ window.onload = function () {
         } else toastDangerAlert("No selecciono ningun trabajador", "¡Aviso!");
     }
 
+    btnCargar.onclick = function () {
+        if (validarRequeridos('F')) {
+            var frm = new FormData();
+            frm.append("file", txtFile.files[0]);
+            Http.post("PruebaCovid/CargarExcel?idUsuario=" + window.sessionStorage.getItem('idUsuario'), MostrarFile, frm);
+        }
+    }
+
     btnNuevo.onclick = function () {
         limpiarControles('form-control');
         btnNuevo.style.visibility = "hidden";
     }
+}
+
+function MostrarFile(rpta) {
+    if (rpta) {
+        if (!isMobile.any()) {
+            ids = [];
+            Http.get("PruebaCovid/ListarPruebas", CrearTablaCsv);
+        }
+        toastSuccessAlert("Los registros se cargaron correctamente", "¡Exito!");
+    }
+    else toastDangerAlert("No se pudieron cargar los registros", "¡Error!");
 }
 
 function CrearTablaCsv(rpta) {

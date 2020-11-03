@@ -1,4 +1,4 @@
-﻿//using Dominio;
+﻿using Dominio;
 using SISFORM_WEB.ServicioWcf;
 using System;
 using System.Collections.Generic;

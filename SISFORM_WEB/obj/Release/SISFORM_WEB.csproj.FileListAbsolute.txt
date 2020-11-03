@@ -396,3 +396,14 @@ C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\obj\Releas
 C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CopyComplete
 C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.dll
 C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.pdb
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.dll
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\DocumentFormat.OpenXml.dll
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\ExcelNumberFormat.dll
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\System.IO.FileSystem.Primitives.dll
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\System.IO.Packaging.dll
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.pdb
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.xml
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\DocumentFormat.OpenXml.xml
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\ExcelNumberFormat.xml
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\GeneralTrabajos.dll
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\GeneralTrabajos.pdb

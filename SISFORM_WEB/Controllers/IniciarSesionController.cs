@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Dominio;
+using System;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Web.Mvc;
-//using Dominio;
 using SISFORM_WEB.ServicioWcf;//ServicioWcfClient
 
 namespace SISFORM_WEB.Controllers

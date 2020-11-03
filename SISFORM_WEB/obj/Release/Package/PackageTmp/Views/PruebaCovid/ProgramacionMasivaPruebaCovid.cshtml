@@ -20,10 +20,19 @@
         </div>
     </div>
 
-    <div class="text-right">
-        <a href="#agregarpuestotrabajo-modal" class="btn btn-secondary" id="btnModalAgregar" role="button" style="visibility:hidden">Agregar Puesto</a>
-        <input class="btn btn-primary" id="btnNuevo" type="button" value="Nuevo" style="visibility:hidden">
-        <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
+    <div>
+        <div class="form-row">
+            <div class="col-sm-3" id="fechaPrueba" style="display:inline">
+                <label for="txtFile">Excel a cargar</label>
+                <input type="file" class="form-control form-control-sm F" id="txtFile" required="required" />
+                <input class="btn btn-success" id="btnCargar" type="button" value="Cargar">
+            </div>
+        </div>
+        <div class="text-right">
+            <a href="#agregarpuestotrabajo-modal" class="btn btn-secondary" id="btnModalAgregar" role="button" style="visibility:hidden">Agregar Puesto</a>
+            <input class="btn btn-primary" id="btnNuevo" type="button" value="Nuevo" style="visibility:hidden">
+            <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
+        </div>
     </div>
 </div>
 <div class="content">
