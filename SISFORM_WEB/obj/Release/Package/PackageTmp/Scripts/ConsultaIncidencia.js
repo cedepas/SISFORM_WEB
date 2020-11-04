@@ -22,7 +22,9 @@ var lstCboEmpresaIncidente;
 var lstCboTipoEmpresa;
 var idTipoEmpresa;
 var imagB64;
-var imgre;
+var cabeseraImagen;
+var TipoImagen;
+
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -90,10 +92,11 @@ window.onload = function () {
 
     btnImagenIndicencia.onclick = function () {
         var frm = new FormData();
-        frm.append("FK_ID_Incidencia", idIncidencia);
-        frm.append("imagen", imgre);
-        frm.append("FK_ID_TipoImagen", 1);
-        frm.append("FK_ID_SolucionIncidencia", 0);
+        frm.append("ID_Incidencia", idIncidencia);
+        frm.append("imagen", imagB64);
+        frm.append("tipoimagen", TipoImagen);
+        frm.append("FK_ID_TrabajadorSoluciona", IdTrabajador);
+        frm.append("cabeseraImg", cabeseraImagen);
         if (validarRequeridos('E')) {
             Http.post("Incidencia/IncidenciaImagen", MostrarIncidenciaImagen, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -334,12 +337,16 @@ function AsignarCampos(rpta) {
         limpiarControles('form-control');
     }
 }
-function cargar(event) {
+function codificarImg(event) {
     for (let i = 0; i < 2; i++) {
         var selectFile = event.files[0];
         var reader = new FileReader();
+        TipoImagen = selectFile.type;
+
+
 
         reader.onload = function (e) {
+
             img = e.target.result;
             imgVistaPrevia.src = img;
         }
@@ -350,6 +357,8 @@ function cargar(event) {
                 imgre = resizing(img, 650, 500);
                 imgVistaPrevia.style.display = "inline-block";
                 imgVistaPrevia.src = imgre;
+                imagB64 = imgre.substring(22, imgre.length).toString();
+                cabeseraImagen = imgre.substring(0, 22).toString()
             }
         }
     }
