@@ -270,6 +270,36 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarTrabajadorBusquedaCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarTrabajadorBusquedaCsvAsync();
+                return rpta;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ListarEmpresaBusquedaCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEmpresaBusquedaCsvAsync();
+                return rpta;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         public async Task<string> ListarTipoFiltroIncidenciaCsv()
         {
             try

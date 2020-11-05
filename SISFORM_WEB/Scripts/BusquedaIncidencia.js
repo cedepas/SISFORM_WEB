@@ -2,6 +2,7 @@
 var lista;
 var objetoParametrizado = [];
 var objetoBusqueda = [];
+var filtro;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -15,45 +16,60 @@ window.onload = function () {
     //Http.get("Trabajador/ObtenerIdTrabajadorPorIdUsuarioCsv?idUsuario=" + window.sessionStorage.getItem('idUsuario'), obtenerIdTrabajador);
 
     btnBuscarIncidencias.onclick = function () {
-
-
-
-        //bontoBuscar.addEventListener('click', filtrar);
-        //buscarTrabajador.addEventListener('keyup'.filtrar);
-        //filtrar();
-
-        //Http.get("Incidencia/ObtenerIncidenciaPorFiltroCsv?ID_TipoFilto=" + cboTipoFiltroIncidencia.value.toString() + "&Filtro=" + txtfechaIncidente.value.toString(), CrearTablaCsv);
+        if (filtro) {
+            filtro = filtro;
+        } else {
+            filtro = txtfechaIncidente.value;
+        }
+        Http.get("Incidencia/ObtenerIncidenciaPorFiltroCsv?ID_TipoFilto=" + cboTipoFiltroIncidencia.value.toString() + "&Filtro=" + filtro, CrearTablaCsv);
     }
-    //const buscarTrabajador = document.querySelector('#txtbuscarPorTrajador');
-    //const bontoBuscar = document.querySelector('#btnBuscarIncidencias');
-    ////const resultado = document.querySelector('#resultado');
-
-    //const filtrar = () => {
-    //    //console.log(buscarTrabajador.value);
-    //    const texto = buscarTrabajador.value.toLowerCase();
-    //    for (let objeto of objetoBusqueda) {
-    //        let Nombre = objeto.Nombre.toLowerCase();
-    //        if (Nombre.indexOf(texto) !== -1) {
-    //            console.log(objeto.Nombre);
-    //        }
-    //    }
-    //}
+    
     txtbuscarPorTrajador.onkeyup = function () {
-        //console.log(txtbuscarPorTrajador.value.length);
         var a, b;
         closeAllLists();
         a = document.createElement("div");
         a.setAttribute("id", this.id + "predictivo-list");
         a.setAttribute("class", "predictivo-items");
         this.parentNode.appendChild(a);
-        const texto = txtbuscarPorTrajador.value.toLowerCase();
+        var texto = txtbuscarPorTrajador.value.toLowerCase();
         for (let objeto of objetoBusqueda) {
-            let Nombre = objeto.Nombre.toLowerCase();
+            let Nombre = objeto.NombreApellido.toLowerCase();
             if (Nombre.indexOf(texto) !== -1) {
                 b = document.createElement("div");
-                b.innerHTML = "<strong>" + Nombre + "</strong>";
-                b.innerHTML += Nombre;
-                b.innerHTML += "<input type='hidden' value='" + Nombre + "'>";
+                b.innerHTML = "<strong>" + objeto.NombreApellido + "</strong>";
+                //b.innerHTML += Nombre;
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreApellido + "'>";
+                b.addEventListener("click", function (e) {
+                    txtbuscarPorTrajador.value = this.getElementsByTagName("input")[0].value;
+                    filtro = objeto.IDTrab;
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        } 
+    }
+
+    txtbuscarPorEmpresa.onkeyup = function () {
+        filtro = "";
+        var a, b;
+        closeAllLists();
+        a = document.createElement("div");
+        a.setAttribute("id", this.id + "predictivo-list");
+        a.setAttribute("class", "predictivo-items");
+        this.parentNode.appendChild(a);
+        var texto = txtbuscarPorEmpresa.value.toLowerCase();
+        for (let objeto of objetoBusqueda) {
+            let Nombre = objeto.NombreComercial.toLowerCase();
+            if (Nombre.indexOf(texto) !== -1) {
+                b = document.createElement("div");
+                b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
+                //b.innerHTML += Nombre;
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
+                b.addEventListener("click", function (e) {
+                    txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
+                    filtro = objeto.IDEmpr;
+                    closeAllLists();
+                });
                 a.appendChild(b);
             }
         }
@@ -81,18 +97,20 @@ cboTipoFiltroIncidencia.onchange = function () {
         buscarPorTrajador.style.display = "inline-block";
         buscarPorEmpresa.style.display = "none";
         buscarPorFecha.style.display = "none";
-        Http.get("Trabajador/ListarTrabajador", CrearListaCsv);
+        Http.get("Incidencia/ListarTrabajadorBusquedaCsv", CrearListaCsv);
 
     }
     else if (idTipoTiltro == 3) {
         buscarPorEmpresa.style.display = "inline-block";
         buscarPorTrajador.style.display = "none";
         buscarPorFecha.style.display = "none";
+        Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
     }
     else if (idTipoTiltro == 4) {
         buscarPorFecha.style.display = "inline-block";
         buscarPorTrajador.style.display = "none";
         buscarPorEmpresa.style.display = "none";
+        
     }
     else {
         console.log(22222);
@@ -108,7 +126,7 @@ function CrearTablaCsv(rpta) {
     if (rpta) {
         var lista = rpta.split('¬');
         var grilla = new Grilla(lista, "divTabla", 10, 3);
-    }
+    } else toastDangerAlert("No existen datos con el filtro Indicado*", "¡Aviso!")
 }
 function CrearListaCsv(rpta) {
     if (rpta) {

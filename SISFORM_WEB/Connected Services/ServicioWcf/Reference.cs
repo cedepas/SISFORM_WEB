@@ -428,6 +428,20 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoSolucionIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoSolucionIncidenciaCsvResponse")]
         System.Threading.Tasks.Task<string> ListarTipoSolucionIncidenciaCsvAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTrabajadorBusquedaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTrabajadorBusquedaCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarTrabajadorBusquedaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarTrabajadorBusquedaCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTrabajadorBusquedaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTrabajadorBusquedaCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarTrabajadorBusquedaCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEmpresaBusquedaCsv", ReplyAction="http://tempuri.org/IServicio/ListarEmpresaBusquedaCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarEmpresaBusquedaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarEmpresaBusquedaCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEmpresaBusquedaCsv", ReplyAction="http://tempuri.org/IServicio/ListarEmpresaBusquedaCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarEmpresaBusquedaCsvAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarTipoFiltroIncidenciaCsv();
@@ -954,6 +968,22 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarTipoSolucionIncidenciaCsvAsync() {
             return base.Channel.ListarTipoSolucionIncidenciaCsvAsync();
+        }
+        
+        public string ListarTrabajadorBusquedaCsv() {
+            return base.Channel.ListarTrabajadorBusquedaCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarTrabajadorBusquedaCsvAsync() {
+            return base.Channel.ListarTrabajadorBusquedaCsvAsync();
+        }
+        
+        public string ListarEmpresaBusquedaCsv() {
+            return base.Channel.ListarEmpresaBusquedaCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarEmpresaBusquedaCsvAsync() {
+            return base.Channel.ListarEmpresaBusquedaCsvAsync();
         }
         
         public string ListarTipoFiltroIncidenciaCsv() {

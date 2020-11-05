@@ -795,6 +795,30 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListarTrabajadorBusquedaCsv">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTrabajadorBusquedaCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarTrabajadorBusquedaCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEmpresaBusquedaCsv">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEmpresaBusquedaCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarEmpresaBusquedaCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarTipoFiltroIncidenciaCsv">
     <xs:complexType>
       <xs:sequence />

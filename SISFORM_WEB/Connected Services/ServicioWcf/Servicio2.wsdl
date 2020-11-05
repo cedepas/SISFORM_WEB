@@ -538,6 +538,24 @@
   <wsdl:message name="IServicio_ListarTipoSolucionIncidenciaCsv_ErrorFault_FaultMessage">
     <wsdl:part xmlns:q59="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q59:Error" />
   </wsdl:message>
+  <wsdl:message name="IServicio_ListarTrabajadorBusquedaCsv_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTrabajadorBusquedaCsv" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarTrabajadorBusquedaCsv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTrabajadorBusquedaCsvResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarTrabajadorBusquedaCsv_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q60="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q60:Error" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarEmpresaBusquedaCsv_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpresaBusquedaCsv" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarEmpresaBusquedaCsv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpresaBusquedaCsvResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarEmpresaBusquedaCsv_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q61="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q61:Error" />
+  </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoFiltroIncidenciaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTipoFiltroIncidenciaCsv" />
   </wsdl:message>
@@ -545,7 +563,7 @@
     <wsdl:part name="parameters" element="tns:ListarTipoFiltroIncidenciaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoFiltroIncidenciaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q60="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q60:Error" />
+    <wsdl:part xmlns:q62="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q62:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerIncidenciaPorFiltroCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerIncidenciaPorFiltroCsv" />
@@ -554,7 +572,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerIncidenciaPorFiltroCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerIncidenciaPorFiltroCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q61="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q61:Error" />
+    <wsdl:part xmlns:q63="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q63:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_RegistrarSolucion_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarSolucion" />
@@ -563,7 +581,7 @@
     <wsdl:part name="parameters" element="tns:RegistrarSolucionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_RegistrarSolucion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q62="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q62:Error" />
+    <wsdl:part xmlns:q64="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q64:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ConstruirCorreo_InputMessage">
     <wsdl:part name="parameters" element="tns:ConstruirCorreo" />
@@ -572,7 +590,7 @@
     <wsdl:part name="parameters" element="tns:ConstruirCorreoResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ConstruirCorreo_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q63="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q63:Error" />
+    <wsdl:part xmlns:q65="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q65:Error" />
   </wsdl:message>
   <wsdl:portType name="IServicio">
     <wsdl:operation name="AutenticarUsuario">
@@ -869,6 +887,16 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarTipoSolucionIncidenciaCsv" message="tns:IServicio_ListarTipoSolucionIncidenciaCsv_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarTipoSolucionIncidenciaCsvResponse" message="tns:IServicio_ListarTipoSolucionIncidenciaCsv_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarTipoSolucionIncidenciaCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarTipoSolucionIncidenciaCsv_ErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTrabajadorBusquedaCsv">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarTrabajadorBusquedaCsv" message="tns:IServicio_ListarTrabajadorBusquedaCsv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarTrabajadorBusquedaCsvResponse" message="tns:IServicio_ListarTrabajadorBusquedaCsv_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarTrabajadorBusquedaCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarTrabajadorBusquedaCsv_ErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpresaBusquedaCsv">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarEmpresaBusquedaCsv" message="tns:IServicio_ListarEmpresaBusquedaCsv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarEmpresaBusquedaCsvResponse" message="tns:IServicio_ListarEmpresaBusquedaCsv_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarEmpresaBusquedaCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarEmpresaBusquedaCsv_ErrorFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="ListarTipoFiltroIncidenciaCsv">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsv" message="tns:IServicio_ListarTipoFiltroIncidenciaCsv_InputMessage" />
@@ -1591,6 +1619,30 @@
     </wsdl:operation>
     <wsdl:operation name="ListarTipoSolucionIncidenciaCsv">
       <soap:operation soapAction="http://tempuri.org/IServicio/ListarTipoSolucionIncidenciaCsv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTrabajadorBusquedaCsv">
+      <soap:operation soapAction="http://tempuri.org/IServicio/ListarTrabajadorBusquedaCsv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpresaBusquedaCsv">
+      <soap:operation soapAction="http://tempuri.org/IServicio/ListarEmpresaBusquedaCsv" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
