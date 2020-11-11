@@ -360,7 +360,7 @@ namespace SISFORM_WEB.Controllers
             string imagen = oimgencito.cabeseraImg + oimgencito.imagen;
             string tipodeImagen = oimgencito.tipoimagen.Substring(6, 3);
             string fecha = DateTime.Now.ToString("yyyyMMdd");
-            string nombreImagen = oimgencito.ID_Incidencia.ToString() + '2' + oimgencito.FK_ID_TrabajadorSoluciona.ToString() + fecha;
+            string nombreImagen = oimgencito.ID_Incidencia.ToString() + '-' + '2' + '-' + oimgencito.FK_ID_TrabajadorSoluciona.ToString() + '-' + fecha;
             Image img;
             img = Base64ToImage(oimgencito.imagen);
             byte[] bytes = CopyImageToByteArray(img);
@@ -426,7 +426,7 @@ namespace SISFORM_WEB.Controllers
             string imagen = oimgencito.cabeseraImg + oimgencito.imagen;
             string tipodeImagen = oimgencito.tipoimagen.Substring(6, 3);
             string fecha = DateTime.Now.ToString("yyyyMMdd");
-            string nombreImagen = oimgencito.ID_Incidencia.ToString() + '1' + oimgencito.FK_ID_TrabajadorSoluciona.ToString() + fecha;
+            string nombreImagen = oimgencito.ID_Incidencia.ToString() + '-' + '1' + '-' + oimgencito.FK_ID_TrabajadorSoluciona.ToString() + '-' + fecha;
             Image img;
             img = Base64ToImage(oimgencito.imagen);
             byte[] bytes = CopyImageToByteArray(img);

@@ -3,6 +3,7 @@ var lista;
 var objetoParametrizado = [];
 var objetoBusqueda = [];
 var filtro;
+var textoBusqueda;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -25,16 +26,17 @@ window.onload = function () {
     }
     
     txtbuscarPorTrajador.onkeyup = function () {
+        filtro = "";
         var a, b;
         closeAllLists();
         a = document.createElement("div");
         a.setAttribute("id", this.id + "predictivo-list");
         a.setAttribute("class", "predictivo-items");
         this.parentNode.appendChild(a);
-        var texto = txtbuscarPorTrajador.value.toLowerCase();
+        textoBusqueda = txtbuscarPorTrajador.value.toLowerCase();
         for (let objeto of objetoBusqueda) {
             let Nombre = objeto.NombreApellido.toLowerCase();
-            if (Nombre.indexOf(texto) !== -1) {
+            if (Nombre.indexOf(textoBusqueda) !== -1) {
                 b = document.createElement("div");
                 b.innerHTML = "<strong>" + objeto.NombreApellido + "</strong>";
                 //b.innerHTML += Nombre;
@@ -57,10 +59,10 @@ window.onload = function () {
         a.setAttribute("id", this.id + "predictivo-list");
         a.setAttribute("class", "predictivo-items");
         this.parentNode.appendChild(a);
-        var texto = txtbuscarPorEmpresa.value.toLowerCase();
+        textoBusqueda = txtbuscarPorEmpresa.value.toLowerCase();
         for (let objeto of objetoBusqueda) {
             let Nombre = objeto.NombreComercial.toLowerCase();
-            if (Nombre.indexOf(texto) !== -1) {
+            if (Nombre.indexOf(textoBusqueda) !== -1) {
                 b = document.createElement("div");
                 b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
                 //b.innerHTML += Nombre;
@@ -79,7 +81,7 @@ window.onload = function () {
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
     for (var i = 0; i < x.length; i++) {
-        if (elmnt != x[i] && elmnt != txtbuscarPorTrajador.value) {
+        if (elmnt != x[i] && elmnt != textoBusqueda) {
             x[i].parentNode.removeChild(x[i]);
         }
     }

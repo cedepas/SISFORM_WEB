@@ -1,0 +1,72 @@
+[33mcommit 2b3f69f393703d5ba4d5cca2a4a0d09ecf8cc74d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: abeldx14 <abelito_149@hotmail.com>
+Date:   Wed Nov 4 23:04:19 2020 -0500
+
+    Busqueda Incidencia tipo filtro
+
+[33mcommit f3f81ebaa4ec8238516cf8b5fd3a984524f7ca5f[m
+Author: abeldx14 <abelito_149@hotmail.com>
+Date:   Wed Nov 4 16:15:29 2020 -0500
+
+    Busqueda Predictiva
+
+[33mcommit 67f4a3b4a2336c8634dcb7361af849613f312f52[m
+Author: bamanii <mmb.bamani@gmail.com>
+Date:   Tue Nov 3 00:15:58 2020 -0500
+
+    Carga masiva por excel
+
+[33mcommit 9cb43d9ec6103d5ebc0b48c72624bf450ee918dd[m
+Author: bamanii <mmb.bamani@gmail.com>
+Date:   Thu Oct 29 22:10:54 2020 -0500
+
+    Alertas de Pruebas covid
+
+[33mcommit e873bda563275c1710851e723fe0aa3f4c2357b7[m
+Merge: 016efa2 d1e87b0
+Author: bamanii <mmb.bamani@gmail.com>
+Date:   Thu Oct 29 21:19:10 2020 -0500
+
+    Cambios abel
+
+[33mcommit 016efa229961ec0fd8da4f7c083e4508343bef25[m
+Author: bamanii <mmb.bamani@gmail.com>
+Date:   Thu Oct 29 21:18:12 2020 -0500
+
+    Verificacion
+
+[33mcommit d1e87b086a89d9526088a8a897f93b2fb127bdc5[m
+Author: abeldx14 <abelito_149@hotmail.com>
+Date:   Thu Oct 29 16:48:14 2020 -0500
+
+    Busqueda Incidencai
+
+[33mcommit 62796a2df947492f4448ca9caaf6aba69fc50f1d[m
+Author: bamanii <mmb.bamani@gmail.com>
+Date:   Thu Oct 29 13:40:31 2020 -0500
+
+    Programacion masiva
+
+[33mcommit 10110b496d28ea8f3ee77d301f4112989b03e373[m
+Author: carlos anibal vilca chavez <cvilca@cedepas.org.pe>
+Date:   Sat Oct 24 19:10:43 2020 -0500
+
+    Estable 24/10/2020
+
+[33mcommit 166288636775b7ce39ba3cb2e19fb8772422a26c[m
+Author: carlos anibal vilca chavez <cvilca@cedepas.org.pe>
+Date:   Fri Oct 23 08:47:51 2020 -0500
+
+    Estable 23102020
+
+[33mcommit 4def3b17f16ae8957ba7afa71e9f0556000acea7[m
+Author: bamanii <mmb.bamani@gmail.com>
+Date:   Sun Oct 18 21:43:05 2020 -0500
+
+    Cambios de validacion
+
+[33mcommit 4c8623116d5606426e38de5b5dd61440cb591abf[m
+Author: bamanii <mmb.bamani@gmail.com>
+Date:   Sun Oct 18 21:19:19 2020 -0500
+
+    Se creo el modulo de permisos
