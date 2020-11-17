@@ -65,11 +65,13 @@ window.onload = function () {
         frm.append("fechaLimiteSolucion", txtFechaIncidencia.value);
 
         if (validarRequeridos('E')) {
+            checkSubmit(btnGrabarIncidencia);
             Http.post("Incidencia/GrabarIncidencia", MostrarGrabarCabecera, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
 
     }
     btnRegDeta.onclick = function () {
+        
         var frm = new FormData();
         frm.append("ID_Incidencia", idIncidencia);
         frm.append("FK_ID_TipoEvento", cboTipoEvento.value);
@@ -80,6 +82,7 @@ window.onload = function () {
         frm.append("detalleHecho", txtDetalles.value);
 
         if (validarRequeridos('DE')) {
+            checkSubmit(btnRegDeta);
             Http.post("Incidencia/GrabarIncidencia", MostrarGrabarTipoEvento, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
@@ -91,6 +94,7 @@ window.onload = function () {
         frm.append("detalleBarrera", txtBarrera.value);
 
         if (validarRequeridos('DB')) {
+            checkSubmit(btnBarrera);
             Http.post("Incidencia/GrabarIncidencia", MostrarGrabarBarrera, frm);
             btnModalImagen.style.display = "inline-block";
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -104,8 +108,15 @@ window.onload = function () {
         frm.append("FK_ID_TrabajadorSoluciona", IdTrabajador);
         frm.append("cabeseraImg", cabeseraImagen);
         if (validarRequeridos('E')) {
+            checkSubmit(btnImagenIndicencia);
             Http.post("Incidencia/IncidenciaImagen", MostrarIncidenciaImagen, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+    }
+
+    function checkSubmit(boton) {
+        boton.value = "Enviando...";
+        boton.disabled = true;
+        return true;
     }
     //Llenar Combo Ubicación
     cboZona.onchange = function () {

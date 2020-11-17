@@ -28,9 +28,16 @@ window.onload = function () {
         frm.append("cabeseraImg", cabeseraImagen);
 
         if (validarRequeridos('E')) {
+            checkSubmit(btnGrabarSolucion);
             Http.post("Incidencia/GuardarImagenStore", MostrarGrabarSolucion, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
+}
+
+function checkSubmit(boton) {
+    boton.value = "Enviando...";
+    boton.disabled = true;
+    return true;
 }
 function consulta(e) {
 
