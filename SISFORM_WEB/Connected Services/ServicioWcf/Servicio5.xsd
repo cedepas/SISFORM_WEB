@@ -180,18 +180,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TrabajadorPuesto" nillable="true" type="tns:TrabajadorPuesto" />
-  <xs:complexType name="PruebasCovid">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
-      <xs:element minOccurs="0" name="ID_PruebasCovid" type="xs:int" />
-      <xs:element minOccurs="0" name="ejecutado" type="xs:int" />
-      <xs:element minOccurs="0" name="fechaPrueba" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="numeroPrueba" type="xs:short" />
-      <xs:element minOccurs="0" name="resultadoPrueba" type="xs:short" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="PruebasCovid" nillable="true" type="tns:PruebasCovid" />
   <xs:complexType name="ArrayOfCargaMasiva">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CargaMasiva" nillable="true" type="tns:CargaMasiva" />
@@ -217,6 +205,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CargaMasiva" nillable="true" type="tns:CargaMasiva" />
+  <xs:complexType name="PruebasCovid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_PruebasCovid" type="xs:int" />
+      <xs:element minOccurs="0" name="ejecutado" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaPrueba" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroPrueba" type="xs:short" />
+      <xs:element minOccurs="0" name="resultadoPrueba" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PruebasCovid" nillable="true" type="tns:PruebasCovid" />
   <xs:complexType name="CtrlAccion">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_CtrlModulo" type="xs:int" />

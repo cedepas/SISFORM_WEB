@@ -7,7 +7,7 @@ using SISFORM_WEB.Filters;
 
 namespace SISFORM_WEB.Controllers
 {
-    //[AutorizacionModulos("2")]
+    [AutorizacionModulos("2")]
     public class EmpresaController : Controller
     {
         // GET: Empresa
@@ -30,7 +30,7 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
-        }        
+        }
         public async Task<string> ListarEmpresaPorTipoCboCsv(string idTipoEmpresa)
         {
             try
@@ -59,6 +59,8 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+
+        #region Mantenimiento
         public async Task<string> ListarProgresoEmpresaCsv(string idEmpresa)
         {
             try
@@ -111,7 +113,6 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
-
         public async Task<string> GrabarObservacion(ProgresoEmpresa oProgresoEmpresa)
         {
             int rpta = 0;
@@ -136,7 +137,6 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
-
         public async Task<string> GrabarCriterio1(Criterio1 oCriterio1)
         {
             int rpta = 0;
@@ -161,7 +161,6 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
-
         public async Task<string> GrabarCriterio2(Criterio2 oCriterio2)
         {
             int rpta = 0;
@@ -186,7 +185,6 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
-
         public async Task<string> GrabarCriterio3(Criterio3 oCriterio3)
         {
             int rpta = 0;
@@ -211,5 +209,6 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
+        #endregion
     }
 }

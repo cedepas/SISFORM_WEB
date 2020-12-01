@@ -6,7 +6,7 @@ using SISFORM_WEB.ServicioWcf;
 
 namespace SISFORM_WEB.Controllers
 {
-    //[AutorizacionModulos("6")]
+    [AutorizacionModulos("6")]
     public class AdministracionController : Controller
     {
         // GET: Administracion

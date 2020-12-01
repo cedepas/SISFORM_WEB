@@ -11,7 +11,7 @@ namespace SISFORM_WEB.General
 {
     public static class ImportarExcel
     {
-        public static List<CargaMasiva> ExcelToList(HttpPostedFileBase file)
+        public static List<CargaMasiva> ExcelToList(HttpPostedFileBase file, string destino, string campo = "")
         {
             try
             {
@@ -70,26 +70,50 @@ namespace SISFORM_WEB.General
                 if (dt.Rows.Count > 0)
                 {
                     List<CargaMasiva> lstCarga = new List<CargaMasiva>();
-                    CargaMasiva carga;
-                    foreach (DataRow item in dt.Rows)
+                    if (destino == "PruebaCOVID")
                     {
-                        if (item.ItemArray[13].ToString().Trim() != "")
+                        CargaMasiva carga;
+                        foreach (DataRow item in dt.Rows)
+                        {
+                            if (item.ItemArray[13].ToString().Trim() != "")
+                            {
+                                carga = new CargaMasiva();
+                                carga.nu_prueba = item.ItemArray[2].ToString().Replace("PRUEBA ", "");
+                                carga.no_trab = item.ItemArray[3].ToString();
+                                carga.ap_pate = item.ItemArray[4].ToString();
+                                carga.ap_mate = item.ItemArray[5].ToString();
+                                carga.nu_dni = item.ItemArray[7].ToString();
+                                carga.fe_naci = string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(item.ItemArray[8].ToString()));
+                                carga.tf_trab = item.ItemArray[9].ToString();
+                                carga.direccion = item.ItemArray[11].ToString().Replace("|", "°");
+                                carga.cargo = item.ItemArray[12].ToString();
+                                carga.no_empr = item.ItemArray[14].ToString();
+                                carga.resultado = item.ItemArray[16].ToString();
+                                carga.tf_cont = item.ItemArray[17].ToString();
+                                carga.no_cont = item.ItemArray[18].ToString();
+                                carga.fe_prue = string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(item.ItemArray[19].ToString()));
+
+                                lstCarga.Add(carga);
+                            }
+                        }
+                    }
+
+                    if (destino == "Trabajador")
+                    {
+                        CargaMasiva carga;
+                        foreach (DataRow item in dt.Rows)
                         {
                             carga = new CargaMasiva();
-                            carga.nu_prueba = item.ItemArray[2].ToString().Replace("PRUEBA ", "");
-                            carga.no_trab = item.ItemArray[3].ToString();
-                            carga.ap_pate = item.ItemArray[4].ToString();
-                            carga.ap_mate = item.ItemArray[5].ToString();
-                            carga.nu_dni = item.ItemArray[7].ToString();
-                            carga.fe_naci = string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(item.ItemArray[8].ToString()));
-                            carga.tf_trab = item.ItemArray[9].ToString();
-                            carga.direccion = item.ItemArray[11].ToString().Replace("|", "°");
-                            carga.cargo = item.ItemArray[12].ToString();
-                            carga.no_empr = item.ItemArray[14].ToString();
-                            carga.resultado = item.ItemArray[16].ToString();
-                            carga.tf_cont = item.ItemArray[17].ToString();
-                            carga.no_cont = item.ItemArray[18].ToString();
-                            carga.fe_prue = string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(item.ItemArray[19].ToString()));
+                            carga.no_trab = item.ItemArray[7].ToString().ToUpper();
+                            carga.ap_pate = item.ItemArray[6].ToString().ToUpper();
+                            carga.ap_mate = item.ItemArray[5].ToString().ToUpper();
+                            carga.nu_dni = item.ItemArray[4].ToString();
+                            carga.fe_naci = string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(item.ItemArray[10].ToString()));
+                            carga.tf_trab = item.ItemArray[12].ToString();
+                            carga.direccion = item.ItemArray[16].ToString().ToUpper();
+                            carga.cargo = (item.ItemArray[8].ToString().ToUpper().Trim() == "" ? "SIN CARGO" : item.ItemArray[8].ToString().ToUpper().Trim());
+                            carga.no_empr = item.ItemArray[1].ToString().ToUpper().Trim();
+                            carga.fe_prue = string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(campo));
 
                             lstCarga.Add(carga);
                         }

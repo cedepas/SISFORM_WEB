@@ -213,10 +213,25 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="TrabajadorCarga">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="lstCarga" nillable="true" type="q16:ArrayOfCargaMasiva" />
+        <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrabajadorCargaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TrabajadorCargaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="PruebasCovidOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oPruebasCovid" nillable="true" type="q16:PruebasCovid" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oPruebasCovid" nillable="true" type="q17:PruebasCovid" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -246,7 +261,7 @@
   <xs:element name="PruebasCovidCarga">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="lstCarga" nillable="true" type="q17:ArrayOfCargaMasiva" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="lstCarga" nillable="true" type="q18:ArrayOfCargaMasiva" />
         <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -261,7 +276,7 @@
   <xs:element name="CtrlAccionOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCtrlAccion" nillable="true" type="q18:CtrlAccion" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCtrlAccion" nillable="true" type="q19:CtrlAccion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -275,7 +290,7 @@
   <xs:element name="IncidenciaOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oIncidencia" nillable="true" type="q19:Incidencia" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oIncidencia" nillable="true" type="q20:Incidencia" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -290,7 +305,7 @@
   <xs:element name="IncidenciaImagen">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="IncidenciaImagen" nillable="true" type="q20:Imagen" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="IncidenciaImagen" nillable="true" type="q21:Imagen" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -575,6 +590,64 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListarTrabajadorAsignacionCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipoEmpresa" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTrabajadorAsignacionCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarTrabajadorAsignacionCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEmpresaGraficoCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="empresa" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEmpresaGraficoCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarEmpresaGraficoCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SPAsignacionMasivo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="data" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SPAsignacionMasivoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SPAsignacionMasivoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarAlojamientoCboPorIdCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEmpresa" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarAlojamientoCboPorIdCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarAlojamientoCboPorIdCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarTipoEventoCsv">
     <xs:complexType>
       <xs:sequence />
@@ -849,7 +922,7 @@
   <xs:element name="RegistrarSolucion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oSolucion" nillable="true" type="q21:Solucion" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oSolucion" nillable="true" type="q22:Solucion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

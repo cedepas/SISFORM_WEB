@@ -92,6 +92,12 @@
                     </span>
                     <span class="name">Empresas</span>
                 </a>
+                <a href="@Url.Action("Asignacion", "Trabajador")" id="sidebar-asignacion" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-hands-helping" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Asignacion</span>
+                </a>
                 <br />
                 <!-- Mantenimiento section end -->
                 <!-- Prueba section start -->
@@ -163,10 +169,10 @@
                 <br />
                 <!-- Administracion section end -->
                 <!-- Cerrar sesion start -->
-                <div class="sidebar-footer">
-                    <a href="@Url.Action("CerrarSesion", "IniciarSesion")" id="sidebar-reporte" class="sidebar-link sidebar-link-with-icon">
+                <div class="sidebar-divider">
+                    <a href="@Url.Action("CerrarSesion", "IniciarSesion")" id="sidebar-reporte" class="sidebar-link sidebar-link-with-icon" style="color:red;">
                         <span class="sidebar-icon bg-transparent justify-content-start mr-0">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            <i class="fa fa-sign-out" aria-hidden="true" style="color:red;"></i>
                         </span>
                         <span class="name">Cerrar Sesion</span>
                     </a>

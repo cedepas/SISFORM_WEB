@@ -22,7 +22,15 @@ var lstCboEmpresaIncidente;
 var lstCboTipoEmpresa;
 var idTipoEmpresa;
 var imagB64;
-var imgre;
+var cabeseraImagen;
+var TipoImagen;
+
+var lista;
+var objetoParametrizado = [];
+var objetoBusqueda = [];
+var textoBusqueda;
+var idEmpresaInfractora;
+var idEmpresaInvolucrada
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -32,7 +40,7 @@ window.onload = function () {
             divRows[i].classList.add("row-eq-spacing-sm");
         }
     }
-    Http.get("Trabajador/ListarEmpresaCbo", mostrarEmpresaCbo);
+    //Http.get("Trabajador/ListarEmpresaCbo", mostrarEmpresaCbo);
     Http.get("Empresa/ListarTipoEmpresaCbo", mostrarTipoEmpresaCbo);
     Http.get("Incidencia/ListarTipoProgramacionIncidenciaCsv", mostrarTipoProgrInciCbo);
     Http.get("Incidencia/ListarZonaCbo", mostrarZonaCbo);
@@ -49,7 +57,7 @@ window.onload = function () {
     btnGrabarIncidencia.onclick = function () {
         var frm = new FormData();
         frm.append("fechaHecho", txtFechaIncidencia.value);
-        frm.append("FK_ID_EmpresaInfractora", cboEmpresaIncidente.value);
+        frm.append("FK_ID_EmpresaInfractora", idEmpresaInfractora);
         frm.append("FK_ID_Zona", cboZona.value);
         frm.append("FK_ID_Ubicacion", cboUbicacion.value);
         frm.append("FK_ID_TrabajadorReporta", IdTrabajador);
@@ -57,21 +65,24 @@ window.onload = function () {
         frm.append("fechaLimiteSolucion", txtFechaIncidencia.value);
 
         if (validarRequeridos('E')) {
+            checkSubmit(btnGrabarIncidencia);
             Http.post("Incidencia/GrabarIncidencia", MostrarGrabarCabecera, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
 
     }
     btnRegDeta.onclick = function () {
+        
         var frm = new FormData();
         frm.append("ID_Incidencia", idIncidencia);
         frm.append("FK_ID_TipoEvento", cboTipoEvento.value);
         frm.append("FK_ID_Categoria", cboCategoria.value);
         frm.append("FK_ID_Bloque", cboBloque.value);
         frm.append("FK_ID_Especificacion", cboEspecificacion.value);
-        frm.append("FK_ID_EmpresaInvolucrada", cboEmpresaInvolucrada.value);
+        frm.append("FK_ID_EmpresaInvolucrada", idEmpresaInvolucrada);
         frm.append("detalleHecho", txtDetalles.value);
 
         if (validarRequeridos('DE')) {
+            checkSubmit(btnRegDeta);
             Http.post("Incidencia/GrabarIncidencia", MostrarGrabarTipoEvento, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
@@ -83,6 +94,7 @@ window.onload = function () {
         frm.append("detalleBarrera", txtBarrera.value);
 
         if (validarRequeridos('DB')) {
+            checkSubmit(btnBarrera);
             Http.post("Incidencia/GrabarIncidencia", MostrarGrabarBarrera, frm);
             btnModalImagen.style.display = "inline-block";
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -90,13 +102,21 @@ window.onload = function () {
 
     btnImagenIndicencia.onclick = function () {
         var frm = new FormData();
-        frm.append("FK_ID_Incidencia", idIncidencia);
-        frm.append("imagen", imgre);
-        frm.append("FK_ID_TipoImagen", 1);
-        frm.append("FK_ID_SolucionIncidencia", 0);
+        frm.append("ID_Incidencia", idIncidencia);
+        frm.append("imagen", imagB64);
+        frm.append("tipoimagen", TipoImagen);
+        frm.append("FK_ID_TrabajadorSoluciona", IdTrabajador);
+        frm.append("cabeseraImg", cabeseraImagen);
         if (validarRequeridos('E')) {
+            checkSubmit(btnImagenIndicencia);
             Http.post("Incidencia/IncidenciaImagen", MostrarIncidenciaImagen, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+    }
+
+    function checkSubmit(boton) {
+        boton.value = "Enviando...";
+        boton.disabled = true;
+        return true;
     }
     //Llenar Combo Ubicación
     cboZona.onchange = function () {
@@ -110,6 +130,7 @@ window.onload = function () {
     cboBloque.onchange = function () {
         idBloque = cboBloque.value;
         listarEspecificacionCbo();
+        Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
     }
     cboBarrera.onchange = function () {
         idBarrera = cboBarrera.value;
@@ -120,8 +141,66 @@ window.onload = function () {
         listarEmpresaPorTipoCbo();
 
     }
+    txtbuscarPorEmpresaInfractora.onkeyup = function () {
+        var a, b;
+        closeAllLists();
+        a = document.createElement("div");
+        a.setAttribute("id", this.id + "predictivo-list");
+        a.setAttribute("class", "predictivo-items");
+        this.parentNode.appendChild(a);
+        textoBusqueda = txtbuscarPorEmpresaInfractora.value.toLowerCase();
+        for (let objeto of objetoBusqueda) {
+            let Nombre = objeto.NombreComercial.toLowerCase();
+            if (Nombre.indexOf(textoBusqueda) !== -1) {
+                b = document.createElement("div");
+                b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
+                //b.innerHTML += Nombre;
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
+                b.addEventListener("click", function (e) {
+                    txtbuscarPorEmpresaInfractora.value = this.getElementsByTagName("input")[0].value;
+                    idEmpresaInfractora = objeto.IDEmpr;
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+    }
+    txtbuscarPorEmpresaInvolucrada.onkeyup = function () {
+        //objetoParametrizado = [];
+        //objetoBusqueda = [];
+        //Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
+        var a, b;
+        closeAllLists();
+        a = document.createElement("div");
+        a.setAttribute("id", this.id + "predictivo-list");
+        a.setAttribute("class", "predictivo-items");
+        this.parentNode.appendChild(a);
+        textoBusqueda = txtbuscarPorEmpresaInvolucrada.value.toLowerCase();
+        for (let objeto of objetoBusqueda) {
+            let Nombre = objeto.NombreComercial.toLowerCase();
+            if (Nombre.indexOf(textoBusqueda) !== -1) {
+                b = document.createElement("div");
+                b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
+                //b.innerHTML += Nombre;
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
+                b.addEventListener("click", function (e) {
+                    txtbuscarPorEmpresaInvolucrada.value = this.getElementsByTagName("input")[0].value;
+                    idEmpresaInvolucrada = objeto.IDEmpr;
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+    }
+}
 
-
+function closeAllLists(elmnt) {
+    var x = document.getElementsByClassName("predictivo-items");
+    for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != textoBusqueda) {
+            x[i].parentNode.removeChild(x[i]);
+        }
+    }
 }
 function mostrarZonaCbo(rpta) {
     if (rpta) {
@@ -165,10 +244,17 @@ function mostrarTipoBarreraCbo(rpta) {
         CrearCombo(lstCboTipoBarrera, cboTipoBarrera, "Seleccione");
     }
 }
-function mostrarEmpresaCbo(rpta) {
+//function mostrarEmpresaCbo(rpta) {
+//    if (rpta) {
+//        lstCboEmpresa = rpta.split("¬");
+//        CrearCombo(lstCboEmpresa, cboEmpresaInvolucrada, "Seleccione");
+//    }
+//}
+
+function CrearListaCsv(rpta) {
     if (rpta) {
-        lstCboEmpresa = rpta.split("¬");
-        CrearCombo(lstCboEmpresa, cboEmpresaInvolucrada, "Seleccione");
+        lista = rpta.split('¬');
+        crearObjeto(lista)
     }
 }
 function mostrarTipoEmpresaCbo(rpta) {
@@ -183,8 +269,8 @@ function listarEmpresaPorTipoCbo() {
 }
 function mostrarEmpresaPorTipoCbo(rpta) {
     if (rpta) {
-        lstCboEmpresaIncidente = rpta.split("¬");
-        CrearCombo(lstCboEmpresaIncidente, cboEmpresaIncidente, "Seleccione");
+        lista = rpta.split('¬');
+        crearObjeto(lista)
     }
 }
 function mostrarTipoEventoCbo(rpta) {
@@ -334,12 +420,16 @@ function AsignarCampos(rpta) {
         limpiarControles('form-control');
     }
 }
-function cargar(event) {
+function codificarImg(event) {
     for (let i = 0; i < 2; i++) {
         var selectFile = event.files[0];
         var reader = new FileReader();
+        TipoImagen = selectFile.type;
+
+
 
         reader.onload = function (e) {
+
             img = e.target.result;
             imgVistaPrevia.src = img;
         }
@@ -350,6 +440,8 @@ function cargar(event) {
                 imgre = resizing(img, 650, 500);
                 imgVistaPrevia.style.display = "inline-block";
                 imgVistaPrevia.src = imgre;
+                imagB64 = imgre.substring(22, imgre.length).toString();
+                cabeseraImagen = imgre.substring(0, 22).toString()
             }
         }
     }
@@ -381,4 +473,32 @@ function resizing(base64, maxWidth, maxHeight) {
     ctx.drawImage(copyCanvas, 0, 0, copyCanvas.width, copyCanvas.height, 0, 0, canvas.width, canvas.height);
 
     return canvas.toDataURL();
+}
+function crearObjeto() {
+    cabeceras = lista[0].split("|");
+    var nRegistros = lista.length;
+    var nCampos = cabeceras.length;
+    //var nCamposObejetoFinal = 3;
+    var clave;
+    var valor;
+    for (var i = 1; i < nRegistros; i++) {
+        for (var j = 0; j < nCampos; j++) {
+            datos = lista[i].split("|");
+        }
+        objetoParametrizado.push(datos);
+    }
+    for (var i = 1; i < nRegistros - 1; i++) {
+        var valoresAInsertar = {};
+        //console.log(i);
+        for (var j = 0; j < nCampos; j++) {
+            clave = cabeceras[j];
+            valor = objetoParametrizado[i][j];
+            //console.log(valor);
+            Object.defineProperty(valoresAInsertar, clave.toString(), {
+                value: valor,
+                writable: false
+            });
+        }
+        objetoBusqueda.push(valoresAInsertar);
+    }
 }

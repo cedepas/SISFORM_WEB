@@ -11,7 +11,7 @@ using GeneralTrabajos;
 
 namespace SISFORM_WEB.Controllers
 {
-    //[AutorizacionModulos("3")]
+    [AutorizacionModulos("3")]
     public class PruebaCovidController : Controller
     {
         public ActionResult PruebaCovid()
@@ -157,7 +157,7 @@ namespace SISFORM_WEB.Controllers
             try
             {
                 int rpta = 0;
-                List<CargaMasiva> lstCarga = ImportarExcel.ExcelToList(file);
+                List<CargaMasiva> lstCarga = ImportarExcel.ExcelToList(file, "PruebaCOVID");
 
                 if (lstCarga.Count > 0)
                 {
@@ -178,7 +178,7 @@ namespace SISFORM_WEB.Controllers
             {
                 ObjetoLog.Grabar(ex.Message, ex.StackTrace);
                 return "";
-            }            
+            }
         }
     }
 }

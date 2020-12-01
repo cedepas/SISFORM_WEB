@@ -406,7 +406,6 @@ C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Closed
 C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\DocumentFormat.OpenXml.xml
 C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\ExcelNumberFormat.xml
 C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\GeneralTrabajos.dll
-C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\GeneralTrabajos.pdb
 D:\MINSUR\Web0311\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.dll.config
 D:\MINSUR\Web0311\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.dll
 D:\MINSUR\Web0311\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.pdb
@@ -525,3 +524,12 @@ D:\MINSUR\Web0311\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csprojAssembly
 D:\MINSUR\Web0311\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CopyComplete
 D:\MINSUR\Web0311\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.dll
 D:\MINSUR\Web0311\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.pdb
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Newtonsoft.Json.dll
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Newtonsoft.Json.xml

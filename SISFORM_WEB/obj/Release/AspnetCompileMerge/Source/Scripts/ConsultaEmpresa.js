@@ -63,7 +63,7 @@ window.onload = function () {
     btnCriterio1.onclick = function () {
         var frm = new FormData();
         frm.append("ID_Criterio1", (txtIdCriterio1.value == "" ? "0" : txtIdCriterio1.value));
-        frm.append("FK_ID_empresa", txtIdEmpresa.value);
+        frm.append("FK_ID_empresa", idEmpresa);
         frm.append("estadoActual", cboEstadoActual.value);
         frm.append("fechaExpedicionLicencia", txtFechaExpedicionLicencia.value);
         frm.append("fechaCaducidadLicencia", txtFechaCaducidadLicencia.value);
@@ -90,7 +90,7 @@ window.onload = function () {
     btnCriterio2.onclick = function () {
         var frm = new FormData();
         frm.append("ID_Criterio2", (txtIdCriterio2.value == "" ? "0" : txtIdCriterio2.value));
-        frm.append("FK_ID_empresa", txtIdEmpresa.value);
+        frm.append("FK_ID_empresa", idEmpresa);
         frm.append("estadoReal", cboEstadoRealC2.value);
         frm.append("fechaExpedicion", txtFechaExpedicion.value);
         frm.append("fechaCaducidad", txtFechaCaducidad.value);
@@ -104,7 +104,7 @@ window.onload = function () {
     btnCriterio3.onclick = function () {
         var frm = new FormData();
         frm.append("ID_Criterio3", (txtIdCriterio3.value == "" ? "0" : txtIdCriterio3.value));
-        frm.append("FK_ID_empresa", txtIdEmpresa.value);
+        frm.append("FK_ID_empresa", idEmpresa);
         frm.append("estadoReal", cboEstadoRealC3.value);
         frm.append("señalizacionContraSismos", (txtSeñalizacionContraSismos.checked == true ? "SI" : "NO"));
         frm.append("botiquinPrimerosAuxilios", (txtBotiquinPrimerosAuxilios.checked == true ? "SI" : "NO"));

@@ -26,9 +26,18 @@
             <label for="cboTipoFiltroIncidencia" class="required">Tipo de Filtro</label>
             <select class="form-control form-control-sm E" id="cboTipoFiltroIncidencia" placeholder="Tipo filtro incidencia"></select>
         </div>
-        <div class="col-sm-4">
-            <label for="txtfechaIncidente" class="required">Fecha Incidente</label>
+        <div class="col-sm-4" style="display:none" id="buscarPorFecha">
+            <label class="required">Selecionar Fecha a Buscar</label>
             <input type="date" class="form-control form-control-sm E" id="txtfechaIncidente" placeholder="Busqueda por Fecha" />
+        </div>
+        <div class="col-sm-4" style="display:none" id="buscarPorTrajador">
+            <p>Digite los Datos del Trabajador</p>
+            <input class="form-control form-control-sm" id="txtbuscarPorTrajador" />
+            <br />
+        </div>
+        <div class="col-sm-4" style="display:none" id="buscarPorEmpresa">
+            <p>Digite los datos de la Empresa</p>
+            <input class="form-control form-control-sm" id="txtbuscarPorEmpresa" />
         </div>
     </div>
     <div class="form-row">

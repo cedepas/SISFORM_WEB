@@ -2,6 +2,9 @@
 var lstCboTipoSolucion;
 var idIncidente;
 var IdTrabajador;
+var imagB64;
+var cabeseraImagen;
+var TipoDato;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -21,11 +24,20 @@ window.onload = function () {
         frm.append("FK_ID_TrabajadorSoluciona", IdTrabajador);
         frm.append("detalleSolucion", txtSolucion.value);
         frm.append("imagen", imagB64);
+        frm.append("tipoimagen", TipoDato);
+        frm.append("cabeseraImg", cabeseraImagen);
 
         if (validarRequeridos('E')) {
-            Http.post("Incidencia/RegistrarSolucion", MostrarGrabarSolucion, frm);
+            checkSubmit(btnGrabarSolucion);
+            Http.post("Incidencia/GuardarImagenStore", MostrarGrabarSolucion, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
+}
+
+function checkSubmit(boton) {
+    boton.value = "Enviando...";
+    boton.disabled = true;
+    return true;
 }
 function consulta(e) {
 
@@ -71,11 +83,11 @@ function obtenerRegistroPorId(id) {
 
     Http.get("Incidencia/ObtenerIncidenciaPorIdParaSolucionCsv?idIncidencia=" + id, AsignarCamposBusqueda);
 }
-function cargar(event) {
+function codificarImg(event) {
     for (let i = 0; i < 2; i++) {
         var selectFile = event.files[0];
         var reader = new FileReader();
-
+        TipoDato = selectFile.type;
 
 
 
@@ -91,6 +103,8 @@ function cargar(event) {
                 imgre = resizing(img, 650, 500);
                 imgVistaPrevia.style.display = "inline-block";
                 imgVistaPrevia.src = imgre;
+                imagB64 = imgre.substring(22, imgre.length).toString();
+                cabeseraImagen = imgre.substring(0, 22).toString()
             }
         }
     }

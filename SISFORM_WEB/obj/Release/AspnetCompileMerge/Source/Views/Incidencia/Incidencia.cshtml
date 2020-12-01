@@ -27,8 +27,10 @@
                         <select class="form-control form-control-sm DE" id="cboEspecificacion"></select>
                     </div>
                     <div class="col-sm-4">
-                        <label for="cboEmpresaInvolucrada">Empresa Involucrada</label>
-                        <select class="form-control form-control-sm" id="cboEmpresaInvolucrada" required="required"></select>
+                        <p>Digite los datos de la Empresa Involucrada</p>
+                        <input class="form-control form-control-sm" id="txtbuscarPorEmpresaInvolucrada" />
+                        @*<label for="cboEmpresaInvolucrada">Empresa Involucrada</label>
+                        <select class="form-control form-control-sm" id="cboEmpresaInvolucrada" required="required"></select>*@
                     </div>
                     <div class="form-row">
                         <div class="col-sm-4">
@@ -85,7 +87,7 @@
                 </a>
                 <div class="form-row">
                     <div class="col-sm E">
-                        <input type="file" onchange="cargar(this)" />
+                        <input type="file" onchange="codificarImg(this)" />
                     </div>
                 </div>
                 <div class="form-row">
@@ -133,8 +135,10 @@
             <select class="form-control form-control-sm" id="cboTipoEmpresa"></select>
         </div>
         <div class="col-sm">
-            <label for="cboEmpresaIncidente" class="required">Empresa Infractora</label>
-            <select class="form-control form-control-sm E" id="cboEmpresaIncidente"></select>
+            <p>Digite los datos de la Empresa Infractora</p>
+            <input class="form-control form-control-sm" id="txtbuscarPorEmpresaInfractora" />
+            @*<label for="cboEmpresaIncidente" class="required">Empresa Infractora</label>
+        <select class="form-control form-control-sm E" id="cboEmpresaIncidente"></select>*@
         </div>
     </div>
     <div class="form-row">

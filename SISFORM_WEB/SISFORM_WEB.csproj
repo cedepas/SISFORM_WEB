@@ -212,6 +212,9 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\buttons.js" />
+    <Content Include="Scripts\ConsultaAsignacion.js" />
+    <Content Include="Styles\chartist.min.css" />
+    <Content Include="Scripts\chartist.min.js" />
     <Content Include="Scripts\ConsultaCovid.js" />
     <Content Include="Scripts\ConsultaIncidencia.js" />
     <Content Include="Scripts\ConsultaPermisos.js" />
@@ -279,6 +282,7 @@
     <Content Include="Views\Incidencia\BusquedaIncidencia.cshtml" />
     <Content Include="Views\Incidencia\Incidencia.cshtml" />
     <Content Include="Views\Incidencia\SolucionIncidencia.cshtml" />
+    <Content Include="Views\Trabajador\Asignacion.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
