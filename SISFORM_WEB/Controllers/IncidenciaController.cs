@@ -383,7 +383,6 @@ namespace SISFORM_WEB.Controllers
             
             return rpta;
         }
-
         public static byte[] CopyImageToByteArray(Image theImage)
         {
             using (MemoryStream memoryStream = new MemoryStream())
@@ -392,8 +391,6 @@ namespace SISFORM_WEB.Controllers
                 return memoryStream.ToArray();
             }
         }
-
-
         public Image Base64ToImage(string base64String)
         {
             // Convert Base64 String to byte[] 
@@ -453,7 +450,6 @@ namespace SISFORM_WEB.Controllers
 
             return rpta.ToString();
         }
-        
         public async Task<string> GrabarIncidencia(Incidencia oIncidencia)
         {
             int rpta = 0;
@@ -476,6 +472,49 @@ namespace SISFORM_WEB.Controllers
             else
             {
                 return rpta.ToString();
+            }
+        }
+        public async Task<string> ListarTipoEmpresaCbo()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarTipoEmpresaCboCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ObtenerIdTrabajadorPorIdUsuarioCsv(string idUsuario)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerIdTrabajadorPorIdUsuarioCsvAsync(idUsuario);
+                return rpta;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ListarEmpresaPorTipoCboCsv(string idTipoEmpresa)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEmpresaPorTipoCboCsvAsync(idTipoEmpresa);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
     }

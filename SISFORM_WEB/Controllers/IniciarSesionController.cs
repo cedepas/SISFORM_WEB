@@ -32,10 +32,10 @@ namespace SISFORM_WEB.Controllers
                 VistaUsuario data = await servicio.AutenticarUsuarioAsync(usuario, clave);
                 if (data!=null)
                 {
-                    //string permisos = await servicio.AutorizacionUsuarioCsvAsync(data.ID_Usuario.ToString());
+                    string permisos = await servicio.AutorizacionUsuarioCsvAsync(data.ID_Usuario.ToString());
 
                     Session["userAuthorize"] = data;
-                    //Session["userPermision"] = permisos;
+                    Session["userPermision"] = permisos;
 
                     rpta = JsonSerializer.Serialize<VistaUsuario>(data);
                 }

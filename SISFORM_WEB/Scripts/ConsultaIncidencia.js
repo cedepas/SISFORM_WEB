@@ -41,10 +41,10 @@ window.onload = function () {
         }
     }
     //Http.get("Trabajador/ListarEmpresaCbo", mostrarEmpresaCbo);
-    Http.get("Empresa/ListarTipoEmpresaCbo", mostrarTipoEmpresaCbo);
+    Http.get("Incidencia/ListarTipoEmpresaCbo", mostrarTipoEmpresaCbo);
     Http.get("Incidencia/ListarTipoProgramacionIncidenciaCsv", mostrarTipoProgrInciCbo);
     Http.get("Incidencia/ListarZonaCbo", mostrarZonaCbo);
-    Http.get("Trabajador/ObtenerIdTrabajadorPorIdUsuarioCsv?idUsuario=" + window.sessionStorage.getItem('idUsuario'), obtenerIdTrabajador);
+    Http.get("Incidencia/ObtenerIdTrabajadorPorIdUsuarioCsv?idUsuario=" + window.sessionStorage.getItem('idUsuario'), obtenerIdTrabajador);
     Http.get("Incidencia/ListarIncidenciasActCsv", CrearTablaCsv);
     Http.get("Incidencia/ListarTipoEventoCsv", mostrarTipoEventoCbo);
     Http.get("Incidencia/ListarCategoriaCsv", mostrarCategoriaCbo);
@@ -264,7 +264,7 @@ function mostrarTipoEmpresaCbo(rpta) {
     }
 }
 function listarEmpresaPorTipoCbo() {
-    Http.get("Empresa/ListarEmpresaPorTipoCboCsv?idTipoEmpresa=" + idTipoEmpresa, mostrarEmpresaPorTipoCbo);
+    Http.get("Incidencia/ListarEmpresaPorTipoCboCsv?idTipoEmpresa=" + idTipoEmpresa, mostrarEmpresaPorTipoCbo);
 
 }
 function mostrarEmpresaPorTipoCbo(rpta) {
