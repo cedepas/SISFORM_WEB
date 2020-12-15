@@ -210,9 +210,12 @@
     <Content Include="Content\logo.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\apexcharts.js" />
     <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\buttons.js" />
     <Content Include="Scripts\ConsultaAsignacion.js" />
+    <Content Include="Scripts\ConsultaTrabajadorMasivo.js" />
+    <Content Include="Styles\apexcharts.css" />
     <Content Include="Styles\chartist.min.css" />
     <Content Include="Scripts\chartist.min.js" />
     <Content Include="Scripts\ConsultaCovid.js" />
@@ -283,6 +286,7 @@
     <Content Include="Views\Incidencia\Incidencia.cshtml" />
     <Content Include="Views\Incidencia\SolucionIncidencia.cshtml" />
     <Content Include="Views\Trabajador\Asignacion.cshtml" />
+    <Content Include="Views\Trabajador\Masivo.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

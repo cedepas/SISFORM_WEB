@@ -1,7 +1,9 @@
 ﻿var ids = [];
 var serv = [];
+var nDatos = 0;
 var campos = [];
 var ocupado = [];
+var reservado = [];
 var espera = [];
 var libre = [];
 var matriz = [];
@@ -23,6 +25,8 @@ window.onload = function () {
         if (cboTipoEmpresa.value != 3) {
             pos = serv.indexOf(cboEmpresa.value);
         } else {
+            var habitacion = document.getElementsByClassName('habitacion');
+            habitacion[0].style.display = "inline-block";
             Http.get("Trabajador/ListarAlojamientoCboPorId?idEmpresa=" + cboEmpresa.value, mostrarHabitacion);
             Http.get("Trabajador/ListarEmpresaGrafico?idTipoEmpresa=" + cboTipoEmpresa.value + "&alojamiento=" + cboEmpresa.value, cargarData);
         }
@@ -51,21 +55,6 @@ window.onload = function () {
             } else toastDangerAlert("Complete todos los campos", "¡Error!");
         }
     }
-
-    btnCargar.onclick = function () {
-        if (validarRequeridos('F')) {
-            var frm = new FormData();
-            frm.append("file", txtFile.files[0]);
-            Http.post("Trabajador/CargarExcel?idUsuario=" + window.sessionStorage.getItem('idUsuario') + "&fecha=" + dtFecAsi.value, MostrarFile, frm);
-        }
-    }
-}
-
-function MostrarFile(rpta) {
-    if (rpta) {
-        toastSuccessAlert("Los registros se cargaron correctamente", "¡Exito!");
-    }
-    else toastDangerAlert("No se pudieron cargar los registros", "¡Error!");
 }
 
 function AddAsig(id) {
@@ -77,7 +66,7 @@ function AddAsig(id) {
 
             asignacion.push([serv[pos], id]);
         }
-        dibujarGrafico();
+        dibujarGrafico2();
     }
 }
 
@@ -88,7 +77,7 @@ function DelAsig(id) {
             ocupado[pos] += 0;
             espera[pos]--;
             libre[pos]++;
-            dibujarGrafico();
+            dibujarGrafico2();
             asignacion.splice(index, 1);
         }
     }
@@ -120,6 +109,7 @@ function dibujarGrafico() {
         labels: campos,
         series: [
             { className: "stroke-ocupado", meta: "Ocupado", data: ocupado },
+            { className: "stroke-ocupado", meta: "Reservado", data: reservado },
             { className: "stroke-espera", meta: "Espera", data: espera },
             { className: "stroke-libre", meta: "Libre", data: libre }
         ]
@@ -139,14 +129,103 @@ function dibujarGrafico() {
     });
 }
 
+function dibujarGrafico2() {
+    var divChart = document.querySelector("#ct-chart");
+    divChart.innerHTML = "";
+
+    var options = {
+        series: [
+            { className: "stroke-ocupado", name: 'Ocupados', data: ocupado },
+            { name: 'Reservados', data: reservado },
+            { name: 'Seleccionados', data: espera },
+            { name: 'Libres', data: libre }
+        ],
+        colors: ['#ff2626', '#ffa726', '#2982ff','#3ba331'],
+        chart: {
+            type: 'bar',
+            height: nDatos * 30,
+            stacked: true,
+            foreColor: '#fff',
+            width: '100%',
+            toolbar: {
+                show: false
+            }, animations: {
+                enabled: false,
+            }
+        },
+        plotOptions: {
+            bar: {
+                horizontal: true,
+            },
+        },
+        stroke: {
+            width: 1,
+            colors: ['#fff']
+        },
+        title: {
+            text: 'Ocupacion de servicios'
+        },
+        xaxis: {
+            type: 'category',
+            categories: campos,
+            labels: {
+                style: {
+                    fontSize: '12px',
+                }
+            }
+        },
+        yaxis: {
+            labels: {
+                minWidth: 200,
+                maxWidth: 200,
+                style: {
+                    fontSize: '12px',
+                }
+            }
+        },
+        tooltip: {
+            enabled: false
+        },
+        fill: {
+            opacity: 1
+        },
+        legend: {
+            position: 'top',
+            horizontalAlign: 'left',
+            offsetX: 40
+        },
+        responsive: [
+            {
+                breakpoint: 500,
+                options: {
+                    plotOptions: {
+                        bar: {
+                            horizontal: false
+                        }
+                    },
+                    legend: {
+                        position: "bottom"
+                    }
+                }
+            }
+        ]
+    };
+
+    var chart = new ApexCharts(divChart, options);
+    chart.render();
+}
+
 function cargarData(rpta) {
     var listas = rpta.split('¬');
 
     serv = listas[0].split('|');
     campos = listas[1].split('|');
     ocupado = listas[2].split('|');
-    espera = listas[3].split('|');
-    libre = listas[4].split('|');
+    reservado = listas[3].split('|');
+    espera = listas[4].split('|');
+    libre = listas[5].split('|');
+
+    nDatos = campos.length;
 
     ocupado = ocupado.map(function (x) {
         return parseInt(x, 10);
@@ -159,7 +238,7 @@ function cargarData(rpta) {
     libre = libre.map(function (x) {
         return parseInt(x, 10);
     });
-    dibujarGrafico()
+    dibujarGrafico2()
 }
 
 function isItemInArray(array, item) {

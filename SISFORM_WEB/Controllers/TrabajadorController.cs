@@ -26,6 +26,13 @@ namespace SISFORM_WEB.Controllers
             ViewBag.Title = "Asignacion de servicios";
             return View();
         }
+
+        public ActionResult Masivo()
+        {
+            ViewBag.Title = "Carga masiva de trabajadores";
+            return View();
+        }
+
         //public ActionResult PruebaCovid()
         //{
         //    ViewBag.Title = "Prueba Covid";
