@@ -140,6 +140,7 @@ function crearObjeto() {
     cabeceras = lista[0].split("|");
     var nRegistros = lista.length;
     var nCampos = cabeceras.length;
+    var objetoBusqueda = [];
     //var nCamposObejetoFinal = 3;
     var clave;
     var valor;
@@ -149,7 +150,7 @@ function crearObjeto() {
         }
         objetoParametrizado.push(datos);
     }
-    for (var i = 1; i < nRegistros - 1; i++) {
+    for (var i = 1; i <= nRegistros - 1; i++) {
         var valoresAInsertar = {};
         //console.log(i);
         for (var j = 0; j < nCampos; j++) {
