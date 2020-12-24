@@ -137,10 +137,11 @@ function CrearListaCsv(rpta) {
     }
 }
 function crearObjeto() {
+    //crea el objeto para busqueda segun los datos
     cabeceras = lista[0].split("|");
     var nRegistros = lista.length;
     var nCampos = cabeceras.length;
-    var objetoBusqueda = [];
+    objetoBusqueda = [];
     //var nCamposObejetoFinal = 3;
     var clave;
     var valor;
