@@ -533,3 +533,22 @@ C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Micros
 C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Storage.pdb
 C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Storage.xml
 C:\Users\BAMANI\Desktop\Sistema Formalizacion\SISFORM_WEB\SISFORM_WEB\bin\Newtonsoft.Json.xml
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.dll
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\DocumentFormat.OpenXml.dll
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\ExcelNumberFormat.dll
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\GeneralTrabajos.dll
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\Newtonsoft.Json.dll
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\System.IO.FileSystem.Primitives.dll
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\System.IO.Packaging.dll
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.pdb
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.xml
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\DocumentFormat.OpenXml.xml
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\ExcelNumberFormat.xml
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\krlos\Source\Repos\cedepas\SISFORM_WEB\SISFORM_WEB\bin\Newtonsoft.Json.xml

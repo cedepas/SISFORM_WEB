@@ -7,7 +7,6 @@ var idTrabajador;
 window.onload = function () {
     Http.get("Trabajador/ListarTipoDocumentoCbo", mostrarTipoDocumentoCbo);
     Http.get("Trabajador/listarUbigeoCbo", mostrarListaUbigeo);
-    Http.get("Trabajador/ListarPuestoTrabajoCbo", mostrarPuestoTrabajoCbo);
     Http.get("Trabajador/ListarEmpresaCbo", mostrarEmpresaCbo);
 
     if (!isMobile.any()) {
@@ -17,6 +16,9 @@ window.onload = function () {
         for (var i = 0; i < divRows.length; i++) {
             divRows[i].classList.add("row-eq-spacing-sm");
         }
+    }
+    cboEmpresa.onchange = function () {
+        listarPuestoTrabajo();
     }
 
     cboDepartamento.onchange = function () {
@@ -76,6 +78,7 @@ window.onload = function () {
         btnModal.style.visibility = "hidden";
         btnNuevo.style.visibility = "hidden";
     }
+
 }
 
 function mostrarTipoDocumentoCbo(rpta) {
@@ -97,6 +100,9 @@ function mostrarEmpresaCbo(rpta) {
         lstCboEmpresa = rpta.split("¬");
         CrearCombo(lstCboEmpresa, cboEmpresa, "Seleccione");
     }
+}
+function listarPuestoTrabajo() {
+    Http.get("Trabajador/ListarPuestoTrabajoCbo?idEmpresa=" + cboEmpresa.value, mostrarPuestoTrabajoCbo);
 }
 
 function mostrarListaUbigeo(rpta) {
