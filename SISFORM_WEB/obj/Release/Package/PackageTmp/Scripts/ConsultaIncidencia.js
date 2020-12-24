@@ -475,10 +475,11 @@ function resizing(base64, maxWidth, maxHeight) {
     return canvas.toDataURL();
 }
 function crearObjeto() {
+    //este objeto es para el predictivo
     cabeceras = lista[0].split("|");
     var nRegistros = lista.length;
     var nCampos = cabeceras.length;
-    var objetoBusqueda = [];
+    objetoBusqueda = [];
     var clave;
     var valor;
     for (var i = 1; i < nRegistros; i++) {
