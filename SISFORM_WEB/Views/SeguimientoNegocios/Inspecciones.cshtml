@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Modals start -->
+@section modals{
+
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "gestionNegocios";
+    </script>
+
+}
+<div class="content">
+    <div class="title"><h5 id="Inspecciones"></h5></div>
+    @*<div style="display:none">
+            <input type="hidden" class="form-control form-control-sm E" id="txtIdTrabajador" readonly="readonly" />
+            <input type="hidden" class="form-control form-control-sm E" id="txtIdPruebasCovid" placeholder="Codigo" readonly="readonly" />
+        </div>*@
+    <div class="form-row">
+        <div class="col-sm-4">
+            <!--<p>Digite los datos de la Empresa Inspeccionada</p>-->
+            <label for="txtbuscarPorEmpresa" class="required">Digite los datos de la Empresa Inspeccionada</label>
+            <input type="text" class="form-control form-control-sm E" id="txtbuscarPorEmpresa" placeholder="Nombre Empresa" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-3" id="fechaInspeccion" style="display:inline">
+            <label for="txtFechaInspeccion">Fecha de Inspección</label>
+            <input type="date" class="form-control form-control-sm E" id="txtFechaInspeccion" style="visibility:visible" required="required" />
+        </div>
+        <div class="col-sm-3" id="estadoInspeccion" style="display:inline">
+            <label for="txtEstadoInspeccion" class="required">Estado de la Inspección </label>
+            <input type="text" class="form-control form-control-sm E" id="txtEstadoInspeccion" placeholder="N° Prueba" required="required" />
+        </div>
+    </div>
+</div>
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+@section scripts{
+    @Scripts.Render("~/Scripts/ConsultaInspecciones.js")
+}
+
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title></title>
+    </head>
+    <body>
+        <div>
+
+        </div>
+    </body>
+    </html>*@

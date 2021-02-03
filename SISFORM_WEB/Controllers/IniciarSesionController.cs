@@ -1,9 +1,9 @@
 ﻿using Dominio;
-using System;
-using System.Threading.Tasks;
-using System.Text.Json;
-using System.Web.Mvc;
 using SISFORM_WEB.ServicioWcf;//ServicioWcfClient
+using System;
+using System.Text.Json;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace SISFORM_WEB.Controllers
 {
@@ -30,7 +30,7 @@ namespace SISFORM_WEB.Controllers
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
                 VistaUsuario data = await servicio.AutenticarUsuarioAsync(usuario, clave);
-                if (data!=null)
+                if (data != null)
                 {
                     string permisos = await servicio.AutorizacionUsuarioCsvAsync(data.ID_Usuario.ToString());
 
@@ -45,7 +45,7 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
-            
+
         }
     }
 }

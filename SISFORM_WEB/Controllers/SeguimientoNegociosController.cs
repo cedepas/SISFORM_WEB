@@ -1,27 +1,25 @@
-﻿using SISFORM_WEB.Filters;
-using SISFORM_WEB.ServicioWcf;
+﻿using SISFORM_WEB.ServicioWcf;
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace SISFORM_WEB.Controllers
 {
-    [AutorizacionModulos("4")]
-    public class ReporteController : Controller
+    public class SeguimientoNegociosController : Controller
     {
-        // GET: Reporte
-        public ActionResult Consulta()
+        // GET: SeguimientoNegocios
+        public ActionResult Inspecciones()
         {
-            ViewBag.Title = "Reporte";
+            ViewBag.Title = "Inspecciones";
             return View();
         }
-        public async Task<string> ListarReporteCovid(string fechaInicio, string fechaFin)
+        public async Task<string> ListarInspecciones(string idUsuario)
         {
             try
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.ListarReporteCovidCsvAsync(fechaInicio, fechaFin);
+                rpta = await servicio.ListarInspeccionesCsvAsync(idUsuario);
                 return rpta;
             }
             catch (Exception ex)

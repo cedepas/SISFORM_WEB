@@ -1,19 +1,18 @@
 ﻿using System;
-using System.IO;
-using System.Data;
-using System.Text;
-using System.Reflection;
-using System.Xml;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.IO.Compression;
+using System.Text;
 
 namespace SISFORM_WEB.General
 {
     public class ExportarExcel
     {
-        private enum TipoOrigen {
+        private enum TipoOrigen
+        {
             Listas = 0,
-            Tablas =1
+            Tablas = 1
         }
         private static string sArchivoXlsx;
         private static string[] sHojas;
@@ -24,7 +23,7 @@ namespace SISFORM_WEB.General
         private static int indiceX;
         private static int indiceY;
 
-        public static void Exportar(string archivoXlsx, string[] hojas, DataSet objData, int indiceColumna=0, int indiceFila=0)
+        public static void Exportar(string archivoXlsx, string[] hojas, DataSet objData, int indiceColumna = 0, int indiceFila = 0)
         {
             data = new List<dynamic>();
             tipoOrigen = TipoOrigen.Tablas;
@@ -71,12 +70,12 @@ namespace SISFORM_WEB.General
             string sArchivoXlRels = Path.Combine(sDirectorioXlRels, "workbook.xml.rels");
             string sArchivoXlTheme = Path.Combine(sDirectorioXlTheme, "theme1.xml");
             string[] sArchivoXlSheets = new string[nHojas];
-            for (var i = 0; i < nHojas;i++) sArchivoXlSheets[i] = 
-                Path.Combine(sDirectorioXlWorksheets, String.Format("sheet{0}.xml",i+1));
+            for (var i = 0; i < nHojas; i++) sArchivoXlSheets[i] =
+                 Path.Combine(sDirectorioXlWorksheets, String.Format("sheet{0}.xml", i + 1));
             string sArchivoXlChart = Path.Combine(sDirectorioXlCharts, "chart1.xml");
             string sArchivoXlChartSheet = Path.Combine(sDirectorioXlChartSheets, "sheet1.xml");
             string sArchivoXlChartSheetRel = Path.Combine(sDirectorioXlChartSheetsRel, "sheet1.xml.rels");
-            string sArchivoXlDrawing = Path.Combine(sDirectorioXlDrawings, "drawing1.xml");            
+            string sArchivoXlDrawing = Path.Combine(sDirectorioXlDrawings, "drawing1.xml");
             string sArchivoXlDrawingRel = Path.Combine(sDirectorioXlDrawings, "drawing1.xml.rels");
 
             //Crear los Directorios definidos
@@ -98,7 +97,7 @@ namespace SISFORM_WEB.General
             File.WriteAllText(sArchivoXlRels, getXlRels());
             File.WriteAllText(sArchivoXlTheme, getXlTheme());
             for (var i = 0; i < nHojas; i++) getXlSheet(sArchivoXlSheets[i], i);
- 
+
             //Si el archivo ya existe entonces borrar
             if (File.Exists(sArchivoXlsx)) File.Delete(sArchivoXlsx);
             //Comprimir los archivos en un Xlsx
@@ -193,7 +192,7 @@ namespace SISFORM_WEB.General
             sb.Append("<dcterms:modified xsi:type=\"dcterms:W3CDTF\">");
             sb.Append(DateTime.Now.ToString("s"));
             sb.Append("Z</dcterms:modified>");
-            sb.Append("</cp:coreProperties>");            
+            sb.Append("</cp:coreProperties>");
             return sb.ToString();
         }
 
@@ -244,7 +243,7 @@ namespace SISFORM_WEB.General
             sb.Append("<bookViews>");
             sb.Append("<workbookView xWindow=\"120\" yWindow=\"90\" windowWidth=\"23895\" windowHeight=\"14535\"/>");
             sb.Append("</bookViews>");
-            sb.Append("<sheets>");            
+            sb.Append("<sheets>");
             for (var i = 0; i < nHojas; i++)
             {
                 sb.Append("<sheet sheetId=\"");
@@ -332,7 +331,7 @@ namespace SISFORM_WEB.General
                 sw.Write("</sheetView>");
                 sw.Write("</sheetViews>");
                 sw.Write("<sheetFormatPr defaultRowHeight=\"15\"/>");
-                if(tipoOrigen.Equals(TipoOrigen.Tablas))
+                if (tipoOrigen.Equals(TipoOrigen.Tablas))
                 {
                     sw.Write("<cols>");
                     DataTable tabla = data[nHoja];
@@ -365,7 +364,7 @@ namespace SISFORM_WEB.General
             string celda;
             string valor;
             string tipo;
-            for (int j = 0; j < campos.Count ; j++)
+            for (int j = 0; j < campos.Count; j++)
             {
                 celda = String.Format("{0}{1}", (char)(65 + j + indiceX), indiceY + 1);
                 valor = campos[j].ColumnName;
@@ -397,7 +396,7 @@ namespace SISFORM_WEB.General
                         sw.Write("</t></is>");
                     }
                     else
-                    {                        
+                    {
                         sw.Write("><v>");
                         sw.Write(valor);
                         sw.Write("</v>");

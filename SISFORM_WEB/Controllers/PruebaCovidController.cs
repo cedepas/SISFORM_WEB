@@ -1,13 +1,13 @@
 ﻿using Dominio;
-using SISFORM_WEB.ServicioWcf;
+using GeneralTrabajos;
 using SISFORM_WEB.Filters;
 using SISFORM_WEB.General;
+using SISFORM_WEB.ServicioWcf;
 using System;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using System.Web;
 using System.Collections.Generic;
-using GeneralTrabajos;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace SISFORM_WEB.Controllers
 {
@@ -142,7 +142,7 @@ namespace SISFORM_WEB.Controllers
             int rpta = 0;
 
             ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-            rpta = await servicio.PruebasCovidMasivoAsync(data,idUsuario);
+            rpta = await servicio.PruebasCovidMasivoAsync(data, idUsuario);
             if (rpta == 0)
             {
                 return "";

@@ -16,7 +16,7 @@
     <AssemblyName>SISFORM_WEB</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
@@ -31,9 +31,11 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG;CODE_ANALYSIS;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -186,6 +188,7 @@
     <Compile Include="Controllers\IniciarSesionController.cs" />
     <Compile Include="Controllers\PruebaCovidController.cs" />
     <Compile Include="Controllers\ReporteController.cs" />
+    <Compile Include="Controllers\SeguimientoNegociosController.cs" />
     <Compile Include="Controllers\TrabajadorController.cs" />
     <Compile Include="Filters\AutorizacionModulos.cs" />
     <Compile Include="Filters\VerificaSession.cs" />
@@ -214,6 +217,7 @@
     <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\buttons.js" />
     <Content Include="Scripts\ConsultaAsignacion.js" />
+    <Content Include="Scripts\ConsultaInspecciones.js" />
     <Content Include="Scripts\ConsultaTrabajadorMasivo.js" />
     <Content Include="Styles\apexcharts.css" />
     <Content Include="Styles\chartist.min.css" />
@@ -275,6 +279,7 @@
     </None>
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy2.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\PruebaCovid\ProgramacionPruebaCovid.cshtml" />
     <Content Include="Views\Reporte\Consulta.cshtml" />
@@ -287,6 +292,7 @@
     <Content Include="Views\Incidencia\SolucionIncidencia.cshtml" />
     <Content Include="Views\Trabajador\Asignacion.cshtml" />
     <Content Include="Views\Trabajador\Masivo.cshtml" />
+    <Content Include="Views\SeguimientoNegocios\Inspecciones.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -329,7 +335,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54945</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54945/</IISUrl>
+          <IISUrl>http://localhost/SISFORM_WEB</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/SISFORM_WEB</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

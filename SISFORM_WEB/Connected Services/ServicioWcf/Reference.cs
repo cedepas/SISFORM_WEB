@@ -344,6 +344,20 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarAlojamientoCboPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ListarAlojamientoCboPorIdCsvResponse")]
         System.Threading.Tasks.Task<string> ListarAlojamientoCboPorIdCsvAsync(string idEmpresa);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarIngresoporDniCsv", ReplyAction="http://tempuri.org/IServicio/RegistrarIngresoporDniCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/RegistrarIngresoporDniCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string RegistrarIngresoporDniCsv(string numeroDocumento);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarIngresoporDniCsv", ReplyAction="http://tempuri.org/IServicio/RegistrarIngresoporDniCsvResponse")]
+        System.Threading.Tasks.Task<string> RegistrarIngresoporDniCsvAsync(string numeroDocumento);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarInspeccionesCsv", ReplyAction="http://tempuri.org/IServicio/ListarInspeccionesCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarInspeccionesCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarInspeccionesCsv(string idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarInspeccionesCsv", ReplyAction="http://tempuri.org/IServicio/ListarInspeccionesCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarInspeccionesCsvAsync(string idUsuario);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoEventoCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoEventoCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarTipoEventoCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarTipoEventoCsv();
@@ -907,6 +921,22 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarAlojamientoCboPorIdCsvAsync(string idEmpresa) {
             return base.Channel.ListarAlojamientoCboPorIdCsvAsync(idEmpresa);
+        }
+        
+        public string RegistrarIngresoporDniCsv(string numeroDocumento) {
+            return base.Channel.RegistrarIngresoporDniCsv(numeroDocumento);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegistrarIngresoporDniCsvAsync(string numeroDocumento) {
+            return base.Channel.RegistrarIngresoporDniCsvAsync(numeroDocumento);
+        }
+        
+        public string ListarInspeccionesCsv(string idUsuario) {
+            return base.Channel.ListarInspeccionesCsv(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarInspeccionesCsvAsync(string idUsuario) {
+            return base.Channel.ListarInspeccionesCsvAsync(idUsuario);
         }
         
         public string ListarTipoEventoCsv() {

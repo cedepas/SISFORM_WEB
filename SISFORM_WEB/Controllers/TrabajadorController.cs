@@ -1,14 +1,14 @@
 ﻿using Dominio;
+using GeneralTrabajos;
+using SISFORM_WEB.Filters;
+using SISFORM_WEB.General;
 using SISFORM_WEB.ServicioWcf;
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 using System.Web;
-using GeneralTrabajos;
-using SISFORM_WEB.Filters;
-using SISFORM_WEB.General;
+using System.Web.Mvc;
 
 namespace SISFORM_WEB.Controllers
 {
@@ -84,7 +84,7 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
-        }        
+        }
         public async Task<string> ListarTrabajadorJson()
         {
             try
@@ -137,7 +137,7 @@ namespace SISFORM_WEB.Controllers
         {
             int rpta = 0;
             string op = "";
-            if (oTrabajador.ID_Trabajador==0)
+            if (oTrabajador.ID_Trabajador == 0)
             {
                 op = "I";
             }
@@ -307,7 +307,7 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> ListarEmpresaGrafico(string idTipoEmpresa, string alojamiento="")
+        public async Task<string> ListarEmpresaGrafico(string idTipoEmpresa, string alojamiento = "")
         {
             try
             {

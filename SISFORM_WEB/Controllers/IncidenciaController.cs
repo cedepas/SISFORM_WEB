@@ -1,15 +1,15 @@
 ﻿using Dominio;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using SISFORM_WEB.Filters;
+using SISFORM_WEB.ServicioWcf;
 using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using SISFORM_WEB.ServicioWcf;
-using SISFORM_WEB.Filters;
-using System.Drawing;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.Azure;
-using Microsoft.WindowsAzure.Storage.Blob;
-using System.IO;
-using System.Drawing.Imaging;
 
 namespace SISFORM_WEB.Controllers
 {
@@ -20,7 +20,7 @@ namespace SISFORM_WEB.Controllers
         {
             ViewBag.Title = "Incidencias";
             return View();
-        }        
+        }
         public ActionResult SolucionIncidencia()
         {
             ViewBag.Title = "SolucionIncidencia";
@@ -40,7 +40,7 @@ namespace SISFORM_WEB.Controllers
                 rpta = await servicio.ListarTipoEventoCsvAsync();
                 return rpta;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -81,7 +81,7 @@ namespace SISFORM_WEB.Controllers
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.ListarEspecificacionCsvAsync(idCategoria,idBloque);
+                rpta = await servicio.ListarEspecificacionCsvAsync(idCategoria, idBloque);
                 return rpta;
 
             }
@@ -194,7 +194,7 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
-        }        
+        }
         public async Task<string> ListarIncidenciasActCsv()
         {
             try
@@ -209,7 +209,7 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
-        }         
+        }
         public async Task<string> ObtenerIncidenciaPorIdCsv(string idIncidencia)
         {
             try
@@ -224,7 +224,7 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
-        }                
+        }
         public async Task<string> ObtenerIncidenciaPorIdParaSolucionCsv(string idIncidencia)
         {
             try
@@ -239,7 +239,7 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
-        }   
+        }
         public async Task<string> ListarIncidenciaParaSolucionCsv()
         {
             try
@@ -254,7 +254,7 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
-        }           
+        }
         public async Task<string> ListarTipoSolucionIncidenciaCsv()
         {
             try
@@ -379,8 +379,8 @@ namespace SISFORM_WEB.Controllers
             oSolucion.imagen = nombreImagen;
 
             string rpta = "";
-            rpta= await RegistrarSolucion(oSolucion);
-            
+            rpta = await RegistrarSolucion(oSolucion);
+
             return rpta;
         }
         public static byte[] CopyImageToByteArray(Image theImage)
@@ -443,7 +443,7 @@ namespace SISFORM_WEB.Controllers
             oImagen.ID_ImagenIncidencia = 0;
 
             int rpta = 0;
-            string op="";
+            string op = "";
             op = "I";
             ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
             rpta = await servicio.IncidenciaImagenAsync(oImagen, op);
