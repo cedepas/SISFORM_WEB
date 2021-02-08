@@ -344,6 +344,21 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
+        }        
+        public async Task<string> EnviarCorreoSolucion(string idIncidencia)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ConstruirCorreoSolucionAsync(idIncidencia);
+                return rpta;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         public class imgencito
         {

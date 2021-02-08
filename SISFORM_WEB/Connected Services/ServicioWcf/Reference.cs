@@ -518,6 +518,13 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ConstruirCorreo", ReplyAction="http://tempuri.org/IServicio/ConstruirCorreoResponse")]
         System.Threading.Tasks.Task<string> ConstruirCorreoAsync(string idIncidencia);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ConstruirCorreoSolucion", ReplyAction="http://tempuri.org/IServicio/ConstruirCorreoSolucionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ConstruirCorreoSolucionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ConstruirCorreoSolucion(string idIncidencia);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ConstruirCorreoSolucion", ReplyAction="http://tempuri.org/IServicio/ConstruirCorreoSolucionResponse")]
+        System.Threading.Tasks.Task<string> ConstruirCorreoSolucionAsync(string idIncidencia);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1121,6 +1128,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ConstruirCorreoAsync(string idIncidencia) {
             return base.Channel.ConstruirCorreoAsync(idIncidencia);
+        }
+        
+        public string ConstruirCorreoSolucion(string idIncidencia) {
+            return base.Channel.ConstruirCorreoSolucion(idIncidencia);
+        }
+        
+        public System.Threading.Tasks.Task<string> ConstruirCorreoSolucionAsync(string idIncidencia) {
+            return base.Channel.ConstruirCorreoSolucionAsync(idIncidencia);
         }
     }
 }

@@ -655,6 +655,15 @@
   <wsdl:message name="IServicio_ConstruirCorreo_ErrorFault_FaultMessage">
     <wsdl:part xmlns:q72="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q72:Error" />
   </wsdl:message>
+  <wsdl:message name="IServicio_ConstruirCorreoSolucion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConstruirCorreoSolucion" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ConstruirCorreoSolucion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConstruirCorreoSolucionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ConstruirCorreoSolucion_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q73="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q73:Error" />
+  </wsdl:message>
   <wsdl:portType name="IServicio">
     <wsdl:operation name="AutenticarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicio/AutenticarUsuario" message="tns:IServicio_AutenticarUsuario_InputMessage" />
@@ -1015,6 +1024,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ConstruirCorreo" message="tns:IServicio_ConstruirCorreo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ConstruirCorreoResponse" message="tns:IServicio_ConstruirCorreo_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ConstruirCorreoErrorFault" name="ErrorFault" message="tns:IServicio_ConstruirCorreo_ErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConstruirCorreoSolucion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ConstruirCorreoSolucion" message="tns:IServicio_ConstruirCorreoSolucion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ConstruirCorreoSolucionResponse" message="tns:IServicio_ConstruirCorreoSolucion_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ConstruirCorreoSolucionErrorFault" name="ErrorFault" message="tns:IServicio_ConstruirCorreoSolucion_ErrorFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicio" type="tns:IServicio">
@@ -1873,6 +1887,18 @@
     </wsdl:operation>
     <wsdl:operation name="ConstruirCorreo">
       <soap:operation soapAction="http://tempuri.org/IServicio/ConstruirCorreo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConstruirCorreoSolucion">
+      <soap:operation soapAction="http://tempuri.org/IServicio/ConstruirCorreoSolucion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

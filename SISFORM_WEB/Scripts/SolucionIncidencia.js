@@ -67,11 +67,18 @@ function mostrarCboTipoSolucion(rpta) {
 }
 function MostrarGrabarSolucion(rpta) {
     if (rpta) {
-        toastSuccessAlert("El registro del Tipo de Evento se registró correctamente", "¡Exito!");
+        toastSuccessAlert("El registro de la solución se registró correctamente", "¡Exito!");
         divSolucion.style.display = "none";
         Http.get("Incidencia/ListarIncidenciaParaSolucionCsv", CrearTablaCsv);
+        Http.get("Incidencia/EnviarCorreoSolucion?idIncidencia=" + idIncidente, mostrarEnvioCorreo);
     }
 
+}
+function mostrarEnvioCorreo(rpta) {
+    if (rpta) {
+        toastSuccessAlert("Se envió el correo de la solución de la incidencia correctamente.", "¡Exito!");
+    }
+    else toastDangerAlert("No se logró enviar el correo de la solución", "¡Error!");
 }
 function CrearTablaCsv(rpta) {
     if (rpta) {

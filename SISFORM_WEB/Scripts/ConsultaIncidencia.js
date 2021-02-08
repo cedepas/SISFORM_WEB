@@ -347,8 +347,8 @@ function MostrarGrabarBarrera(rpta) {
         btnGrabarIncidencia.style.display = "none";
         btnModalBarrera.style.display = "none";
         btnModalTipoEvento.style.display = "none";
-        idIncidencia = rpta;
-        Http.get("Incidencia/EnviarCorreo?idIncidencia=" + idIncidencia, mostrarEnvioCorreo);
+        //idIncidencia = rpta;
+        //Http.get("Incidencia/EnviarCorreo?idIncidencia=" + idIncidencia, mostrarEnvioCorreo);
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
@@ -356,8 +356,8 @@ function MostrarIncidenciaImagen(rpta) {
     if (rpta) {
         toastSuccessAlert("El registro de la incidencia fue correcto", "¡Exito!");
         btnModalImagen.style.display = "none";
-        idIncidencia = rpta;
-        //Http.get("Incidencia/EnviarCorreo?idIncidencia=" + idIncidencia, mostrarEnvioCorreo);
+        //idIncidencia = rpta;
+        Http.get("Incidencia/EnviarCorreo?idIncidencia=" + idIncidencia, mostrarEnvioCorreo);
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
@@ -365,7 +365,7 @@ function mostrarEnvioCorreo(rpta) {
     if (rpta) {
         toastSuccessAlert("Se envió el correo al Infractor correctamente.", "¡Exito!");
     }
-
+    else toastDangerAlert("No se logró enviar el correo del incidente", "¡Error!");
 }
 function CrearTablaCsv(rpta) {
     if (rpta) {
@@ -488,7 +488,7 @@ function crearObjeto() {
         }
         objetoParametrizado.push(datos);
     }
-    for (var i = 1; i <= nRegistros - 1; i++) {
+    for (var i = 0; i <= nRegistros; i++) {
         var valoresAInsertar = {};
         //console.log(i);
         for (var j = 0; j < nCampos; j++) {
