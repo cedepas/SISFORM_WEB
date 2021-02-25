@@ -18,9 +18,8 @@
         </div>*@
     <div class="form-row">
         <div class="col-sm-4">
-            <!--<p>Digite los datos de la Empresa Inspeccionada</p>-->
             <label for="txtbuscarPorEmpresa" class="required">Digite los datos de la Empresa Inspeccionada</label>
-            <input type="text" class="form-control form-control-sm E" id="txtbuscarPorEmpresa" placeholder="Nombre Empresa" />
+            <input type="text" class="form-control form-control-sm E" id="txtbuscarPorEmpresa" placeholder="Nombre Empresa" required="required" />
         </div>
     </div>
     <div class="form-row">
@@ -29,10 +28,17 @@
             <input type="date" class="form-control form-control-sm E" id="txtFechaInspeccion" style="visibility:visible" required="required" />
         </div>
         <div class="col-sm-3" id="estadoInspeccion" style="display:inline">
-            <label for="txtEstadoInspeccion" class="required">Estado de la Inspección </label>
-            <input type="text" class="form-control form-control-sm E" id="txtEstadoInspeccion" placeholder="N° Prueba" required="required" />
+            <label for="cboTipoInspeccion">Tipo de Evento</label>
+            <select class="form-control form-control-sm E" id="cboTipoInspeccion" required="required"></select>
         </div>
     </div>
+    <div class="form-row">
+        <div class="col-sm-4">
+            <button class="btn btn-success" type="button" id="btnGrabarInspeccion">Grabar Inspección</button>
+            <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>
+        </div>
+    </div>
+</div>
 </div>
 <div class="content">
     <hr class="mb-20" />
@@ -49,18 +55,3 @@
 @section scripts{
     @Scripts.Render("~/Scripts/ConsultaInspecciones.js")
 }
-
-
-@*<!DOCTYPE html>
-
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title></title>
-    </head>
-    <body>
-        <div>
-
-        </div>
-    </body>
-    </html>*@

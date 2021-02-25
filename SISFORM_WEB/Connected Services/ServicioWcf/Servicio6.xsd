@@ -662,20 +662,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListarInspeccionesCsv">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarInspeccionesCsvResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ListarInspeccionesCsvResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="ListarTipoEventoCsv">
     <xs:complexType>
       <xs:sequence />
@@ -986,6 +972,61 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ConstruirCorreoSolucionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarDniReniec">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dni" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarDniReniecResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarDniReniecResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEstadoInspeccionCsv">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEstadoInspeccionCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarEstadoInspeccionCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InspeccionOperacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oInspeccion" nillable="true" type="q23:Inspeccion" />
+        <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InspeccionOperacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InspeccionOperacionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarInspeccionesCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarInspeccionesCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarInspeccionesCsvResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

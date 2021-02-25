@@ -277,4 +277,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Solucion" nillable="true" type="tns:Solucion" />
+  <xs:complexType name="Inspeccion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Empresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FK_ID_EstadoInspeccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FK_ID_Usuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInspeccion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Inspeccion" nillable="true" type="tns:Inspeccion" />
 </xs:schema>

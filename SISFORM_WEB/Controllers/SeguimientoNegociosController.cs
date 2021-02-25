@@ -2,6 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Dominio;
 
 namespace SISFORM_WEB.Controllers
 {
@@ -27,5 +28,34 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarEstadoInspeccionCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEstadoInspeccionCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> GrabarInspeccion(Inspeccion oInspeccion,string op)
+        {
+            int rpta = 0;
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.InspeccionOperacionAsync(oInspeccion, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
+        
     }
 }

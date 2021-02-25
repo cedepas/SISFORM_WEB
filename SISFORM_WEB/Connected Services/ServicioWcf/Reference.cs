@@ -351,13 +351,6 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarIngresoporDniCsv", ReplyAction="http://tempuri.org/IServicio/RegistrarIngresoporDniCsvResponse")]
         System.Threading.Tasks.Task<string> RegistrarIngresoporDniCsvAsync(string numeroDocumento);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarInspeccionesCsv", ReplyAction="http://tempuri.org/IServicio/ListarInspeccionesCsvResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarInspeccionesCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ListarInspeccionesCsv(string idUsuario);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarInspeccionesCsv", ReplyAction="http://tempuri.org/IServicio/ListarInspeccionesCsvResponse")]
-        System.Threading.Tasks.Task<string> ListarInspeccionesCsvAsync(string idUsuario);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoEventoCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoEventoCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarTipoEventoCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarTipoEventoCsv();
@@ -525,6 +518,34 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ConstruirCorreoSolucion", ReplyAction="http://tempuri.org/IServicio/ConstruirCorreoSolucionResponse")]
         System.Threading.Tasks.Task<string> ConstruirCorreoSolucionAsync(string idIncidencia);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ValidarDniReniec", ReplyAction="http://tempuri.org/IServicio/ValidarDniReniecResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ValidarDniReniecErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ValidarDniReniec(string dni);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ValidarDniReniec", ReplyAction="http://tempuri.org/IServicio/ValidarDniReniecResponse")]
+        System.Threading.Tasks.Task<string> ValidarDniReniecAsync(string dni);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoInspeccionCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoInspeccionCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarEstadoInspeccionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarEstadoInspeccionCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoInspeccionCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoInspeccionCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarEstadoInspeccionCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/InspeccionOperacion", ReplyAction="http://tempuri.org/IServicio/InspeccionOperacionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/InspeccionOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int InspeccionOperacion(Dominio.Inspeccion oInspeccion, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/InspeccionOperacion", ReplyAction="http://tempuri.org/IServicio/InspeccionOperacionResponse")]
+        System.Threading.Tasks.Task<int> InspeccionOperacionAsync(Dominio.Inspeccion oInspeccion, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarInspeccionesCsv", ReplyAction="http://tempuri.org/IServicio/ListarInspeccionesCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarInspeccionesCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarInspeccionesCsv(string idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarInspeccionesCsv", ReplyAction="http://tempuri.org/IServicio/ListarInspeccionesCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarInspeccionesCsvAsync(string idUsuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -938,14 +959,6 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.RegistrarIngresoporDniCsvAsync(numeroDocumento);
         }
         
-        public string ListarInspeccionesCsv(string idUsuario) {
-            return base.Channel.ListarInspeccionesCsv(idUsuario);
-        }
-        
-        public System.Threading.Tasks.Task<string> ListarInspeccionesCsvAsync(string idUsuario) {
-            return base.Channel.ListarInspeccionesCsvAsync(idUsuario);
-        }
-        
         public string ListarTipoEventoCsv() {
             return base.Channel.ListarTipoEventoCsv();
         }
@@ -1136,6 +1149,38 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ConstruirCorreoSolucionAsync(string idIncidencia) {
             return base.Channel.ConstruirCorreoSolucionAsync(idIncidencia);
+        }
+        
+        public string ValidarDniReniec(string dni) {
+            return base.Channel.ValidarDniReniec(dni);
+        }
+        
+        public System.Threading.Tasks.Task<string> ValidarDniReniecAsync(string dni) {
+            return base.Channel.ValidarDniReniecAsync(dni);
+        }
+        
+        public string ListarEstadoInspeccionCsv() {
+            return base.Channel.ListarEstadoInspeccionCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarEstadoInspeccionCsvAsync() {
+            return base.Channel.ListarEstadoInspeccionCsvAsync();
+        }
+        
+        public int InspeccionOperacion(Dominio.Inspeccion oInspeccion, string op) {
+            return base.Channel.InspeccionOperacion(oInspeccion, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> InspeccionOperacionAsync(Dominio.Inspeccion oInspeccion, string op) {
+            return base.Channel.InspeccionOperacionAsync(oInspeccion, op);
+        }
+        
+        public string ListarInspeccionesCsv(string idUsuario) {
+            return base.Channel.ListarInspeccionesCsv(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarInspeccionesCsvAsync(string idUsuario) {
+            return base.Channel.ListarInspeccionesCsvAsync(idUsuario);
         }
     }
 }

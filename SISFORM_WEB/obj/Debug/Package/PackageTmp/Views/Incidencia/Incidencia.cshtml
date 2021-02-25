@@ -1,0 +1,182 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+<!-- Modals start -->
+@section modals{
+    <div class="modal modal-full ie-scroll-fix" id="detalle-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content w-lg-auto">
+                <a href="#" class="close" role="button" arial-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+                <div class="form-row">
+                    <div class="col-sm-4">
+                        <label for="cboTipoEvento">Tipo de Evento</label>
+                        <select class="form-control form-control-sm DE" id="cboTipoEvento" required="required"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="cboCategoria">Categoría</label>
+                        <select class="form-control form-control-sm DE" id="cboCategoria" required="required"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="cboBloque">Bloque</label>
+                        <select class="form-control form-control-sm DE" id="cboBloque" required="required"></select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-4">
+                        <label for="cboEspecificacion">Especificación</label>
+                        <select class="form-control form-control-sm DE" id="cboEspecificacion"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>Digite los datos de la Empresa Involucrada</p>
+                        <input class="form-control form-control-sm" id="txtbuscarPorEmpresaInvolucrada" />
+                        @*<label for="cboEmpresaInvolucrada">Empresa Involucrada</label>
+                        <select class="form-control form-control-sm" id="cboEmpresaInvolucrada" required="required"></select>*@
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <p>Detalle del Incidente</p>
+                            <textarea id="txtDetalles" class="form-control form-control-sm DE" style="border: none; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <a href="#vista3-modal" class="btn btn-secondary" id="btnRegDeta" role="button" style="visibility:visible">Registrar Detalle</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal modal-full ie-scroll-fix" id="barrera-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content w-lg-auto">
+                <a href="#" class="close" role="button" arial-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+                <div class="form-row">
+                    <div class="col-sm-4">
+                        <label for="cboBarrera" class="required">Barrera</label>
+                        <select class="form-control form-control-sm DB" id="cboBarrera" required="required"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="cboTipoBarrera" class="required">Especificación Barrera</label>
+                        <select class="form-control form-control-sm DB" id="cboTipoBarrera" required="required"></select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm">
+                        <p>Detalle  Barrera</p>
+                        <textarea id="txtBarrera" class="form-control form-control-sm DE" style="border: none; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"></textarea>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <a href="#vista3-modal" class="btn btn-secondary" id="btnBarrera" role="button" style="visibility:visible">Registrar Barrera</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "incidencia";
+    </script>
+
+    <div class="modal modal-full ie-scroll-fix" id="imagen-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content w-lg-auto">
+                <a href="#" class="close" role="button" arial-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+                <div class="form-row">
+                    <div class="col-sm E">
+                        <input type="file" onchange="codificarImg(this)" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm">
+                        <img id="imgVistaPrevia" class="E" src="" name="imgVistaPrevia" alt="Imagen a Cargar" height="80" style="display:none">
+                    </div>
+                </div>
+                <div class="text-right">
+                    <a href="#vista3-modal" class="btn btn-secondary E" id="btnImagenIndicencia" role="button" style="visibility:visible">Registrar Imagen de Incidencia</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "incidencia";
+    </script>
+}
+<!-- Modals end -->
+
+
+<div class="content">
+    <div class="form-row">
+        <div class="col-sm">
+            <div class="title"><h5>Registro de Incidencias</h5></div>
+        </div>
+        <div class="col-sm">
+            <label id="lblRegTitu" style="visibility:hidden">Registro: </label>
+            <label id="lblAlertaRegistro" style="visibility:hidden"></label>
+        </div>
+
+        <div class="text-right">
+            <label>N° de Incidencia: </label>
+            <label id="lblNumeroIncidencia"></label>
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="col-sm">
+            <label for="txtFechaIncidencia" class="required">Fecha </label>
+            <input type="date" class="form-control form-control-sm E" id="txtFechaIncidencia" required="required" readonly="readonly" />
+        </div>
+        <div class="col-sm">
+            <label for="cboTipoEmpresa" class="required">Tipo de Empresa</label>
+            <select class="form-control form-control-sm" id="cboTipoEmpresa"></select>
+        </div>
+        <div class="col-sm">
+            <p>Digite los datos de la Empresa Infractora</p>
+            <input class="form-control form-control-sm" id="txtbuscarPorEmpresaInfractora" />
+            @*<label for="cboEmpresaIncidente" class="required">Empresa Infractora</label>
+        <select class="form-control form-control-sm E" id="cboEmpresaIncidente"></select>*@
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm">
+            <label for="cboZona" class="required">Zona</label>
+            <select class="form-control form-control-sm E" id="cboZona" required="required"></select>
+        </div>
+        <div class="col-sm">
+            <label for="cboUbicacion" class="required">Ubicación</label>
+            <select class="form-control form-control-sm E" id="cboUbicacion"></select>
+        </div>
+        <div class="col-sm">
+            <label for="cboTipoProgInci" class="required">Tipo Reporte</label>
+            <select class="form-control form-control-sm E" id="cboTipoProgInci"></select>
+        </div>
+
+    </div>
+    <div class="text-right">
+        <input class="btn btn-success" type="button" id="btnGrabarIncidencia" value="Registrar Incidencia">
+        <a href="#detalle-modal" class="btn btn-secondary" id="btnModalTipoEvento" role="button" style="display:none">Registrar Evento</a>
+        <a href="#barrera-modal" class="btn btn-secondary" id="btnModalBarrera" role="button" style="display:none">Registrar Barrera</a>
+        <a href="#imagen-modal" class="btn btn-secondary" id="btnModalImagen" role="button" style="display:none">Registrar Imagen</a>
+        <input class="btn btn-primary" type="button" id="Nuevo" value="Nuevo" style="visibility:hidden">
+    </div>
+</div>
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+@section scripts{
+    @Scripts.Render("~/Scripts/ConsultaIncidencia.js")
+}
+
