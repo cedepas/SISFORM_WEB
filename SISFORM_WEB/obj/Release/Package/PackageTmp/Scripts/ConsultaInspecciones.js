@@ -110,7 +110,7 @@ function crearObjeto() {
     //var nCamposObejetoFinal = 3;
     var clave;
     var valor;
-    for (var i = 1; i <= nRegistros -1; i++) {
+    for (var i = 1; i <= nRegistros - 1; i++) {
         for (var j = 0; j < nCampos; j++) {
             datos = lista[i].split("|");
         }

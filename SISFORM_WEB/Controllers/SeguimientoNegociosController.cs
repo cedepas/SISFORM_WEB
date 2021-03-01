@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Dominio;
+using System.Collections.Generic;
 
 namespace SISFORM_WEB.Controllers
 {
@@ -16,9 +17,17 @@ namespace SISFORM_WEB.Controllers
         }
         public ActionResult CheckList()
         {
+            int preguntas=0;
             ViewBag.Title = "CheckList";
+            ViewBag.TotalPreguntas = numeroDePreguntas(preguntas);
             return View();
         }
+        public int numeroDePreguntas(int numeroPreguntas)
+        {
+            return numeroPreguntas;
+        }
+
+
         public async Task<string> ListarInspecciones(string idUsuario)
         {
             try
@@ -61,6 +70,24 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
+        public async Task<string> ListarTipoOperacionEmpresaCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                numeroDePreguntas(20);
+                rpta = await servicio.ListarEstadoInspeccionCsvAsync();
+                //rpta = await servicio.ListarTipoOperacionEmpresaCsvAsync();
+
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         
+
     }
 }
