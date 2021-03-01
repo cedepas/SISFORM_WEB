@@ -14,6 +14,11 @@ namespace SISFORM_WEB.Controllers
             ViewBag.Title = "Inspecciones";
             return View();
         }
+        public ActionResult CheckList()
+        {
+            ViewBag.Title = "CheckList";
+            return View();
+        }
         public async Task<string> ListarInspecciones(string idUsuario)
         {
             try

@@ -216,6 +216,7 @@
     <Content Include="Scripts\apexcharts.js" />
     <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\buttons.js" />
+    <Content Include="Scripts\ConsultaCheckList.js" />
     <Content Include="Scripts\ConsultaAsignacion.js" />
     <Content Include="Scripts\ConsultaInspecciones.js" />
     <Content Include="Scripts\ConsultaTrabajadorMasivo.js" />
@@ -292,6 +293,7 @@
     <Content Include="Views\Trabajador\Asignacion.cshtml" />
     <Content Include="Views\Trabajador\Masivo.cshtml" />
     <Content Include="Views\SeguimientoNegocios\Inspecciones.cshtml" />
+    <Content Include="Views\SeguimientoNegocios\CheckList.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -335,8 +337,6 @@
           <DevelopmentServerPort>54945</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/SISFORM_WEB</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost/SISFORM_WEB</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

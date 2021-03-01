@@ -3,11 +3,16 @@ var lstCboTipoDoc;
 var lstCboPuesto;
 var lstCboEmpresa;
 var idTrabajador;
+var idEmpresa;
+var objetoParametrizado = [];
+var objetoBusqueda = [];
+var filtro;
+var textoBusqueda;
 
 window.onload = function () {
     Http.get("Trabajador/ListarTipoDocumentoCbo", mostrarTipoDocumentoCbo);
     Http.get("Trabajador/listarUbigeoCbo", mostrarListaUbigeo);
-    Http.get("Trabajador/ListarEmpresaCbo", mostrarEmpresaCbo);
+    Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
 
     if (!isMobile.any()) {
         
@@ -20,9 +25,9 @@ window.onload = function () {
 
     Http.get("Trabajador/ListarTrabajador", CrearTablaCsv);
 
-    cboEmpresa.onchange = function () {
-        listarPuestoTrabajo();
-    }
+    //cboEmpresa.onchange = function () {
+    //    listarPuestoTrabajo();
+    //}
 
     cboDepartamento.onchange = function () {
         listarProvincias();
@@ -65,7 +70,7 @@ window.onload = function () {
         frm.append("FK_ID_Trabajador", (idTrabajador == "" ? "0" : idTrabajador));
         //frm.append("FK_ID_Trabajador", txtIdTrabajador.value);
         frm.append("FK_ID_PuestoTrabajo", cboPuestoTrabajo.value);
-        frm.append("FK_ID_Empresa", cboEmpresa.value);
+        frm.append("FK_ID_Empresa", idEmpresa);
         frm.append("fechaIngreso", txtFechaIngreso.value);
         frm.append("fechaFin", txtFechaSalida.value);
         frm.append("estado", (txtEstadoPuesto.checked == true ? "ACT" : "ANU"));
@@ -82,6 +87,39 @@ window.onload = function () {
         btnNuevo.style.visibility = "hidden";
     }
 
+    txtbuscarPorEmpresa.onkeyup = function () {
+        var a, b;
+        closeAllLists();
+        a = document.createElement("div");
+        a.setAttribute("id", this.id + "predictivo-list");
+        a.setAttribute("class", "predictivo-items");
+        this.parentNode.appendChild(a);
+        textoBusqueda = txtbuscarPorEmpresa.value.toLowerCase();
+        for (let objeto of objetoBusqueda) {
+            let Nombre = objeto.NombreComercial.toLowerCase();
+            if (Nombre.indexOf(textoBusqueda) !== -1) {
+                b = document.createElement("div");
+                b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
+                //b.innerHTML += Nombre;
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
+                b.addEventListener("click", function (e) {
+                    txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
+                    idEmpresa = objeto.IDEmpr;
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+    }
+
+}
+function closeAllLists(elmnt) {
+    var x = document.getElementsByClassName("predictivo-items");
+    for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != textoBusqueda) {
+            x[i].parentNode.removeChild(x[i]);
+        }
+    }
 }
 
 function mostrarTipoDocumentoCbo(rpta) {
@@ -105,7 +143,7 @@ function mostrarEmpresaCbo(rpta) {
     }
 }
 function listarPuestoTrabajo() {
-    Http.get("Trabajador/ListarPuestoTrabajoCbo?idEmpresa=" + cboEmpresa.value, mostrarPuestoTrabajoCbo);
+    Http.get("Trabajador/ListarPuestoTrabajoCbo?idEmpresa=" + idEmpresa, mostrarPuestoTrabajoCbo);
 }
 
 function mostrarListaUbigeo(rpta) {
@@ -208,6 +246,44 @@ function CrearTablaCsv(rpta) {
     if (rpta) {
         var lista = rpta.split('¬');
         var grilla = new Grilla(lista, "divTabla", 10, 3);
+    }
+}
+
+function CrearListaCsv(rpta) {
+    if (rpta) {
+        lista = rpta.split('¬');
+        crearObjeto(lista)
+    }
+}
+
+function crearObjeto() {
+    //crea el objeto para busqueda segun los datos
+    cabeceras = lista[0].split("|");
+    var nRegistros = lista.length;
+    var nCampos = cabeceras.length;
+    objetoBusqueda = [];
+    //var nCamposObejetoFinal = 3;
+    var clave;
+    var valor;
+    for (var i = 1; i <= nRegistros - 1; i++) {
+        for (var j = 0; j < nCampos; j++) {
+            datos = lista[i].split("|");
+        }
+        objetoParametrizado.push(datos);
+    }
+    for (var i = 0; i < nRegistros - 1; i++) {
+        var valoresAInsertar = {};
+        //console.log(i);
+        for (var j = 0; j < nCampos; j++) {
+            clave = cabeceras[j];
+            valor = objetoParametrizado[i][j];
+            //console.log(valor);
+            Object.defineProperty(valoresAInsertar, clave.toString(), {
+                value: valor,
+                writable: false
+            });
+        }
+        objetoBusqueda.push(valoresAInsertar);
     }
 }
 

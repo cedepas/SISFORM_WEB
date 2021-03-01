@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Modals start -->
+@section modals{
+
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "gestionNegocios";
+    </script>
+}
+
+
+<div class="content">
+    <div class="title"><h5 id="CheckList"></h5></div>
+    <div class="form-row">
+        <div class="col-sm-4">
+            <label typeof="number" id="preguntas"></label>
+            <label for="txtbuscarPorEmpresa" class="required">Digite los datos de la empresa a realizar el checkList</label>
+            <input type="text" class="form-control form-control-sm E" id="txtbuscarPorEmpresa" placeholder="Nombre Empresa" required="required" />
+        </div>
+    </div>
+    @for (var i = 1; i < 35; i++)
+    {
+        <div class="form-row">
+            <div class="col-sm-3" id="item1">
+                <label class="col-12" for="txtFechaInspeccion">Item Número @i</label>
+                <label class="col-12" for="txtFechaInspeccion">Pregunta Número @i</label>
+                <label for="cboTipoInspeccion">Puntuacion</label>
+                <select class="form-control form-control-sm E" id="cboTipoInspeccion" required="required"></select>
+            </div>
+        </div>
+    }
+    <div class="form-row">
+        <div class="col-sm-4">
+            <button class="btn btn-success" type="button" id="btnGrabarCheckList">Grabar Inspección</button>
+            <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+@section scripts{
+    @Scripts.Render("~/Scripts/ConsultaCheckList.js")
+}
