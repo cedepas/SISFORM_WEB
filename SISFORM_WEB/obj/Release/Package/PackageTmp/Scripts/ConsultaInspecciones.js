@@ -18,6 +18,11 @@ window.onload = function () {
             divRows[i].classList.add("row-eq-spacing-sm");
         }
     }
+
+    obtenerfechaActual();
+
+    txtFechaInspeccion.value = fechaActual;
+
     btnGrabarInspeccion.onclick = function () {
         var frm = new FormData();
         frm.append("FK_ID_Empresa", idEmpresa);
@@ -61,7 +66,6 @@ window.onload = function () {
         }
     }
 
-
     bntNuevo.onclick = function () {
         limpiarControles('form-control');
     }
@@ -87,6 +91,19 @@ function MostrarRegistroInspeccion(rpta) {
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 } 
+
+function obtenerfechaActual() {
+    var fecha = new Date();
+    var mes = fecha.getMonth() + 1;
+    var dia = fecha.getDate();
+    var ano = fecha.getFullYear();
+    if (dia < 10)
+        dia = '0' + dia;
+    if (mes < 10)
+        mes = '0' + mes
+    fechaActual = ano + "-" + mes + "-" + dia;
+}
+
 function CrearTablaCsv(rpta) {
     if (rpta) {
         var lista = rpta.split('¬');

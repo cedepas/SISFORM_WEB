@@ -286,4 +286,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Inspeccion" nillable="true" type="tns:Inspeccion" />
+  <xs:complexType name="CheckList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripciones" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TipoServicio" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
+      <xs:element minOccurs="0" name="NumeroEvaluacion" type="xs:int" />
+      <xs:element minOccurs="0" name="Puntajes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VersionCheckList" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaPuntaje" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckList" nillable="true" type="tns:CheckList" />
 </xs:schema>

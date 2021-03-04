@@ -4,6 +4,10 @@ var objetoParametrizado = [];
 var objetoBusqueda = [];
 var filtro;
 var textoBusqueda;
+var idTipoEmpresa;
+var cantidadSelect;
+var idTipoServicio;
+var idUnidadGestion;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -17,18 +21,51 @@ window.onload = function () {
         for (var i = 0; i < divRows.length; i++) {
             divRows[i].classList.add("row-eq-spacing-sm");
         }
-
-        preguntas = 35;
     }
+    obtenerfechaActual();
+
+    txtFechaCheckList.value = fechaActual;
+
     btnGrabarCheckList.onclick = function () {
-        console.log(tipoEmpresa);
+        var inicio = 1;
+        var lstPuntajes = 0;
+        var lstDescripciones = 0;
+        while (inicio <= cantidadSelect) {
+            var seleccion = "select" + inicio;
+            var descripcion = "input" + inicio;
+            lstPuntajes = lstPuntajes + document.getElementById(seleccion).value + "|";
+            lstDescripciones = lstDescripciones + document.getElementById(descripcion).value + "|";
+            inicio = inicio +1;
+        }
+
+        lstPuntajes = lstPuntajes.substring(1, lstPuntajes.length);
+        lstPuntajes = lstPuntajes.substring(0, lstPuntajes.length - 1);
+
+        lstDescripciones = lstDescripciones.substring(1, lstDescripciones.length);
+        lstDescripciones = lstDescripciones.substring(0, lstDescripciones.length - 1);
+
+        
+        var frm = new FormData();
+        frm.append("FK_ID_Empresa", idEmpresa);
+        frm.append("fechaPuntaje", txtFechaCheckList.value);
+        frm.append("NumeroEvaluacion", nroEvaluacion.value);
+        frm.append("VersionCheckList", versionCheckList.value);
+        frm.append("FK_ID_TRABAJADOR", idUsuario);
+        frm.append("FK_ID_UnidadGestion", idUnidadGestion);
+        frm.append("FK_ID_TipoServicio", idTipoServicio);
+        frm.append("PUNTAJES", lstPuntajes);
+        frm.append("DESCRIPCIONES", lstDescripciones);
+        if (validarRequeridos('E')) {
+            checkSubmit(btnGrabarCheckList);
+            Http.post("SeguimientoNegocios/CheckListOperacion?op=I", MostrarRegistroCheckList, frm);
+        } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
 
-    //function checkSubmit(boton) {
-    //    boton.value = "Enviando...";
-    //    boton.disabled = true;
-    //    return true;
-    //}
+    function checkSubmit(boton) {
+        boton.value = "Enviando...";
+        boton.disabled = true;
+        return true;
+    }
 
     txtbuscarPorEmpresa.onkeyup = function () {
         var a, b;
@@ -48,15 +85,22 @@ window.onload = function () {
                 b.addEventListener("click", function (e) {
                     txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
                     idEmpresa = objeto.IDEmpr;
-                    obtenerCantidadPreguntas(objeto.TipoEmpresa);
                     closeAllLists();
+                    idTipoEmpresa = objeto.TipoEmpresa;
+                    obtenerCantidadPreguntas(objeto.TipoEmpresa);
                 });
                 a.appendChild(b);
             }
         }
     }
+
+    cboTipoServicio.onchange = function () {
+        idTipoServicio = cboTipoServicio.value;
+        Http.get("SeguimientoNegocios/ListarCantidadPreguntasChecklistCsv?tipoEmpresa=" + idTipoEmpresa + "&tipoServicio=" + cboTipoServicio.value, mostrarPreguntas);
+    }
+
     bntNuevo.onclick = function () {
-        limpiarControles('form-control');
+        location.reload();
     }
 }
 function closeAllLists(elmnt) {
@@ -69,9 +113,6 @@ function closeAllLists(elmnt) {
 }
 function obtenerCantidadPreguntas(tipoEmpresa) {
     Http.get("SeguimientoNegocios/ListarTipoOperacionEmpresaCsv?tipoEmpresa=" + tipoEmpresa, mostrarTipoServicioCbo);
-    console.log("Ingreso a cantidad preguntas");
-    document.f1.preguntas.value = 30;
-    console.log(tipoEmpresa);
 }
 function MostrarRegistroInspeccion(rpta) {
     if (rpta) {
@@ -84,9 +125,73 @@ function MostrarRegistroInspeccion(rpta) {
 function mostrarTipoServicioCbo(rpta) {
     if (rpta) {
         lstCboTipoServicio = rpta.split("¬");
-        CrearCombo(lstCboTipoServicio, cboTipoServicio, "Seleccione");
+        if (lstCboTipoServicio.length >= 2) {
+            tipoServicio.style.display = "inline-block";
+            CrearCombo(lstCboTipoServicio, cboTipoServicio, "Seleccione");
+        }
+        else {
+            lstCboTipoDeServicio = lstCboTipoServicio[0].split("|");
+            idTipoServicio = lstCboTipoDeServicio[0];
+            Http.get("SeguimientoNegocios/ListarCantidadPreguntasChecklistCsv?tipoEmpresa=" + idTipoEmpresa + "&tipoServicio=" + lstCboTipoDeServicio[0], mostrarPreguntas);
+        }
+            
+    }
+    else {
+        limpiarControles('form-control');
+        toastDangerAlert("La empresa Seleciona no Presta algun Servicio", "¡Error!");
     }
 }
+function mostrarPreguntas(rpta) {
+    if (rpta) {
+        lstPreguntas = rpta.split('¬');
+        lstCabeceras = lstPreguntas[0].split('|');
+        lstValores = lstPreguntas[1].split('|');
+        var b,c;
+        idUnidadGestion = lstValores[5];
+        cantidadSelect = lstValores[3];
+        for (var i = 1; i <= lstValores[3]; i++) {
+            b = document.createElement("div");
+            b.innerHTML = "<label>N° : " + i + "</label>&nbsp; &nbsp; &nbsp; ";
+            b.innerHTML += "<span>Puntuacion</span>&nbsp; ";
+            if (lstValores[2] == 1) {
+                b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='1'>1</option>";
+            }
+            else {
+                b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option>";
+            }
+            b.innerHTML += "<input type='text' id='input" + i + "' placeholder='Detalle Item " + i + "'/></div >";
+            document.getElementById('preguntas').appendChild(b);
+        }
+        datosServicio.style.display = "inline-block";
+        document.getElementById('nombreTipoEmpresa').value = lstValores[0];
+        document.getElementById('nombreTipoServicio').value = lstValores[1];
+        document.getElementById('nroEvaluacion').value = lstValores[2];
+        document.getElementById('versionCheckList').value = lstValores[4];
+        document.getElementById('UnidadGestion').value = lstValores[6];
+        
+    }
+    else
+        toastDangerAlert("El tipo de empresa no cuenta con CheckList", "¡Error!");
+}
+function MostrarRegistroCheckList(rpta) {
+    if (rpta) {
+        toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
+        limpiarControles('form-control');
+    }
+    else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
+} 
+function obtenerfechaActual() {
+    var fecha = new Date();
+    var mes = fecha.getMonth() + 1;
+    var dia = fecha.getDate();
+    var ano = fecha.getFullYear();
+    if (dia < 10)
+        dia = '0' + dia;
+    if (mes < 10)
+        mes = '0' + mes
+    fechaActual = ano + "-" + mes + "-" + dia;
+}
+
 function CrearTablaCsv(rpta) {
     if (rpta) {
         var lista = rpta.split('¬');

@@ -17,16 +17,14 @@ namespace SISFORM_WEB.Controllers
         }
         public ActionResult CheckList()
         {
-            int preguntas=0;
             ViewBag.Title = "CheckList";
-            ViewBag.TotalPreguntas = numeroDePreguntas(preguntas);
             return View();
         }
-        public int numeroDePreguntas(int numeroPreguntas)
+        public ActionResult Capacitacion()
         {
-            return numeroPreguntas;
+            ViewBag.Title = "Capacitacion";
+            return View();
         }
-
 
         public async Task<string> ListarInspecciones(string idUsuario)
         {
@@ -70,16 +68,59 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
-        public async Task<string> ListarTipoOperacionEmpresaCsv()
+        public async Task<string> ListarTipoOperacionEmpresaCsv(int tipoEmpresa)
         {
             try
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                numeroDePreguntas(20);
-                rpta = await servicio.ListarEstadoInspeccionCsvAsync();
-                //rpta = await servicio.ListarTipoOperacionEmpresaCsvAsync();
+                //rpta = await servicio.ListarEstadoInspeccionCsvAsync();
+                rpta = await servicio.ListarTipoOperacionEmpresaCsvAsync(tipoEmpresa);
 
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ListarCantidadPreguntasChecklistCsv(int tipoEmpresa, int tipoServicio)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                //rpta = await servicio.ListarEstadoInspeccionCsvAsync();
+                rpta = await servicio.ListarCantidadPreguntasChecklistCsvAsync(tipoEmpresa,tipoServicio);
+
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> CheckListOperacion(CheckList oCheckList, string op)
+        {
+            int rpta = 0;
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.CheckListOperacionAsync(oCheckList, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
+        public async Task<string> ListarEstadoCapacitacionCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEstadoCapacitacionCsvAsync();
                 return rpta;
             }
             catch (Exception ex)

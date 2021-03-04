@@ -25,9 +25,7 @@ window.onload = function () {
 
     Http.get("Trabajador/ListarTrabajador", CrearTablaCsv);
 
-    //cboEmpresa.onchange = function () {
-    //    listarPuestoTrabajo();
-    //}
+    
 
     cboDepartamento.onchange = function () {
         listarProvincias();
@@ -110,6 +108,9 @@ window.onload = function () {
                 a.appendChild(b);
             }
         }
+    }
+    txtbuscarPorEmpresa.onchange = function () {
+        listarPuestoTrabajo();
     }
 
 }
