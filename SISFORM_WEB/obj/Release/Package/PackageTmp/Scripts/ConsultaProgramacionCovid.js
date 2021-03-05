@@ -22,13 +22,12 @@ window.onload = function () {
         if (idPruebaCovid < 1) {
             if (idEmpresaTrab && idEmpresaTrab != '0') {
                 frm.append("ID_Empresa", idEmpresaTrab);
-
             }
             else toastDangerAlert("El colaborador no tiene asignado una Empresa ni Puesto de trabajo", "¡Aviso!")
             frm.append("FK_ID_Trabajador", idTrabajador);
             frm.append("fechaPrueba", txtFechaPrueba.value);
             frm.append("numeroPrueba", numeroPrueba);
-            //frm.append("resultadoPrueba", cboResultadoPrueba.value);
+            frm.append("resultadoPrueba", 1);
             frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
 
             if (validarRequeridos('E')) {

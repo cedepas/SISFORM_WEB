@@ -300,4 +300,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CheckList" nillable="true" type="tns:CheckList" />
+  <xs:complexType name="Capacitacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EstadoCapacitacion" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TemaCapacitacion" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaCapacitacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="TrabajadoresCapacitados" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Capacitacion" nillable="true" type="tns:Capacitacion" />
 </xs:schema>

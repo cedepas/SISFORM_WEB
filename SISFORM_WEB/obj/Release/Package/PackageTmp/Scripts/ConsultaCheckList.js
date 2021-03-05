@@ -12,7 +12,7 @@ var idUnidadGestion;
 window.onload = function () {
     if (!isMobile.any()) {
         idUsuario = window.sessionStorage.getItem('idUsuario');
-        //Http.get("SeguimientoNegocios/ListarInspecciones?idUsuario=" + idUsuario, CrearTablaCsv);
+        Http.get("SeguimientoNegocios/ListarCheckListCsv?idUsuario=" + idUsuario, CrearTablaCsv);
         Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
 
 
@@ -85,9 +85,9 @@ window.onload = function () {
                 b.addEventListener("click", function (e) {
                     txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
                     idEmpresa = objeto.IDEmpr;
-                    closeAllLists();
                     idTipoEmpresa = objeto.TipoEmpresa;
-                    obtenerCantidadPreguntas(objeto.TipoEmpresa);
+                    obtenerTipoServicio(objeto.TipoEmpresa);
+                    closeAllLists();
                 });
                 a.appendChild(b);
             }
@@ -111,7 +111,7 @@ function closeAllLists(elmnt) {
         }
     }
 }
-function obtenerCantidadPreguntas(tipoEmpresa) {
+function obtenerTipoServicio(tipoEmpresa) {
     Http.get("SeguimientoNegocios/ListarTipoOperacionEmpresaCsv?tipoEmpresa=" + tipoEmpresa, mostrarTipoServicioCbo);
 }
 function MostrarRegistroInspeccion(rpta) {
@@ -146,7 +146,7 @@ function mostrarPreguntas(rpta) {
         lstPreguntas = rpta.split('¬');
         lstCabeceras = lstPreguntas[0].split('|');
         lstValores = lstPreguntas[1].split('|');
-        var b,c;
+        var b;
         idUnidadGestion = lstValores[5];
         cantidadSelect = lstValores[3];
         for (var i = 1; i <= lstValores[3]; i++) {

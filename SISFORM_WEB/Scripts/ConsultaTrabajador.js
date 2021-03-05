@@ -103,15 +103,16 @@ window.onload = function () {
                 b.addEventListener("click", function (e) {
                     txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
                     idEmpresa = objeto.IDEmpr;
+                    listarPuestoTrabajo();
                     closeAllLists();
                 });
                 a.appendChild(b);
             }
         }
-    }
-    txtbuscarPorEmpresa.onchange = function () {
-        listarPuestoTrabajo();
-    }
+    A}
+    //txtbuscarPorEmpresa.onchange = function () {
+    //    listarPuestoTrabajo();
+    //}
 
 }
 function closeAllLists(elmnt) {

@@ -18,6 +18,12 @@
             <input type="text" class="form-control form-control-sm E" id="txtbuscarPorEmpresa" placeholder="Nombre Empresa" required="required" />
         </div>
     </div>
+    <div class="form-row" id="tipoServicio" style="display:none">
+        <div>
+            <label for="cboTipoServicio" class="required">Seleccione el tipo de operacion de la Empresa</label>
+            <select class="form-control form-control-sm" id="cboTipoServicio"></select>
+        </div>
+    </div>
     <div class="form-row">
         <div class="col-sm-3" id="fechaCapacitacion" style="display:inline">
             <label for="txtFechaInspeccion">Fecha de Capacitacion</label>
@@ -26,6 +32,34 @@
         <div class="col-sm-3" id="estadoCapacitacion" style="display:inline">
             <label for="cboEstadoCapacitacion">Estado Capacitacion</label>
             <select class="form-control form-control-sm E" id="cboEstadoCapacitacion" required="required"></select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-12">
+            <label for="txtBuscarTrabajador" class="required p-4">Digite Nombre del Trabajador Capacitado</label>
+            <input type="text" class="form-control-sm E p-4" id="txtBuscarTrabajador" placeholder="Nombre Trabajador" required="required" />
+            <button class="p-4" type="button" id="bntAgregarTrabajador"><i class="fas fa-file-upload"></i></button>
+        </div>
+        <div>
+            <fieldset>
+                <legend>Listado de Trabajadores Capacitados</legend>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombres y Apellidos</th>
+                            <th>DNI</th>
+                        </tr>
+                    </thead>
+                    <tbody id="TrabajadoresCapacitados">
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-4">
+            <label for="txtBuscaTemaCapacitacion" class="required">Digite Nombre del Tema de Capacitación</label>
+            <input type="text" class="form-control form-control-sm E" id="txtBuscaTemaCapacitacion" placeholder="Tema de Capacitación" required="required" />
         </div>
     </div>
     <div class="form-row">

@@ -26,6 +26,34 @@ namespace SISFORM_WEB.Controllers
             return View();
         }
 
+        public async Task<string> ListarCapacitacionesCsv(int idUsuario)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarCapacitacionesCsvAsync(idUsuario);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ListarCheckListCsv(int idUsuario)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarCheckListCsvAsync(idUsuario);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         public async Task<string> ListarInspecciones(string idUsuario)
         {
             try
@@ -114,6 +142,22 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
+        public async Task<string> CapacitacionOperacion(Capacitacion oCapacitacion, string op)
+        {
+            int rpta = 0;
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.CapacitacionOperacionAsync(oCapacitacion, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
+
+        
         public async Task<string> ListarEstadoCapacitacionCsv()
         {
             try
@@ -128,7 +172,20 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarTemaCapacitacionCsv(int tipoEmpresa, int tipoServicio)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarTemaCapacitacionCsvAsync(tipoEmpresa, tipoServicio);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         
-
     }
 }

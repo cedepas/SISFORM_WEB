@@ -682,6 +682,24 @@
   <wsdl:message name="IServicio_InspeccionOperacion_ErrorFault_FaultMessage">
     <wsdl:part xmlns:q75="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q75:Error" />
   </wsdl:message>
+  <wsdl:message name="IServicio_CheckListOperacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckListOperacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_CheckListOperacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckListOperacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_CheckListOperacion_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q76="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q76:Error" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_CapacitacionOperacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CapacitacionOperacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_CapacitacionOperacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CapacitacionOperacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_CapacitacionOperacion_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q77="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q77:Error" />
+  </wsdl:message>
   <wsdl:message name="IServicio_ListarInspeccionesCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarInspeccionesCsv" />
   </wsdl:message>
@@ -689,7 +707,7 @@
     <wsdl:part name="parameters" element="tns:ListarInspeccionesCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarInspeccionesCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q76="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q76:Error" />
+    <wsdl:part xmlns:q78="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q78:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoOperacionEmpresaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTipoOperacionEmpresaCsv" />
@@ -698,7 +716,7 @@
     <wsdl:part name="parameters" element="tns:ListarTipoOperacionEmpresaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoOperacionEmpresaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q77="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q77:Error" />
+    <wsdl:part xmlns:q79="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q79:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCantidadPreguntasChecklistCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarCantidadPreguntasChecklistCsv" />
@@ -707,16 +725,7 @@
     <wsdl:part name="parameters" element="tns:ListarCantidadPreguntasChecklistCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCantidadPreguntasChecklistCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q78="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q78:Error" />
-  </wsdl:message>
-  <wsdl:message name="IServicio_CheckListOperacion_InputMessage">
-    <wsdl:part name="parameters" element="tns:CheckListOperacion" />
-  </wsdl:message>
-  <wsdl:message name="IServicio_CheckListOperacion_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CheckListOperacionResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServicio_CheckListOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q79="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q79:Error" />
+    <wsdl:part xmlns:q80="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q80:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEstadoCapacitacionCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEstadoCapacitacionCsv" />
@@ -725,7 +734,34 @@
     <wsdl:part name="parameters" element="tns:ListarEstadoCapacitacionCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEstadoCapacitacionCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q80="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q80:Error" />
+    <wsdl:part xmlns:q81="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q81:Error" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarCapacitacionesCsv_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCapacitacionesCsv" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarCapacitacionesCsv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCapacitacionesCsvResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarCapacitacionesCsv_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q82="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q82:Error" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarCheckListCsv_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCheckListCsv" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarCheckListCsv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCheckListCsvResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarCheckListCsv_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q83="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q83:Error" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarTemaCapacitacionCsv_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTemaCapacitacionCsv" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarTemaCapacitacionCsv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTemaCapacitacionCsvResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarTemaCapacitacionCsv_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q84="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q84:Error" />
   </wsdl:message>
   <wsdl:portType name="IServicio">
     <wsdl:operation name="AutenticarUsuario">
@@ -1103,6 +1139,16 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IServicio/InspeccionOperacionResponse" message="tns:IServicio_InspeccionOperacion_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/InspeccionOperacionErrorFault" name="ErrorFault" message="tns:IServicio_InspeccionOperacion_ErrorFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CheckListOperacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/CheckListOperacion" message="tns:IServicio_CheckListOperacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/CheckListOperacionResponse" message="tns:IServicio_CheckListOperacion_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/CheckListOperacionErrorFault" name="ErrorFault" message="tns:IServicio_CheckListOperacion_ErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CapacitacionOperacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/CapacitacionOperacion" message="tns:IServicio_CapacitacionOperacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/CapacitacionOperacionResponse" message="tns:IServicio_CapacitacionOperacion_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/CapacitacionOperacionErrorFault" name="ErrorFault" message="tns:IServicio_CapacitacionOperacion_ErrorFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ListarInspeccionesCsv">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarInspeccionesCsv" message="tns:IServicio_ListarInspeccionesCsv_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarInspeccionesCsvResponse" message="tns:IServicio_ListarInspeccionesCsv_OutputMessage" />
@@ -1118,15 +1164,25 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsvResponse" message="tns:IServicio_ListarCantidadPreguntasChecklistCsv_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarCantidadPreguntasChecklistCsv_ErrorFault_FaultMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CheckListOperacion">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/CheckListOperacion" message="tns:IServicio_CheckListOperacion_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/CheckListOperacionResponse" message="tns:IServicio_CheckListOperacion_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/CheckListOperacionErrorFault" name="ErrorFault" message="tns:IServicio_CheckListOperacion_ErrorFault_FaultMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ListarEstadoCapacitacionCsv">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsv" message="tns:IServicio_ListarEstadoCapacitacionCsv_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsvResponse" message="tns:IServicio_ListarEstadoCapacitacionCsv_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarEstadoCapacitacionCsv_ErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCapacitacionesCsv">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarCapacitacionesCsv" message="tns:IServicio_ListarCapacitacionesCsv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarCapacitacionesCsvResponse" message="tns:IServicio_ListarCapacitacionesCsv_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarCapacitacionesCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarCapacitacionesCsv_ErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCheckListCsv">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarCheckListCsv" message="tns:IServicio_ListarCheckListCsv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarCheckListCsvResponse" message="tns:IServicio_ListarCheckListCsv_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarCheckListCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarCheckListCsv_ErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTemaCapacitacionCsv">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarTemaCapacitacionCsv" message="tns:IServicio_ListarTemaCapacitacionCsv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarTemaCapacitacionCsvResponse" message="tns:IServicio_ListarTemaCapacitacionCsv_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarTemaCapacitacionCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarTemaCapacitacionCsv_ErrorFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicio" type="tns:IServicio">
@@ -2031,6 +2087,30 @@
         <soap:fault use="literal" name="ErrorFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="CheckListOperacion">
+      <soap:operation soapAction="http://tempuri.org/IServicio/CheckListOperacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CapacitacionOperacion">
+      <soap:operation soapAction="http://tempuri.org/IServicio/CapacitacionOperacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="ListarInspeccionesCsv">
       <soap:operation soapAction="http://tempuri.org/IServicio/ListarInspeccionesCsv" style="document" />
       <wsdl:input>
@@ -2067,8 +2147,8 @@
         <soap:fault use="literal" name="ErrorFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="CheckListOperacion">
-      <soap:operation soapAction="http://tempuri.org/IServicio/CheckListOperacion" style="document" />
+    <wsdl:operation name="ListarEstadoCapacitacionCsv">
+      <soap:operation soapAction="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsv" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2079,8 +2159,32 @@
         <soap:fault use="literal" name="ErrorFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="ListarEstadoCapacitacionCsv">
-      <soap:operation soapAction="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsv" style="document" />
+    <wsdl:operation name="ListarCapacitacionesCsv">
+      <soap:operation soapAction="http://tempuri.org/IServicio/ListarCapacitacionesCsv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCheckListCsv">
+      <soap:operation soapAction="http://tempuri.org/IServicio/ListarCheckListCsv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTemaCapacitacionCsv">
+      <soap:operation soapAction="http://tempuri.org/IServicio/ListarTemaCapacitacionCsv" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
