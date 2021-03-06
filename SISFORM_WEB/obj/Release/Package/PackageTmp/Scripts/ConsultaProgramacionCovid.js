@@ -94,8 +94,6 @@ function MostrarGrabar(rpta) {
         //txtIdPruebasCovid.value = rpta;
         btnNuevo.style.visibility = "visible";
         limpiarControles('form-control');
-
-
     }
     else toastDangerAlert("No se pudo grabar el registro, verique la fecha de programación", "¡Error!");
 }
@@ -155,10 +153,10 @@ function AsignarCampos(rpta) {
                 txtNumeroPrueba.value = campos[3];
                 txtFechaPrueba.value = campos[4];
                 idEmpresaTrab = campos[5];
-                resultadoPrueba = parseInt(campos[6],10);
+                resultadoPrueba = parseInt(campos[6], 10);
                 idPruebaCovid = parseInt(campos[7], 10);
                 //txtNumeroPrueba.value = campos[2];
-                if (resultadoPrueba > 0) {
+                if (resultadoPrueba > 1) {
                     btnGrabar.style.visibility = 'hidden';
                 } else {
                     btnGrabar.style.visibility = 'visible';
@@ -168,10 +166,6 @@ function AsignarCampos(rpta) {
             }
 
         }
-
-
-
-
     } else {
         limpiarControles('form-control');
     }

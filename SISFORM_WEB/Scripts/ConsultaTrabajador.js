@@ -8,6 +8,8 @@ var objetoParametrizado = [];
 var objetoBusqueda = [];
 var filtro;
 var textoBusqueda;
+var estadoModal;
+var lstPuestosTrabajador;
 
 window.onload = function () {
     Http.get("Trabajador/ListarTipoDocumentoCbo", mostrarTipoDocumentoCbo);
@@ -84,7 +86,6 @@ window.onload = function () {
         btnModal.style.visibility = "hidden";
         btnNuevo.style.visibility = "hidden";
     }
-
     txtbuscarPorEmpresa.onkeyup = function () {
         var a, b;
         closeAllLists();
@@ -109,11 +110,7 @@ window.onload = function () {
                 a.appendChild(b);
             }
         }
-    A}
-    //txtbuscarPorEmpresa.onchange = function () {
-    //    listarPuestoTrabajo();
-    //}
-
+    }
 }
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
@@ -250,6 +247,12 @@ function CrearTablaCsv(rpta) {
         var grilla = new Grilla(lista, "divTabla", 10, 3);
     }
 }
+function CrearTablaCsvPuestos(rpta) {
+    if (rpta) {
+        lstPuestosTrabajador = rpta.split('¬');
+        var grillaModal = new GrillaModal(lstPuestosTrabajador, "divTablaPuestos", 10, 3);
+    }
+}
 
 function CrearListaCsv(rpta) {
     if (rpta) {
@@ -291,6 +294,24 @@ function crearObjeto() {
 
 function obtenerRegistroPorId(id) {
     Http.get("Trabajador/ObtenerTrabajadorPorId?idTrabajador=" + id, AsignarCampos);
+    Http.get("Trabajador/ListarPuestoTrabajoporIdCsv?idTrabajador=" + id, CrearTablaCsvPuestos);
+}
+
+function modalObtenerRegistroPorId(id) {
+    Http.get("Trabajador/ListarPuestoTrabajoporIdTrabajadorPuestoCsv?idTrabajadorPuesto=" + id, AsignarCamposPuestoTrabajo);
+}
+
+function AsignarCamposPuestoTrabajo(rpta) {
+    if (rpta) {
+        campos = rpta.split('|');
+        txtIdTrabajadorPuesto.value = campos[0];
+        txtbuscarPorEmpresa.value = campos[1];
+        cboPuestoTrabajo.value = campos[2];
+        txtFechaIngreso.value = campos[3];
+        txtFechaSalida.value = campos[4];
+        txtEstadoPuesto.checked = (campos[5] == "ACT" ? true : false);
+        Http.get("Trabajador/ListarPuestoTrabajoCbo?idEmpresa=" + campos[6], mostrarPuestoTrabajoCbo);
+    }
 }
 
 function AsignarCampos(rpta) {
@@ -321,17 +342,18 @@ function AsignarCampos(rpta) {
             txtTelefonoContacto.value = campos[12];
             txtEstado.checked = (campos[13] == "ACT" ? true : false);
         }
+        limpiarControles('P')
 
-        if (listas[1]) {
-            campos = listas[1].split('|');
-            txtIdTrabajadorPuesto.value = campos[0];
-            cboPuestoTrabajo.value = campos[1];
-            cboEmpresa.value = campos[2];
-            txtFechaIngreso.value = campos[3];
-            txtFechaSalida.value = campos[4];
-            txtEstadoPuesto.checked = (campos[5] == "ACT" ? true : false);
-        } else {
-            limpiarControles('P')
-        }
+        //if (listas[1]) {
+        //    campos = listas[1].split('|');
+        //    txtIdTrabajadorPuesto.value = campos[0];
+        //    cboPuestoTrabajo.value = campos[1];
+        //    txtbuscarPorEmpresa.value = campos[2];
+        //    txtFechaIngreso.value = campos[3];
+        //    txtFechaSalida.value = campos[4];
+        //    txtEstadoPuesto.checked = (campos[5] == "ACT" ? true : false);
+        //} else {
+        //    limpiarControles('P')
+        //}
     }    
 }

@@ -88,7 +88,7 @@ window.onload = function () {
 function MostrarGrabar(rpta) {
     if (rpta) {
         if (!isMobile.any()) {
-            Http.get("PruebaCovid/ListarPruebasCovid", CrearTablaCsv);
+            //Http.get("PruebaCovid/ListarPruebasCovid", CrearTablaCsv);
         }
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
         //txtIdPruebasCovid.value = rpta;

@@ -3,7 +3,7 @@
 }
 <!-- Modals start -->
 @section modals{
-    <div class="modal modal-full ie-scroll-fix" id="trabajadorPuesto-modal" tabindex="-1" role="dialog">
+    <div class="modal modal-full ie-scroll-fix" id="trabajadorPuesto-modal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content w-lg-three-quarter">
                 <a href="#" class="close" role="button" aria-label="Close">
@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="col-sm">
                                     <label for="cboEmpresa" class="required">Empresa</label>
-                                    <input type="text" class="form-control form-control-sm E" id="txtbuscarPorEmpresa" placeholder="Empresa" required="required" />
+                                    <input type="text" class="form-control form-control-sm P" id="txtbuscarPorEmpresa" placeholder="Empresa" required="required" />
                                 </div>
                                 <div class="col-sm">
                                     <label for="cboPuestoTrabajo" class="required">Puesto de trabajo</label>
@@ -50,6 +50,17 @@
                             <div class="text-right">
                                 <input class="btn btn-success" type="button" id="btnGrabarPuesto" value="Guardar">
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <hr class="mb-20" />
+                </div>
+                <div class="mw-full">
+                    <div class="card p-0 bg-very-dark-dm">
+                        <div id="divTablaPuestos" class="table-responsive">
+                            <table id="tablaDatosPuestos" class="table table-inner-bordered">
+                            </table>
                         </div>
                     </div>
                 </div>

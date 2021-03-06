@@ -181,6 +181,37 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
+        public async Task<string> ListarPuestoTrabajoporIdCsv(int idTrabajador)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarPuestoTrabajoporIdCsvAsync(idTrabajador);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ListarPuestoTrabajoporIdTrabajadorPuestoCsv(int idTrabajadorPuesto)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarPuestoTrabajoporIdTrabajadorPuestoCsvAsync(idTrabajadorPuesto);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        
+
         public async Task<string> ObtenerTrabajadorPorId(string idTrabajador)
         {
             try
