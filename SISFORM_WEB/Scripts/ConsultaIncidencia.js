@@ -27,8 +27,11 @@ var TipoImagen;
 
 var lista;
 var objetoParametrizado = [];
+var objetoParametrizadoAllEmpresas = [];
 var objetoBusqueda = [];
+var objetoBusquedaAllEmpresas = [];
 var textoBusqueda;
+var textoBusquedaAllEmpresas;
 var idEmpresaInfractora;
 var idEmpresaInvolucrada
 
@@ -130,7 +133,7 @@ window.onload = function () {
     cboBloque.onchange = function () {
         idBloque = cboBloque.value;
         listarEspecificacionCbo();
-        Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
+        Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsvAllEmpresas);
     }
     cboBarrera.onchange = function () {
         idBarrera = cboBarrera.value;
@@ -166,19 +169,16 @@ window.onload = function () {
         }
     }
     txtbuscarPorEmpresaInvolucrada.onkeyup = function () {
-        //objetoParametrizado = [];
-        //objetoBusqueda = [];
-        //Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
         var a, b;
-        closeAllLists();
+        closeAllListsAllEmpresas();
         a = document.createElement("div");
         a.setAttribute("id", this.id + "predictivo-list");
         a.setAttribute("class", "predictivo-items");
         this.parentNode.appendChild(a);
-        textoBusqueda = txtbuscarPorEmpresaInvolucrada.value.toLowerCase();
-        for (let objeto of objetoBusqueda) {
+        textoBusquedaAllEmpresas = txtbuscarPorEmpresaInvolucrada.value.toLowerCase();
+        for (let objeto of objetoBusquedaAllEmpresas) {
             let Nombre = objeto.NombreComercial.toLowerCase();
-            if (Nombre.indexOf(textoBusqueda) !== -1) {
+            if (Nombre.indexOf(textoBusquedaAllEmpresas) !== -1) {
                 b = document.createElement("div");
                 b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
                 //b.innerHTML += Nombre;
@@ -186,7 +186,7 @@ window.onload = function () {
                 b.addEventListener("click", function (e) {
                     txtbuscarPorEmpresaInvolucrada.value = this.getElementsByTagName("input")[0].value;
                     idEmpresaInvolucrada = objeto.IDEmpr;
-                    closeAllLists();
+                    closeAllListsAllEmpresas();
                 });
                 a.appendChild(b);
             }
@@ -198,6 +198,15 @@ function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
     for (var i = 0; i < x.length; i++) {
         if (elmnt != x[i] && elmnt != textoBusqueda) {
+            x[i].parentNode.removeChild(x[i]);
+        }
+    }
+}
+
+function closeAllListsAllEmpresas(elmnt) {
+    var x = document.getElementsByClassName("predictivo-items");
+    for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != textoBusquedaAllEmpresas) {
             x[i].parentNode.removeChild(x[i]);
         }
     }
@@ -251,10 +260,10 @@ function mostrarTipoBarreraCbo(rpta) {
 //    }
 //}
 
-function CrearListaCsv(rpta) {
+function CrearListaCsvAllEmpresas(rpta) {
     if (rpta) {
         lista = rpta.split('¬');
-        crearObjeto(lista)
+        crearObjetoAllEmpresas(lista)
     }
 }
 function mostrarTipoEmpresaCbo(rpta) {
@@ -501,5 +510,34 @@ function crearObjeto() {
             });
         }
         objetoBusqueda.push(valoresAInsertar);
+    }
+}
+function crearObjetoAllEmpresas() {
+    //este objeto es para el predictivo
+    cabeceras = lista[0].split("|");
+    var nRegistros = lista.length;
+    var nCampos = cabeceras.length;
+    objetoBusquedaAllEmpresas = [];
+    var clave;
+    var valor;
+    for (var i = 1; i < nRegistros; i++) {
+        for (var j = 0; j < nCampos; j++) {
+            datos = lista[i].split("|");
+        }
+        objetoParametrizadoAllEmpresas.push(datos);
+    }
+    for (var i = 0; i <= nRegistros; i++) {
+        var valoresAInsertar = {};
+        //console.log(i);
+        for (var j = 0; j < nCampos; j++) {
+            clave = cabeceras[j];
+            valor = objetoParametrizadoAllEmpresas[i][j];
+            //console.log(valor);
+            Object.defineProperty(valoresAInsertar, clave.toString(), {
+                value: valor,
+                writable: false
+            });
+        }
+        objetoBusquedaAllEmpresas.push(valoresAInsertar);
     }
 }

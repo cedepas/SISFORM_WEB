@@ -15,6 +15,7 @@ var idTrabajadorCapacitado;
 var DNITrabajador;
 var idTemaCapacitacion;
 var lstTrabajadoresCapacitados;
+//var contadorTrabajdoresCapacitados = 0;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -34,14 +35,19 @@ window.onload = function () {
     txtFechaCapacitacion.value = fechaActual;
 
     btnGrabarCapacitacion.onclick = function () {
+        lstTrabajadoresCapacitados = lstTrabajadoresCapacitados.substring(9, lstTrabajadoresCapacitados.length);
+        lstTrabajadoresCapacitados = lstTrabajadoresCapacitados.substring(0, lstTrabajadoresCapacitados.length - 1);
+
         var frm = new FormData();
         frm.append("FK_ID_Empresa", idEmpresa);
-        frm.append("FK_ID_EstadoInspeccion", cboTipoInspeccion.value);
-        frm.append("FK_ID_Usuario", idUsuario);
-        frm.append("fechaInspeccion", txtFechaInspeccion.value);
+        frm.append("Id_usuario", idUsuario);
+        frm.append("FechaCapacitacion", txtFechaCapacitacion.value);
+        frm.append("FK_ID_TEMACAPACITACION", idTemaCapacitacion);
+        frm.append("FK_ID_ESTADOCAPACITACION", cboEstadoCapacitacion.value);
+        frm.append("TrabajadoresCapacitados", lstTrabajadoresCapacitados);
         if (validarRequeridos('E')) {
-            checkSubmit(btnGrabarInspeccion);
-            Http.post("SeguimientoNegocios/GrabarInspeccion?op=I", MostrarRegistroInspeccion, frm);
+            checkSubmit(btnGrabarCapacitacion);
+            Http.post("SeguimientoNegocios/CapacitacionOperacion?op=I", MostrarRegistroCapacitacion, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
 
@@ -97,6 +103,7 @@ window.onload = function () {
                     txtBuscarTrabajador.value = this.getElementsByTagName("input")[0].value;
                     idTrabajadorCapacitado = objeto.IDTrab;
                     DNITrabajador = objeto.DNI;
+                    agregandoTrabajador();
                     closeAllListsTrabajador();
                 });
                 a.appendChild(b);
@@ -128,34 +135,54 @@ window.onload = function () {
         }
     }
 
-    bntAgregarTrabajador.onclick = function () {
-        if (txtBuscarTrabajador.value != "") {
-            if (idTrabajadorCapacitado === undefined) {
-                toastDangerAlert("Seleccione un trabajador para ser agregado en la capacitación", "¡Error!");
-            }
-            else {
-                lstTrabajadoresCapacitados = idTrabajadorCapacitado + "|";
-                var b;
-                b = document.createElement("tr");
-                b.innerHTML = "<td>" + txtBuscarTrabajador.value.substring(0, txtBuscarTrabajador.value.length - 8);  + "</td>";
-                b.innerHTML += "<td>" + DNITrabajador + "</td>";
-                document.getElementById('TrabajadoresCapacitados').appendChild(b);
-                txtBuscarTrabajador.value = "";
-                idTrabajadorCapacitado = undefined;
-            }
-        } else toastDangerAlert("Digite datos del trabajador", "¡Error!");
-        
-        
-    }
+    //bntAgregarTrabajador.onclick = function () {
+    //    if (txtBuscarTrabajador.value != "") {
+    //        if (idTrabajadorCapacitado === undefined) {
+    //            toastDangerAlert("Seleccione un trabajador para ser agregado en la capacitación", "¡Error!");
+    //        }
+    //        else {
+    //            lstTrabajadoresCapacitados = idTrabajadorCapacitado + "|";
+    //            var b;
+    //            b = document.createElement("tr");
+    //            b.innerHTML = "<td>" + txtBuscarTrabajador.value.substring(0, txtBuscarTrabajador.value.length - 8);  + "</td>";
+    //            b.innerHTML += "<td>" + DNITrabajador + "</td>";
+    //            document.getElementById('TrabajadoresCapacitados').appendChild(b);
+    //            txtBuscarTrabajador.value = "";
+    //            idTrabajadorCapacitado = undefined;
+    //        }
+    //    } else toastDangerAlert("Digite datos del trabajador", "¡Error!");  
+    //}
+
+    
     cboTipoServicio.onchange = function () {
         idTipoServicio = cboTipoServicio.value;
         Http.get("SeguimientoNegocios/ListarTemaCapacitacionCsv?tipoEmpresa=" + idTipoEmpresa + "&tipoServicio=" + cboTipoServicio.value, ListaTemaCapacitacionCsv);
     }
 
     bntNuevo.onclick = function () {
-        limpiarControles('form-control');
+        location.reload();
     }
 }
+function agregandoTrabajador () {
+    if (txtBuscarTrabajador.value != "") {
+        if (idTrabajadorCapacitado === undefined) {
+            toastDangerAlert("Seleccione un trabajador para ser agregado en la capacitación", "¡Error!");
+        }
+        else {
+            lstTrabajadoresCapacitados = lstTrabajadoresCapacitados + idTrabajadorCapacitado + "|";
+            var b;
+            //contadorTrabajdoresCapacitados = contadorTrabajdoresCapacitados + 1;
+            b = document.createElement("tr");
+            b.innerHTML = "<td>" + txtBuscarTrabajador.value.substring(0, txtBuscarTrabajador.value.length - 8); + "</td>";
+            b.innerHTML += "<td>" + DNITrabajador + "</td>";
+            //b.innerHTML += "<td><button class='btn btn-danger' id='bnt" + contadorTrabajdoresCapacitados + "'><i class='bi bi-x'>X</i></button></td>";
+            document.getElementById('TrabajadoresCapacitados').appendChild(b);
+            txtBuscarTrabajador.value = "";
+            idTrabajadorCapacitado = undefined;
+        }
+    } else toastDangerAlert("Digite datos del trabajador", "¡Error!"); 
+}
+
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
     for (var i = 0; i < x.length; i++) {
@@ -208,15 +235,12 @@ function mostrarEstadoCapacitacionCbo(rpta) {
         CrearCombo(lstCboEstadoCapacitacion, cboEstadoCapacitacion, "Seleccione");
     }
 }
-function MostrarRegistroInspeccion(rpta) {
+function MostrarRegistroCapacitacion(rpta) {
     if (rpta) {
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
         limpiarControles('form-control');
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
-}
-function MostrarTrabajadoresCapacitados() {
-    
 }
 
 function obtenerfechaActual() {
@@ -348,4 +372,5 @@ function crearObjetoTemaCapacitacion() {
         }
         objetoBusquedaTemaCapacitacion.push(valoresAInsertar);
     }
+    temaCapacitacion.style.display = "inline-block";
 }

@@ -88,7 +88,7 @@ window.onload = function () {
 function MostrarGrabar(rpta) {
     if (rpta) {
         if (!isMobile.any()) {
-            Http.get("PruebaCovid/ListarPruebasCovid", CrearTablaCsv);
+            //Http.get("PruebaCovid/ListarPruebasCovid", CrearTablaCsv);
         }
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
         //txtIdPruebasCovid.value = rpta;
@@ -99,6 +99,8 @@ function MostrarGrabar(rpta) {
     }
     else toastDangerAlert("No se pudo grabar el registro, verique la fecha de programación", "¡Error!");
 }
+
+
 
 function consulta(e) {
     if (e.keyCode === 13 && !e.shiftKey) {

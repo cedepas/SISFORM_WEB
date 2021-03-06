@@ -37,8 +37,8 @@
     <div class="form-row">
         <div class="col-sm-12">
             <label for="txtBuscarTrabajador" class="required p-4">Digite Nombre del Trabajador Capacitado</label>
-            <input type="text" class="form-control-sm E p-4" id="txtBuscarTrabajador" placeholder="Nombre Trabajador" required="required" />
-            <button class="p-4" type="button" id="bntAgregarTrabajador"><i class="fas fa-file-upload"></i></button>
+            <input type="text" class="form-control-sm  p-4" id="txtBuscarTrabajador" placeholder="Nombre Trabajador" />
+            @*<button class="p-4" type="button" id="bntAgregarTrabajador"><i class="fas fa-file-upload"></i></button>*@
         </div>
         <div>
             <fieldset>
@@ -48,6 +48,7 @@
                         <tr>
                             <th>Nombres y Apellidos</th>
                             <th>DNI</th>
+                            @*<th>Quitar</th>*@
                         </tr>
                     </thead>
                     <tbody id="TrabajadoresCapacitados">
@@ -56,8 +57,8 @@
             </fieldset>
         </div>
     </div>
-    <div class="form-row">
-        <div class="col-sm-4">
+    <div class="form-row" id="temaCapacitacion" style="display:none">
+        <div>
             <label for="txtBuscaTemaCapacitacion" class="required">Digite Nombre del Tema de Capacitación</label>
             <input type="text" class="form-control form-control-sm E" id="txtBuscaTemaCapacitacion" placeholder="Tema de Capacitación" required="required" />
         </div>
