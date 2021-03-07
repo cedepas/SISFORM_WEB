@@ -7,6 +7,15 @@
       <xsd:import schemaLocation="http://cedepasws.azurewebsites.net/Servicio.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IServicio_ListarCheckListCsv_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCheckListCsv" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarCheckListCsv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCheckListCsvResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarCheckListCsv_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q1:Error" />
+  </wsdl:message>
   <wsdl:message name="IServicio_ListarTemaCapacitacionCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTemaCapacitacionCsv" />
   </wsdl:message>
@@ -14,7 +23,7 @@
     <wsdl:part name="parameters" element="tns:ListarTemaCapacitacionCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTemaCapacitacionCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q1:Error" />
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q2:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_AutenticarUsuario_InputMessage">
     <wsdl:part name="parameters" element="tns:AutenticarUsuario" />
@@ -23,7 +32,7 @@
     <wsdl:part name="parameters" element="tns:AutenticarUsuarioResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_AutenticarUsuario_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q2:Error" />
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q3:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarUbigeo_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarUbigeo" />
@@ -32,7 +41,7 @@
     <wsdl:part name="parameters" element="tns:ListarUbigeoResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarUbigeo_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q3:Error" />
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q4:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_TrabajadorOperacion_InputMessage">
     <wsdl:part name="parameters" element="tns:TrabajadorOperacion" />
@@ -41,7 +50,7 @@
     <wsdl:part name="parameters" element="tns:TrabajadorOperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_TrabajadorOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q4:Error" />
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q5:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTrabajador_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTrabajador" />
@@ -50,7 +59,7 @@
     <wsdl:part name="parameters" element="tns:ListarTrabajadorResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTrabajador_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q5:Error" />
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q6:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_EmpresaOperacion_InputMessage">
     <wsdl:part name="parameters" element="tns:EmpresaOperacion" />
@@ -59,7 +68,7 @@
     <wsdl:part name="parameters" element="tns:EmpresaOperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_EmpresaOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q6:Error" />
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q7:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresa_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEmpresa" />
@@ -68,7 +77,7 @@
     <wsdl:part name="parameters" element="tns:ListarEmpresaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresa_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q7:Error" />
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q8:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ProgresoEmpresaOperacion_InputMessage">
     <wsdl:part name="parameters" element="tns:ProgresoEmpresaOperacion" />
@@ -77,7 +86,7 @@
     <wsdl:part name="parameters" element="tns:ProgresoEmpresaOperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ProgresoEmpresaOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q8:Error" />
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q9:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarProgresoEmpresa_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarProgresoEmpresa" />
@@ -86,7 +95,7 @@
     <wsdl:part name="parameters" element="tns:ListarProgresoEmpresaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarProgresoEmpresa_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q9:Error" />
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q10:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_Criterio1Operacion_InputMessage">
     <wsdl:part name="parameters" element="tns:Criterio1Operacion" />
@@ -95,7 +104,7 @@
     <wsdl:part name="parameters" element="tns:Criterio1OperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_Criterio1Operacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q10:Error" />
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q11:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCriterio1_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarCriterio1" />
@@ -104,7 +113,7 @@
     <wsdl:part name="parameters" element="tns:ListarCriterio1Response" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCriterio1_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q11:Error" />
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q12:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_Criterio2Operacion_InputMessage">
     <wsdl:part name="parameters" element="tns:Criterio2Operacion" />
@@ -113,7 +122,7 @@
     <wsdl:part name="parameters" element="tns:Criterio2OperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_Criterio2Operacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q12:Error" />
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q13:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCriterio2_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarCriterio2" />
@@ -122,7 +131,7 @@
     <wsdl:part name="parameters" element="tns:ListarCriterio2Response" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCriterio2_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q13:Error" />
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q14:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_Criterio3Operacion_InputMessage">
     <wsdl:part name="parameters" element="tns:Criterio3Operacion" />
@@ -131,7 +140,7 @@
     <wsdl:part name="parameters" element="tns:Criterio3OperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_Criterio3Operacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q14:Error" />
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q15:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCriterio3_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarCriterio3" />
@@ -140,7 +149,7 @@
     <wsdl:part name="parameters" element="tns:ListarCriterio3Response" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCriterio3_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q15:Error" />
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q16:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_TrabajadorPuestoOperacion_InputMessage">
     <wsdl:part name="parameters" element="tns:TrabajadorPuestoOperacion" />
@@ -149,7 +158,7 @@
     <wsdl:part name="parameters" element="tns:TrabajadorPuestoOperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_TrabajadorPuestoOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q16:Error" />
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q17:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_TrabajadorCarga_InputMessage">
     <wsdl:part name="parameters" element="tns:TrabajadorCarga" />
@@ -158,7 +167,7 @@
     <wsdl:part name="parameters" element="tns:TrabajadorCargaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_TrabajadorCarga_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q17:Error" />
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q18:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_PruebasCovidOperacion_InputMessage">
     <wsdl:part name="parameters" element="tns:PruebasCovidOperacion" />
@@ -167,7 +176,7 @@
     <wsdl:part name="parameters" element="tns:PruebasCovidOperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_PruebasCovidOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q18:Error" />
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q19:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_PruebasCovidMasivo_InputMessage">
     <wsdl:part name="parameters" element="tns:PruebasCovidMasivo" />
@@ -176,7 +185,7 @@
     <wsdl:part name="parameters" element="tns:PruebasCovidMasivoResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_PruebasCovidMasivo_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q19:Error" />
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q20:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_PruebasCovidCarga_InputMessage">
     <wsdl:part name="parameters" element="tns:PruebasCovidCarga" />
@@ -185,7 +194,7 @@
     <wsdl:part name="parameters" element="tns:PruebasCovidCargaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_PruebasCovidCarga_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q20:Error" />
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q21:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_CtrlAccionOperacion_InputMessage">
     <wsdl:part name="parameters" element="tns:CtrlAccionOperacion" />
@@ -194,7 +203,7 @@
     <wsdl:part name="parameters" element="tns:CtrlAccionOperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_CtrlAccionOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q21:Error" />
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q22:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_IncidenciaOperacion_InputMessage">
     <wsdl:part name="parameters" element="tns:IncidenciaOperacion" />
@@ -203,7 +212,7 @@
     <wsdl:part name="parameters" element="tns:IncidenciaOperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_IncidenciaOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q22:Error" />
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q23:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_IncidenciaImagen_InputMessage">
     <wsdl:part name="parameters" element="tns:IncidenciaImagen" />
@@ -212,7 +221,7 @@
     <wsdl:part name="parameters" element="tns:IncidenciaImagenResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_IncidenciaImagen_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q23:Error" />
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q24:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarUbigeoCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarUbigeoCsv" />
@@ -221,7 +230,7 @@
     <wsdl:part name="parameters" element="tns:ListarUbigeoCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarUbigeoCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q24:Error" />
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q25:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoDocumentoCboCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTipoDocumentoCboCsv" />
@@ -230,7 +239,7 @@
     <wsdl:part name="parameters" element="tns:ListarTipoDocumentoCboCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoDocumentoCboCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q25:Error" />
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q26:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTrabajadorCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTrabajadorCsv" />
@@ -239,7 +248,7 @@
     <wsdl:part name="parameters" element="tns:ListarTrabajadorCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTrabajadorCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q26:Error" />
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q27:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerTrabajadorPorIdCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerTrabajadorPorIdCsv" />
@@ -248,7 +257,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerTrabajadorPorIdCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerTrabajadorPorIdCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q27:Error" />
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q28:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerPruebaCovidPorIdCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerPruebaCovidPorIdCsv" />
@@ -257,7 +266,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerPruebaCovidPorIdCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerPruebaCovidPorIdCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q28:Error" />
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q29:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarPuestoTrabajoCboCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarPuestoTrabajoCboCsv" />
@@ -266,7 +275,7 @@
     <wsdl:part name="parameters" element="tns:ListarPuestoTrabajoCboCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarPuestoTrabajoCboCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q29:Error" />
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q30:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresaCboCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEmpresaCboCsv" />
@@ -275,7 +284,7 @@
     <wsdl:part name="parameters" element="tns:ListarEmpresaCboCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresaCboCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q30:Error" />
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q31:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEmpresaCsv" />
@@ -284,7 +293,7 @@
     <wsdl:part name="parameters" element="tns:ListarEmpresaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q31:Error" />
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q32:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresaPorTipoCboCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEmpresaPorTipoCboCsv" />
@@ -293,7 +302,7 @@
     <wsdl:part name="parameters" element="tns:ListarEmpresaPorTipoCboCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresaPorTipoCboCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q32:Error" />
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q33:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoEmpresaCboCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTipoEmpresaCboCsv" />
@@ -302,7 +311,7 @@
     <wsdl:part name="parameters" element="tns:ListarTipoEmpresaCboCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoEmpresaCboCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q33:Error" />
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q34:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarProgresoEmpresaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarProgresoEmpresaCsv" />
@@ -311,7 +320,7 @@
     <wsdl:part name="parameters" element="tns:ListarProgresoEmpresaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarProgresoEmpresaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q34:Error" />
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q35:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerEmpresaPorIdCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerEmpresaPorIdCsv" />
@@ -320,7 +329,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerEmpresaPorIdCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerEmpresaPorIdCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q35:Error" />
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q36:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerporDniCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerporDniCsv" />
@@ -329,7 +338,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerporDniCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerporDniCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q36:Error" />
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q37:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerIdTrabajadorPorIdUsuarioCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerIdTrabajadorPorIdUsuarioCsv" />
@@ -338,7 +347,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerIdTrabajadorPorIdUsuarioCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerIdTrabajadorPorIdUsuarioCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q37:Error" />
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q38:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarProgramacionPruebasCovidCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarProgramacionPruebasCovidCsv" />
@@ -347,7 +356,7 @@
     <wsdl:part name="parameters" element="tns:ListarProgramacionPruebasCovidCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarProgramacionPruebasCovidCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q38:Error" />
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q39:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarPruebasCovidCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarPruebasCovidCsv" />
@@ -356,7 +365,7 @@
     <wsdl:part name="parameters" element="tns:ListarPruebasCovidCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarPruebasCovidCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q39:Error" />
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q40:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarResultadoPruebaCboCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarResultadoPruebaCboCsv" />
@@ -365,7 +374,7 @@
     <wsdl:part name="parameters" element="tns:ListarResultadoPruebaCboCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarResultadoPruebaCboCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q40:Error" />
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q41:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarReporteCovidCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarReporteCovidCsv" />
@@ -374,7 +383,7 @@
     <wsdl:part name="parameters" element="tns:ListarReporteCovidCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarReporteCovidCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q41:Error" />
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q42:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_AutorizacionUsuarioCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:AutorizacionUsuarioCsv" />
@@ -383,7 +392,7 @@
     <wsdl:part name="parameters" element="tns:AutorizacionUsuarioCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_AutorizacionUsuarioCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q42:Error" />
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q43:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCtrlModulosCboCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarCtrlModulosCboCsv" />
@@ -392,7 +401,7 @@
     <wsdl:part name="parameters" element="tns:ListarCtrlModulosCboCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCtrlModulosCboCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q43:Error" />
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q44:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarPruebasCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarPruebasCsv" />
@@ -401,7 +410,7 @@
     <wsdl:part name="parameters" element="tns:ListarPruebasCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarPruebasCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q44:Error" />
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q45:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTrabajadorAsignacionCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTrabajadorAsignacionCsv" />
@@ -410,7 +419,7 @@
     <wsdl:part name="parameters" element="tns:ListarTrabajadorAsignacionCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTrabajadorAsignacionCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q45:Error" />
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q46:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarPuestoTrabajoporIdCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarPuestoTrabajoporIdCsv" />
@@ -419,7 +428,16 @@
     <wsdl:part name="parameters" element="tns:ListarPuestoTrabajoporIdCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarPuestoTrabajoporIdCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q46:Error" />
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q47:Error" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarUnidadGestionCsv_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUnidadGestionCsv" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarUnidadGestionCsv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUnidadGestionCsvResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicio_ListarUnidadGestionCsv_ErrorFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q48:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarPuestoTrabajoporIdTrabajadorPuestoCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarPuestoTrabajoporIdTrabajadorPuestoCsv" />
@@ -428,7 +446,7 @@
     <wsdl:part name="parameters" element="tns:ListarPuestoTrabajoporIdTrabajadorPuestoCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarPuestoTrabajoporIdTrabajadorPuestoCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q47:Error" />
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q49:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresaGraficoCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEmpresaGraficoCsv" />
@@ -437,7 +455,7 @@
     <wsdl:part name="parameters" element="tns:ListarEmpresaGraficoCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresaGraficoCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q48:Error" />
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q50:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_SPAsignacionMasivo_InputMessage">
     <wsdl:part name="parameters" element="tns:SPAsignacionMasivo" />
@@ -446,7 +464,7 @@
     <wsdl:part name="parameters" element="tns:SPAsignacionMasivoResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_SPAsignacionMasivo_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q49:Error" />
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q51:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarAlojamientoCboPorIdCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarAlojamientoCboPorIdCsv" />
@@ -455,7 +473,7 @@
     <wsdl:part name="parameters" element="tns:ListarAlojamientoCboPorIdCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarAlojamientoCboPorIdCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q50:Error" />
+    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q52:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_RegistrarIngresoporDniCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarIngresoporDniCsv" />
@@ -464,7 +482,7 @@
     <wsdl:part name="parameters" element="tns:RegistrarIngresoporDniCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_RegistrarIngresoporDniCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q51:Error" />
+    <wsdl:part xmlns:q53="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q53:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoEventoCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTipoEventoCsv" />
@@ -473,7 +491,7 @@
     <wsdl:part name="parameters" element="tns:ListarTipoEventoCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoEventoCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q52:Error" />
+    <wsdl:part xmlns:q54="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q54:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCategoriaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarCategoriaCsv" />
@@ -482,7 +500,7 @@
     <wsdl:part name="parameters" element="tns:ListarCategoriaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCategoriaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q53="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q53:Error" />
+    <wsdl:part xmlns:q55="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q55:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarBloqueCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarBloqueCsv" />
@@ -491,7 +509,7 @@
     <wsdl:part name="parameters" element="tns:ListarBloqueCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarBloqueCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q54="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q54:Error" />
+    <wsdl:part xmlns:q56="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q56:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEspecificacionCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEspecificacionCsv" />
@@ -500,7 +518,7 @@
     <wsdl:part name="parameters" element="tns:ListarEspecificacionCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEspecificacionCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q55="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q55:Error" />
+    <wsdl:part xmlns:q57="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q57:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarZonaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarZonaCsv" />
@@ -509,7 +527,7 @@
     <wsdl:part name="parameters" element="tns:ListarZonaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarZonaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q56="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q56:Error" />
+    <wsdl:part xmlns:q58="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q58:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarUbicacionCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarUbicacionCsv" />
@@ -518,7 +536,7 @@
     <wsdl:part name="parameters" element="tns:ListarUbicacionCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarUbicacionCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q57="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q57:Error" />
+    <wsdl:part xmlns:q59="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q59:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarBarreraCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarBarreraCsv" />
@@ -527,7 +545,7 @@
     <wsdl:part name="parameters" element="tns:ListarBarreraCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarBarreraCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q58="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q58:Error" />
+    <wsdl:part xmlns:q60="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q60:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoBarreraCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTipoBarreraCsv" />
@@ -536,7 +554,7 @@
     <wsdl:part name="parameters" element="tns:ListarTipoBarreraCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoBarreraCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q59="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q59:Error" />
+    <wsdl:part xmlns:q61="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q61:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarRangoCumplimientoCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarRangoCumplimientoCsv" />
@@ -545,7 +563,7 @@
     <wsdl:part name="parameters" element="tns:ListarRangoCumplimientoCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarRangoCumplimientoCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q60="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q60:Error" />
+    <wsdl:part xmlns:q62="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q62:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoProgramacionIncidenciaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTipoProgramacionIncidenciaCsv" />
@@ -554,7 +572,7 @@
     <wsdl:part name="parameters" element="tns:ListarTipoProgramacionIncidenciaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoProgramacionIncidenciaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q61="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q61:Error" />
+    <wsdl:part xmlns:q63="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q63:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEstadoIncidenciaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEstadoIncidenciaCsv" />
@@ -563,7 +581,7 @@
     <wsdl:part name="parameters" element="tns:ListarEstadoIncidenciaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEstadoIncidenciaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q62="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q62:Error" />
+    <wsdl:part xmlns:q64="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q64:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarIncidenciasActCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarIncidenciasActCsv" />
@@ -572,7 +590,7 @@
     <wsdl:part name="parameters" element="tns:ListarIncidenciasActCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarIncidenciasActCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q63="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q63:Error" />
+    <wsdl:part xmlns:q65="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q65:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerIncidenciaPorIdCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerIncidenciaPorIdCsv" />
@@ -581,7 +599,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerIncidenciaPorIdCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerIncidenciaPorIdCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q64="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q64:Error" />
+    <wsdl:part xmlns:q66="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q66:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerIncidenciaPorIdParaSolucionCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerIncidenciaPorIdParaSolucionCsv" />
@@ -590,7 +608,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerIncidenciaPorIdParaSolucionCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerIncidenciaPorIdParaSolucionCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q65="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q65:Error" />
+    <wsdl:part xmlns:q67="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q67:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerImagenPorIdIncidenciaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerImagenPorIdIncidenciaCsv" />
@@ -599,7 +617,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerImagenPorIdIncidenciaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerImagenPorIdIncidenciaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q66="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q66:Error" />
+    <wsdl:part xmlns:q68="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q68:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarIncidenciaParaSolucionCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarIncidenciaParaSolucionCsv" />
@@ -608,7 +626,7 @@
     <wsdl:part name="parameters" element="tns:ListarIncidenciaParaSolucionCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarIncidenciaParaSolucionCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q67="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q67:Error" />
+    <wsdl:part xmlns:q69="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q69:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoSolucionIncidenciaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTipoSolucionIncidenciaCsv" />
@@ -617,7 +635,7 @@
     <wsdl:part name="parameters" element="tns:ListarTipoSolucionIncidenciaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoSolucionIncidenciaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q68="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q68:Error" />
+    <wsdl:part xmlns:q70="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q70:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTrabajadorBusquedaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTrabajadorBusquedaCsv" />
@@ -626,7 +644,7 @@
     <wsdl:part name="parameters" element="tns:ListarTrabajadorBusquedaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTrabajadorBusquedaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q69="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q69:Error" />
+    <wsdl:part xmlns:q71="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q71:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresaBusquedaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEmpresaBusquedaCsv" />
@@ -635,7 +653,7 @@
     <wsdl:part name="parameters" element="tns:ListarEmpresaBusquedaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEmpresaBusquedaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q70="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q70:Error" />
+    <wsdl:part xmlns:q72="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q72:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoFiltroIncidenciaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTipoFiltroIncidenciaCsv" />
@@ -644,7 +662,7 @@
     <wsdl:part name="parameters" element="tns:ListarTipoFiltroIncidenciaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoFiltroIncidenciaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q71="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q71:Error" />
+    <wsdl:part xmlns:q73="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q73:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerIncidenciaPorFiltroCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerIncidenciaPorFiltroCsv" />
@@ -653,7 +671,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerIncidenciaPorFiltroCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ObtenerIncidenciaPorFiltroCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q72="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q72:Error" />
+    <wsdl:part xmlns:q74="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q74:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_RegistrarSolucion_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarSolucion" />
@@ -662,7 +680,7 @@
     <wsdl:part name="parameters" element="tns:RegistrarSolucionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_RegistrarSolucion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q73="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q73:Error" />
+    <wsdl:part xmlns:q75="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q75:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ConstruirCorreo_InputMessage">
     <wsdl:part name="parameters" element="tns:ConstruirCorreo" />
@@ -671,7 +689,7 @@
     <wsdl:part name="parameters" element="tns:ConstruirCorreoResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ConstruirCorreo_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q74="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q74:Error" />
+    <wsdl:part xmlns:q76="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q76:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ConstruirCorreoSolucion_InputMessage">
     <wsdl:part name="parameters" element="tns:ConstruirCorreoSolucion" />
@@ -680,7 +698,7 @@
     <wsdl:part name="parameters" element="tns:ConstruirCorreoSolucionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ConstruirCorreoSolucion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q75="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q75:Error" />
+    <wsdl:part xmlns:q77="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q77:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ValidarDniReniec_InputMessage">
     <wsdl:part name="parameters" element="tns:ValidarDniReniec" />
@@ -689,7 +707,7 @@
     <wsdl:part name="parameters" element="tns:ValidarDniReniecResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ValidarDniReniec_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q76="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q76:Error" />
+    <wsdl:part xmlns:q78="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q78:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEstadoInspeccionCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEstadoInspeccionCsv" />
@@ -698,7 +716,7 @@
     <wsdl:part name="parameters" element="tns:ListarEstadoInspeccionCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEstadoInspeccionCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q77="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q77:Error" />
+    <wsdl:part xmlns:q79="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q79:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_InspeccionOperacion_InputMessage">
     <wsdl:part name="parameters" element="tns:InspeccionOperacion" />
@@ -707,7 +725,7 @@
     <wsdl:part name="parameters" element="tns:InspeccionOperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_InspeccionOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q78="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q78:Error" />
+    <wsdl:part xmlns:q80="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q80:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_CheckListOperacion_InputMessage">
     <wsdl:part name="parameters" element="tns:CheckListOperacion" />
@@ -716,7 +734,7 @@
     <wsdl:part name="parameters" element="tns:CheckListOperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_CheckListOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q79="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q79:Error" />
+    <wsdl:part xmlns:q81="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q81:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_CapacitacionOperacion_InputMessage">
     <wsdl:part name="parameters" element="tns:CapacitacionOperacion" />
@@ -725,7 +743,7 @@
     <wsdl:part name="parameters" element="tns:CapacitacionOperacionResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_CapacitacionOperacion_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q80="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q80:Error" />
+    <wsdl:part xmlns:q82="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q82:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarInspeccionesCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarInspeccionesCsv" />
@@ -734,7 +752,7 @@
     <wsdl:part name="parameters" element="tns:ListarInspeccionesCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarInspeccionesCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q81="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q81:Error" />
+    <wsdl:part xmlns:q83="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q83:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoOperacionEmpresaCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarTipoOperacionEmpresaCsv" />
@@ -743,7 +761,7 @@
     <wsdl:part name="parameters" element="tns:ListarTipoOperacionEmpresaCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarTipoOperacionEmpresaCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q82="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q82:Error" />
+    <wsdl:part xmlns:q84="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q84:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCantidadPreguntasChecklistCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarCantidadPreguntasChecklistCsv" />
@@ -752,7 +770,7 @@
     <wsdl:part name="parameters" element="tns:ListarCantidadPreguntasChecklistCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCantidadPreguntasChecklistCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q83="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q83:Error" />
+    <wsdl:part xmlns:q85="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q85:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEstadoCapacitacionCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarEstadoCapacitacionCsv" />
@@ -761,7 +779,7 @@
     <wsdl:part name="parameters" element="tns:ListarEstadoCapacitacionCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarEstadoCapacitacionCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q84="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q84:Error" />
+    <wsdl:part xmlns:q86="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q86:Error" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCapacitacionesCsv_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarCapacitacionesCsv" />
@@ -770,18 +788,14 @@
     <wsdl:part name="parameters" element="tns:ListarCapacitacionesCsvResponse" />
   </wsdl:message>
   <wsdl:message name="IServicio_ListarCapacitacionesCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q85="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q85:Error" />
-  </wsdl:message>
-  <wsdl:message name="IServicio_ListarCheckListCsv_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListarCheckListCsv" />
-  </wsdl:message>
-  <wsdl:message name="IServicio_ListarCheckListCsv_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListarCheckListCsvResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServicio_ListarCheckListCsv_ErrorFault_FaultMessage">
-    <wsdl:part xmlns:q86="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q86:Error" />
+    <wsdl:part xmlns:q87="http://schemas.datacontract.org/2004/07/Dominio" name="detail" element="q87:Error" />
   </wsdl:message>
   <wsdl:portType name="IServicio">
+    <wsdl:operation name="ListarCheckListCsv">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarCheckListCsv" message="tns:IServicio_ListarCheckListCsv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarCheckListCsvResponse" message="tns:IServicio_ListarCheckListCsv_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarCheckListCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarCheckListCsv_ErrorFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ListarTemaCapacitacionCsv">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarTemaCapacitacionCsv" message="tns:IServicio_ListarTemaCapacitacionCsv_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarTemaCapacitacionCsvResponse" message="tns:IServicio_ListarTemaCapacitacionCsv_OutputMessage" />
@@ -1012,6 +1026,11 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarPuestoTrabajoporIdCsvResponse" message="tns:IServicio_ListarPuestoTrabajoporIdCsv_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarPuestoTrabajoporIdCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarPuestoTrabajoporIdCsv_ErrorFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ListarUnidadGestionCsv">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarUnidadGestionCsv" message="tns:IServicio_ListarUnidadGestionCsv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarUnidadGestionCsvResponse" message="tns:IServicio_ListarUnidadGestionCsv_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarUnidadGestionCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarUnidadGestionCsv_ErrorFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ListarPuestoTrabajoporIdTrabajadorPuestoCsv">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarPuestoTrabajoporIdTrabajadorPuestoCsv" message="tns:IServicio_ListarPuestoTrabajoporIdTrabajadorPuestoCsv_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarPuestoTrabajoporIdTrabajadorPuestoCsvResponse" message="tns:IServicio_ListarPuestoTrabajoporIdTrabajadorPuestoCsv_OutputMessage" />
@@ -1207,14 +1226,21 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarCapacitacionesCsvResponse" message="tns:IServicio_ListarCapacitacionesCsv_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarCapacitacionesCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarCapacitacionesCsv_ErrorFault_FaultMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListarCheckListCsv">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicio/ListarCheckListCsv" message="tns:IServicio_ListarCheckListCsv_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicio/ListarCheckListCsvResponse" message="tns:IServicio_ListarCheckListCsv_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IServicio/ListarCheckListCsvErrorFault" name="ErrorFault" message="tns:IServicio_ListarCheckListCsv_ErrorFault_FaultMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicio" type="tns:IServicio">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarCheckListCsv">
+      <soap:operation soapAction="http://tempuri.org/IServicio/ListarCheckListCsv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="ListarTemaCapacitacionCsv">
       <soap:operation soapAction="http://tempuri.org/IServicio/ListarTemaCapacitacionCsv" style="document" />
       <wsdl:input>
@@ -1767,6 +1793,18 @@
         <soap:fault use="literal" name="ErrorFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="ListarUnidadGestionCsv">
+      <soap:operation soapAction="http://tempuri.org/IServicio/ListarUnidadGestionCsv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorFault">
+        <soap:fault use="literal" name="ErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="ListarPuestoTrabajoporIdTrabajadorPuestoCsv">
       <soap:operation soapAction="http://tempuri.org/IServicio/ListarPuestoTrabajoporIdTrabajadorPuestoCsv" style="document" />
       <wsdl:input>
@@ -2225,18 +2263,6 @@
     </wsdl:operation>
     <wsdl:operation name="ListarCapacitacionesCsv">
       <soap:operation soapAction="http://tempuri.org/IServicio/ListarCapacitacionesCsv" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-      <wsdl:fault name="ErrorFault">
-        <soap:fault use="literal" name="ErrorFault" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="ListarCheckListCsv">
-      <soap:operation soapAction="http://tempuri.org/IServicio/ListarCheckListCsv" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

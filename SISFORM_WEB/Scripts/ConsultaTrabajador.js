@@ -15,6 +15,7 @@ window.onload = function () {
     Http.get("Trabajador/ListarTipoDocumentoCbo", mostrarTipoDocumentoCbo);
     Http.get("Trabajador/listarUbigeoCbo", mostrarListaUbigeo);
     Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
+    Http.get("Trabajador/ListarUnidadGestionCsv", mostrarUnidadGestionCbo);
 
     if (!isMobile.any()) {
         
@@ -58,7 +59,8 @@ window.onload = function () {
         frm.append("telefonoContacto", txtTelefonoContacto.value);
         frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
-
+        frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
+        
         if (validarRequeridos('T')) {
             Http.post("Trabajador/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -127,6 +129,13 @@ function mostrarTipoDocumentoCbo(rpta) {
         CrearCombo(lstCboTipoDoc, cboTipoDocumento, "Seleccione");
     }
 }
+function mostrarUnidadGestionCbo(rpta) {
+    if (rpta) {
+        lstCboUnidadGestionDoc = rpta.split("¬");
+        CrearCombo(lstCboUnidadGestionDoc, cboUnidadGestion, "Seleccione");
+    }
+}
+
 
 function mostrarPuestoTrabajoCbo(rpta) {
     if (rpta) {

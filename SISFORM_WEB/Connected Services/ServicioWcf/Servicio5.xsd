@@ -39,6 +39,7 @@
   <xs:complexType name="Trabajador">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_TipoDocumento" type="xs:short" />
+      <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Trabajador" type="xs:int" />
       <xs:element minOccurs="0" name="apellidoMaterno" nillable="true" type="xs:string" />

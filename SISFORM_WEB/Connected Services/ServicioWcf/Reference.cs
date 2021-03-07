@@ -315,6 +315,13 @@ namespace SISFORM_WEB.ServicioWcf {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioWcf.IServicio")]
     public interface IServicio {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCheckListCsv", ReplyAction="http://tempuri.org/IServicio/ListarCheckListCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarCheckListCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarCheckListCsv(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCheckListCsv", ReplyAction="http://tempuri.org/IServicio/ListarCheckListCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarCheckListCsvAsync(int idUsuario);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTemaCapacitacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarTemaCapacitacionCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarTemaCapacitacionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarTemaCapacitacionCsv(int tipoEmpresa, int tipoServicio);
@@ -637,6 +644,13 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarPuestoTrabajoporIdCsv", ReplyAction="http://tempuri.org/IServicio/ListarPuestoTrabajoporIdCsvResponse")]
         System.Threading.Tasks.Task<string> ListarPuestoTrabajoporIdCsvAsync(int idTrabajador);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarUnidadGestionCsv", ReplyAction="http://tempuri.org/IServicio/ListarUnidadGestionCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarUnidadGestionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarUnidadGestionCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarUnidadGestionCsv", ReplyAction="http://tempuri.org/IServicio/ListarUnidadGestionCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarUnidadGestionCsvAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarPuestoTrabajoporIdTrabajadorPuestoCsv", ReplyAction="http://tempuri.org/IServicio/ListarPuestoTrabajoporIdTrabajadorPuestoCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarPuestoTrabajoporIdTrabajadorPuestoCsvErrorFaul" +
             "t", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -910,13 +924,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCapacitacionesCsv", ReplyAction="http://tempuri.org/IServicio/ListarCapacitacionesCsvResponse")]
         System.Threading.Tasks.Task<string> ListarCapacitacionesCsvAsync(int idUsuario);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCheckListCsv", ReplyAction="http://tempuri.org/IServicio/ListarCheckListCsvResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Dominio.Error), Action="http://tempuri.org/IServicio/ListarCheckListCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ListarCheckListCsv(int idUsuario);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCheckListCsv", ReplyAction="http://tempuri.org/IServicio/ListarCheckListCsvResponse")]
-        System.Threading.Tasks.Task<string> ListarCheckListCsvAsync(int idUsuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -944,6 +951,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public ServicioClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public string ListarCheckListCsv(int idUsuario) {
+            return base.Channel.ListarCheckListCsv(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarCheckListCsvAsync(int idUsuario) {
+            return base.Channel.ListarCheckListCsvAsync(idUsuario);
         }
         
         public string ListarTemaCapacitacionCsv(int tipoEmpresa, int tipoServicio) {
@@ -1314,6 +1329,14 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.ListarPuestoTrabajoporIdCsvAsync(idTrabajador);
         }
         
+        public string ListarUnidadGestionCsv() {
+            return base.Channel.ListarUnidadGestionCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarUnidadGestionCsvAsync() {
+            return base.Channel.ListarUnidadGestionCsvAsync();
+        }
+        
         public string ListarPuestoTrabajoporIdTrabajadorPuestoCsv(int idTrabajadorPuesto) {
             return base.Channel.ListarPuestoTrabajoporIdTrabajadorPuestoCsv(idTrabajadorPuesto);
         }
@@ -1624,14 +1647,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarCapacitacionesCsvAsync(int idUsuario) {
             return base.Channel.ListarCapacitacionesCsvAsync(idUsuario);
-        }
-        
-        public string ListarCheckListCsv(int idUsuario) {
-            return base.Channel.ListarCheckListCsv(idUsuario);
-        }
-        
-        public System.Threading.Tasks.Task<string> ListarCheckListCsvAsync(int idUsuario) {
-            return base.Channel.ListarCheckListCsvAsync(idUsuario);
         }
     }
 }
