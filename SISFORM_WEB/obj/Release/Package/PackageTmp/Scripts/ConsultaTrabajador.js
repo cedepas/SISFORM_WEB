@@ -8,11 +8,14 @@ var objetoParametrizado = [];
 var objetoBusqueda = [];
 var filtro;
 var textoBusqueda;
+var estadoModal;
+var lstPuestosTrabajador;
 
 window.onload = function () {
     Http.get("Trabajador/ListarTipoDocumentoCbo", mostrarTipoDocumentoCbo);
     Http.get("Trabajador/listarUbigeoCbo", mostrarListaUbigeo);
     Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
+    Http.get("Trabajador/ListarUnidadGestionCsv", mostrarUnidadGestionCbo);
 
     if (!isMobile.any()) {
         
@@ -56,7 +59,8 @@ window.onload = function () {
         frm.append("telefonoContacto", txtTelefonoContacto.value);
         frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
-
+        frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
+        
         if (validarRequeridos('T')) {
             Http.post("Trabajador/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -84,7 +88,6 @@ window.onload = function () {
         btnModal.style.visibility = "hidden";
         btnNuevo.style.visibility = "hidden";
     }
-
     txtbuscarPorEmpresa.onkeyup = function () {
         var a, b;
         closeAllLists();
@@ -109,11 +112,7 @@ window.onload = function () {
                 a.appendChild(b);
             }
         }
-    A}
-    //txtbuscarPorEmpresa.onchange = function () {
-    //    listarPuestoTrabajo();
-    //}
-
+    }
 }
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
@@ -130,6 +129,13 @@ function mostrarTipoDocumentoCbo(rpta) {
         CrearCombo(lstCboTipoDoc, cboTipoDocumento, "Seleccione");
     }
 }
+function mostrarUnidadGestionCbo(rpta) {
+    if (rpta) {
+        lstCboUnidadGestionDoc = rpta.split("¬");
+        CrearCombo(lstCboUnidadGestionDoc, cboUnidadGestion, "Seleccione");
+    }
+}
+
 
 function mostrarPuestoTrabajoCbo(rpta) {
     if (rpta) {
@@ -250,6 +256,12 @@ function CrearTablaCsv(rpta) {
         var grilla = new Grilla(lista, "divTabla", 10, 3);
     }
 }
+function CrearTablaCsvPuestos(rpta) {
+    if (rpta) {
+        lstPuestosTrabajador = rpta.split('¬');
+        var grillaModal = new GrillaModal(lstPuestosTrabajador, "divTablaPuestos", 10, 3);
+    }
+}
 
 function CrearListaCsv(rpta) {
     if (rpta) {
@@ -291,6 +303,24 @@ function crearObjeto() {
 
 function obtenerRegistroPorId(id) {
     Http.get("Trabajador/ObtenerTrabajadorPorId?idTrabajador=" + id, AsignarCampos);
+    Http.get("Trabajador/ListarPuestoTrabajoporIdCsv?idTrabajador=" + id, CrearTablaCsvPuestos);
+}
+
+function modalObtenerRegistroPorId(id) {
+    Http.get("Trabajador/ListarPuestoTrabajoporIdTrabajadorPuestoCsv?idTrabajadorPuesto=" + id, AsignarCamposPuestoTrabajo);
+}
+
+function AsignarCamposPuestoTrabajo(rpta) {
+    if (rpta) {
+        campos = rpta.split('|');
+        txtIdTrabajadorPuesto.value = campos[0];
+        txtbuscarPorEmpresa.value = campos[1];
+        cboPuestoTrabajo.value = campos[2];
+        txtFechaIngreso.value = campos[3];
+        txtFechaSalida.value = campos[4];
+        txtEstadoPuesto.checked = (campos[5] == "ACT" ? true : false);
+        Http.get("Trabajador/ListarPuestoTrabajoCbo?idEmpresa=" + campos[6], mostrarPuestoTrabajoCbo);
+    }
 }
 
 function AsignarCampos(rpta) {
@@ -321,17 +351,18 @@ function AsignarCampos(rpta) {
             txtTelefonoContacto.value = campos[12];
             txtEstado.checked = (campos[13] == "ACT" ? true : false);
         }
+        limpiarControles('P')
 
-        if (listas[1]) {
-            campos = listas[1].split('|');
-            txtIdTrabajadorPuesto.value = campos[0];
-            cboPuestoTrabajo.value = campos[1];
-            cboEmpresa.value = campos[2];
-            txtFechaIngreso.value = campos[3];
-            txtFechaSalida.value = campos[4];
-            txtEstadoPuesto.checked = (campos[5] == "ACT" ? true : false);
-        } else {
-            limpiarControles('P')
-        }
+        //if (listas[1]) {
+        //    campos = listas[1].split('|');
+        //    txtIdTrabajadorPuesto.value = campos[0];
+        //    cboPuestoTrabajo.value = campos[1];
+        //    txtbuscarPorEmpresa.value = campos[2];
+        //    txtFechaIngreso.value = campos[3];
+        //    txtFechaSalida.value = campos[4];
+        //    txtEstadoPuesto.checked = (campos[5] == "ACT" ? true : false);
+        //} else {
+        //    limpiarControles('P')
+        //}
     }    
 }
