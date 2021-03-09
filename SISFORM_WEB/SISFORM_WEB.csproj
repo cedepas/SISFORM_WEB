@@ -266,19 +266,49 @@
     <None Include="Connected Services\ServicioWcf\Servicio1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicioWcf\Servicio2.wsdl" />
     <None Include="Connected Services\ServicioWcf\Servicio2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicioWcf\Servicio4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioWcf\Servicio5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioWcf\Servicio6.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <Content Include="Properties\DataSources\Dominio.Criterio11.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Criterio21.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Criterio31.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Empresa1.datasource" />
+    <Content Include="Properties\DataSources\Dominio.ProgresoEmpresa1.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Trabajador1.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Ubigeo1.datasource" />
+    <Content Include="Properties\DataSources\Dominio.VistaUsuario1.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Criterio12.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Criterio22.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Criterio32.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Empresa2.datasource" />
+    <Content Include="Properties\DataSources\Dominio.ProgresoEmpresa2.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Trabajador2.datasource" />
+    <Content Include="Properties\DataSources\Dominio.Ubigeo2.datasource" />
+    <Content Include="Properties\DataSources\Dominio.VistaUsuario2.datasource" />
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Empresa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.ProgresoEmpresa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Trabajador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Ubigeo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.VistaUsuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />

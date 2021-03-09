@@ -35,9 +35,12 @@ window.onload = function () {
     txtFechaCapacitacion.value = fechaActual;
 
     btnGrabarCapacitacion.onclick = function () {
-        lstTrabajadoresCapacitados = lstTrabajadoresCapacitados.substring(9, lstTrabajadoresCapacitados.length);
-        lstTrabajadoresCapacitados = lstTrabajadoresCapacitados.substring(0, lstTrabajadoresCapacitados.length - 1);
-
+        if (lstTrabajadoresCapacitados === undefined) {
+            lstTrabajadoresCapacitados = 0;
+        } else {
+            lstTrabajadoresCapacitados = lstTrabajadoresCapacitados.substring(9, lstTrabajadoresCapacitados.length);
+            lstTrabajadoresCapacitados = lstTrabajadoresCapacitados.substring(0, lstTrabajadoresCapacitados.length - 1);
+        }
         var frm = new FormData();
         frm.append("FK_ID_Empresa", idEmpresa);
         frm.append("Id_usuario", idUsuario);

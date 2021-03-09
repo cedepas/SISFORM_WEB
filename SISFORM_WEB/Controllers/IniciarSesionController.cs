@@ -1,4 +1,4 @@
-﻿using Dominio;
+﻿
 using SISFORM_WEB.ServicioWcf;//ServicioWcfClient
 using System;
 using System.Text.Json;

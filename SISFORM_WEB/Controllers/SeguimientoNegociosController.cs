@@ -2,8 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Dominio;
-using System.Collections.Generic;
+
 
 namespace SISFORM_WEB.Controllers
 {

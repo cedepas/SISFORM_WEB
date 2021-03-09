@@ -10,6 +10,7 @@ var filtro;
 var textoBusqueda;
 var estadoModal;
 var lstPuestosTrabajador;
+var idEmpresaPuesto;
 
 window.onload = function () {
     Http.get("Trabajador/ListarTipoDocumentoCbo", mostrarTipoDocumentoCbo);
@@ -72,7 +73,7 @@ window.onload = function () {
         frm.append("FK_ID_Trabajador", (idTrabajador == "" ? "0" : idTrabajador));
         //frm.append("FK_ID_Trabajador", txtIdTrabajador.value);
         frm.append("FK_ID_PuestoTrabajo", cboPuestoTrabajo.value);
-        frm.append("FK_ID_Empresa", idEmpresa);
+        frm.append("FK_ID_Empresa", idEmpresaPuesto);
         frm.append("fechaIngreso", txtFechaIngreso.value);
         frm.append("fechaFin", txtFechaSalida.value);
         frm.append("estado", (txtEstadoPuesto.checked == true ? "ACT" : "ANU"));
@@ -242,7 +243,7 @@ function MostrarGrabar(rpta) {
 function MostrarGrabarPuesto(rpta) {
     if (rpta) {
         if (!isMobile.any()) {
-            Http.get("Trabajador/ListarTrabajador", CrearTablaCsv);
+            Http.get("Trabajador/ListarPuestoTrabajoporIdCsv?idTrabajador=" + idTrabajador, CrearTablaCsvPuestos);
         }
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
         txtIdTrabajadorPuesto.value = rpta;
@@ -302,6 +303,7 @@ function crearObjeto() {
 }
 
 function obtenerRegistroPorId(id) {
+
     Http.get("Trabajador/ObtenerTrabajadorPorId?idTrabajador=" + id, AsignarCampos);
     Http.get("Trabajador/ListarPuestoTrabajoporIdCsv?idTrabajador=" + id, CrearTablaCsvPuestos);
 }
@@ -318,6 +320,7 @@ function AsignarCamposPuestoTrabajo(rpta) {
         cboPuestoTrabajo.value = campos[2];
         txtFechaIngreso.value = campos[3];
         txtFechaSalida.value = campos[4];
+        idEmpresaPuesto = campos[6];
         txtEstadoPuesto.checked = (campos[5] == "ACT" ? true : false);
         Http.get("Trabajador/ListarPuestoTrabajoCbo?idEmpresa=" + campos[6], mostrarPuestoTrabajoCbo);
     }
