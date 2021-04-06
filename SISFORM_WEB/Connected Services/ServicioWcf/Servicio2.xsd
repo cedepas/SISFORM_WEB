@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://cedepasws.azurewebsites.net/Servicio.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Dominio" />
+  <xs:element name="ListarTipoOperacionEmpresaCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tipoEmpresa" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTipoOperacionEmpresaCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarTipoOperacionEmpresaCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarCantidadPreguntasChecklistCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tipoEmpresa" type="xs:int" />
+        <xs:element minOccurs="0" name="tipoServicio" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarCantidadPreguntasChecklistCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarCantidadPreguntasChecklistCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEstadoCapacitacionCsv">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEstadoCapacitacionCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarEstadoCapacitacionCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarCapacitacionesCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarCapacitacionesCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarCapacitacionesCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarCheckListCsv">
     <xs:complexType>
       <xs:sequence>
@@ -27,6 +82,22 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ListarTemaCapacitacionCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarPuestoTrabajadorPorEmpresaCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+        <xs:element minOccurs="0" name="lstTrabajadores" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FK_ID_Usuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarPuestoTrabajadorPorEmpresaCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActualizarPuestoTrabajadorPorEmpresaCsvResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -370,6 +441,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListarEstadoEmpresaCsv">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEstadoEmpresaCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarEstadoEmpresaCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarTrabajadorCsv">
     <xs:complexType>
       <xs:sequence />
@@ -410,17 +493,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListarPuestoTrabajoCboCsv">
+  <xs:element name="ListarPuestoTrabajoPorEmpresaCboCsv">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="idEmpresa" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListarPuestoTrabajoCboCsvResponse">
+  <xs:element name="ListarPuestoTrabajoPorEmpresaCboCsvResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ListarPuestoTrabajoCboCsvResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ListarPuestoTrabajoPorEmpresaCboCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTrabajadorPorEmpresaCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTrabajadorPorEmpresaCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarTrabajadorPorEmpresaCsvResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -551,6 +648,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ListarPruebasCovidCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarResultadosCovidPorFechaCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fechaPrueba" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarResultadosCovidPorFechaCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarResultadosCovidPorFechaCsvResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -728,6 +839,21 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="RegistrarIngresoporDniCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarSalidaPorDniCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="numeroDocumento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TipoEscaneo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarSalidaPorDniCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrarSalidaPorDniCsvResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1126,61 +1252,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ListarInspeccionesCsvResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarTipoOperacionEmpresaCsv">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="tipoEmpresa" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarTipoOperacionEmpresaCsvResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ListarTipoOperacionEmpresaCsvResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarCantidadPreguntasChecklistCsv">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="tipoEmpresa" type="xs:int" />
-        <xs:element minOccurs="0" name="tipoServicio" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarCantidadPreguntasChecklistCsvResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ListarCantidadPreguntasChecklistCsvResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarEstadoCapacitacionCsv">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarEstadoCapacitacionCsvResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ListarEstadoCapacitacionCsvResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarCapacitacionesCsv">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarCapacitacionesCsvResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ListarCapacitacionesCsvResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

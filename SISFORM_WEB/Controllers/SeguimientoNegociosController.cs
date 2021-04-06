@@ -156,7 +156,6 @@ namespace SISFORM_WEB.Controllers
             }
         }
 
-        
         public async Task<string> ListarEstadoCapacitacionCsv()
         {
             try
@@ -185,6 +184,19 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        
+        public async Task<string> ActualizarPuestoTrabajadorPorEmpresaCsv(int FK_ID_Empresa, string listadoTrabajadores, int FK_ID_Usuario)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ActualizarPuestoTrabajadorPorEmpresaCsvAsync(FK_ID_Empresa, listadoTrabajadores, FK_ID_Usuario);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

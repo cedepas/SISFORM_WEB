@@ -15,6 +15,8 @@ var idEmpresa;
 
 window.onload = function () {
     Http.get("Empresa/ListarTipoEmpresaCbo", mostrarTipoEmpresaCbo);
+    Http.get("Empresa/ListarEstadoEmpresaCsv", mostrarEstadoEmpresaCbo);
+    Http.get("Trabajador/ListarUnidadGestionCsv", mostrarUnidadGestionCbo);
 
     if (!isMobile.any()) {
         Http.get("Empresa/ListarEmpresa", CrearTablaCsv);
@@ -37,10 +39,11 @@ window.onload = function () {
         frm.append("ruc", txtRuc.value);
         frm.append("telefono", txtTelefono.value);
         frm.append("direccion", txtDireccion.value);
-        frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
+        //frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
         frm.append("email", txtEmail.value);
-
+        frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
+        frm.append("FK_ID_EstadoEmpresa", CboEstadoEmpresa.value);
         if (validarRequeridos('E')) {
             Http.post("Empresa/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -219,6 +222,20 @@ function MostrarGrabarCriterio3(rpta) {
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
 
+function mostrarUnidadGestionCbo(rpta) {
+    if (rpta) {
+        lstCboUnidadGestionDoc = rpta.split("¬");
+        CrearCombo(lstCboUnidadGestionDoc, cboUnidadGestion, "Seleccione");
+    }
+}
+
+function mostrarEstadoEmpresaCbo(rpta) {
+    if (rpta) {
+        lstCboEstadoEmpresa = rpta.split("¬");
+        CrearCombo(lstCboEstadoEmpresa, CboEstadoEmpresa, "Seleccione");
+    }
+}
+
 function CrearTablaCsv(rpta) {
     if (rpta) {
         var lista = rpta.split('¬');
@@ -258,8 +275,10 @@ function AsignarCampos(rpta) {
             txtRuc.value = campos[7];
             txtTelefono.value = campos[8];
             txtDireccion.value = campos[9];
-            txtEstado.value = (campos[10] == "ACT" ? true : false);
-            txtEmail.value = campos[11] ;
+            CboEstadoEmpresa.value = campos[10];
+            //txtEstado.value = (campos[10] == "ACT" ? true : false);
+            txtEmail.value = campos[11];
+            cboUnidadGestion.value = campos[12];
         }
 
         if (listas[1]) {

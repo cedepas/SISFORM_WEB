@@ -10,6 +10,7 @@
   <xs:element name="Error" nillable="true" type="tns:Error" />
   <xs:complexType name="VistaUsuario">
     <xs:sequence>
+      <xs:element minOccurs="0" name="ID_Empresa" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Trabajador" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Usuario" type="xs:int" />
       <xs:element minOccurs="0" name="clave" nillable="true" type="xs:string" />
@@ -65,12 +66,13 @@
   <xs:element name="ArrayOfTrabajador" nillable="true" type="tns:ArrayOfTrabajador" />
   <xs:complexType name="Empresa">
     <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_EstadoEmpresa" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_TipoEmpresa" type="xs:short" />
+      <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Empresa" type="xs:int" />
       <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nombreComercial" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="razonSocial" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="regimenTributario" nillable="true" type="xs:string" />

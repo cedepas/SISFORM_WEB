@@ -63,12 +63,17 @@ function CrearTablaCsv(rpta) {
 
 function MostrarGrabar(rpta) {
     if (rpta) {
-        if (!isMobile.any()) {
-            ids = [];
-            Http.get("PruebaCovid/ListarPruebas", CrearTablaCsv);
+        if (rpta == -1) {
+            toastDangerAlert("El trabajador ya se encuentra Programado para esta fecha", "¡Error!");
         }
-        toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
-        txtIdTrabajadorPuesto.value = rpta;
+        else {
+            if (!isMobile.any()) {
+                ids = [];
+                Http.get("PruebaCovid/ListarPruebas", CrearTablaCsv);
+            }
+            toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
+            txtIdTrabajadorPuesto.value = rpta;
+        }  
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }

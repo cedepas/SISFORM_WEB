@@ -5,6 +5,7 @@ using SISFORM_WEB.General;
 using SISFORM_WEB.ServicioWcf;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web;
@@ -33,16 +34,28 @@ namespace SISFORM_WEB.Controllers
             return View();
         }
 
-        //public ActionResult PruebaCovid()
-        //{
-        //    ViewBag.Title = "Prueba Covid";
-        //    return View();
-        //}
-        //public ActionResult ProgramacionPruebaCovid()
-        //{
-        //    ViewBag.Title = "Programación Prueba Covid";
-        //    return View();
-        //}
+        public async Task<string> ValidarDniReniec(string DNI )
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ValidarDniReniecAsync(DNI);
+                if (rpta.Length > 3)
+                {
+                    rpta = rpta;
+                }else
+                {
+                    rpta = "";
+                }
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         public async Task<string> ListarTipoDocumentoCbo()
         {
             try
@@ -118,13 +131,13 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> ListarPuestoTrabajoCbo(string idEmpresa)
+        public async Task<string> ListarPuestoTrabajoPorEmpresaCboCsv(string idEmpresa)
         {
             try
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.ListarPuestoTrabajoCboCsvAsync(idEmpresa);
+                rpta = await servicio.ListarPuestoTrabajoPorEmpresaCboCsvAsync(idEmpresa);
                 return rpta;
             }
             catch (Exception ex)
@@ -132,6 +145,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarTrabajadorPorEmpresaCsv(int idEmpresa)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarTrabajadorPorEmpresaCsvAsync(idEmpresa);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         public async Task<string> ListarEmpresaCbo()
         {
             try
@@ -160,7 +188,6 @@ namespace SISFORM_WEB.Controllers
             {
                 op = "U";
             }
-
             ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
             rpta = await servicio.TrabajadorOperacionAsync(oTrabajador, op);
             if (rpta == 0)

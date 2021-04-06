@@ -5,7 +5,6 @@ var numeroPrueba;
 var idEmpresaPuesto;
 var idPruebaCovid;
 
-
 window.onload = function () {
     if (!isMobile.any()) {
         Http.get("PruebaCovid/ListarPruebasCovid", CrearTablaCsv);
@@ -46,9 +45,8 @@ window.onload = function () {
                 Http.post("PruebaCovid/GrabarPrueba", MostrarGrabar, frm);
             } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
         }
-
-
     }
+
     btnAgregarPuesto.onclick = function () {
         var frm = new FormData();
         //frm.append("ID_TrabajadorPuesto", (txtIdTrabajadorPuesto.value == "" ? "0" : txtIdTrabajadorPuesto.value));
@@ -65,6 +63,7 @@ window.onload = function () {
             Http.post("Trabajador/GrabarPuesto", MostrarGrabarPuesto, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
+
     btnNuevo.onclick = function () {
         limpiarControles('form-control');
         btnNuevo.style.visibility = "hidden";
@@ -74,17 +73,63 @@ window.onload = function () {
         btnGrabar.style.visibility = "visible";
 
     }
+
     btnModalAgregar.onclick = function () {
         txtIdTrabajadorPuesto.value = idTrabajador;
         btnModalAgregar.style.visibility = "hidden";
         btnNuevo.style.visibility = "hidden";
     }
+
     cboEmpresa.onchange = function () {
         idEmpresaPuesto = cboEmpresa.value;
         listarPuestosTrabajoCbo();
     }
+
+    txtfechaResultados.onchange = function () {
+        Http.get("PruebaCovid/ListarResultadosCovidPorFechaCsv?fechaPrueba=" + txtfechaResultados.value, mostrarResultadosPorFecha);
+    }
+
+    btnExportar.onclick = function () {
+        console.log(btnExportar.value);
+        var downloadLink;
+        //var dataType = 'application/vnd.ms-excel;charset=utf-8';
+
+        var tableSelect = document.getElementById('divTabla');
+
+
+        var tableHTML = tableSelect.outerHTML.replace(/input /g, '').replace(/ /g, '%20');
+        console.log(tableHTML);
+        var filename = 'PruebasCovid';
+        // Nombre Archivo
+        filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+        // Crear Link del Elemento a descargar
+        downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+
+        if (navigator.msSaveOrOpenBlob) {
+            var blob = new Blob(['ufeff', tableHTML], {
+                type: dataType
+            });
+            navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+            // Crear Link del Archivo
+            downloadLink.href = 'data:application/vnd.ms-excel;charset=utf-8,' + tableHTML;
+
+            // Configuración del nombre del archivo
+            downloadLink.download = filename;
+
+            //ejecutando la funcion de descarga
+            downloadLink.click();
+        }
+    }
+
 }
 
+function resulExcel(rpta) {
+    console.log(rpta);
+}
 function MostrarGrabar(rpta) {
     if (rpta) {
         if (!isMobile.any()) {
@@ -97,8 +142,51 @@ function MostrarGrabar(rpta) {
     }
     else toastDangerAlert("No se pudo grabar el registro, verique la fecha de programación", "¡Error!");
 }
-
-
+function mostrarResultadosPorFecha(rpta) {
+    if (rpta) {
+        var b,c;
+        var listas = rpta.split('¯');
+        b = document.createElement("div");
+        b.innerHTML = "<p>Cantidad de pruebas fecha " + txtfechaResultados.value + "</p>";
+        c = document.createElement("div");
+        c.innerHTML = "<p>Resultados de fecha " + txtfechaResultados.value + "</p>";
+        if (listas[0].includes('¬')) {
+            lstCantidad = listas[0].split('¬');
+            for (var i = 0 in lstCantidad) {
+                var LstAmostrar = lstCantidad[i].split('|');
+                b.innerHTML += "&nbsp;&nbsp; <label>" + LstAmostrar[0] + "</label>";
+                b.innerHTML += "&nbsp; <label>" + LstAmostrar[1] + "</label>";
+                document.getElementById('cantidadPruebas').appendChild(b);
+            }
+        }
+        else {
+            var lista1 = listas[0].split('|');
+            //contadorTrabajdoresCapacitados = contadorTrabajdoresCapacitados + 1;
+            //b = document.createElement("div");
+            b.innerHTML += "&nbsp;&nbsp; <label>" + lista1[0] + "</label>";
+            b.innerHTML += "&nbsp; <label>" + lista1[1] + "</label>";
+            document.getElementById('cantidadPruebas').appendChild(b);
+        }
+        if (listas[1].includes('¬')) {
+            lstResultados = listas[1].split('¬');
+            for (var i = 0 in lstResultados) {
+                var LstAmostrar = lstResultados[i].split('|');
+                c.innerHTML += "&nbsp;&nbsp; <label>" + LstAmostrar[0] + "</label>";
+                c.innerHTML += "&nbsp; <label>" + LstAmostrar[1] + "</label>";
+                document.getElementById('resultadosPruebas').appendChild(c);
+            }
+        }
+        else {
+            var lista1 = listas[1].split('|');
+            //contadorTrabajdoresCapacitados = contadorTrabajdoresCapacitados + 1;
+            //b = document.createElement("div");
+            c.innerHTML += "&nbsp;&nbsp; <label>" + lista1[0] + "</label>";
+            c.innerHTML += "&nbsp; <label>" + lista1[1] + "</label>";
+            document.getElementById('resultadosPruebas').appendChild(c);
+        }
+    }
+    else toastDangerAlert("Error al obtener resultados por fecha", "¡Error!");
+}
 
 function consulta(e) {
     if (e.keyCode === 13 && !e.shiftKey) {
@@ -125,7 +213,7 @@ function AsignarCampos(rpta) {
                 idTrabajador = campos[0];
             }
             else {
-                if (campos[8] == "PRO") {
+                if (campos[8].substring(0, 3) == "PRO") {
                     //cboResultadoPrueba.style.visibility = "visible";
                     //txtNumeroPrueba.style.visibility = "visible";
                     document.getElementById("tituloCovid").innerHTML = "Registrar resultado de prueba";
@@ -180,6 +268,7 @@ function CrearTablaCsv(rpta) {
 function mostrarCbo(rpta) {
     if (rpta) {
         lstPrueba = rpta.split('¬');
+        lstPrueba.shift();
         CrearCombo(lstPrueba, cboResultadoPrueba, "Seleccione");
     }
 }

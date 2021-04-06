@@ -6,20 +6,32 @@
 
     <script>
         var siteActive = document.getElementById("docs-section-id");
-        siteActive.value = "gestionNegocios";
+        siteActive.value = "Inspecciones";
     </script>
 
 }
 <div class="content">
     <div class="title"><h5 id="Inspecciones"></h5></div>
-    @*<div style="display:none">
-            <input type="hidden" class="form-control form-control-sm E" id="txtIdTrabajador" readonly="readonly" />
-            <input type="hidden" class="form-control form-control-sm E" id="txtIdPruebasCovid" placeholder="Codigo" readonly="readonly" />
-        </div>*@
     <div class="form-row">
         <div class="col-sm-4">
             <label for="txtbuscarPorEmpresa" class="required">Digite los datos de la Empresa Inspeccionada</label>
             <input type="text" class="form-control form-control-sm E" id="txtbuscarPorEmpresa" placeholder="Nombre Empresa" required="required" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-9 text-center">
+            <fieldset>
+                <legend>Listado de Trabajadores</legend>
+                <table class="table" id="tablaTrabajadores">
+                    <thead id="TrabajadoresEmpresa">
+                    </thead>
+                    <tbody id="TrabajadoresDeLaEmpresa">
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+        <div class="col-sm-3">
+            <input class="btn btn-success" id="btnActualizar" type="button" style="display:none" value="Actualizar">
         </div>
     </div>
     <div class="form-row">

@@ -1,4 +1,5 @@
 ﻿
+using ClosedXML;
 using GeneralTrabajos;
 using SISFORM_WEB.Filters;
 using SISFORM_WEB.General;
@@ -113,6 +114,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarResultadosCovidPorFechaCsv(string fechaPrueba)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarResultadosCovidPorFechaCsvAsync(fechaPrueba);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         public async Task<string> GrabarPrueba(PruebasCovid oPruebasCovid)
         {
             int rpta = 0;
@@ -180,5 +196,21 @@ namespace SISFORM_WEB.Controllers
                 return "";
             }
         }
+        //public string ExpoExcel(string data, string idUsuario)
+        //{
+        //    int rpta = 0;
+        //    dat
+        //    //ExportarExcel exportarExcel = new ExportarExcel();
+        //    string exportarExcel = ExportarExcel.Exportar("nombre","10",);
+        //    if (rpta == 0)
+        //    {
+        //        return "";
+        //    }
+        //    else
+        //    {
+        //        return rpta.ToString();
+        //    }
+        //}
+        
     }
 }

@@ -15,8 +15,6 @@ window.onload = function () {
         Http.get("SeguimientoNegocios/ListarCheckListCsv?idUsuario=" + idUsuario, CrearTablaCsv);
         Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
 
-
-
         var divRows = document.getElementsByClassName('form-row');
         for (var i = 0; i < divRows.length; i++) {
             divRows[i].classList.add("row-eq-spacing-sm");
@@ -177,6 +175,7 @@ function MostrarRegistroCheckList(rpta) {
     if (rpta) {
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
         limpiarControles('form-control');
+        location.reload();
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 } 

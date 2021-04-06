@@ -61,8 +61,8 @@
         var siteActive = document.getElementById("docs-section-id");
         siteActive.value = "programacioncovid";
     </script>
-    }
-    <!-- Modals end -->
+}
+<!-- Modals end -->
 
 <div class="content">
     <div class="title"><h5 id="tituloCovid"></h5></div>
@@ -87,33 +87,48 @@
         </div>
         <div class="col-sm-3" id="numeroPrueba" style="display:inline">
             <label for="txtNumeroPrueba" class="required">N° Prueba </label>
-            <input type="text" class="form-control form-control-sm E" id="txtNumeroPrueba" placeholder="N° Prueba" required="required"/>
+            <input type="text" class="form-control form-control-sm E" id="txtNumeroPrueba" placeholder="N° Prueba" required="required" />
         </div>
         <div class="col-sm-3" id="resultadoPrueba" style="display:none">
             <label for="cboResultadoPrueba" class="required">Resultado de prueba</label>
             <select class="form-control form-control-sm E" id="cboResultadoPrueba"></select>
         </div>
     </div>
-
+    <br />
+    <br />
     <div class="text-right">
         <a href="#agregarpuestotrabajo-modal" class="btn btn-secondary" id="btnModalAgregar" role="button" style="visibility:hidden">Agregar Puesto</a>
         <input class="btn btn-primary" id="btnNuevo" type="button" value="Nuevo" style="visibility:hidden">
         <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
+        <input class="btn btn-success" id="btnExportar" type="button" value="Exportar a Excel">
     </div>
-</div>
-    <div class="content">
-        <hr class="mb-20" />
-    </div>
-    <div class="mw-full">
-        <div class="card p-0 bg-very-dark-dm">
-            <div id="divTabla" class="table-responsive">
-                <table id="tablaDatos" class="table table-inner-bordered">
-                </table>
-            </div>
+
+    <div class="form-row">
+        <div class="col-sm-3" id="fechaResultados" style="display:inline">
+            <label for="fechaResultados">Fecha de Resultados de Pruebas</label>
+            <input type="date" class="form-control form-control-sm" id="txtfechaResultados" required="required" />
+        </div>
+        <div class="col-sm-3" id="cantidadPruebas">
+
+        </div>
+        <div class="col-sm-3" id="resultadosPruebas">
+
         </div>
     </div>
-    <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+</div>
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
 
-    @section scripts{
-        @Scripts.Render("~/Scripts/ConsultaProgramacionCovid.js")
-    }
+@section scripts{
+    @Scripts.Render("~/Scripts/ConsultaProgramacionCovid.js")
+}

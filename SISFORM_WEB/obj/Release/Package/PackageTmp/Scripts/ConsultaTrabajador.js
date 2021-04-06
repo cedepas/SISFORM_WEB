@@ -6,11 +6,15 @@ var idTrabajador;
 var idEmpresa;
 var objetoParametrizado = [];
 var objetoBusqueda = [];
+//var objetoParametrizadoPuesto = [];
+//var objetoBusquedaPuesto = [];
 var filtro;
 var textoBusqueda;
+//var textoBusquedaPuesto;
 var estadoModal;
 var lstPuestosTrabajador;
 var idEmpresaPuesto;
+var idPuestoTrabajo;
 
 window.onload = function () {
     Http.get("Trabajador/ListarTipoDocumentoCbo", mostrarTipoDocumentoCbo);
@@ -19,7 +23,7 @@ window.onload = function () {
     Http.get("Trabajador/ListarUnidadGestionCsv", mostrarUnidadGestionCbo);
 
     if (!isMobile.any()) {
-        
+
 
         var divRows = document.getElementsByClassName('form-row');
         for (var i = 0; i < divRows.length; i++) {
@@ -29,8 +33,6 @@ window.onload = function () {
 
     Http.get("Trabajador/ListarTrabajador", CrearTablaCsv);
 
-    
-
     cboDepartamento.onchange = function () {
         listarProvincias();
     }
@@ -39,12 +41,18 @@ window.onload = function () {
         listarDistritos();
     }
 
+    txtNuDoc.onblur = function () {
+        if (cboTipoDocumento.value == 1) {
+            Http.get("Trabajador/ValidarDniReniec?DNI=" + txtNuDoc.value, ValidacionDNIPorRENIEC);
+        }
+    }
+
     btnGrabar.onclick = function () {
         var frm = new FormData();
         if (idTrabajador) {
             frm.append("ID_Trabajador", idTrabajador);
         }
-        //frm.append("ID_Trabajador", (txtIdTrabajador.value == "" ? "0" : txtIdTrabajador.value));
+        frm.append("ID_Trabajador", idTrabajador);
         frm.append("FK_ID_TipoDocumento", cboTipoDocumento.value);
         frm.append("numeroDocumento", txtNuDoc.value);
         frm.append("nombreTrabajador", txtNombre.value.toUpperCase());
@@ -55,23 +63,70 @@ window.onload = function () {
         frm.append("referencia", txtReferencia.value.toUpperCase());
         frm.append("telefono", txtTelefono.value);
         frm.append("direccion", txtDireccion.value.toUpperCase());
-        //frm.append("condicionTrabajador", (txtCondicion.checked == true ? "SI" : "NO"));
         frm.append("familiarContacto", txtFamiliarContacto.value.toUpperCase());
         frm.append("telefonoContacto", txtTelefonoContacto.value);
         frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
         frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
-        
         if (validarRequeridos('T')) {
             Http.post("Trabajador/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+        //}
+        //else {
+        //    if (cboTipoDocumento.value == 1) {
+        //        Http.get("Trabajador/ValidarDniReniec?DNI=" + txtNuDoc.value, DNIValidado);
+        //    }
+        //    else {
+        //        frm.append("FK_ID_TipoDocumento", cboTipoDocumento.value);
+        //        frm.append("numeroDocumento", txtNuDoc.value);
+        //        frm.append("nombreTrabajador", txtNombre.value.toUpperCase());
+        //        frm.append("apellidoPaterno", txtApePaterno.value.toUpperCase());
+        //        frm.append("apellidoMaterno", txtApeMaterno.value.toUpperCase());
+        //        frm.append("fechaNacimiento", dtFecNac.value);
+        //        frm.append("ubigeo", cboDepartamento.value + cboProvincia.value + cboDistrito.value);
+        //        frm.append("referencia", txtReferencia.value.toUpperCase());
+        //        frm.append("telefono", txtTelefono.value);
+        //        frm.append("direccion", txtDireccion.value.toUpperCase());
+        //        frm.append("familiarContacto", txtFamiliarContacto.value.toUpperCase());
+        //        frm.append("telefonoContacto", txtTelefonoContacto.value);
+        //        frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
+        //        frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
+        //        frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
+        //        if (validarRequeridos('T')) {
+        //            Http.post("Trabajador/Grabar", MostrarGrabar, frm);
+        //        } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+        //    }
+        //}
+
+        //function DNIValidado(rpta) {
+        //    if (rpta){
+        //        frm.append("FK_ID_TipoDocumento", cboTipoDocumento.value);
+        //        frm.append("numeroDocumento", txtNuDoc.value);
+        //        frm.append("nombreTrabajador", txtNombre.value.toUpperCase());
+        //        frm.append("apellidoPaterno", txtApePaterno.value.toUpperCase());
+        //        frm.append("apellidoMaterno", txtApeMaterno.value.toUpperCase());
+        //        frm.append("fechaNacimiento", dtFecNac.value);
+        //        frm.append("ubigeo", cboDepartamento.value + cboProvincia.value + cboDistrito.value);
+        //        frm.append("referencia", txtReferencia.value.toUpperCase());
+        //        frm.append("telefono", txtTelefono.value);
+        //        frm.append("direccion", txtDireccion.value.toUpperCase());
+        //        frm.append("familiarContacto", txtFamiliarContacto.value.toUpperCase());
+        //        frm.append("telefonoContacto", txtTelefonoContacto.value);
+        //        frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
+        //        frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
+        //        frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
+        //        if (validarRequeridos('T')) {
+        //            Http.post("Trabajador/Grabar", MostrarGrabar, frm);
+        //        } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+        //    } else toastDangerAlert("El DNI ingreso no es valido*", "¡Aviso!");
+        //}
+
     }
 
     btnGrabarPuesto.onclick = function () {
         var frm = new FormData();
         frm.append("ID_TrabajadorPuesto", (txtIdTrabajadorPuesto.value == "" ? "0" : txtIdTrabajadorPuesto.value));
         frm.append("FK_ID_Trabajador", (idTrabajador == "" ? "0" : idTrabajador));
-        //frm.append("FK_ID_Trabajador", txtIdTrabajador.value);
         frm.append("FK_ID_PuestoTrabajo", cboPuestoTrabajo.value);
         frm.append("FK_ID_Empresa", idEmpresaPuesto);
         frm.append("fechaIngreso", txtFechaIngreso.value);
@@ -102,11 +157,10 @@ window.onload = function () {
             if (Nombre.indexOf(textoBusqueda) !== -1) {
                 b = document.createElement("div");
                 b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
-                //b.innerHTML += Nombre;
                 b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
                 b.addEventListener("click", function (e) {
                     txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
-                    idEmpresa = objeto.IDEmpr;
+                    idEmpresaPuesto = objeto.IDEmpr;
                     listarPuestoTrabajo();
                     closeAllLists();
                 });
@@ -114,6 +168,30 @@ window.onload = function () {
             }
         }
     }
+    //txtPuestoTrabajo.onkeyup = function () {
+    //    var a, b;
+    //    closeAllListsPuesto();
+    //    a = document.createElement("div");
+    //    a.setAttribute("id", this.id + "predictivo-list");
+    //    a.setAttribute("class", "predictivo-items");
+    //    this.parentNode.appendChild(a);
+    //    textoBusquedaPuesto = txtPuestoTrabajo.value.toLowerCase();
+    //    for (let objeto of objetoBusquedaPuesto) {
+    //        let Nombre = objeto.NombrePuesto.toLowerCase();
+    //        if (Nombre.indexOf(textoBusquedaPuesto) !== -1) {
+    //            b = document.createElement("div");
+    //            b.innerHTML = "<strong>" + objeto.NombrePuesto + "</strong>";
+    //            b.innerHTML += "<input type='hidden' value='" + objeto.NombrePuesto + "'>";
+    //            b.addEventListener("click", function (e) {
+    //                txtPuestoTrabajo.value = this.getElementsByTagName("input")[0].value;
+    //                idPuestoTrabajo = objeto.IDPuesto;
+    //                //listarPuestoTrabajo();
+    //                closeAllListsPuesto();
+    //            });
+    //            a.appendChild(b);
+    //        }
+    //    }
+    //}
 }
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
@@ -123,6 +201,31 @@ function closeAllLists(elmnt) {
         }
     }
 }
+//function closeAllListsPuesto(elmnt) {
+//    var x = document.getElementsByClassName("predictivo-items");
+//    for (var i = 0; i < x.length; i++) {
+//        if (elmnt != x[i] && elmnt != textoBusquedaPuesto) {
+//            x[i].parentNode.removeChild(x[i]);
+//        }
+//    }
+//}
+
+function consulta(e) {
+    if (e.keyCode === 13 && !e.shiftKey) {
+        if (cboTipoDocumento.value == 1) {
+            Http.get("Trabajador/ValidarDniReniec?DNI=" + txtNuDoc.value, ValidacionDNIPorRENIEC);
+        }
+    }
+}
+
+function ValidacionDNIPorRENIEC(rpta) {
+    if (rpta) {
+        lstNombres = rpta.split("|");
+        document.getElementById('txtNombre').value = lstNombres[3].replace('&Aacute;', 'Á').replace('&Eacute;', 'É').replace('&Iacute;', 'Í').replace('&Oacute;', 'Ó').replace('&Uacute;', 'Ú').replace('&Ntilde', 'Ñ');
+        document.getElementById('txtApePaterno').value = lstNombres[1].replace('&Aacute;', 'Á').replace('&Eacute;', 'É').replace('&Iacute;', 'Í').replace('&Oacute;', 'Ó').replace('&Uacute;', 'Ú').replace('&Ntilde', 'Ñ');
+        document.getElementById('txtApeMaterno').value = lstNombres[2].replace('&Aacute;', 'Á').replace('&Eacute;', 'É').replace('&Iacute;', 'Í').replace('&Oacute;', 'Ó').replace('&Uacute;', 'Ú').replace('&Ntilde', 'Ñ');
+    } else toastDangerAlert("El DNI Digitado no existe existe en RENIEC*", "¡Aviso!");
+}
 
 function mostrarTipoDocumentoCbo(rpta) {
     if (rpta) {
@@ -130,6 +233,7 @@ function mostrarTipoDocumentoCbo(rpta) {
         CrearCombo(lstCboTipoDoc, cboTipoDocumento, "Seleccione");
     }
 }
+
 function mostrarUnidadGestionCbo(rpta) {
     if (rpta) {
         lstCboUnidadGestionDoc = rpta.split("¬");
@@ -137,11 +241,11 @@ function mostrarUnidadGestionCbo(rpta) {
     }
 }
 
-
 function mostrarPuestoTrabajoCbo(rpta) {
     if (rpta) {
         lstCboPuesto = rpta.split("¬");
         CrearCombo(lstCboPuesto, cboPuestoTrabajo, "Seleccione");
+        cboPuestoTrabajo.value = idPuestoTrabajo;
     }
 }
 
@@ -152,7 +256,7 @@ function mostrarEmpresaCbo(rpta) {
     }
 }
 function listarPuestoTrabajo() {
-    Http.get("Trabajador/ListarPuestoTrabajoCbo?idEmpresa=" + idEmpresa, mostrarPuestoTrabajoCbo);
+    Http.get("Trabajador/ListarPuestoTrabajoPorEmpresaCboCsv?idEmpresa=" + idEmpresaPuesto, mostrarPuestoTrabajoCbo);
 }
 
 function mostrarListaUbigeo(rpta) {
@@ -272,12 +376,10 @@ function CrearListaCsv(rpta) {
 }
 
 function crearObjeto() {
-    //crea el objeto para busqueda segun los datos
     cabeceras = lista[0].split("|");
     var nRegistros = lista.length;
     var nCampos = cabeceras.length;
     objetoBusqueda = [];
-    //var nCamposObejetoFinal = 3;
     var clave;
     var valor;
     for (var i = 1; i <= nRegistros - 1; i++) {
@@ -288,11 +390,9 @@ function crearObjeto() {
     }
     for (var i = 0; i < nRegistros - 1; i++) {
         var valoresAInsertar = {};
-        //console.log(i);
         for (var j = 0; j < nCampos; j++) {
             clave = cabeceras[j];
             valor = objetoParametrizado[i][j];
-            //console.log(valor);
             Object.defineProperty(valoresAInsertar, clave.toString(), {
                 value: valor,
                 writable: false
@@ -301,6 +401,39 @@ function crearObjeto() {
         objetoBusqueda.push(valoresAInsertar);
     }
 }
+//function CrearListaPuestoCsv(rpta) {
+//    if (rpta) {
+//        listaPuesto = rpta.split('¬');
+//        crearObjetoPuesto(listaPuesto)
+//    }
+//}
+
+//function crearObjetoPuesto() {
+//    cabeceras = listaPuesto[0].split("|");
+//    var nRegistros = listaPuesto.length;
+//    var nCampos = cabeceras.length;
+//    objetoBusquedaPuesto = [];
+//    var clave;
+//    var valor;
+//    for (var i = 1; i <= nRegistros - 1; i++) {
+//        for (var j = 0; j < nCampos; j++) {
+//            datos = listaPuesto[i].split("|");
+//        }
+//        objetoParametrizadoPuesto.push(datos);
+//    }
+//    for (var i = 0; i < nRegistros - 1; i++) {
+//        var valoresAInsertar = {};
+//        for (var j = 0; j < nCampos; j++) {
+//            clave = cabeceras[j];
+//            valor = objetoParametrizadoPuesto[i][j];
+//            Object.defineProperty(valoresAInsertar, clave.toString(), {
+//                value: valor,
+//                writable: false
+//            });
+//        }
+//        objetoBusquedaPuesto.push(valoresAInsertar);
+//    }
+//}
 
 function obtenerRegistroPorId(id) {
 
@@ -315,14 +448,15 @@ function modalObtenerRegistroPorId(id) {
 function AsignarCamposPuestoTrabajo(rpta) {
     if (rpta) {
         campos = rpta.split('|');
+        Http.get("Trabajador/ListarPuestoTrabajoPorEmpresaCboCsv?idEmpresa=" + campos[6], mostrarPuestoTrabajoCbo);
         txtIdTrabajadorPuesto.value = campos[0];
         txtbuscarPorEmpresa.value = campos[1];
-        cboPuestoTrabajo.value = campos[2];
+        //txtPuestoTrabajo.value = campos[2];
         txtFechaIngreso.value = campos[3];
         txtFechaSalida.value = campos[4];
         idEmpresaPuesto = campos[6];
         txtEstadoPuesto.checked = (campos[5] == "ACT" ? true : false);
-        Http.get("Trabajador/ListarPuestoTrabajoCbo?idEmpresa=" + campos[6], mostrarPuestoTrabajoCbo);
+        idPuestoTrabajo = campos[7];
     }
 }
 
@@ -353,6 +487,7 @@ function AsignarCampos(rpta) {
             txtFamiliarContacto.value = campos[11];
             txtTelefonoContacto.value = campos[12];
             txtEstado.checked = (campos[13] == "ACT" ? true : false);
+            cboUnidadGestion.value = campos[14];
         }
         limpiarControles('P')
 
@@ -367,5 +502,5 @@ function AsignarCampos(rpta) {
         //} else {
         //    limpiarControles('P')
         //}
-    }    
+    }
 }

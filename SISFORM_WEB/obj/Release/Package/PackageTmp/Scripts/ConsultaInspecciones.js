@@ -4,6 +4,9 @@ var objetoParametrizado = [];
 var objetoBusqueda = [];
 var filtro;
 var textoBusqueda;
+var cantidadTrabajadores;
+var lstActualizacion = [];
+var lstTrabajadores;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -54,12 +57,14 @@ window.onload = function () {
             if (Nombre.indexOf(textoBusqueda) !== -1) {
                 b = document.createElement("div");
                 b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
-                //b.innerHTML += Nombre;
                 b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
                 b.addEventListener("click", function (e) {
                     txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
                     idEmpresa = objeto.IDEmpr;
+                    Http.get("Trabajador/ListarTrabajadorPorEmpresaCsv?idEmpresa=" + idEmpresa, mostrarTrabajadoresEmpresa);
+                    btnActualizar.style.display = "inline-block";
                     closeAllLists();
+                    txtbuscarPorEmpresa.disabled = true;
                 });
                 a.appendChild(b);
             }
@@ -68,6 +73,20 @@ window.onload = function () {
 
     bntNuevo.onclick = function () {
         limpiarControles('form-control');
+        location.reload();
+    }
+
+    btnActualizar.onclick = function () {
+        var inicio = 0;
+        while (inicio < cantidadTrabajadores) {
+            var valorCheck = "cb" + inicio;
+            lisDatosTrabajadro = lstTrabajadores[inicio].split('|');
+            lstActualizacion.push(lisDatosTrabajadro[0]+ "|" + lisDatosTrabajadro[4]+"|" +document.getElementById(valorCheck).checked);
+            inicio = inicio + 1;
+        }
+        checkSubmit(btnActualizar);
+        Http.get("SeguimientoNegocios/ActualizarPuestoTrabajadorPorEmpresaCsv?FK_ID_Empresa=" + idEmpresa + "&listadoTrabajadores=" + lstActualizacion.toString()+ "&FK_ID_Usuario="+ idUsuario, mostrarActualizacion);
+        console.log(lstActualizacion.toString());
     }
 }
 function closeAllLists(elmnt) {
@@ -91,6 +110,13 @@ function MostrarRegistroInspeccion(rpta) {
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 } 
+function mostrarActualizacion(rpta) {
+    if (rpta) {
+        toastSuccessAlert("Se actualizo correctamente los Trabajadores", "¡Exito!");
+        //limpiarControles('form-control');
+    }
+    else toastDangerAlert("No se pudo actualizar los trabajadores", "¡Error!");
+}
 
 function obtenerfechaActual() {
     var fecha = new Date();
@@ -104,6 +130,47 @@ function obtenerfechaActual() {
     fechaActual = ano + "-" + mes + "-" + dia;
 }
 
+function mostrarTrabajadoresEmpresa(rpta) {
+    if (rpta) {
+        lstTrabajadores = rpta.split('¬');
+        lstCabeceras = lstTrabajadores[0].split('|');
+        lstTrabajadores.shift();
+        cantidadTrabajadores = lstTrabajadores.length
+        var b,c,d, i=0,j=0,k=0;
+        b = document.createElement("tr");
+        cantidadCabecera = lstCabeceras.length;
+        while (i < cantidadCabecera) {
+            if (i < cantidadCabecera - 1) {
+                b.innerHTML += "<th>" + lstCabeceras[i] + "</th>";
+            }
+            i = i + 1;
+        }
+        document.getElementById('TrabajadoresEmpresa').appendChild(b);
+        while (j < lstTrabajadores.length) {
+            var nroCheck,datoCheck;
+            c = document.createElement("tr");
+            lstDatosTrabajador = lstTrabajadores[j].split('|');
+            while (k < cantidadCabecera) {
+                if (k < cantidadCabecera - 2)
+                    c.innerHTML += "<td>" + lstDatosTrabajador[k] + "</td>";
+                else if (k < cantidadCabecera - 1) {
+
+                }
+                else {
+                    nroCheck = "cb" + j;
+                    datoCheck = lstDatosTrabajador[k];
+                    c.innerHTML += "<td><input type='checkbox' id='" + nroCheck + "'></input>" + lstDatosTrabajador[k] +"</td>";
+                }
+                k = k + 1;
+            }
+            c.innerHTML += "</tr>";
+            document.getElementById('TrabajadoresDeLaEmpresa').appendChild(c);
+            document.getElementById(nroCheck).checked = (datoCheck == "ACT" ? true : false);
+            k = 0;
+            j = j + 1;
+        }
+    }
+}
 function CrearTablaCsv(rpta) {
     if (rpta) {
         var lista = rpta.split('¬');
@@ -135,11 +202,9 @@ function crearObjeto() {
     }
     for (var i = 0; i < nRegistros - 1; i++) {
         var valoresAInsertar = {};
-        //console.log(i);
         for (var j = 0; j < nCampos; j++) {
             clave = cabeceras[j];
             valor = objetoParametrizado[i][j];
-            //console.log(valor);
             Object.defineProperty(valoresAInsertar, clave.toString(), {
                 value: valor,
                 writable: false
