@@ -14,6 +14,7 @@ var textoBusquedaTemaCapacitacion;
 var idTrabajadorCapacitado;
 var DNITrabajador;
 var idTemaCapacitacion;
+var FK_ID_UnidadGestion;
 var lstTrabajadoresCapacitados;
 //var contadorTrabajdoresCapacitados = 0;
 
@@ -79,6 +80,7 @@ window.onload = function () {
                     txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
                     idEmpresa = objeto.IDEmpr;
                     idTipoEmpresa = objeto.TipoEmpresa;
+                    FK_ID_UnidadGestion = objeto.UnidadGestion;
                     obtenerTipoServicio(objeto.TipoEmpresa);
                     closeAllLists();
                 });
@@ -159,7 +161,7 @@ window.onload = function () {
     
     cboTipoServicio.onchange = function () {
         idTipoServicio = cboTipoServicio.value;
-        Http.get("SeguimientoNegocios/ListarTemaCapacitacionCsv?tipoEmpresa=" + idTipoEmpresa + "&tipoServicio=" + cboTipoServicio.value, ListaTemaCapacitacionCsv);
+        Http.get("SeguimientoNegocios/ListarTemaCapacitacionCsv?tipoEmpresa=" + idTipoEmpresa + "&tipoServicio=" + cboTipoServicio.value + "&FK_ID_UnidadGestion=" + FK_ID_UnidadGestion, ListaTemaCapacitacionCsv);
     }
 
     bntNuevo.onclick = function () {
@@ -223,7 +225,7 @@ function mostrarTipoServicioCbo(rpta) {
         else {
             lstCboTipoDeServicio = lstCboTipoServicio[0].split("|");
             idTipoServicio = lstCboTipoDeServicio[0];
-            Http.get("SeguimientoNegocios/ListarTemaCapacitacionCsv?tipoEmpresa=" + idTipoEmpresa + "&tipoServicio=" + lstCboTipoDeServicio[0], ListaTemaCapacitacionCsv );
+            Http.get("SeguimientoNegocios/ListarTemaCapacitacionCsv?tipoEmpresa=" + idTipoEmpresa + "&tipoServicio=" + lstCboTipoDeServicio[0] + "&FK_ID_UnidadGestion=" + FK_ID_UnidadGestion, ListaTemaCapacitacionCsv );
         }
 
     }

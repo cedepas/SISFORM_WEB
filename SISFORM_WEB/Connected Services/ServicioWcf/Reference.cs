@@ -366,6 +366,18 @@ namespace SISFORM_WEB.ServicioWcf {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EstadoCivilField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_NivelInstruccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_RegimenLaboralField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_SexoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private short FK_ID_TipoDocumentoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -420,6 +432,58 @@ namespace SISFORM_WEB.ServicioWcf {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_EstadoCivil {
+            get {
+                return this.FK_ID_EstadoCivilField;
+            }
+            set {
+                if ((this.FK_ID_EstadoCivilField.Equals(value) != true)) {
+                    this.FK_ID_EstadoCivilField = value;
+                    this.RaisePropertyChanged("FK_ID_EstadoCivil");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_NivelInstruccion {
+            get {
+                return this.FK_ID_NivelInstruccionField;
+            }
+            set {
+                if ((this.FK_ID_NivelInstruccionField.Equals(value) != true)) {
+                    this.FK_ID_NivelInstruccionField = value;
+                    this.RaisePropertyChanged("FK_ID_NivelInstruccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_RegimenLaboral {
+            get {
+                return this.FK_ID_RegimenLaboralField;
+            }
+            set {
+                if ((this.FK_ID_RegimenLaboralField.Equals(value) != true)) {
+                    this.FK_ID_RegimenLaboralField = value;
+                    this.RaisePropertyChanged("FK_ID_RegimenLaboral");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Sexo {
+            get {
+                return this.FK_ID_SexoField;
+            }
+            set {
+                if ((this.FK_ID_SexoField.Equals(value) != true)) {
+                    this.FK_ID_SexoField = value;
+                    this.RaisePropertyChanged("FK_ID_Sexo");
+                }
             }
         }
         
@@ -3313,10 +3377,10 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsv", ReplyAction="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ListarCantidadPreguntasChecklistCsv(int tipoEmpresa, int tipoServicio);
+        string ListarCantidadPreguntasChecklistCsv(int FK_ID_Empresa, int tipoServicio);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsv", ReplyAction="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsvResponse")]
-        System.Threading.Tasks.Task<string> ListarCantidadPreguntasChecklistCsvAsync(int tipoEmpresa, int tipoServicio);
+        System.Threading.Tasks.Task<string> ListarCantidadPreguntasChecklistCsvAsync(int FK_ID_Empresa, int tipoServicio);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -3341,10 +3405,10 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTemaCapacitacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarTemaCapacitacionCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTemaCapacitacionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ListarTemaCapacitacionCsv(int tipoEmpresa, int tipoServicio);
+        string ListarTemaCapacitacionCsv(int tipoEmpresa, int tipoServicio, int FK_ID_UnidadGestion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTemaCapacitacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarTemaCapacitacionCsvResponse")]
-        System.Threading.Tasks.Task<string> ListarTemaCapacitacionCsvAsync(int tipoEmpresa, int tipoServicio);
+        System.Threading.Tasks.Task<string> ListarTemaCapacitacionCsvAsync(int tipoEmpresa, int tipoServicio, int FK_ID_UnidadGestion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ActualizarPuestoTrabajadorPorEmpresaCsv", ReplyAction="http://tempuri.org/IServicio/ActualizarPuestoTrabajadorPorEmpresaCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ActualizarPuestoTrabajadorPorEmpresaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -3985,12 +4049,12 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.ListarTipoOperacionEmpresaCsvAsync(tipoEmpresa);
         }
         
-        public string ListarCantidadPreguntasChecklistCsv(int tipoEmpresa, int tipoServicio) {
-            return base.Channel.ListarCantidadPreguntasChecklistCsv(tipoEmpresa, tipoServicio);
+        public string ListarCantidadPreguntasChecklistCsv(int FK_ID_Empresa, int tipoServicio) {
+            return base.Channel.ListarCantidadPreguntasChecklistCsv(FK_ID_Empresa, tipoServicio);
         }
         
-        public System.Threading.Tasks.Task<string> ListarCantidadPreguntasChecklistCsvAsync(int tipoEmpresa, int tipoServicio) {
-            return base.Channel.ListarCantidadPreguntasChecklistCsvAsync(tipoEmpresa, tipoServicio);
+        public System.Threading.Tasks.Task<string> ListarCantidadPreguntasChecklistCsvAsync(int FK_ID_Empresa, int tipoServicio) {
+            return base.Channel.ListarCantidadPreguntasChecklistCsvAsync(FK_ID_Empresa, tipoServicio);
         }
         
         public string ListarEstadoCapacitacionCsv() {
@@ -4017,12 +4081,12 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.ListarCheckListCsvAsync(idUsuario);
         }
         
-        public string ListarTemaCapacitacionCsv(int tipoEmpresa, int tipoServicio) {
-            return base.Channel.ListarTemaCapacitacionCsv(tipoEmpresa, tipoServicio);
+        public string ListarTemaCapacitacionCsv(int tipoEmpresa, int tipoServicio, int FK_ID_UnidadGestion) {
+            return base.Channel.ListarTemaCapacitacionCsv(tipoEmpresa, tipoServicio, FK_ID_UnidadGestion);
         }
         
-        public System.Threading.Tasks.Task<string> ListarTemaCapacitacionCsvAsync(int tipoEmpresa, int tipoServicio) {
-            return base.Channel.ListarTemaCapacitacionCsvAsync(tipoEmpresa, tipoServicio);
+        public System.Threading.Tasks.Task<string> ListarTemaCapacitacionCsvAsync(int tipoEmpresa, int tipoServicio, int FK_ID_UnidadGestion) {
+            return base.Channel.ListarTemaCapacitacionCsvAsync(tipoEmpresa, tipoServicio, FK_ID_UnidadGestion);
         }
         
         public string ActualizarPuestoTrabajadorPorEmpresaCsv(int FK_ID_Empresa, string lstTrabajadores, int FK_ID_Usuario) {

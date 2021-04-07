@@ -39,6 +39,10 @@
   <xs:element name="Ubigeo" nillable="true" type="tns:Ubigeo" />
   <xs:complexType name="Trabajador">
     <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_EstadoCivil" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_NivelInstruccion" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_RegimenLaboral" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Sexo" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_TipoDocumento" type="xs:short" />
       <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />

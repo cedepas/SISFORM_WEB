@@ -18,7 +18,7 @@
   <xs:element name="ListarCantidadPreguntasChecklistCsv">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="tipoEmpresa" type="xs:int" />
+        <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
         <xs:element minOccurs="0" name="tipoServicio" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -75,6 +75,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="tipoEmpresa" type="xs:int" />
         <xs:element minOccurs="0" name="tipoServicio" type="xs:int" />
+        <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

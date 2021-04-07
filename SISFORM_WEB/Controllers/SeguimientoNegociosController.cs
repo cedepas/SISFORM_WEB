@@ -111,14 +111,14 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> ListarCantidadPreguntasChecklistCsv(int tipoEmpresa, int tipoServicio)
+        public async Task<string> ListarCantidadPreguntasChecklistCsv(int FK_ID_Empresa, int tipoServicio)
         {
             try
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
                 //rpta = await servicio.ListarEstadoInspeccionCsvAsync();
-                rpta = await servicio.ListarCantidadPreguntasChecklistCsvAsync(tipoEmpresa,tipoServicio);
+                rpta = await servicio.ListarCantidadPreguntasChecklistCsvAsync(FK_ID_Empresa, tipoServicio);
 
                 return rpta;
             }
@@ -170,13 +170,13 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> ListarTemaCapacitacionCsv(int tipoEmpresa, int tipoServicio)
+        public async Task<string> ListarTemaCapacitacionCsv(int tipoEmpresa, int tipoServicio, int FK_ID_UnidadGestion)
         {
             try
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.ListarTemaCapacitacionCsvAsync(tipoEmpresa, tipoServicio);
+                rpta = await servicio.ListarTemaCapacitacionCsvAsync(tipoEmpresa, tipoServicio, FK_ID_UnidadGestion);
                 return rpta;
             }
             catch (Exception ex)

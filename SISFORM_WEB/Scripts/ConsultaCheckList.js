@@ -94,7 +94,7 @@ window.onload = function () {
 
     cboTipoServicio.onchange = function () {
         idTipoServicio = cboTipoServicio.value;
-        Http.get("SeguimientoNegocios/ListarCantidadPreguntasChecklistCsv?tipoEmpresa=" + idTipoEmpresa + "&tipoServicio=" + cboTipoServicio.value, mostrarPreguntas);
+        Http.get("SeguimientoNegocios/ListarCantidadPreguntasChecklistCsv?FK_ID_Empresa=" + idEmpresa + "&tipoServicio=" + cboTipoServicio.value, mostrarPreguntas);
     }
 
     bntNuevo.onclick = function () {
@@ -130,7 +130,7 @@ function mostrarTipoServicioCbo(rpta) {
         else {
             lstCboTipoDeServicio = lstCboTipoServicio[0].split("|");
             idTipoServicio = lstCboTipoDeServicio[0];
-            Http.get("SeguimientoNegocios/ListarCantidadPreguntasChecklistCsv?tipoEmpresa=" + idTipoEmpresa + "&tipoServicio=" + lstCboTipoDeServicio[0], mostrarPreguntas);
+            Http.get("SeguimientoNegocios/ListarCantidadPreguntasChecklistCsv?FK_ID_Empresa=" + idEmpresa + "&tipoServicio=" + lstCboTipoDeServicio[0], mostrarPreguntas);
         }
             
     }
