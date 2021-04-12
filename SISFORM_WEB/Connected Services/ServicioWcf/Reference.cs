@@ -3417,6 +3417,13 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ActualizarPuestoTrabajadorPorEmpresaCsv", ReplyAction="http://tempuri.org/IServicio/ActualizarPuestoTrabajadorPorEmpresaCsvResponse")]
         System.Threading.Tasks.Task<string> ActualizarPuestoTrabajadorPorEmpresaCsvAsync(int FK_ID_Empresa, string lstTrabajadores, int FK_ID_Usuario);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTiemposComidaCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarTiemposComidaCboCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTiemposComidaCboCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarTiemposComidaCboCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTiemposComidaCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarTiemposComidaCboCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarTiemposComidaCboCsvAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/AutenticarUsuario", ReplyAction="http://tempuri.org/IServicio/AutenticarUsuarioResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/AutenticarUsuarioErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         SISFORM_WEB.ServicioWcf.VistaUsuario AutenticarUsuario(string usuario, string clave);
@@ -4095,6 +4102,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ActualizarPuestoTrabajadorPorEmpresaCsvAsync(int FK_ID_Empresa, string lstTrabajadores, int FK_ID_Usuario) {
             return base.Channel.ActualizarPuestoTrabajadorPorEmpresaCsvAsync(FK_ID_Empresa, lstTrabajadores, FK_ID_Usuario);
+        }
+        
+        public string ListarTiemposComidaCboCsv() {
+            return base.Channel.ListarTiemposComidaCboCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarTiemposComidaCboCsvAsync() {
+            return base.Channel.ListarTiemposComidaCboCsvAsync();
         }
         
         public SISFORM_WEB.ServicioWcf.VistaUsuario AutenticarUsuario(string usuario, string clave) {

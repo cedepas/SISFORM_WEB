@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+    ViewBag.Title = "Evaluacion";
+}
+@Styles.Render("~/plugins/Handsontable/handsontable.full.css")
+<div class="content">
+    <div class="title"><h5>Evaluación Sensorial</h5></div>
+    <div id="export-buttons" class="visible">
+        <br />
+        <button id="guardaTrabajadores" class="btn size-medium bg-green text-white shadow hover-moveup">Registrar Trabajadores</button>
+        <br />
+    </div>
+    <div class="row">
+        <div>
+            <div id="ResultadoTabla">
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/plugins/Handsontable/handsontable.full.js")
+    @Scripts.Render("~/plugins/Handsontable/numbro/numbro.js")
+    @Scripts.Render("~/plugins/Handsontable/numbro.js")
+    @Scripts.Render("~/plugins/Handsontable/languages/es-MX.js")
+    @Scripts.Render("~/Scripts/ConsultaEvalCheff.js")
+
+}
