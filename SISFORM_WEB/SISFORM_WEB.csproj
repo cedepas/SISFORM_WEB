@@ -182,6 +182,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AdministracionController.cs" />
+    <Compile Include="Controllers\CheffController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncidenciaController.cs" />
@@ -213,12 +214,56 @@
     <Content Include="Content\logo.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="plugins\Handsontable\handsontable.css" />
+    <Content Include="plugins\Handsontable\handsontable.full.css" />
+    <Content Include="plugins\Handsontable\handsontable.full.js" />
+    <Content Include="plugins\Handsontable\handsontable.full.min.css" />
+    <Content Include="plugins\Handsontable\handsontable.full.min.js" />
+    <Content Include="plugins\Handsontable\handsontable.js" />
+    <Content Include="plugins\Handsontable\handsontable.min.css" />
+    <Content Include="plugins\Handsontable\handsontable.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\all.js" />
+    <Content Include="plugins\Handsontable\lenguages\all.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\de-CH.js" />
+    <Content Include="plugins\Handsontable\lenguages\de-CH.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\de-DE.js" />
+    <Content Include="plugins\Handsontable\lenguages\de-DE.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\en-US.js" />
+    <Content Include="plugins\Handsontable\lenguages\en-US.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\es-MX.js" />
+    <Content Include="plugins\Handsontable\lenguages\es-MX.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\fr-FR.js" />
+    <Content Include="plugins\Handsontable\lenguages\fr-FR.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\it-IT.js" />
+    <Content Include="plugins\Handsontable\lenguages\it-IT.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\ja-JP.js" />
+    <Content Include="plugins\Handsontable\lenguages\ja-JP.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\ko-KR.js" />
+    <Content Include="plugins\Handsontable\lenguages\ko-KR.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\lv-LV.js" />
+    <Content Include="plugins\Handsontable\lenguages\lv-LV.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\nb-NO.js" />
+    <Content Include="plugins\Handsontable\lenguages\nb-NO.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\nl-NL.js" />
+    <Content Include="plugins\Handsontable\lenguages\nl-NL.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\pl-PL.js" />
+    <Content Include="plugins\Handsontable\lenguages\pl-PL.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\pt-BR.js" />
+    <Content Include="plugins\Handsontable\lenguages\pt-BR.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\ru-RU.js" />
+    <Content Include="plugins\Handsontable\lenguages\ru-RU.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\zh-CN.js" />
+    <Content Include="plugins\Handsontable\lenguages\zh-CN.min.js" />
+    <Content Include="plugins\Handsontable\lenguages\zh-TW.js" />
+    <Content Include="plugins\Handsontable\lenguages\zh-TW.min.js" />
+    <Content Include="plugins\Handsontable\numbro.js" />
     <Content Include="Scripts\apexcharts.js" />
     <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\buttons.js" />
     <Content Include="Scripts\ConsultaCapacitacion.js" />
     <Content Include="Scripts\ConsultaCheckList.js" />
     <Content Include="Scripts\ConsultaAsignacion.js" />
+    <Content Include="Scripts\ConsultaEvalCheff.js" />
     <Content Include="Scripts\ConsultaInspecciones.js" />
     <Content Include="Scripts\ConsultaTrabajadorMasivo.js" />
     <Content Include="Styles\apexcharts.css" />
@@ -309,6 +354,9 @@
     <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.VistaUsuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="plugins\Handsontable\handsontable.css.map" />
+    <Content Include="plugins\Handsontable\handsontable.js.map" />
+    <Content Include="plugins\Handsontable\README.md" />
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -326,6 +374,7 @@
     <Content Include="Views\SeguimientoNegocios\Inspecciones.cshtml" />
     <Content Include="Views\SeguimientoNegocios\CheckList.cshtml" />
     <Content Include="Views\SeguimientoNegocios\Capacitacion.cshtml" />
+    <Content Include="Views\Cheff\Evaluacion.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
