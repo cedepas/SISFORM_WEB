@@ -73,7 +73,7 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        
+
 
         #region Mantenimiento
         public async Task<string> ListarProgresoEmpresaCsv(string idEmpresa)

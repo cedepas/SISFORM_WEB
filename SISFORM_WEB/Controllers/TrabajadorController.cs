@@ -5,7 +5,6 @@ using SISFORM_WEB.General;
 using SISFORM_WEB.ServicioWcf;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web;
@@ -34,7 +33,7 @@ namespace SISFORM_WEB.Controllers
             return View();
         }
 
-        public async Task<string> ValidarDniReniec(string DNI )
+        public async Task<string> ValidarDniReniec(string DNI)
         {
             try
             {
@@ -44,7 +43,8 @@ namespace SISFORM_WEB.Controllers
                 if (rpta.Length > 3)
                 {
                     rpta = rpta;
-                }else
+                }
+                else
                 {
                     rpta = "";
                 }
@@ -55,7 +55,7 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        
+
         public async Task<string> ListarTipoDocumentoCbo()
         {
             try
@@ -84,7 +84,7 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        
+
         public async Task<string> listarUbigeoCbo()
         {
             try
@@ -159,7 +159,7 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        
+
         public async Task<string> ListarEmpresaCbo()
         {
             try
@@ -252,7 +252,7 @@ namespace SISFORM_WEB.Controllers
             }
         }
 
-        
+
 
         public async Task<string> ObtenerTrabajadorPorId(string idTrabajador)
         {

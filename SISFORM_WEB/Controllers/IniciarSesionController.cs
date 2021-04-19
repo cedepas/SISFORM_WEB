@@ -10,7 +10,7 @@ namespace SISFORM_WEB.Controllers
     public class IniciarSesionController : Controller
     {
         // GET: IniciarSesion
-        VistaUsuario oVistaUsuario;
+        //VistaUsuario oVistaUsuario;
         public ActionResult Inicio()
         {
             ViewBag.Title = "Iniciar sesion";

@@ -81,7 +81,7 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> GrabarInspeccion(Inspeccion oInspeccion,string op)
+        public async Task<string> GrabarInspeccion(Inspeccion oInspeccion, string op)
         {
             int rpta = 0;
             ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");

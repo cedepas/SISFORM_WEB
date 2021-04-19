@@ -1,6 +1,4 @@
-﻿
-using ClosedXML;
-using GeneralTrabajos;
+﻿using GeneralTrabajos;
 using SISFORM_WEB.Filters;
 using SISFORM_WEB.General;
 using SISFORM_WEB.ServicioWcf;
@@ -128,7 +126,7 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        
+
         public async Task<string> GrabarPrueba(PruebasCovid oPruebasCovid)
         {
             int rpta = 0;
@@ -211,6 +209,6 @@ namespace SISFORM_WEB.Controllers
         //        return rpta.ToString();
         //    }
         //}
-        
+
     }
 }
