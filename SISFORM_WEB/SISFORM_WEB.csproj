@@ -266,6 +266,7 @@
     <Content Include="Scripts\ConsultaEvalCheff.js" />
     <Content Include="Scripts\ConsultaInspecciones.js" />
     <Content Include="Scripts\ConsultaTrabajadorMasivo.js" />
+    <Content Include="Scripts\SeguimientoIncidencia.js" />
     <Content Include="Styles\apexcharts.css" />
     <Content Include="Styles\chartist.min.css" />
     <Content Include="Scripts\chartist.min.js" />
@@ -330,30 +331,6 @@
     <Content Include="Properties\DataSources\Dominio.Trabajador2.datasource" />
     <Content Include="Properties\DataSources\Dominio.Ubigeo2.datasource" />
     <Content Include="Properties\DataSources\Dominio.VistaUsuario2.datasource" />
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio2.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio3.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Empresa.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.ProgresoEmpresa.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Trabajador.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Ubigeo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.VistaUsuario.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="plugins\Handsontable\handsontable.css.map" />
     <Content Include="plugins\Handsontable\handsontable.js.map" />
     <Content Include="plugins\Handsontable\README.md" />
@@ -375,6 +352,7 @@
     <Content Include="Views\SeguimientoNegocios\CheckList.cshtml" />
     <Content Include="Views\SeguimientoNegocios\Capacitacion.cshtml" />
     <Content Include="Views\Cheff\Evaluacion.cshtml" />
+    <Content Include="Views\Incidencia\SeguimientoIncidencia.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

@@ -8,6 +8,40 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Error" nillable="true" type="tns:Error" />
+  <xs:complexType name="Inspeccion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Empresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FK_ID_EstadoInspeccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FK_ID_Usuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInspeccion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Inspeccion" nillable="true" type="tns:Inspeccion" />
+  <xs:complexType name="CheckList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripciones" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TipoServicio" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
+      <xs:element minOccurs="0" name="NumeroEvaluacion" type="xs:int" />
+      <xs:element minOccurs="0" name="Puntajes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VersionCheckList" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaPuntaje" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckList" nillable="true" type="tns:CheckList" />
+  <xs:complexType name="Capacitacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EstadoCapacitacion" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TemaCapacitacion" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaCapacitacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="TrabajadoresCapacitados" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Capacitacion" nillable="true" type="tns:Capacitacion" />
   <xs:complexType name="VistaUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="ID_Empresa" type="xs:int" />
@@ -87,6 +121,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Empresa" nillable="true" type="tns:Empresa" />
+  <xs:complexType name="AsignacionServicios">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_EmpresaECM" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EmpresaServicio" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TipoServicio" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_AsignacionServicios" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AsignacionServicios" nillable="true" type="tns:AsignacionServicios" />
   <xs:complexType name="ArrayOfEmpresa">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Empresa" nillable="true" type="tns:Empresa" />
@@ -284,38 +329,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Solucion" nillable="true" type="tns:Solucion" />
-  <xs:complexType name="Inspeccion">
+  <xs:complexType name="Seguimiento">
     <xs:sequence>
-      <xs:element minOccurs="0" name="FK_ID_Empresa" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FK_ID_EstadoInspeccion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FK_ID_Usuario" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="fechaInspeccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FK_ID_TrabajadorSeguimiento" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Incidencia" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_TipoSeguimiento" type="xs:int" />
+      <xs:element minOccurs="0" name="detalleSeguimientoIncidencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaSeguimientoIncidencia" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Inspeccion" nillable="true" type="tns:Inspeccion" />
-  <xs:complexType name="CheckList">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Descripciones" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_TipoServicio" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
-      <xs:element minOccurs="0" name="NumeroEvaluacion" type="xs:int" />
-      <xs:element minOccurs="0" name="Puntajes" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="VersionCheckList" type="xs:int" />
-      <xs:element minOccurs="0" name="fechaPuntaje" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CheckList" nillable="true" type="tns:CheckList" />
-  <xs:complexType name="Capacitacion">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_EstadoCapacitacion" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_TemaCapacitacion" type="xs:int" />
-      <xs:element minOccurs="0" name="FechaCapacitacion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ID_Usuario" type="xs:int" />
-      <xs:element minOccurs="0" name="TrabajadoresCapacitados" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Capacitacion" nillable="true" type="tns:Capacitacion" />
+  <xs:element name="Seguimiento" nillable="true" type="tns:Seguimiento" />
 </xs:schema>

@@ -1,4 +1,5 @@
-﻿using GeneralTrabajos;
+﻿using Dominio;
+using GeneralTrabajos;
 using SISFORM_WEB.Filters;
 using SISFORM_WEB.General;
 using SISFORM_WEB.ServicioWcf;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace SISFORM_WEB.Controllers
 {

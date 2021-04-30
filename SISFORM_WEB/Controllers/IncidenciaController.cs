@@ -1,4 +1,5 @@
 ﻿
+using Dominio;
 using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -29,6 +30,11 @@ namespace SISFORM_WEB.Controllers
         public ActionResult BusquedaIncidencia()
         {
             ViewBag.Title = "BusquedaIncidencia";
+            return View();
+        }
+        public ActionResult SeguimientoIncidencia()
+        {
+            ViewBag.Title = "SeguimientoIncidencia";
             return View();
         }
         public async Task<string> ListarTipoEventoCsv()
@@ -532,5 +538,36 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> RegistrarSeguimiento(Seguimiento oSeguimiento) 
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.RegistrarSeguimientoAsync(oSeguimiento);
+                return rpta;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ListarTipoSeguimientoIncidenciaCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarTipoSeguimientoIncidenciaCsvAsync();
+                return rpta;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
     }
 }
