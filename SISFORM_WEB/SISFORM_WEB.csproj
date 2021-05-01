@@ -335,7 +335,6 @@
     <Content Include="plugins\Handsontable\handsontable.js.map" />
     <Content Include="plugins\Handsontable\README.md" />
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\PruebaCovid\ProgramacionPruebaCovid.cshtml" />
     <Content Include="Views\Reporte\Consulta.cshtml" />

@@ -1,0 +1,118 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Styles start -->
+@section styles{
+    <style>
+        /*.chart {
+            width: 100%;
+            min-height: 450px;
+        }
+
+        .row {
+            margin: 0 !important;
+        }*/
+        .ct-chart .ct-label {
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .ct-chart .ct-series.stroke-ocupado .ct-bar {
+            stroke: rgba(255, 38, 38, 0.8);
+        }
+
+        .ct-chart .ct-series.stroke-espera .ct-bar {
+            stroke: rgba(255, 167, 38, 0.8);
+        }
+
+        .ct-chart .ct-series.stroke-libre .ct-bar {
+            stroke: rgba(59, 163, 49, 0.8);
+        }
+
+        input[type="checkbox"] {
+            box-shadow: 0.7px 0.7px 0.7px 0.7px white;
+            min-width:15px;
+        }
+
+        input[type="checkbox"]:checked {
+            box-shadow: 1px 1px 1px 1px hotpink;
+        }
+    </style>
+    @*@Styles.Render("~/Styles/chartist.min.css")*@
+    @Styles.Render("~/Styles/apexcharts.css")
+}
+<!-- Styles end -->
+<!-- Modals start -->
+@section modals{
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "asignacion";
+    </script>
+}
+<!-- Modals end -->
+
+<div class="content">
+    <div class="title"><h5>@ViewBag.Title</h5></div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-row">
+                <div class="col-sm">
+                    <label for="cboTipoEmpresa" class="required">Tipo de empresa</label>
+                    <select class="form-control form-control-sm T H" id="cboTipoEmpresa" required="required"></select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm">
+                    <label for="cboEmpresa" class="required">Empresa</label>
+                    <select class="form-control form-control-sm T H" id="cboEmpresa" required="required"></select>
+                </div>
+            </div>
+            <div class="form-row habitacion" style="display:none">
+                <div class="col-sm">
+                    <label for="cboHabitacion" class="required">Habitacion</label>
+                    <select class="form-control form-control-sm H" id="cboHabitacion" required="required"></select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm">
+                    <label for="dtFecAsi" class="required">Fecha de asignacion</label>
+                    <input type="date" class="form-control form-control-sm T H F" id="dtFecAsi" required="required" />
+                </div>
+            </div>
+            @*<div class="form-row">
+                    <div class="col-sm-12" id="fechaPrueba" style="display:inline">
+                        <label for="txtFile">Cargar trabajadores(Excel)</label>
+                        <input type="file" class="form-control form-control-sm F" id="txtFile" required="required" />
+                        <input class="btn btn-success" id="btnCargar" type="button" value="Cargar">
+                    </div>
+                </div>*@
+        </div>
+        <div class="col-sm-9">
+            <div class="chart overflow-y-hidden overflow-y-md-auto h-250">
+                <div class="ct-chart ct-golden-section" id="ct-chart">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-right">
+        <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
+    </div>
+</div>
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+@section scripts{
+    @*@Scripts.Render("~/Scripts/chartist.min.js")*@
+    @Scripts.Render("~/Scripts/apexcharts.js")
+    @Scripts.Render("~/Scripts/ConsultaAsignacion.js")
+}

@@ -224,6 +224,32 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
+        public async Task<string> AsignacionServiciosOperacion(AsignacionServicios oAsignacionServicios)
+        {
+            int rpta = 0;
+            string op = "";
+            if (oAsignacionServicios.ID_AsignacionServicios == 0)
+            {
+                op = "I";
+            }
+            else
+            {
+                op = "U";
+            }
+
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.AsignacionServiciosOperacionAsync(oAsignacionServicios, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
+
+
         public async Task<string> ListarPuestoTrabajoporIdCsv(int idTrabajador)
         {
             try
@@ -254,6 +280,20 @@ namespace SISFORM_WEB.Controllers
         }
 
 
+        public async Task<string> ObtenerAsignacionServicioPorId(int idAsignacionServicio)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerAsignacionServicioPorIdAsync(idAsignacionServicio);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
         public async Task<string> ObtenerTrabajadorPorId(string idTrabajador)
         {
@@ -367,6 +407,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarTipoEmpresaAsiganacionCbo()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarTipoEmpresaAsiganacionCboAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public async Task<string> ListarEmpresaPorTipoCbo(string idTipoEmpresa)
         {
             try
@@ -381,7 +436,51 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> ListarEmpresaGrafico(string idTipoEmpresa, string alojamiento = "")
+
+        public async Task<string> ListarEmpresaGraficoHospedajeCsv(int FK_ID_tipoHabitacion)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEmpresaGraficoHospedajeCsvAsync(FK_ID_tipoHabitacion);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        //public async Task<string> ListarEmpresaGrafico(string idTipoEmpresa, string alojamiento = "")
+        //{
+        //    try
+        //    {
+        //        string rpta = "";
+        //        string data = "";
+        //        switch (idTipoEmpresa)
+        //        {
+        //            case "2":
+        //                data = "CO|" + idTipoEmpresa;
+        //                break;
+        //            case "4":
+        //                data = "LA|" + idTipoEmpresa;
+        //                break;
+        //            case "3":
+        //                data = "AL|" + alojamiento;
+        //                break;
+        //        }
+
+        //        ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+        //        rpta = await servicio.ListarEmpresaGraficoCsvAsync(data);
+        //        return rpta;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+        //}
+        public async Task<string> ListarEmpresaGrafico(string idTipoEmpresa)
         {
             try
             {
@@ -396,7 +495,7 @@ namespace SISFORM_WEB.Controllers
                         data = "LA|" + idTipoEmpresa;
                         break;
                     case "3":
-                        data = "AL|" + alojamiento;
+                        data = "AL|" + idTipoEmpresa;
                         break;
                 }
 
@@ -409,6 +508,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarServiciosAsignadosPorEmpresaECM(int FK_ID_EmpresaECM, int FK_ID_TipoEmpresa)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarServiciosAsignadosPorEmpresaECMCsvAsync(FK_ID_EmpresaECM, FK_ID_TipoEmpresa);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public async Task<string> ListarTrabajadorAsignacion(string idTipoEmpresa)
         {
             try
@@ -451,6 +565,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarEmpresasEspecializadasCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEmpresasEspecializadasCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         public async Task<string> CargarExcel(HttpPostedFileBase file, string idUsuario, string fecha)
         {
             try
