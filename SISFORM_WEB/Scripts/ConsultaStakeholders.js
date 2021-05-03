@@ -1,5 +1,6 @@
 ﻿var lstCboTipoEmpresa;
 var idTipoEmpresa;
+var idStakeholder;
 
 var lista;
 var objetoBusqueda = [];
@@ -8,6 +9,26 @@ var textoBusqueda;
 var idEmpresa;
 
 window.onload = function () {
+    if (!isMobile.any()) {
+        /*Http.get("Empresa/ListarStakeholder", CrearTablaCsv);*/
+        document.querySelectorAll('.form-row').forEach(function (element) {
+            element.classList.add('row-eq-spacing-sm');
+        });
+    }
+
+    document.querySelectorAll('.servicio').forEach(function (element) {
+        element.addEventListener('change', function () {
+            txtTotalServicios.value =
+                parseInt(txtAlojamiento.value ? txtAlojamiento.value : 0) +
+                parseInt(txtComedor.value ? txtComedor.value : 0) +
+                parseInt(txtTransporte.value ? txtTransporte.value : 0) +
+                parseInt(txtLavanderia.value ? txtLavanderia.value : 0) +
+                parseInt(txtCompania.value ? txtCompania.value : 0) +
+                parseInt(txtRiesgo.value ? txtRiesgo.value : 0) +
+                parseInt(txtOtros.value ? txtOtros.value : 0);
+        });
+    });
+
     Http.get("Empresa/ListarTipoEmpresaCbo", mostrarTipoEmpresaCbo);
     mostrarPosicion();
     mostrarPoderConvocatoria();
@@ -31,17 +52,17 @@ window.onload = function () {
                 element.classList.remove("bg-danger");
                 element.classList.remove("bg-primary");
                 break;
-            case "FAVORABLE":
+            case '1':
                 element.classList.remove("bg-primary");
                 element.classList.remove("bg-danger");
                 element.classList.add("bg-success");
                 break;
-            case "NEUTRAL":
+            case '2':
                 element.classList.remove("bg-danger");
                 element.classList.remove("bg-success");
                 element.classList.add("bg-primary");
                 break;
-            case "CONTRARIA":
+            case '3':
                 element.classList.remove("bg-primary");
                 element.classList.remove("bg-danger");
                 element.classList.add("bg-danger");
@@ -77,19 +98,50 @@ window.onload = function () {
         }
     }
 
-    btnGrabarAnalisis.onclick = function () {
+    btnGuardar.onclick = function () {
+        var frm = new FormData();
+        frm.append("ID_Stakeholder", idStakeholder);
+        frm.append("FK_ID_Empresa", idEmpresa);
+        frm.append("FK_ID_PoderConvocatoria", cboPoderConvocatoria.value);
+        frm.append("FK_ID_TipoPosicionamiento", cboPosicion.value);
+        frm.append("alojamiento", txtAlojamiento.value);
+        frm.append("comedor", txtComedor.value);
+        frm.append("transporte", txtTransporte.value);
+        frm.append("lavanderia", txtLavanderia.value);
+        frm.append("compania", txtCompania.value);
+        frm.append("riesgo", txtRiesgo.value);
+        frm.append("otros", txtOtros.value);
+        frm.append("fecha", txtFechaStakeholder.value);
+        frm.append("analisis", txtAnalisis.value);
+        if (validarRequeridos('E')) {
+            checkSubmit(btnGuardar);
+            Http.post("Empresa/GrabarStakeholder", MostrarGrabarStakeholder, frm);
+        } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+    }
+
+    function checkSubmit(boton) {
+        boton.value = "Enviando...";
+        boton.disabled = true;
+        return true;
     }
 
 }
 
+function MostrarGrabarStakeholder(rpta) {
+    if (rpta) {
+        toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
+    }
+    else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
+}
+
 function mostrarPosicion() {
-    var rptaPosicion = 'FAVORABLE|FAVORABLE¬NEUTRAL|NEUTRAL¬CONTRARIA|CONTRARIA';
+    var rptaPosicion = '1|FAVORABLE¬2|NEUTRAL¬3|CONTRARIA';
     lstCboPosicion = rptaPosicion.split('¬');
     CrearCombo(lstCboPosicion, cboPosicion, "Seleccione");
 }
 
 function mostrarPoderConvocatoria() {
-    var rptaPoderConvocatoria = 'ALTO|ALTO¬MEDIO|MEDIO¬BAJO|BAJO';
+    var rptaPoderConvocatoria = '1|ALTO¬2|MEDIO¬3|BAJO';
     lstCboPoderConvocatoria = rptaPoderConvocatoria.split('¬');
     CrearCombo(lstCboPoderConvocatoria, cboPoderConvocatoria, "Seleccione");
 }

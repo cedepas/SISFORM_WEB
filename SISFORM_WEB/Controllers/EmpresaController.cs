@@ -251,6 +251,16 @@ namespace SISFORM_WEB.Controllers
             }
         }
 
+        public async Task<string> GrabarStakeholder(Stakeholder oStakeholder)
+        {
+            int rpta = 0;
+            string op = "";
+            op = oStakeholder.ID_Stakeholder == 0 ? "I" : "U";
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.StakeholderOperacionAsync(oStakeholder, op);
+            return rpta == 0 ? "" : rpta.ToString();
+        }
+
         #endregion
     }
 }
