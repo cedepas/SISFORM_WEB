@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content">
+    <div class="title"><h5>Analisis Stakeholders</h5></div>
+    <div class="form-row">
+        <div class="col-sm">
+            <p>Si es nueva empresa, o no se encuentra registrado. Realice el registro en el siguiente enlace <a href="@Url.Action("Operacion", "Empresa")">Registro de Empresa</a></p>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-4">
+            <label for="cboTipoEmpresa" class="required">Tipo de Empresa</label>
+            <select class="form-control form-control-sm T" id="cboTipoEmpresa"></select>
+        </div>
+        <div class="col-sm-8">
+            <label class="required">Digite nombre comercial de la empresa</label>
+            <input type="text" class="form-control form-control-sm T" id="txtbuscarPorEmpresa" required="required" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm">
+            <label>Nombre y Apellidos del Proveedor</label>
+            <input type="text" class="form-control form-control-sm T" id="txtNombresApellidosProveedor" readonly />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-4">
+            <label for="cboPosicion" class="required">Posicion frente a MINSUR</label>
+            <select class="form-control form-control-sm" id="cboPosicion"></select>
+        </div>
+        <div class="col-sm-4">
+            <div class="col-sm-8 offset-2">
+                <label for="cboPosicion">&nbsp;</label>
+                <input class="form-control form-control-sm" id="PosicionColor" readonly />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label for="cboPosicion" class="required">Poder de Convocatoria</label>
+            <select class="form-control form-control-sm" id="cboPoderConvocatoria"></select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-4">
+            <label for="txtFechaIncidencia" class="required">Fecha </label>
+            <input type="date" class="form-control form-control-sm E" id="txtFechaIncidencia" required="required" />
+        </div>
+    </div>
+    <div class="form-row">
+        <label class="required">Comentario del stakeholder</label>
+        <textarea id="txtDetalles" class="form-control form-control-sm DE" style="border: none; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"> </textarea>
+    </div>
+    <div class="text-right">
+        <input class="btn btn-success" type="button" id="btnGrabarAnalisis" value="Registrar Analisis">
+    </div>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/ConsultaStakeholders.js")
+}

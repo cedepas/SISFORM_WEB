@@ -265,6 +265,7 @@
     <Content Include="Scripts\ConsultaAsignacion.js" />
     <Content Include="Scripts\ConsultaEvalCheff.js" />
     <Content Include="Scripts\ConsultaInspecciones.js" />
+    <Content Include="Scripts\ConsultaStakeholders.js" />
     <Content Include="Scripts\ConsultaTrabajadorMasivo.js" />
     <Content Include="Scripts\SeguimientoIncidencia.js" />
     <Content Include="Styles\apexcharts.css" />
@@ -352,6 +353,7 @@
     <Content Include="Views\SeguimientoNegocios\Capacitacion.cshtml" />
     <Content Include="Views\Cheff\Evaluacion.cshtml" />
     <Content Include="Views\Incidencia\SeguimientoIncidencia.cshtml" />
+    <Content Include="Views\Empresa\Stakeholders.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
