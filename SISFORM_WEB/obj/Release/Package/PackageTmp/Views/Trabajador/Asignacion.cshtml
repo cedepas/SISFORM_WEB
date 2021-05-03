@@ -31,12 +31,12 @@
 
         input[type="checkbox"] {
             box-shadow: 0.7px 0.7px 0.7px 0.7px white;
-            min-width:15px;
+            min-width: 15px;
         }
 
-        input[type="checkbox"]:checked {
-            box-shadow: 1px 1px 1px 1px hotpink;
-        }
+            input[type="checkbox"]:checked {
+                box-shadow: 1px 1px 1px 1px hotpink;
+            }
     </style>
     @*@Styles.Render("~/Styles/chartist.min.css")*@
     @Styles.Render("~/Styles/apexcharts.css")
@@ -53,39 +53,47 @@
 
 <div class="content">
     <div class="title"><h5>@ViewBag.Title</h5></div>
+    <div class="text-right">
+        <label>N° de Asignacion: </label>
+        <label id="lblNumeroAsignacion"></label>
+    </div>
     <div class="row">
         <div class="col-sm-3">
             <div class="form-row">
                 <div class="col-sm">
+                    <label for="txtbuscarPorEmpresa" class="required">Digite Empresa Contratista</label>
+                    <input type="text" class="form-control form-control-sm T" id="txtbuscarPorEmpresa" placeholder="Nombre Empresa" required="required" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm" id="tipoEmpresa" style="display:none">
                     <label for="cboTipoEmpresa" class="required">Tipo de empresa</label>
                     <select class="form-control form-control-sm T H" id="cboTipoEmpresa" required="required"></select>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="col-sm">
-                    <label for="cboEmpresa" class="required">Empresa</label>
-                    <select class="form-control form-control-sm T H" id="cboEmpresa" required="required"></select>
+            <div class="form-row ">
+                <div class="col-sm" id="empresaServicio" style="display:none">
+                    <label for="txtEmpresaServicio" class="required">Digite Empresa del Servicio</label>
+                    <input type="text" class="form-control form-control-sm T" id="txtEmpresaServicio" placeholder="Nombre Empresa" required="required" />
                 </div>
             </div>
-            <div class="form-row habitacion" style="display:none">
-                <div class="col-sm">
-                    <label for="cboHabitacion" class="required">Habitacion</label>
-                    <select class="form-control form-control-sm H" id="cboHabitacion" required="required"></select>
+            <div class="form-row ">
+                <div class="col-sm" id="tipoHabitacion" style="display:none">
+                    <label for="cboTipoHabitacion" class="required">Tipo de Habitación</label>
+                    <select class="form-control form-control-sm" id="cboTipoHabitacion" required="required"></select>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="col-sm">
-                    <label for="dtFecAsi" class="required">Fecha de asignacion</label>
-                    <input type="date" class="form-control form-control-sm T H F" id="dtFecAsi" required="required" />
-                </div>
-            </div>
-            @*<div class="form-row">
-                    <div class="col-sm-12" id="fechaPrueba" style="display:inline">
-                        <label for="txtFile">Cargar trabajadores(Excel)</label>
-                        <input type="file" class="form-control form-control-sm F" id="txtFile" required="required" />
-                        <input class="btn btn-success" id="btnCargar" type="button" value="Cargar">
+            <div class="form-row ">
+                <div class="col-sm" id="estadoAsiganacion" style="display:none">
+                    <label for="txtEstado" class="required">Estado</label>
+                    <div class="custom-control">
+                        <div class="custom-switch">
+                            <input type="checkbox" id="txtEstado" checked>
+                            <label for="txtEstado">Estado</label>
+                        </div>
                     </div>
-                </div>*@
+                </div>
+            </div>
         </div>
         <div class="col-sm-9">
             <div class="chart overflow-y-hidden overflow-y-md-auto h-250">
@@ -112,7 +120,6 @@
 </div>
 <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
 @section scripts{
-    @*@Scripts.Render("~/Scripts/chartist.min.js")*@
     @Scripts.Render("~/Scripts/apexcharts.js")
     @Scripts.Render("~/Scripts/ConsultaAsignacion.js")
 }
