@@ -71,6 +71,34 @@ namespace SISFORM_WEB.Controllers
             return rpta == 0 ? "" : rpta.ToString();
         }
 
+        public async Task<string> ListarStakeholderCsv()
+        {
+            try
+            {
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                var rpta = await servicio.ListarStakeholderCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<string> ObtenerStakeholderPorIdCsv(string idStakeholder)
+        {
+            try
+            {
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                var rpta = await servicio.ObtenerStakeholderPorIdCsvAsync(idStakeholder);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         #endregion
     }
 }

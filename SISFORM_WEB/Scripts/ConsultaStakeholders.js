@@ -10,7 +10,6 @@ var idTrabajador;
 
 window.onload = function () {
     if (!isMobile.any()) {
-        /*Http.get("Empresa/ListarStakeholder", CrearTablaCsv);*/
         document.querySelectorAll('.form-row').forEach(function (element) {
             element.classList.add('row-eq-spacing-sm');
         });
@@ -36,7 +35,7 @@ window.onload = function () {
     Http.get("Incidencia/ListarTrabajadorBusquedaCsv", mostrarListarTrabajador);
     Http.get("Stakeholder/ListarPoderConvocatoriaCbo", mostrarPoderConvocatoria);
     Http.get("Stakeholder/ListarTipoPosicionamientoCbo", mostrarPosicion);
-    CrearListado();
+    Http.get("Stakeholder/ListarStakeholderCsv", CrearTablaCsv);
 
     cboPosicion.onchange = function () {
         var element = document.getElementById("PosicionColor");
@@ -93,8 +92,8 @@ window.onload = function () {
 
     btnGuardar.onclick = function () {
         var frm = new FormData();
-        frm.append("ID_Stakeholder", idStakeholder);
-        frm.append("FK_ID_Trabajador", idTrabajador);
+        frm.append("ID_Stakeholder", idStakeholder ? idStakeholder.value:"0");
+        frm.append("FK_ID_Trabajador", idTrabajador.value);
         frm.append("FK_ID_PoderConvocatoria", cboPoderConvocatoria.value);
         frm.append("FK_ID_TipoPosicionamiento", cboPosicion.value);
         frm.append("transporte", txtTransporte.value);
@@ -116,7 +115,6 @@ window.onload = function () {
     }
 
     btnModalSuceso.onclick = function () {
-        console.log(idStakeholder);
         Http.get("Incidencia/ListarEmpresaPorTipoCboCsv?idTipoEmpresa=5", mostrarECM);
         mostrarEstado();
         mostrarTipoSuceso();
@@ -137,16 +135,16 @@ window.onload = function () {
 
 }
 
-function CrearListado() {
-    var rpta = "ID Stakeholder|Nombres y Apellidos|Poder Convocatoria|Posicion a MINSUR|Fecha¬1|DEYSI VANESSA BENITO DE LA CRUZ|ALTO|NEUTRAL|2021-05-04¬2|ANDREA LUNA QUISPE DE HUANCONDORI|MEDIO|FAVORABLE|2021-03-30"
-    var lista = rpta.split('¬');
-    var grilla = new Grilla(lista, "divTabla", 10, 3);
+function CrearTablaCsv(rpta) {
+    if (rpta) {
+        var lista = rpta.split('¬');
+        var grilla = new Grilla(lista, "divTabla", 10, 3);
+    }
 }
 
 function obtenerRegistroPorId(id) {
-/*    Http.get("Stakeholder/ObtenerStakeholderPorIdCsv?idStakeholder=" + id, AsignarCampos);*/
+    Http.get("Stakeholder/ObtenerStakeholderPorIdCsv?idStakeholder=" + id, AsignarCampos);
     //Http.get("Stakeholder/ListarStakeholderSucesosPorIdCsv?idTrabajador=" + id, CrearTablaCsvPuestos);
-    AsignarCampos("2|206|2|1|1|0|1|0|1|0|0|2021-03-30|empresa cuenta con tienda y servicio de internet|ANDREA LUNA QUISPE DE HUANCONDORI");
 }
 
 function AsignarCampos(rpta) {
