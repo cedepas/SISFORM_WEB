@@ -227,40 +227,5 @@ namespace SISFORM_WEB.Controllers
         }
         #endregion
 
-        #region Stakeholders
-
-        // GET: Stakeholders
-        public ActionResult Stakeholders()
-        {
-            ViewBag.Title = "Stakeholders";
-            return View();
-        }
-
-        public async Task<string> ListarEmpresaRazonSocialPorTipoCboCsv(string idTipoEmpresa)
-        {
-            try
-            {
-                string rpta = "";
-                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.ListarEmpresaRazonSocialPorTipoCboCsvAsync(idTipoEmpresa);
-                return rpta;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        public async Task<string> GrabarStakeholder(Stakeholder oStakeholder)
-        {
-            int rpta = 0;
-            string op = "";
-            op = oStakeholder.ID_Stakeholder == 0 ? "I" : "U";
-            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-            rpta = await servicio.StakeholderOperacionAsync(oStakeholder, op);
-            return rpta == 0 ? "" : rpta.ToString();
-        }
-
-        #endregion
     }
 }

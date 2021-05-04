@@ -6,7 +6,7 @@ var lista;
 var objetoBusqueda = [];
 var objetoParametrizado = [];
 var textoBusqueda;
-var idEmpresa;
+var idTrabajador;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -29,20 +29,14 @@ window.onload = function () {
         });
     });
 
-    Http.get("Empresa/ListarTipoEmpresaCbo", mostrarTipoEmpresaCbo);
-    mostrarPosicion();
-    mostrarPoderConvocatoria();
+    document.getElementById('txtBuscarPorTrabajador').addEventListener('search', function () {
+        closeAllLists();
+    });
 
-    cboTipoEmpresa.onchange = function () {
-        txtbuscarPorEmpresa.value = "";
-        idTipoEmpresa = cboTipoEmpresa.value;
-        listarEmpresaPorTipoCbo();
-        if (!cboTipoEmpresa.value) {
-            closeAllLists();
-            txtNombresApellidosProveedor.value = "";
-            txtbuscarPorEmpresa.value = "";
-        }
-    }
+    Http.get("Incidencia/ListarTrabajadorBusquedaCsv", mostrarListarTrabajador);
+    Http.get("Stakeholder/ListarPoderConvocatoriaCbo", mostrarPoderConvocatoria);
+    Http.get("Stakeholder/ListarTipoPosicionamientoCbo", mostrarPosicion);
+    CrearListado();
 
     cboPosicion.onchange = function () {
         var element = document.getElementById("PosicionColor");
@@ -70,44 +64,40 @@ window.onload = function () {
         }
     }
 
-    txtbuscarPorEmpresa.onkeyup = function () {
+    txtBuscarPorTrabajador.onkeyup = function () {
         var a, b;
         closeAllLists();
         a = document.createElement("div");
         a.setAttribute("id", this.id + "predictivo-list");
         a.setAttribute("class", "predictivo-items");
         this.parentNode.appendChild(a);
-        textoBusqueda = txtbuscarPorEmpresa.value.toLowerCase();
+        textoBusqueda = txtBuscarPorTrabajador.value.toLowerCase();
         for (let objeto of objetoBusqueda) {
-            let Nombre = objeto.NombreComercial.toLowerCase();
+            let Nombre = objeto.NombreApellido.toLowerCase();
             if (Nombre.indexOf(textoBusqueda) !== -1) {
                 b = document.createElement("div");
-                b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
-                b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
+                b.innerHTML = "<strong>" + objeto.NombreApellido + "</strong>";
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreApellido + "'>";
                 b.addEventListener("click", function (e) {
-                    txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
-                    idEmpresa = objeto.IDEmpr;
-                    txtNombresApellidosProveedor.value = objeto.RazonSocial;
+                    txtBuscarPorTrabajador.value = this.getElementsByTagName("input")[0].value;
+                    idTrabajador = objeto.IDTrab;
                     closeAllLists();
                 });
                 a.appendChild(b);
             }
         }
-        if (!txtbuscarPorEmpresa.value) {
-            txtNombresApellidosProveedor.value = "";
+        if (!txtBuscarPorTrabajador.value) {
+            txtBuscarPorTrabajador.value = "";
         }
     }
 
     btnGuardar.onclick = function () {
         var frm = new FormData();
         frm.append("ID_Stakeholder", idStakeholder);
-        frm.append("FK_ID_Empresa", idEmpresa);
+        frm.append("FK_ID_Trabajador", idTrabajador);
         frm.append("FK_ID_PoderConvocatoria", cboPoderConvocatoria.value);
         frm.append("FK_ID_TipoPosicionamiento", cboPosicion.value);
-        frm.append("alojamiento", txtAlojamiento.value);
-        frm.append("comedor", txtComedor.value);
         frm.append("transporte", txtTransporte.value);
-        frm.append("lavanderia", txtLavanderia.value);
         frm.append("compania", txtCompania.value);
         frm.append("riesgo", txtRiesgo.value);
         frm.append("otros", txtOtros.value);
@@ -115,7 +105,7 @@ window.onload = function () {
         frm.append("analisis", txtAnalisis.value);
         if (validarRequeridos('E')) {
             checkSubmit(btnGuardar);
-            Http.post("Empresa/GrabarStakeholder", MostrarGrabarStakeholder, frm);
+            Http.post("Stakeholder/GrabarStakeholder", MostrarGrabarStakeholder, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
 
@@ -125,6 +115,67 @@ window.onload = function () {
         return true;
     }
 
+    btnModalSuceso.onclick = function () {
+        console.log(idStakeholder);
+        Http.get("Incidencia/ListarEmpresaPorTipoCboCsv?idTipoEmpresa=5", mostrarECM);
+        mostrarEstado();
+        mostrarTipoSuceso();
+    }
+
+    btnNuevo.onclick = function () {
+        limpiarControles('form-control');
+        document.querySelectorAll('.servicio').forEach(function (element) {
+            element.value = 0;
+        });
+        btnGuardar.value = "Guardar";
+        idTrabajador = undefined;
+        cboPosicion.value = '';
+        cboPosicion.dispatchEvent(new Event('change'));
+        btnNuevo.style.visibility = "hidden";
+        btnModalSuceso.style.display = "none";
+    }
+
+}
+
+function CrearListado() {
+    var rpta = "ID Stakeholder|Nombres y Apellidos|Poder Convocatoria|Posicion a MINSUR|Fecha¬1|DEYSI VANESSA BENITO DE LA CRUZ|ALTO|NEUTRAL|2021-05-04¬2|ANDREA LUNA QUISPE DE HUANCONDORI|MEDIO|FAVORABLE|2021-03-30"
+    var lista = rpta.split('¬');
+    var grilla = new Grilla(lista, "divTabla", 10, 3);
+}
+
+function obtenerRegistroPorId(id) {
+/*    Http.get("Stakeholder/ObtenerStakeholderPorIdCsv?idStakeholder=" + id, AsignarCampos);*/
+    //Http.get("Stakeholder/ListarStakeholderSucesosPorIdCsv?idTrabajador=" + id, CrearTablaCsvPuestos);
+    AsignarCampos("2|206|2|1|1|0|1|0|1|0|0|2021-03-30|empresa cuenta con tienda y servicio de internet|ANDREA LUNA QUISPE DE HUANCONDORI");
+}
+
+function AsignarCampos(rpta) {
+    if (rpta) {
+        var campos = rpta.split('|');
+        document.getElementById("txtIdStakeholder").innerHTML = campos[0];
+        idStakeholder = campos[0];
+        idTrabajador = campos[1];
+        cboPosicion.value = campos[3];
+        cboPosicion.dispatchEvent(new Event('change'));
+        cboPoderConvocatoria.value = campos[2];
+        txtAlojamiento.value = campos[4];
+        txtComedor.value = campos[5];
+        txtTransporte.value = campos[6];
+        txtLavanderia.value = campos[7];
+        txtCompania.value = campos[8];
+        txtRiesgo.value = campos[9];
+        txtOtros.value = campos[10];
+        txtFechaStakeholder.value = campos[11];
+        txtAnalisis.value = campos[12];
+        txtTotalServicios.dispatchEvent(new Event('change'));
+        txtBuscarPorTrabajador.value = campos[13];
+        txtNombresApellidosProveedor.value = campos[13];
+        btnNuevo.style.visibility = "visible";
+        btnModalSuceso.style.display = "inline-block";
+        btnGuardar.value = "Editar";
+    } else {
+        limpiarControles('form-control');
+    }
 }
 
 function MostrarGrabarStakeholder(rpta) {
@@ -134,16 +185,35 @@ function MostrarGrabarStakeholder(rpta) {
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
 
-function mostrarPosicion() {
-    var rptaPosicion = '1|FAVORABLE¬2|NEUTRAL¬3|CONTRARIA';
-    lstCboPosicion = rptaPosicion.split('¬');
-    CrearCombo(lstCboPosicion, cboPosicion, "Seleccione");
+function mostrarECM(rpta) {
+    if (rpta) {
+        lstCboECM = rpta.split('¬');
+        CrearCombo(lstCboECM, cboECM, "Seleccione");
+    }
 }
 
-function mostrarPoderConvocatoria() {
-    var rptaPoderConvocatoria = '1|ALTO¬2|MEDIO¬3|BAJO';
-    lstCboPoderConvocatoria = rptaPoderConvocatoria.split('¬');
-    CrearCombo(lstCboPoderConvocatoria, cboPoderConvocatoria, "Seleccione");
+function mostrarEstado() {
+    lstCboEstado = ('1|ABIERTO¬2|CERRADO¬3|EN PROCESO').split('¬');
+    CrearCombo(lstCboEstado, cboEstado, "Seleccione");
+}
+
+function mostrarTipoSuceso() {
+    lstCboTipoSuceso = ('1|A FAVOR¬2|EN CONTRA').split('¬');
+    CrearCombo(lstCboTipoSuceso, cboTipoSuceso, "Seleccione");
+}
+
+function mostrarPosicion(rpta) {
+    if (rpta) {
+        lstCboPosicion = rpta.split('¬');
+        CrearCombo(lstCboPosicion, cboPosicion, "Seleccione");
+    }
+}
+
+function mostrarPoderConvocatoria(rpta) {
+    if (rpta) {
+        lstCboPoderConvocatoria = rpta.split('¬');
+        CrearCombo(lstCboPoderConvocatoria, cboPoderConvocatoria, "Seleccione");
+    }
 }
 
 function closeAllLists(elmnt) {
@@ -155,32 +225,14 @@ function closeAllLists(elmnt) {
     }
 }
 
-function CrearListaCsvAllEmpresas(rpta) {
+function mostrarListarTrabajador(rpta) {
     if (rpta) {
         lista = rpta.split('¬');
-        crearObjetoAllEmpresas(lista)
+        crearObjetoAllTrabajador(lista)
     }
 }
 
-function listarEmpresaPorTipoCbo() {
-    Http.get("Empresa/ListarEmpresaRazonSocialPorTipoCboCsv?idTipoEmpresa=" + idTipoEmpresa, mostrarEmpresaPorTipoCbo);
-}
-
-function mostrarTipoEmpresaCbo(rpta) {
-    if (rpta) {
-        lstCboTipoEmpresa = rpta.split('¬');
-        CrearCombo(lstCboTipoEmpresa, cboTipoEmpresa, "Seleccione");
-    }
-}
-
-function mostrarEmpresaPorTipoCbo(rpta) {
-    if (rpta) {
-        lista = rpta.split('¬');
-        crearObjeto(lista)
-    }
-}
-
-function crearObjeto() {
+function crearObjetoAllTrabajador() {
     objetoBusqueda = [];
     objetoParametrizado = [];
     cabeceras = lista[0].split('|');
@@ -206,5 +258,4 @@ function crearObjeto() {
         }
         objetoBusqueda.push(valoresAInsertar);
     }
-    document.getElementById('txtbuscarPorEmpresa').onkeyup();
 }

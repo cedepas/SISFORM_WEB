@@ -1,0 +1,156 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+@section modals{
+    <div class="modal modal-full ie-scroll-fix" id="suceso-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content w-lg-three-quarter">
+                <a href="#" class="close" role="button" arial-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label class="required">Nombres y Apellidos del Stakeholder</label>
+                        <input type="search" class="form-control form-control-sm E" id="txtNombresApellidosProveedor" readonly />
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">ECM</label>
+                        <select class="form-control form-control-sm E" id="cboECM" required="required"></select>
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Estado</label>
+                        <select class="form-control form-control-sm E" id="cboEstado" required="required"></select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label class="required">Detalle del Suceso</label>
+                        <textarea id="txtAnalisis" class="form-control E" rows=10 cols=50 maxlength=500 required></textarea>
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Acciones inmediatas</label>
+                        <textarea id="txtAnalisis" class="form-control E" rows=10 cols=50 maxlength=500 required></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label class="required">Fecha Reportado</label>
+                        <input type="date" class="form-control form-control-sm E" id="txtFechaReportado" required="required" />
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Fecha Inicio de Acciones</label>
+                        <input type="date" class="form-control form-control-sm E" id="txtFechaInicio" required="required" />
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Fecha Cierre</label>
+                        <input type="date" class="form-control form-control-sm E" id="txtFechaCierre" required="required" />
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Tipo Suceso</label>
+                        <select class="form-control form-control-sm E" id="cboTipoSuceso" required="required"></select>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <a class="btn btn-secondary" id="btnGuardarSuceso" role="button" style="visibility:visible">Registrar Suceso</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "stakeholder";
+    </script>
+}
+<div class="content">
+    <div class="title"><h5>Registro Stakeholders</h5></div>
+    <p>Si stakeholder no esta registrado. haga click en el siguiente enlace <a href="@Url.Action("Operacion", "Trabajador")">Registro de Stakeholder</a></p>
+    <div class="form-row">
+        <div class="text-right">
+            <label>N° de Stakeholder: </label>
+            <label id="txtIdStakeholder"></label>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm">
+            <label class="required">Digite nombres y apellidos del stakeholder</label>
+            <input type="search" class="form-control form-control-sm E" id="txtBuscarPorTrabajador" required="required" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm">
+            <label class="required">Posicion frente a MINSUR</label>
+            <select class="form-control form-control-sm E" id="cboPosicion" required="required"></select>
+        </div>
+        <div class="col-sm">
+            <div class="col-sm-10 offset-1">
+                <label>&nbsp;</label>
+                <input class="form-control form-control-sm" id="PosicionColor" readonly />
+            </div>
+        </div>
+        <div class="col-sm">
+            <label class="required">Poder de Convocatoria</label>
+            <select class="form-control form-control-sm E" id="cboPoderConvocatoria" required="required"></select>
+        </div>
+        <div class="col-sm">
+            <label class="required">Fecha</label>
+            <input type="date" class="form-control form-control-sm E" id="txtFechaStakeholder" required="required" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm">
+            <label>Transporte</label>
+            <input type="number" min="0" value="0" class="servicio form-control form-control-sm" id="txtTransporte" />
+        </div>
+        <div class="col-sm">
+            <label>Compañia</label>
+            <input type="number" min="0" value="0" class="servicio form-control form-control-sm" id="txtCompania" />
+        </div>
+        <div class="col-sm">
+            <label>Riesgo</label>
+            <input type="number" min="0" value="0" class="servicio form-control form-control-sm" id="txtRiesgo" />
+        </div>
+        <div class="col-sm">
+            <label>Otros</label>
+            <input type="number" min="0" value="0" class="servicio form-control form-control-sm" id="txtOtros" />
+        </div>
+        <div class="col-sm">
+            <label>Alojamiento</label>
+            <input type="number" min="0" value="0" class="servicio form-control form-control-sm" id="txtAlojamiento" readonly />
+        </div>
+        <div class="col-sm">
+            <label>Comedor</label>
+            <input type="number" min="0" value="0" class="servicio form-control form-control-sm" id="txtComedor" readonly />
+        </div>
+        <div class="col-sm">
+            <label>Lavanderia</label>
+            <input type="number" min="0" value="0" class="servicio form-control form-control-sm" id="txtLavanderia" readonly />
+        </div>
+        <div class="col-sm">
+            <label>Total Servicios</label>
+            <input type="number" min="0" value="0" class="servicio form-control form-control-sm" id="txtTotalServicios" readonly />
+        </div>
+    </div>
+    <div class="form-row">
+        <label class="required">Analisis del stakeholder</label>
+        <textarea id="txtAnalisis" class="form-control E" rows=10 cols=50 maxlength=500 required></textarea>
+    </div>
+    <div class="text-right">
+        <input class="btn btn-primary" id="btnNuevo" type="button" value="Nuevo" style="visibility:hidden">
+        <a href="#suceso-modal" class="btn btn-secondary" id="btnModalSuceso" role="button" style="display:none">Registrar Suceso</a>
+        <input class="btn btn-success" type="button" id="btnGuardar" value="Guardar">
+    </div>
+</div>
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+@section Scripts{
+    @Scripts.Render("~/Scripts/ConsultaStakeholders.js")
+}
+

@@ -190,6 +190,7 @@
     <Compile Include="Controllers\PruebaCovidController.cs" />
     <Compile Include="Controllers\ReporteController.cs" />
     <Compile Include="Controllers\SeguimientoNegociosController.cs" />
+    <Compile Include="Controllers\StakeholderController.cs" />
     <Compile Include="Controllers\TrabajadorController.cs" />
     <Compile Include="Filters\AutorizacionModulos.cs" />
     <Compile Include="Filters\VerificaSession.cs" />
@@ -353,7 +354,7 @@
     <Content Include="Views\SeguimientoNegocios\Capacitacion.cshtml" />
     <Content Include="Views\Cheff\Evaluacion.cshtml" />
     <Content Include="Views\Incidencia\SeguimientoIncidencia.cshtml" />
-    <Content Include="Views\Empresa\Stakeholders.cshtml" />
+    <Content Include="Views\Stakeholder\Stakeholders.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
