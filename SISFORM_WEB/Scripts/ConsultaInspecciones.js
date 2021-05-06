@@ -14,7 +14,7 @@ window.onload = function () {
         Http.get("SeguimientoNegocios/ListarInspecciones?idUsuario=" + idUsuario, CrearTablaCsv);
         Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
         Http.get("SeguimientoNegocios/ListarEstadoInspeccionCsv", mostrarTipoInspeccionCbo);
-       
+
 
         var divRows = document.getElementsByClassName('form-row');
         for (var i = 0; i < divRows.length; i++) {
@@ -34,7 +34,7 @@ window.onload = function () {
         frm.append("fechaInspeccion", txtFechaInspeccion.value);
         if (validarRequeridos('E')) {
             checkSubmit(btnGrabarInspeccion);
-            Http.post("SeguimientoNegocios/GrabarInspeccion?op=I"  , MostrarRegistroInspeccion, frm);
+            Http.post("SeguimientoNegocios/GrabarInspeccion?op=I", MostrarRegistroInspeccion, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
 
@@ -81,11 +81,11 @@ window.onload = function () {
         while (inicio < cantidadTrabajadores) {
             var valorCheck = "cb" + inicio;
             lisDatosTrabajadro = lstTrabajadores[inicio].split('|');
-            lstActualizacion.push(lisDatosTrabajadro[0]+ "|" + lisDatosTrabajadro[5]+"|" +document.getElementById(valorCheck).checked);
+            lstActualizacion.push(lisDatosTrabajadro[0] + "|" + lisDatosTrabajadro[5] + "|" + document.getElementById(valorCheck).checked);
             inicio = inicio + 1;
         }
         checkSubmit(btnActualizar);
-        Http.get("SeguimientoNegocios/ActualizarPuestoTrabajadorPorEmpresaCsv?FK_ID_Empresa=" + idEmpresa + "&listadoTrabajadores=" + lstActualizacion.toString()+ "&FK_ID_Usuario="+ idUsuario, mostrarActualizacion);
+        Http.get("SeguimientoNegocios/ActualizarPuestoTrabajadorPorEmpresaCsv?FK_ID_Empresa=" + idEmpresa + "&listadoTrabajadores=" + lstActualizacion.toString() + "&FK_ID_Usuario=" + idUsuario, mostrarActualizacion);
         console.log(lstActualizacion.toString());
     }
 }
@@ -99,7 +99,7 @@ function closeAllLists(elmnt) {
 }
 function mostrarTipoInspeccionCbo(rpta) {
     if (rpta) {
-        lstCboTipoInspeccion= rpta.split("¬");
+        lstCboTipoInspeccion = rpta.split("¬");
         CrearCombo(lstCboTipoInspeccion, cboTipoInspeccion, "Seleccione");
     }
 }
@@ -109,7 +109,7 @@ function MostrarRegistroInspeccion(rpta) {
         limpiarControles('form-control');
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
-} 
+}
 function mostrarActualizacion(rpta) {
     if (rpta) {
         toastSuccessAlert("Se actualizo correctamente los Trabajadores", "¡Exito!");
@@ -136,7 +136,7 @@ function mostrarTrabajadoresEmpresa(rpta) {
         lstCabeceras = lstTrabajadores[0].split('|');
         lstTrabajadores.shift();
         cantidadTrabajadores = lstTrabajadores.length
-        var b,c,d, i=0,j=0,k=0;
+        var b, c, d, i = 0, j = 0, k = 0;
         b = document.createElement("tr");
         cantidadCabecera = lstCabeceras.length;
         while (i < cantidadCabecera) {
@@ -147,7 +147,7 @@ function mostrarTrabajadoresEmpresa(rpta) {
         }
         document.getElementById('TrabajadoresEmpresa').appendChild(b);
         while (j < lstTrabajadores.length) {
-            var nroCheck,datoCheck;
+            var nroCheck, datoCheck;
             c = document.createElement("tr");
             lstDatosTrabajador = lstTrabajadores[j].split('|');
             while (k < cantidadCabecera) {
@@ -159,7 +159,7 @@ function mostrarTrabajadoresEmpresa(rpta) {
                 else {
                     nroCheck = "cb" + j;
                     datoCheck = lstDatosTrabajador[k];
-                    c.innerHTML += "<td><input type='checkbox' id='" + nroCheck + "'></input>" + lstDatosTrabajador[k] +"</td>";
+                    c.innerHTML += "<td><input type='checkbox' id='" + nroCheck + "'></input>" + lstDatosTrabajador[k] + "</td>";
                 }
                 k = k + 1;
             }

@@ -306,16 +306,6 @@
     <Content Include="Properties\DataSources\Dominio.Trabajador.datasource" />
     <Content Include="Properties\DataSources\Dominio.Ubigeo.datasource" />
     <Content Include="Properties\DataSources\Dominio.VistaUsuario.datasource" />
-    <None Include="Connected Services\ServicioWcf\Servicio.wsdl" />
-    <None Include="Connected Services\ServicioWcf\Servicio.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioWcf\Servicio1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioWcf\Servicio2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Properties\DataSources\Dominio.Criterio11.datasource" />
     <Content Include="Properties\DataSources\Dominio.Criterio21.datasource" />
     <Content Include="Properties\DataSources\Dominio.Criterio31.datasource" />
@@ -335,6 +325,16 @@
     <Content Include="plugins\Handsontable\handsontable.css.map" />
     <Content Include="plugins\Handsontable\handsontable.js.map" />
     <Content Include="plugins\Handsontable\README.md" />
+    <None Include="Connected Services\ServicioWcf\Servicio.wsdl" />
+    <None Include="Connected Services\ServicioWcf\Servicio.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioWcf\Servicio1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioWcf\Servicio2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\PruebaCovid\ProgramacionPruebaCovid.cshtml" />
