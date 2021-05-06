@@ -8,48 +8,58 @@
                 </a>
                 <div class="form-row">
                     <div class="col-sm">
-                        <label class="required">Nombres y Apellidos del Stakeholder</label>
-                        <input type="search" class="form-control form-control-sm SE" id="txtNombresApellidosProveedor" readonly />
-                    </div>
-                    <div class="col-sm">
                         <label class="required">ECM</label>
-                        <select class="form-control form-control-sm SE" id="cboECM" required="required"></select>
+                        <select class="form-control form-control-sm SE" id="cboECM" required></select>
                     </div>
                     <div class="col-sm">
-                        <label class="required">Estado</label>
-                        <select class="form-control form-control-sm SE" id="cboEstado" required="required"></select>
+                        <label class="required">Estado Suceso</label>
+                        <select class="form-control form-control-sm SE" id="cboEstadoSuceso" required></select>
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Tipo Suceso</label>
+                        <select class="form-control form-control-sm SE" id="cboTipoSuceso" required></select>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-sm">
                         <label class="required">Detalle del Suceso</label>
-                        <textarea id="" class="form-control SE" rows=10 cols=50 maxlength=500 required></textarea>
+                        <textarea id="txtDetalleSuceso" class="form-control SE" rows=10 cols=50 maxlength=500 required></textarea>
                     </div>
                     <div class="col-sm">
                         <label class="required">Acciones inmediatas</label>
-                        <textarea id="" class="form-control SE" rows=10 cols=50 maxlength=500 required></textarea>
+                        <textarea id="txtAccionesSuceso" class="form-control SE" rows=10 cols=50 maxlength=500 required></textarea>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-sm">
-                        <label class="required">Fecha Reportado</label>
-                        <input type="date" class="form-control form-control-sm SE" id="txtFechaReportado" required="required" />
+                        <label class="required">Fecha Reporte</label>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaReporte" required/>
                     </div>
                     <div class="col-sm">
-                        <label class="required">Fecha Inicio de Acciones</label>
-                        <input type="date" class="form-control form-control-sm SE" id="txtFechaInicio" required="required" />
+                        <label>Fecha Inicio de Acciones</label>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaInicio"/>
                     </div>
                     <div class="col-sm">
-                        <label class="required">Fecha Cierre</label>
-                        <input type="date" class="form-control form-control-sm SE" id="txtFechaCierre" required="required" />
-                    </div>
-                    <div class="col-sm">
-                        <label class="required">Tipo Suceso</label>
-                        <select class="form-control form-control-sm SE" id="cboTipoSuceso" required="required"></select>
+                        <label>Fecha Cierre</label>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaCierre"/>
                     </div>
                 </div>
                 <div class="col-sm">
-                    <a class="btn btn-secondary" id="btnGuardarSuceso" role="button" style="visibility:visible">Registrar Suceso</a>
+                    <div class="text-right">
+                        <input class="btn btn-primary" id="btnNuevoSuceso" type="button" value="Nuevo Suceso" style="visibility:hidden" />
+                        <input class="btn btn-success" type="button" id="btnGuardarSuceso" value="Guardar" />
+                    </div>
+                </div>
+                <div class="content">
+                    <hr class="mb-20" />
+                </div>
+                <div class="mw-full">
+                    <div class="card p-0 bg-very-dark-dm">
+                        <div id="divTablaSucesos" class="table-responsive">
+                            <table id="tablaDatosSucesos" class="table table-inner-bordered">
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,12 +72,6 @@
 <div class="content">
     <div class="title"><h5>Registro Stakeholders</h5></div>
     <p>Si stakeholder no esta registrado. haga click en el siguiente enlace <a href="@Url.Action("Operacion", "Trabajador")">Registro de Stakeholder</a></p>
-    <div class="form-row">
-        <div class="text-right">
-            <label>N° de Stakeholder: </label>
-            <label id="txtIdStakeholder"></label>
-        </div>
-    </div>
     <div class="form-row">
         <div class="col-sm">
             <label class="required">Digite nombres y apellidos del stakeholder</label>
@@ -134,7 +138,7 @@
     </div>
     <div class="text-right">
         <input class="btn btn-primary" id="btnNuevo" type="button" value="Nuevo" style="visibility:hidden">
-        <a href="#suceso-modal" class="btn btn-secondary" id="btnModalSuceso" role="button" style="display:none">Registrar Suceso</a>
+        <a href="#suceso-modal" class="btn btn-secondary" id="btnModalSuceso" role="button" style="display:none">Ver / Registrar Sucesos</a>
         <input class="btn btn-success" type="button" id="btnGuardar" value="Guardar">
     </div>
 </div>

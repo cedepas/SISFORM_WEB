@@ -19,6 +19,51 @@ namespace SISFORM_WEB.Controllers
             return View();
         }
 
+        public async Task<string> ListarEmpresasEspecializadasCboCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEmpresasEspecializadasCboCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<string> ListarEstadoSucesoCboCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEstadoSucesoCboCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<string> ListarTipoSucesoCboCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarTipoSucesoCboCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public async Task<string> ListarPoderConvocatoriaCbo()
         {
             try
@@ -71,6 +116,13 @@ namespace SISFORM_WEB.Controllers
             return rpta == 0 ? "" : rpta.ToString();
         }
 
+        public async Task<string> GrabarStakeholderSuceso(StakeholderSuceso oStakeholderSuceso)
+        {
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            var rpta = await servicio.StakeholderSucesoOperacionAsync(oStakeholderSuceso, oStakeholderSuceso.ID_StakeholderSuceso == 0 ? "I" : "U");
+            return rpta == 0 ? "" : rpta.ToString();
+        }
+
         public async Task<string> ListarStakeholderCsv()
         {
             try
@@ -91,6 +143,34 @@ namespace SISFORM_WEB.Controllers
             {
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
                 var rpta = await servicio.ObtenerStakeholderPorIdCsvAsync(idStakeholder);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<string> ObtenerStakeholderSucesoPorIdCsv(string idStakeholderSuceso)
+        {
+            try
+            {
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                var rpta = await servicio.ObtenerStakeholderSucesoPorIdCsvAsync(idStakeholderSuceso);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<string> ListarStakeholderSucesoPorIdStakeholderCsv(string idStakeholder)
+        {
+            try
+            {
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                var rpta = await servicio.ListarStakeholderSucesoPorIdStakeholderCsvAsync(idStakeholder);
                 return rpta;
             }
             catch (Exception ex)

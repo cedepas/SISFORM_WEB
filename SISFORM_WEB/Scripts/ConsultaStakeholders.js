@@ -1,6 +1,7 @@
 ﻿var lstCboTipoEmpresa;
 var idTipoEmpresa;
 var idStakeholder;
+var idStakeholderSuceso;
 
 var lista;
 var objetoBusqueda = [];
@@ -29,7 +30,9 @@ window.onload = function () {
     });
 
     document.getElementById('txtBuscarPorTrabajador').addEventListener('search', function () {
+        txtBuscarPorTrabajador.value = "";
         closeAllLists();
+        btnNuevo.dispatchEvent(new Event('click'));
     });
 
     Http.get("Incidencia/ListarTrabajadorBusquedaCsv", mostrarListarTrabajador);
@@ -87,13 +90,15 @@ window.onload = function () {
         }
         if (!txtBuscarPorTrabajador.value) {
             txtBuscarPorTrabajador.value = "";
+            closeAllLists();
+            btnNuevo.dispatchEvent(new Event('click'));
         }
     }
 
     btnGuardar.onclick = function () {
         var frm = new FormData();
-        frm.append("ID_Stakeholder", idStakeholder ? idStakeholder.value:"0");
-        frm.append("FK_ID_Trabajador", idTrabajador.value);
+        if (idStakeholder) { frm.append("ID_Stakeholder", idStakeholder); }
+        frm.append("FK_ID_Trabajador", idTrabajador);
         frm.append("FK_ID_PoderConvocatoria", cboPoderConvocatoria.value);
         frm.append("FK_ID_TipoPosicionamiento", cboPosicion.value);
         frm.append("transporte", txtTransporte.value);
@@ -108,6 +113,24 @@ window.onload = function () {
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
 
+    btnGuardarSuceso.onclick = function () {
+        var frm = new FormData();
+        if (idStakeholderSuceso) { frm.append("ID_StakeholderSuceso", idStakeholderSuceso); }
+        frm.append("FK_ID_Stakeholder", idStakeholder);
+        frm.append("FK_ID_Empresa", cboECM.value);
+        frm.append("FK_ID_EstadoSuceso", cboEstadoSuceso.value);
+        frm.append("FK_ID_TipoSuceso", cboTipoSuceso.value);
+        frm.append("detalleSuceso", txtDetalleSuceso.value);
+        frm.append("accionesSuceso", txtAccionesSuceso.value);
+        frm.append("fechaReporte", txtFechaReporte.value);
+        frm.append("fechaInicio", txtFechaInicio.value);
+        frm.append("fechaCierre", txtFechaCierre.value);
+        if (validarRequeridos('SE')) {
+            checkSubmit(btnGuardarSuceso);
+            Http.post("Stakeholder/GrabarStakeholderSuceso", MostrarGrabarStakeholderSuceso, frm);
+        } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+    }
+
     function checkSubmit(boton) {
         boton.value = "Enviando...";
         boton.disabled = true;
@@ -115,72 +138,126 @@ window.onload = function () {
     }
 
     btnModalSuceso.onclick = function () {
-        Http.get("Incidencia/ListarEmpresaPorTipoCboCsv?idTipoEmpresa=5", mostrarECM);
-        mostrarEstado();
-        mostrarTipoSuceso();
+        Http.get("Stakeholder/ListarEmpresasEspecializadasCboCsv", mostrarECM);
+        Http.get("Stakeholder/ListarEstadoSucesoCboCsv", mostrarEstadoSuceso);
+        Http.get("Stakeholder/ListarTipoSucesoCboCsv", mostrarTipoSuceso);
+        Http.get("Stakeholder/ListarStakeholderSucesoPorIdStakeholderCsv?idStakeholder=" + idStakeholder, CrearTablaCsvSucesos);
     }
 
     btnNuevo.onclick = function () {
-        limpiarControles('form-control');
+        limpiarControles("form-control");
         document.querySelectorAll('.servicio').forEach(function (element) {
             element.value = 0;
         });
         btnGuardar.value = "Guardar";
         idTrabajador = undefined;
+        idStakeholder = undefined;
         cboPosicion.value = '';
         cboPosicion.dispatchEvent(new Event('change'));
         btnNuevo.style.visibility = "hidden";
         btnModalSuceso.style.display = "none";
     }
 
+    btnNuevoSuceso.onclick = function () {
+        limpiarControles("SE");
+        btnNuevoSuceso.style.visibility = "hidden";
+        btnGuardarSuceso.value = "Guardar";
+        idStakeholderSuceso = undefined;
+        cboECM.value = '';
+    }
 }
 
 function CrearTablaCsv(rpta) {
     if (rpta) {
         var lista = rpta.split('¬');
-        var grilla = new Grilla(lista, "divTabla", 10, 3);
+        new Grilla(lista, "divTabla", 10, 3);
     }
 }
 
 function obtenerRegistroPorId(id) {
-    Http.get("Stakeholder/ObtenerStakeholderPorIdCsv?idStakeholder=" + id, AsignarCampos);
-    //Http.get("Stakeholder/ListarStakeholderSucesosPorIdCsv?idTrabajador=" + id, CrearTablaCsvPuestos);
+    Http.get("Stakeholder/ObtenerStakeholderPorIdCsv?idStakeholder=" + id, function (rpta) {
+        if (rpta) {
+            var campos = rpta.split('|');
+            idStakeholder = campos[0];
+            idTrabajador = campos[1];
+            txtBuscarPorTrabajador.value = campos[2];
+            cboPosicion.value = campos[5];
+            cboPosicion.dispatchEvent(new Event('change'));
+            cboPoderConvocatoria.value = campos[3];
+            cboPoderConvocatoria.text = campos[6];
+            txtAlojamiento.value = campos[7];
+            txtComedor.value = campos[8];
+            txtTransporte.value = campos[9];
+            txtLavanderia.value = campos[10];
+            txtCompania.value = campos[11];
+            txtRiesgo.value = campos[12];
+            txtOtros.value = campos[13];
+            txtFechaStakeholder.value = campos[14];
+            txtAnalisis.value = campos[15];
+            txtTotalServicios.dispatchEvent(new Event('change'));
+            btnNuevo.style.visibility = "visible";
+            btnModalSuceso.style.display = "inline-block";
+            btnNuevoSuceso.style.visibility = "hidden";
+            btnGuardar.value = "Guardar";
+        } else {
+            limpiarControles('SE');
+        }
+    });
+    limpiarControles('SE');
 }
 
-function AsignarCampos(rpta) {
-    if (rpta) {
-        var campos = rpta.split('|');
-        document.getElementById("txtIdStakeholder").innerHTML = campos[0];
-        idStakeholder = campos[0];
-        idTrabajador = campos[1];
-        cboPosicion.value = campos[3];
-        cboPosicion.dispatchEvent(new Event('change'));
-        cboPoderConvocatoria.value = campos[2];
-        txtAlojamiento.value = campos[4];
-        txtComedor.value = campos[5];
-        txtTransporte.value = campos[6];
-        txtLavanderia.value = campos[7];
-        txtCompania.value = campos[8];
-        txtRiesgo.value = campos[9];
-        txtOtros.value = campos[10];
-        txtFechaStakeholder.value = campos[11];
-        txtAnalisis.value = campos[12];
-        txtTotalServicios.dispatchEvent(new Event('change'));
-        txtBuscarPorTrabajador.value = campos[13];
-        txtNombresApellidosProveedor.value = campos[13];
-        btnNuevo.style.visibility = "visible";
-        btnModalSuceso.style.display = "inline-block";
-        btnGuardar.value = "Editar";
-    } else {
-        limpiarControles('form-control');
-    }
+function CrearTablaCsvSucesos(rpta) {
+    lstSucesosStakeholder = rpta.split('¬');
+    new GrillaModal(lstSucesosStakeholder, "divTablaSucesos", 10, 3);
 }
 
 function MostrarGrabarStakeholder(rpta) {
     if (rpta) {
+        if (!isMobile.any()) {
+            Http.get("Stakeholder/ListarStakeholderCsv", CrearTablaCsv);
+        }
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
+        btnNuevo.dispatchEvent(new Event('click'));
+        btnGuardar.value = "Guardar";
+        btnGuardar.disabled = false;
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
+}
+
+function MostrarGrabarStakeholderSuceso(rpta) {
+    if (rpta) {
+        if (!isMobile.any()) {
+            Http.get("Stakeholder/ListarStakeholderSucesoPorIdStakeholderCsv?idStakeholder=" + idStakeholder, CrearTablaCsvSucesos);
+        }
+        toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
+        btnNuevoSuceso.dispatchEvent(new Event('click'));
+        btnGuardarSuceso.value = "Guardar";
+        btnGuardarSuceso.disabled = false;
+    }
+    else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
+}
+
+function modalObtenerRegistroPorId(id) {
+    Http.get("Stakeholder/ObtenerStakeholderSucesoPorIdCsv?idStakeholderSuceso=" + id, function (rpta) {
+        if (rpta) {
+            var campos = rpta.split('|');
+            idStakeholderSuceso = campos[0];
+            cboECM.value = campos[2];
+            cboECM.text = campos[3];
+            cboEstadoSuceso.value = campos[4];
+            cboEstadoSuceso.text = campos[5];
+            cboTipoSuceso.value = campos[6];
+            cboTipoSuceso.text = campos[7];
+            txtDetalleSuceso.value = campos[8];
+            txtAccionesSuceso.value = campos[9];
+            txtFechaReporte.value = campos[10];
+            txtFechaInicio.value = campos[11] ? campos[11] : '';
+            txtFechaCierre.value = campos[12] ? campos[12] : '';
+            btnNuevoSuceso.style.visibility = "visible";
+        } else {
+            limpiarControles('form-control');
+        }
+    });
 }
 
 function mostrarECM(rpta) {
@@ -190,14 +267,18 @@ function mostrarECM(rpta) {
     }
 }
 
-function mostrarEstado() {
-    lstCboEstado = ('1|ABIERTO¬2|CERRADO¬3|EN PROCESO').split('¬');
-    CrearCombo(lstCboEstado, cboEstado, "Seleccione");
+function mostrarEstadoSuceso(rpta) {
+    if (rpta) {
+        lstCboEstadoSuceso = rpta.split('¬');
+        CrearCombo(lstCboEstadoSuceso, cboEstadoSuceso, "Seleccione");
+    }
 }
 
-function mostrarTipoSuceso() {
-    lstCboTipoSuceso = ('1|A FAVOR¬2|EN CONTRA').split('¬');
-    CrearCombo(lstCboTipoSuceso, cboTipoSuceso, "Seleccione");
+function mostrarTipoSuceso(rpta) {
+    if (rpta) {
+        lstCboTipoSuceso = rpta.split('¬');
+        CrearCombo(lstCboTipoSuceso, cboTipoSuceso, "Seleccione");
+    }
 }
 
 function mostrarPosicion(rpta) {
