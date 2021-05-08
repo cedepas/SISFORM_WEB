@@ -1,6 +1,4 @@
-﻿
-using Dominio;
-using SISFORM_WEB.Filters;
+﻿using SISFORM_WEB.Filters;
 using SISFORM_WEB.ServicioWcf;
 using System;
 using System.Threading.Tasks;
@@ -60,6 +58,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarTipoEstadoRegimenUnidadGestionEmpresaCboCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarTipoEstadoRegimenUnidadGestionEmpresaCboCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         public async Task<string> ListarEstadoEmpresaCsv()
         {
             try
@@ -105,7 +118,7 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> Grabar(Empresa oEmpresa)
+        public async Task<string> Grabar(Empresa  oEmpresa)
         {
             int rpta = 0;
             string op = "";

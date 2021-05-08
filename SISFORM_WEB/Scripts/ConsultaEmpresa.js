@@ -11,12 +11,16 @@ var lstCboCerti;
 var lstCboAuto;
 var lstCboEstReal;
 
+var objetoParametrizadoAllEmpresas = [];
+var objetoBusquedaAllEmpresas = [];
+var textoBusquedaTrabajador;
+var idRepresentante;
+
 var idEmpresa;
 
 window.onload = function () {
-    Http.get("Empresa/ListarTipoEmpresaCbo", mostrarTipoEmpresaCbo);
-    Http.get("Empresa/ListarEstadoEmpresaCsv", mostrarEstadoEmpresaCbo);
-    Http.get("Trabajador/ListarUnidadGestionCsv", mostrarUnidadGestionCbo);
+    Http.get("Empresa/ListarTipoEstadoRegimenUnidadGestionEmpresaCboCsv", mostrarTipoEmpresaCbo);
+    Http.get("Incidencia/ListarTrabajadorBusquedaCsv", CrearListaCsvAllEmpresas);
 
     if (!isMobile.any()) {
         Http.get("Empresa/ListarEmpresa", CrearTablaCsv);
@@ -44,6 +48,7 @@ window.onload = function () {
         frm.append("email", txtEmail.value);
         frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
         frm.append("FK_ID_EstadoEmpresa", CboEstadoEmpresa.value);
+        frm.append("FK_ID_TrabajadorRepresentante", idRepresentante);
         if (validarRequeridos('E')) {
             Http.post("Empresa/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -126,16 +131,57 @@ window.onload = function () {
         btnModalDef.style.visibility = "hidden";
         btnNuevo.style.visibility = "hidden";
     }
+
+    txtRepresentante.onkeyup = function () {
+        var a, b;
+        closeAllListsAllEmpresas();
+        a = document.createElement("div");
+        a.setAttribute("id", this.id + "predictivo-list");
+        a.setAttribute("class", "predictivo-items");
+        this.parentNode.appendChild(a);
+        textoBusquedaTrabajador = txtRepresentante.value.toLowerCase();
+        for (let objeto of objetoBusquedaAllEmpresas) {
+            let Nombre = objeto.NombreApellido.toLowerCase();
+            if (Nombre.indexOf(textoBusquedaTrabajador) !== -1) {
+                b = document.createElement("div");
+                b.innerHTML = "<strong>" + objeto.NombreApellido + "</strong>";
+                //b.innerHTML += Nombre;
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreApellido + "'>";
+                b.addEventListener("click", function (e) {
+                    txtRepresentante.value = this.getElementsByTagName("input")[0].value;
+                    idRepresentante = objeto.IDTrab;
+                    closeAllListsAllEmpresas();
+                });
+                a.appendChild(b);
+            }
+        }
+    }
+}
+
+function closeAllListsAllEmpresas(elmnt) {
+    var x = document.getElementsByClassName("predictivo-items");
+    for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != textoBusquedaTrabajador) {
+            x[i].parentNode.removeChild(x[i]);
+        }
+    }
 }
 
 function mostrarTipoEmpresaCbo(rpta) {
     if (rpta) {
-        lstCboTipoEmpr = rpta.split("¬");
+        lstCombos = rpta.split('¯');
+        lstCboTipoEmpr = lstCombos[0].split("¬");
         CrearCombo(lstCboTipoEmpr, cboTipoEmpresa, "Seleccione");
-
-        var rptaRegimen = 'NRUS|NRUS¬REGIMEN ESPECIAL|REGIMEN ESPECIAL¬REGIMEN MYPE|REGIMEN MYPE¬REGIMEN GENERAL|REGIMEN GENERAL¬NO TIENE|NO TIENE';
-        lstCboRegimenes = rptaRegimen.split('¬');
+        lstCboEstadoEmpresa = lstCombos[1].split("¬");
+        CrearCombo(lstCboEstadoEmpresa, CboEstadoEmpresa, "Seleccione");
+        lstCboUnidadGestionDoc = lstCombos[2].split("¬");
+        CrearCombo(lstCboUnidadGestionDoc, cboUnidadGestion, "Seleccione");
+        lstCboRegimenes = lstCombos[3].split("¬");
         CrearCombo(lstCboRegimenes, cboRegimenTributario, "Seleccione");
+
+        //var rptaRegimen = 'NRUS|NRUS¬REGIMEN ESPECIAL|REGIMEN ESPECIAL¬REGIMEN MYPE|REGIMEN MYPE¬REGIMEN GENERAL|REGIMEN GENERAL¬NO TIENE|NO TIENE';
+        //lstCboRegimenes = rptaRegimen.split('¬');
+        //CrearCombo(lstCboRegimenes, cboRegimenTributario, "Seleccione");
 
         var rptaPersona = 'NATURAL|NATURAL¬JURIDICA|JURIDICA¬NINGUNO|NIGUNO';
         lstCboPersona = rptaPersona.split('¬');
@@ -222,19 +268,19 @@ function MostrarGrabarCriterio3(rpta) {
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
 
-function mostrarUnidadGestionCbo(rpta) {
-    if (rpta) {
-        lstCboUnidadGestionDoc = rpta.split("¬");
-        CrearCombo(lstCboUnidadGestionDoc, cboUnidadGestion, "Seleccione");
-    }
-}
+//function mostrarUnidadGestionCbo(rpta) {
+//    if (rpta) {
+//        lstCboUnidadGestionDoc = rpta.split("¬");
+//        CrearCombo(lstCboUnidadGestionDoc, cboUnidadGestion, "Seleccione");
+//    }
+//}
 
-function mostrarEstadoEmpresaCbo(rpta) {
-    if (rpta) {
-        lstCboEstadoEmpresa = rpta.split("¬");
-        CrearCombo(lstCboEstadoEmpresa, CboEstadoEmpresa, "Seleccione");
-    }
-}
+//function mostrarEstadoEmpresaCbo(rpta) {
+//    if (rpta) {
+//        lstCboEstadoEmpresa = rpta.split("¬");
+//        CrearCombo(lstCboEstadoEmpresa, CboEstadoEmpresa, "Seleccione");
+//    }
+//}
 
 function CrearTablaCsv(rpta) {
     if (rpta) {
@@ -279,6 +325,7 @@ function AsignarCampos(rpta) {
             //txtEstado.value = (campos[10] == "ACT" ? true : false);
             txtEmail.value = campos[11];
             cboUnidadGestion.value = campos[12];
+            txtRepresentante.value = campos[13];
         }
 
         if (listas[1]) {
@@ -326,5 +373,42 @@ function AsignarCampos(rpta) {
         } else {
             limpiarControles('C3')
         }
+    }
+}
+
+function CrearListaCsvAllEmpresas(rpta) {
+    if (rpta) {
+        lista = rpta.split('¬');
+        crearObjetoAllEmpresas(lista)
+    }
+}
+
+function crearObjetoAllEmpresas() {
+    //este objeto es para el predictivo
+    cabeceras = lista[0].split("|");
+    var nRegistros = lista.length;
+    var nCampos = cabeceras.length;
+    objetoBusquedaAllEmpresas = [];
+    var clave;
+    var valor;
+    for (var i = 1; i < nRegistros; i++) {
+        for (var j = 0; j < nCampos; j++) {
+            datos = lista[i].split("|");
+        }
+        objetoParametrizadoAllEmpresas.push(datos);
+    }
+    for (var i = 0; i <= nRegistros; i++) {
+        var valoresAInsertar = {};
+        //console.log(i);
+        for (var j = 0; j < nCampos; j++) {
+            clave = cabeceras[j];
+            valor = objetoParametrizadoAllEmpresas[i][j];
+            //console.log(valor);
+            Object.defineProperty(valoresAInsertar, clave.toString(), {
+                value: valor,
+                writable: false
+            });
+        }
+        objetoBusquedaAllEmpresas.push(valoresAInsertar);
     }
 }

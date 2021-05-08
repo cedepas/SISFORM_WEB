@@ -1230,6 +1230,8 @@ E:\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.CoreCompileInputs.cache
 E:\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.CopyComplete
 E:\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.dll
 E:\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.pdb
+D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.CoreCompileInputs.cache
+D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csprojAssemblyReference.cache
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.dll.config
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.pdb
@@ -1286,7 +1288,6 @@ D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.dll.CodeAnalysisLog.xml
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.dll.lastcodeanalysissucceeded
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\DocumentFormat.OpenXml.dll
-D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Dominio.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\ExcelNumberFormat.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\GeneralTrabajos.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.Azure.KeyVault.Core.dll
@@ -1316,7 +1317,6 @@ D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\System.Web.WebPages.Razor.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.pdb
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.xml
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\DocumentFormat.OpenXml.xml
-D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Dominio.pdb
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\ExcelNumberFormat.xml
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.Azure.KeyVault.Core.xml
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.Bcl.AsyncInterfaces.xml
@@ -1346,8 +1346,6 @@ D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.Razor.resources.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.resources.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csprojAssemblyReference.cache
-D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.CoreCompileInputs.cache
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.CopyComplete
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.pdb

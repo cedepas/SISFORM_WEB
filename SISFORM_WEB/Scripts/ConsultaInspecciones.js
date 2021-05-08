@@ -111,6 +111,9 @@ function MostrarRegistroInspeccion(rpta) {
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
 function mostrarActualizacion(rpta) {
+    fechaInspeccion.style.display = "inline-block";
+    estadoInspeccion.style.display = "inline-block";
+    btnGrabarInspeccion.style.display = "inline-block";
     if (rpta) {
         toastSuccessAlert("Se actualizo correctamente los Trabajadores", "¡Exito!");
         //limpiarControles('form-control');

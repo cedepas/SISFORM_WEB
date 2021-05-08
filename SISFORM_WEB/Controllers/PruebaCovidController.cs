@@ -1,5 +1,4 @@
-﻿using Dominio;
-using GeneralTrabajos;
+﻿using GeneralTrabajos;
 using SISFORM_WEB.Filters;
 using SISFORM_WEB.General;
 using SISFORM_WEB.ServicioWcf;

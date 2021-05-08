@@ -1,6 +1,4 @@
-﻿
-using Dominio;
-using Microsoft.Azure;
+﻿using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using SISFORM_WEB.Filters;

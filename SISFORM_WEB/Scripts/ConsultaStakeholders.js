@@ -233,6 +233,7 @@ function MostrarGrabarStakeholderSuceso(rpta) {
         btnNuevoSuceso.dispatchEvent(new Event('click'));
         btnGuardarSuceso.value = "Guardar";
         btnGuardarSuceso.disabled = false;
+        Http.get("Stakeholder/ListarStakeholderCsv", CrearTablaCsv);
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }

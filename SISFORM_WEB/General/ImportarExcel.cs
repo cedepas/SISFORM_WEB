@@ -1,5 +1,4 @@
 ﻿using ClosedXML.Excel;
-using Dominio;
 using GeneralTrabajos;
 using SISFORM_WEB.ServicioWcf;
 using System;

@@ -1,6 +1,4 @@
-﻿
-using Dominio;
-using SISFORM_WEB.ServicioWcf;//ServicioWcfClient
+﻿using SISFORM_WEB.ServicioWcf;
 using System;
 using System.Text.Json;
 using System.Threading.Tasks;
