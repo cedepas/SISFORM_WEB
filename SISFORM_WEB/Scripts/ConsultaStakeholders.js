@@ -138,6 +138,7 @@ window.onload = function () {
     }
 
     btnModalSuceso.onclick = function () {
+        limpiarControles("SE");
         Http.get("Stakeholder/ListarEmpresasEspecializadasCboCsv", mostrarECM);
         Http.get("Stakeholder/ListarEstadoSucesoCboCsv", mostrarEstadoSuceso);
         Http.get("Stakeholder/ListarTipoSucesoCboCsv", mostrarTipoSuceso);
