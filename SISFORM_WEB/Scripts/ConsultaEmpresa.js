@@ -397,7 +397,7 @@ function crearObjetoAllEmpresas() {
         }
         objetoParametrizadoAllEmpresas.push(datos);
     }
-    for (var i = 0; i <= nRegistros; i++) {
+    for (var i = 0; i <= nRegistros -2; i++) {
         var valoresAInsertar = {};
         //console.log(i);
         for (var j = 0; j < nCampos; j++) {

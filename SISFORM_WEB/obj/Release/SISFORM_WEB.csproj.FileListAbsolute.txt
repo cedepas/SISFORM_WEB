@@ -959,7 +959,6 @@ D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\roslyn\VBCSCompiler.exe
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\roslyn\VBCSCompiler.exe.config
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\DocumentFormat.OpenXml.dll
-D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Dominio.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\ExcelNumberFormat.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\GeneralTrabajos.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.Azure.KeyVault.Core.dll
@@ -989,7 +988,6 @@ D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\System.Web.WebPages.Razor.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.pdb
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\ClosedXML.xml
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\DocumentFormat.OpenXml.xml
-D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Dominio.pdb
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\ExcelNumberFormat.xml
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.Azure.KeyVault.Core.xml
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Microsoft.Bcl.AsyncInterfaces.xml

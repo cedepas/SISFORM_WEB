@@ -3,6 +3,59 @@
 }
 <!-- Modals start -->
 @section modals{
+    <div class="modal modal-full ie-scroll-fix" id="#detalles-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content w-lg-auto">
+                <a href="#" class="close" role="button" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-sm-1">
+                            <h5 class="modal-title">Registro de Detalles de Negocio Local</h5>
+                            <div class="form-row">
+                                <div class="col-sm">
+                                    <label for="txtIdProgreso">Codigo</label>
+                                    <input type="text" class="form-control form-control-sm O" id="txtIdProgreso" placeholder="Codigo" readonly="readonly">
+                                </div>
+                                <div class="col-sm">
+                                    <label for="txtObservaciones" class="required">Observacion</label>
+                                    <input type="text" class="form-control form-control-sm O" id="txtObservaciones" placeholder="Codigo" required="required">
+                                </div>
+                                <div class="col-sm">
+                                    <label for="txtFechaVisita" class="required">Fecha de visita</label>
+                                    <input type="date" class="form-control form-control-sm O" id="txtFechaVisita" required="required" />
+                                </div>
+                                <div class="col-sm">
+                                    <label for="txtEstadoObs" class="required">Estado Obs</label>
+                                    <div class="custom-control">
+                                        <div class="custom-switch">
+                                            <input type="checkbox" id="txtEstadoObs" checked>
+                                            <label for="txtEstadoObs">Estado Obs</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-right">
+                                <input class="btn btn-success" type="button" id="btnGuardarDetalles" value="Guardar">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mb-10" />
+                    <div class="row">
+                        <div class="card p-0 bg-very-dark-dm">
+                            <div id="divTablaObs" class="table-responsive">
+                                <table id="tablaDatos" class="table table-inner-bordered">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Finalizar Modal detalles*@
     <div class="modal modal-full ie-scroll-fix" id="observacion-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content w-lg-auto">
@@ -81,7 +134,7 @@
                                 <div class="col-sm">
                                     <label for="txtFechaCaducidadLicencia" class="required">Fecha Caducidad Licencia</label>
                                     <input type="date" class="form-control form-control-sm C1" id="txtFechaCaducidadLicencia" required="required" />
-                                </div>                                
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-sm">
@@ -261,12 +314,12 @@
             <input type="text" class="form-control form-control-sm E" id="txtNombreComercial" placeholder="Nombre Comercial" required="required" />
         </div>
         @*<div class="col-sm">
-            <label for="txtSeguimiento" class="required">Seguimiento</label>
-            <input type="text" class="form-control form-control-sm E" id="txtSeguimiento" placeholder="Seguimiento" required="required" />
-        </div>*@
+                <label for="txtSeguimiento" class="required">Seguimiento</label>
+                <input type="text" class="form-control form-control-sm E" id="txtSeguimiento" placeholder="Seguimiento" required="required" />
+            </div>*@
     </div>
     <!--<div class="form-row">-->
-        @*<div class="col-sm">
+    @*<div class="col-sm">
             <label for="txtTipoEstablecimiento" class="required">Tipo Establecimiento</label>
             <input type="text" class="form-control form-control-sm E" id="txtTipoEstablecimiento" placeholder="Tipo Establecimiento" required="required" />
         </div>
@@ -275,7 +328,7 @@
             <input type="text" class="form-control form-control-sm E" id="txtCondicion" placeholder="Condicion" required="required" />
         </div>*@
 
-        
+
     <!--</div>-->
     <div class="form-row">
         <div class="col-sm">
@@ -315,7 +368,7 @@
         </div>
         <div class="col-sm-4">
             <label for="txtRepresentante">Nombre Representante</label>
-            <input type="text" class="form-control form-control-sm"  id="txtRepresentante" placeholder="Nombre Representante"/>
+            <input type="text" class="form-control form-control-sm" id="txtRepresentante" placeholder="Nombre Representante" />
         </div>
     </div>
     <div class="form-row">
@@ -333,23 +386,24 @@
         </div>
     </div>
     @*<div class="form-row">
-        <div class="col-sm">
-            <label for="cboEstadoEmpresa" class="required">EstadoEmpresa</label>
-            <select class="form-control form-control-sm E" id="CboEstadoEmpresa" required="required"></select>
-        </div>
-        *<div class="col-sm">
-            <label for="txtEstado" class="required">Estado</label>
-            <div class="custom-control">
-                <div class="custom-switch">
-                    <input type="checkbox" id="txtEstado" checked>
-                    <label for="txtEstado">Estado</label>
+            <div class="col-sm">
+                <label for="cboEstadoEmpresa" class="required">EstadoEmpresa</label>
+                <select class="form-control form-control-sm E" id="CboEstadoEmpresa" required="required"></select>
+            </div>
+            *<div class="col-sm">
+                <label for="txtEstado" class="required">Estado</label>
+                <div class="custom-control">
+                    <div class="custom-switch">
+                        <input type="checkbox" id="txtEstado" checked>
+                        <label for="txtEstado">Estado</label>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
 
     <div class="text-right">
         <input class="btn btn-primary" id="btnNuevo" type="button" value="Nuevo" style="visibility:hidden">
+        <a href="#detalles-modal" class="btn btn-secondary" id="btnDetallesNG" role="button" data-toggle="tooltip" data-title="Detalles de Negocios Locales" style="visibility:hidden">Negocios Locales</a>
         <a href="#observacion-modal" class="btn btn-secondary" id="btnModalObs" role="button" style="visibility:hidden">Observaciones</a>
         <a href="#licencia-modal" class="btn btn-secondary" id="btnModalLic" role="button" data-toggle="tooltip" data-title="Licencia de funcionamiento" style="visibility:hidden">Criterio 1</a>
         <a href="#salud-modal" class="btn btn-secondary" id="btnModalSal" role="button" data-toggle="tooltip" data-title="Certificado de salud ambiental" style="visibility:hidden">Criterio 2</a>

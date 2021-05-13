@@ -35,7 +35,7 @@ window.onload = function () {
         btnNuevo.dispatchEvent(new Event('click'));
     });
 
-    Http.get("Incidencia/ListarTrabajadorBusquedaCsv", mostrarListarTrabajador);
+    Http.get("Trabajador/ListarTrabajadorRepresentanteCsv", mostrarListarTrabajador);
     Http.get("Stakeholder/ListarPoderConvocatoriaCbo", mostrarPoderConvocatoria);
     Http.get("Stakeholder/ListarTipoPosicionamientoCbo", mostrarPosicion);
     Http.get("Stakeholder/ListarStakeholderCsv", CrearTablaCsv);
