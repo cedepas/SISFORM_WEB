@@ -201,10 +201,9 @@ function obtenerRegistroPorId(id) {
             btnNuevoSuceso.style.visibility = "hidden";
             btnGuardar.value = "Guardar";
         } else {
-            limpiarControles('SE');
+            limpiarControles('form-control');
         }
     });
-    limpiarControles('SE');
 }
 
 function CrearTablaCsvSucesos(rpta) {
@@ -257,7 +256,7 @@ function modalObtenerRegistroPorId(id) {
             txtFechaCierre.value = campos[12] ? campos[12] : '';
             btnNuevoSuceso.style.visibility = "visible";
         } else {
-            limpiarControles('form-control');
+            limpiarControles('SE');
         }
     });
 }

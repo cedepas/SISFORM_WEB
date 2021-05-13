@@ -181,6 +181,7 @@
     <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\CheffController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
+    <Compile Include="Controllers\HabitacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncidenciaController.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
@@ -262,6 +263,7 @@
     <Content Include="Scripts\ConsultaCheckList.js" />
     <Content Include="Scripts\ConsultaAsignacion.js" />
     <Content Include="Scripts\ConsultaEvalCheff.js" />
+    <Content Include="Scripts\ConsultaHabitacion.js" />
     <Content Include="Scripts\ConsultaInspecciones.js" />
     <Content Include="Scripts\ConsultaStakeholders.js" />
     <Content Include="Scripts\ConsultaTrabajadorMasivo.js" />
@@ -323,16 +325,6 @@
     <Content Include="plugins\Handsontable\handsontable.css.map" />
     <Content Include="plugins\Handsontable\handsontable.js.map" />
     <Content Include="plugins\Handsontable\README.md" />
-    <None Include="Connected Services\ServicioWcf\Servicio.wsdl" />
-    <None Include="Connected Services\ServicioWcf\Servicio.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioWcf\Servicio1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioWcf\Servicio2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.Criterio1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -357,6 +349,16 @@
     <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.VistaUsuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\ServicioWcf\Servicio11.wsdl" />
+    <None Include="Connected Services\ServicioWcf\Servicio33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioWcf\Servicio34.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioWcf\Servicio35.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\PruebaCovid\ProgramacionPruebaCovid.cshtml" />
@@ -376,6 +378,7 @@
     <Content Include="Views\Cheff\Evaluacion.cshtml" />
     <Content Include="Views\Incidencia\SeguimientoIncidencia.cshtml" />
     <Content Include="Views\Stakeholder\Stakeholders.cshtml" />
+    <Content Include="Views\Habitacion\Operacion.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
