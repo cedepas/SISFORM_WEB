@@ -8,6 +8,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Error" nillable="true" type="tns:Error" />
+  <xs:complexType name="Solucion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_TrabajadorSoluciona" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Incidencia" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_TipoSolucion" type="xs:int" />
+      <xs:element minOccurs="0" name="detalleSolucion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="imagen" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Solucion" nillable="true" type="tns:Solucion" />
   <xs:complexType name="Seguimiento">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_TrabajadorSeguimiento" type="xs:int" />
@@ -52,6 +62,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Capacitacion" nillable="true" type="tns:Capacitacion" />
+  <xs:complexType name="ImplementacionCheff">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EstadoImplementacion" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TemaImplementacion" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaImplementacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="NumeroAsistentes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImplementacionCheff" nillable="true" type="tns:ImplementacionCheff" />
   <xs:complexType name="Stakeholder">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_PoderConvocatoria" type="xs:short" />
@@ -82,6 +103,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="StakeholderSuceso" nillable="true" type="tns:StakeholderSuceso" />
+  <xs:complexType name="Habitacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TipoHabitacion" type="xs:short" />
+      <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Habitacion" type="xs:int" />
+      <xs:element minOccurs="0" name="detalleHabitacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroCamas" type="xs:short" />
+      <xs:element minOccurs="0" name="numeroHabitacion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Habitacion" nillable="true" type="tns:Habitacion" />
   <xs:complexType name="VistaUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="ID_Empresa" type="xs:int" />
@@ -300,9 +333,13 @@
   <xs:element name="CargaMasiva" nillable="true" type="tns:CargaMasiva" />
   <xs:complexType name="PruebasCovid">
     <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_DistribucionPruebasCovid" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
       <xs:element minOccurs="0" name="ID_PruebasCovid" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadPruebas" type="xs:int" />
+      <xs:element minOccurs="0" name="casosPositivos" type="xs:int" />
       <xs:element minOccurs="0" name="ejecutado" type="xs:int" />
       <xs:element minOccurs="0" name="fechaPrueba" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="numeroPrueba" type="xs:short" />
@@ -360,14 +397,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Imagen" nillable="true" type="tns:Imagen" />
-  <xs:complexType name="Solucion">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FK_ID_TrabajadorSoluciona" type="xs:int" />
-      <xs:element minOccurs="0" name="ID_Incidencia" type="xs:int" />
-      <xs:element minOccurs="0" name="ID_TipoSolucion" type="xs:int" />
-      <xs:element minOccurs="0" name="detalleSolucion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="imagen" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Solucion" nillable="true" type="tns:Solucion" />
 </xs:schema>
