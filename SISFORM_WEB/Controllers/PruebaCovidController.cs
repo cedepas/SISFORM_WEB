@@ -113,6 +113,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarResultadoPruebasCovidCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarResultadoPruebasCovidCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         public async Task<string> ListarResultadosCovidPorFechaCsv(string fechaPrueba)
         {
             try
@@ -152,6 +167,24 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
+        public async Task<string> RegitroPruebasCovid(PruebasCovid oPruebasCovid)
+        {
+            string rpta = "";
+            string op = "";
+            op = "I";
+
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.RegistroPruebasCovidOperacionAsync(oPruebasCovid, op);
+            if (rpta == "")
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
+        
         public async Task<string> GrabarPruebasCovidMasivo(string data, string idUsuario)
         {
             int rpta = 0;

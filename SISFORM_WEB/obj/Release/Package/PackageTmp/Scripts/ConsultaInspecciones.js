@@ -81,7 +81,7 @@ window.onload = function () {
         while (inicio < cantidadTrabajadores) {
             var valorCheck = "cb" + inicio;
             lisDatosTrabajadro = lstTrabajadores[inicio].split('|');
-            lstActualizacion.push(lisDatosTrabajadro[0] + "|" + lisDatosTrabajadro[5] + "|" + document.getElementById(valorCheck).checked);
+            lstActualizacion.push(lisDatosTrabajadro[0] + "|" + lisDatosTrabajadro[6] + "|" + document.getElementById(valorCheck).checked);
             inicio = inicio + 1;
         }
         checkSubmit(btnActualizar);
@@ -155,7 +155,13 @@ function mostrarTrabajadoresEmpresa(rpta) {
             lstDatosTrabajador = lstTrabajadores[j].split('|');
             while (k < cantidadCabecera) {
                 if (k < cantidadCabecera - 2)
-                    c.innerHTML += "<td>" + lstDatosTrabajador[k] + "</td>";
+                    if (lstDatosTrabajador[5] > 7) {
+                        c.innerHTML += "<td style='background-color:red'>" + lstDatosTrabajador[k] + "</td>";
+                    }
+                    else {
+                        c.innerHTML += "<td>" + lstDatosTrabajador[k] + "</td>";
+                    }
+                    
                 else if (k < cantidadCabecera - 1) {
 
                 }

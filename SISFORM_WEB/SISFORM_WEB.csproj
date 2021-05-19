@@ -349,7 +349,17 @@
     <Content Include="Connected Services\ServicioWcf\SISFORM_WEB.ServicioWcf.VistaUsuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\ServicioWcf\Servicio.wsdl" />
+    <None Include="Connected Services\ServicioWcf\Servicio.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioWcf\Servicio1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServicioWcf\Servicio11.wsdl" />
+    <None Include="Connected Services\ServicioWcf\Servicio2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServicioWcf\Servicio33.xsd">
       <SubType>Designer</SubType>
     </None>

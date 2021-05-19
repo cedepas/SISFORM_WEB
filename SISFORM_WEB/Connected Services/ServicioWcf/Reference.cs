@@ -92,6 +92,115 @@ namespace SISFORM_WEB.ServicioWcf {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Solucion", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class Solucion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_TrabajadorSolucionaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_IncidenciaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_TipoSolucionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string detalleSolucionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string imagenField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_TrabajadorSoluciona {
+            get {
+                return this.FK_ID_TrabajadorSolucionaField;
+            }
+            set {
+                if ((this.FK_ID_TrabajadorSolucionaField.Equals(value) != true)) {
+                    this.FK_ID_TrabajadorSolucionaField = value;
+                    this.RaisePropertyChanged("FK_ID_TrabajadorSoluciona");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_Incidencia {
+            get {
+                return this.ID_IncidenciaField;
+            }
+            set {
+                if ((this.ID_IncidenciaField.Equals(value) != true)) {
+                    this.ID_IncidenciaField = value;
+                    this.RaisePropertyChanged("ID_Incidencia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_TipoSolucion {
+            get {
+                return this.ID_TipoSolucionField;
+            }
+            set {
+                if ((this.ID_TipoSolucionField.Equals(value) != true)) {
+                    this.ID_TipoSolucionField = value;
+                    this.RaisePropertyChanged("ID_TipoSolucion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string detalleSolucion {
+            get {
+                return this.detalleSolucionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.detalleSolucionField, value) != true)) {
+                    this.detalleSolucionField = value;
+                    this.RaisePropertyChanged("detalleSolucion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string imagen {
+            get {
+                return this.imagenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.imagenField, value) != true)) {
+                    this.imagenField = value;
+                    this.RaisePropertyChanged("imagen");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Seguimiento", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
     [System.SerializableAttribute()]
     public partial class Seguimiento : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -592,6 +701,131 @@ namespace SISFORM_WEB.ServicioWcf {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImplementacionCheff", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class ImplementacionCheff : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EstadoImplementacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_TemaImplementacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaImplementacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_UsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumeroAsistentesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Empresa {
+            get {
+                return this.FK_ID_EmpresaField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_EstadoImplementacion {
+            get {
+                return this.FK_ID_EstadoImplementacionField;
+            }
+            set {
+                if ((this.FK_ID_EstadoImplementacionField.Equals(value) != true)) {
+                    this.FK_ID_EstadoImplementacionField = value;
+                    this.RaisePropertyChanged("FK_ID_EstadoImplementacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_TemaImplementacion {
+            get {
+                return this.FK_ID_TemaImplementacionField;
+            }
+            set {
+                if ((this.FK_ID_TemaImplementacionField.Equals(value) != true)) {
+                    this.FK_ID_TemaImplementacionField = value;
+                    this.RaisePropertyChanged("FK_ID_TemaImplementacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaImplementacion {
+            get {
+                return this.FechaImplementacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaImplementacionField, value) != true)) {
+                    this.FechaImplementacionField = value;
+                    this.RaisePropertyChanged("FechaImplementacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_Usuario {
+            get {
+                return this.ID_UsuarioField;
+            }
+            set {
+                if ((this.ID_UsuarioField.Equals(value) != true)) {
+                    this.ID_UsuarioField = value;
+                    this.RaisePropertyChanged("ID_Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumeroAsistentes {
+            get {
+                return this.NumeroAsistentesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumeroAsistentesField, value) != true)) {
+                    this.NumeroAsistentesField = value;
+                    this.RaisePropertyChanged("NumeroAsistentes");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Stakeholder", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
     [System.SerializableAttribute()]
     public partial class Stakeholder : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -954,6 +1188,147 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((object.ReferenceEquals(this.fechaReporteField, value) != true)) {
                     this.fechaReporteField = value;
                     this.RaisePropertyChanged("fechaReporte");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Habitacion", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class Habitacion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short FK_ID_TipoHabitacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_UsuarioCreaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_HabitacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string detalleHabitacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short numeroCamasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string numeroHabitacionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Empresa {
+            get {
+                return this.FK_ID_EmpresaField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short FK_ID_TipoHabitacion {
+            get {
+                return this.FK_ID_TipoHabitacionField;
+            }
+            set {
+                if ((this.FK_ID_TipoHabitacionField.Equals(value) != true)) {
+                    this.FK_ID_TipoHabitacionField = value;
+                    this.RaisePropertyChanged("FK_ID_TipoHabitacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_UsuarioCrea {
+            get {
+                return this.FK_ID_UsuarioCreaField;
+            }
+            set {
+                if ((this.FK_ID_UsuarioCreaField.Equals(value) != true)) {
+                    this.FK_ID_UsuarioCreaField = value;
+                    this.RaisePropertyChanged("FK_ID_UsuarioCrea");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_Habitacion {
+            get {
+                return this.ID_HabitacionField;
+            }
+            set {
+                if ((this.ID_HabitacionField.Equals(value) != true)) {
+                    this.ID_HabitacionField = value;
+                    this.RaisePropertyChanged("ID_Habitacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string detalleHabitacion {
+            get {
+                return this.detalleHabitacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.detalleHabitacionField, value) != true)) {
+                    this.detalleHabitacionField = value;
+                    this.RaisePropertyChanged("detalleHabitacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short numeroCamas {
+            get {
+                return this.numeroCamasField;
+            }
+            set {
+                if ((this.numeroCamasField.Equals(value) != true)) {
+                    this.numeroCamasField = value;
+                    this.RaisePropertyChanged("numeroCamas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string numeroHabitacion {
+            get {
+                return this.numeroHabitacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.numeroHabitacionField, value) != true)) {
+                    this.numeroHabitacionField = value;
+                    this.RaisePropertyChanged("numeroHabitacion");
                 }
             }
         }
@@ -3105,6 +3480,15 @@ namespace SISFORM_WEB.ServicioWcf {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_DistribucionPruebasCovidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_FrecuenciaPruebaCovidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int FK_ID_TrabajadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3112,6 +3496,12 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ID_PruebasCovidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadPruebasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int casosPositivosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ejecutadoField;
@@ -3132,6 +3522,45 @@ namespace SISFORM_WEB.ServicioWcf {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_DistribucionPruebasCovid {
+            get {
+                return this.FK_ID_DistribucionPruebasCovidField;
+            }
+            set {
+                if ((this.FK_ID_DistribucionPruebasCovidField.Equals(value) != true)) {
+                    this.FK_ID_DistribucionPruebasCovidField = value;
+                    this.RaisePropertyChanged("FK_ID_DistribucionPruebasCovid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Empresa {
+            get {
+                return this.FK_ID_EmpresaField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_FrecuenciaPruebaCovid {
+            get {
+                return this.FK_ID_FrecuenciaPruebaCovidField;
+            }
+            set {
+                if ((this.FK_ID_FrecuenciaPruebaCovidField.Equals(value) != true)) {
+                    this.FK_ID_FrecuenciaPruebaCovidField = value;
+                    this.RaisePropertyChanged("FK_ID_FrecuenciaPruebaCovid");
+                }
             }
         }
         
@@ -3170,6 +3599,32 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((this.ID_PruebasCovidField.Equals(value) != true)) {
                     this.ID_PruebasCovidField = value;
                     this.RaisePropertyChanged("ID_PruebasCovid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadPruebas {
+            get {
+                return this.cantidadPruebasField;
+            }
+            set {
+                if ((this.cantidadPruebasField.Equals(value) != true)) {
+                    this.cantidadPruebasField = value;
+                    this.RaisePropertyChanged("cantidadPruebas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int casosPositivos {
+            get {
+                return this.casosPositivosField;
+            }
+            set {
+                if ((this.casosPositivosField.Equals(value) != true)) {
+                    this.casosPositivosField = value;
+                    this.RaisePropertyChanged("casosPositivos");
                 }
             }
         }
@@ -3883,118 +4338,23 @@ namespace SISFORM_WEB.ServicioWcf {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Solucion", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-    [System.SerializableAttribute()]
-    public partial class Solucion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int FK_ID_TrabajadorSolucionaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ID_IncidenciaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ID_TipoSolucionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string detalleSolucionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string imagenField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FK_ID_TrabajadorSoluciona {
-            get {
-                return this.FK_ID_TrabajadorSolucionaField;
-            }
-            set {
-                if ((this.FK_ID_TrabajadorSolucionaField.Equals(value) != true)) {
-                    this.FK_ID_TrabajadorSolucionaField = value;
-                    this.RaisePropertyChanged("FK_ID_TrabajadorSoluciona");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID_Incidencia {
-            get {
-                return this.ID_IncidenciaField;
-            }
-            set {
-                if ((this.ID_IncidenciaField.Equals(value) != true)) {
-                    this.ID_IncidenciaField = value;
-                    this.RaisePropertyChanged("ID_Incidencia");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID_TipoSolucion {
-            get {
-                return this.ID_TipoSolucionField;
-            }
-            set {
-                if ((this.ID_TipoSolucionField.Equals(value) != true)) {
-                    this.ID_TipoSolucionField = value;
-                    this.RaisePropertyChanged("ID_TipoSolucion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string detalleSolucion {
-            get {
-                return this.detalleSolucionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.detalleSolucionField, value) != true)) {
-                    this.detalleSolucionField = value;
-                    this.RaisePropertyChanged("detalleSolucion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string imagen {
-            get {
-                return this.imagenField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.imagenField, value) != true)) {
-                    this.imagenField = value;
-                    this.RaisePropertyChanged("imagen");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioWcf.IServicio")]
     public interface IServicio {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerIncidenciaPorFiltroCsv(string ID_TipoFilto, string Filtro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerIncidenciaPorFiltroCsvAsync(string ID_TipoFilto, string Filtro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarSolucion", ReplyAction="http://tempuri.org/IServicio/RegistrarSolucionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/RegistrarSolucionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string RegistrarSolucion(SISFORM_WEB.ServicioWcf.Solucion oSolucion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarSolucion", ReplyAction="http://tempuri.org/IServicio/RegistrarSolucionResponse")]
+        System.Threading.Tasks.Task<string> RegistrarSolucionAsync(SISFORM_WEB.ServicioWcf.Solucion oSolucion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoSeguimientoIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoSeguimientoIncidenciaCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTipoSeguimientoIncidenciaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -4122,6 +4482,41 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTiemposComidaCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarTiemposComidaCboCsvResponse")]
         System.Threading.Tasks.Task<string> ListarTiemposComidaCboCsvAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ImplementacionCheff", ReplyAction="http://tempuri.org/IServicio/ImplementacionCheffResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ImplementacionCheffErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int ImplementacionCheff(SISFORM_WEB.ServicioWcf.ImplementacionCheff oImplementacioncheff, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ImplementacionCheff", ReplyAction="http://tempuri.org/IServicio/ImplementacionCheffResponse")]
+        System.Threading.Tasks.Task<int> ImplementacionCheffAsync(SISFORM_WEB.ServicioWcf.ImplementacionCheff oImplementacioncheff, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoImplementacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoImplementacionCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarEstadoImplementacionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarEstadoImplementacionCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoImplementacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoImplementacionCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarEstadoImplementacionCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTemaImplementacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarTemaImplementacionCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTemaImplementacionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarTemaImplementacionCsv(int tipoServicio, int FK_ID_UnidadGestion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTemaImplementacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarTemaImplementacionCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarTemaImplementacionCsvAsync(int tipoServicio, int FK_ID_UnidadGestion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarImplementacionesCsv", ReplyAction="http://tempuri.org/IServicio/ListarImplementacionesCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarImplementacionesCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarImplementacionesCsv(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarImplementacionesCsv", ReplyAction="http://tempuri.org/IServicio/ListarImplementacionesCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarImplementacionesCsvAsync(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarComedorBusquedaCsv", ReplyAction="http://tempuri.org/IServicio/ListarComedorBusquedaCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarComedorBusquedaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarComedorBusquedaCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarComedorBusquedaCsv", ReplyAction="http://tempuri.org/IServicio/ListarComedorBusquedaCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarComedorBusquedaCsvAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarPoderConvocatoriaCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarPoderConvocatoriaCboCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarPoderConvocatoriaCboCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarPoderConvocatoriaCboCsv();
@@ -4206,6 +4601,48 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarStakeholderSucesoPorIdStakeholderCsv", ReplyAction="http://tempuri.org/IServicio/ListarStakeholderSucesoPorIdStakeholderCsvResponse")]
         System.Threading.Tasks.Task<string> ListarStakeholderSucesoPorIdStakeholderCsvAsync(string idStakeholder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEmpresasHospedajesCsv", ReplyAction="http://tempuri.org/IServicio/ListarEmpresasHospedajesCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarEmpresasHospedajesCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarEmpresasHospedajesCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEmpresasHospedajesCsv", ReplyAction="http://tempuri.org/IServicio/ListarEmpresasHospedajesCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarEmpresasHospedajesCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoHabitacionCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoHabitacionCboCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTipoHabitacionCboCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarTipoHabitacionCboCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoHabitacionCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoHabitacionCboCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarTipoHabitacionCboCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/HabitacionOperacion", ReplyAction="http://tempuri.org/IServicio/HabitacionOperacionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/HabitacionOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int HabitacionOperacion(SISFORM_WEB.ServicioWcf.Habitacion oHabitacion, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/HabitacionOperacion", ReplyAction="http://tempuri.org/IServicio/HabitacionOperacionResponse")]
+        System.Threading.Tasks.Task<int> HabitacionOperacionAsync(SISFORM_WEB.ServicioWcf.Habitacion oHabitacion, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarHabitacionPorIdEmpresaCsv", ReplyAction="http://tempuri.org/IServicio/ListarHabitacionPorIdEmpresaCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarHabitacionPorIdEmpresaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarHabitacionPorIdEmpresaCsv(string idEmpresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarHabitacionPorIdEmpresaCsv", ReplyAction="http://tempuri.org/IServicio/ListarHabitacionPorIdEmpresaCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarHabitacionPorIdEmpresaCsvAsync(string idEmpresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerHabitacionPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerHabitacionPorIdCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerHabitacionPorIdCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerHabitacionPorIdCsv(string idHabitacion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerHabitacionPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerHabitacionPorIdCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerHabitacionPorIdCsvAsync(string idHabitacion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerTotalHabitacionPorIdEmpresaCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerTotalHabitacionPorIdEmpresaCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerTotalHabitacionPorIdEmpresaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerTotalHabitacionPorIdEmpresaCsv(string idEmpresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerTotalHabitacionPorIdEmpresaCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerTotalHabitacionPorIdEmpresaCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerTotalHabitacionPorIdEmpresaCsvAsync(string idEmpresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/AutenticarUsuario", ReplyAction="http://tempuri.org/IServicio/AutenticarUsuarioResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/AutenticarUsuarioErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -4346,6 +4783,13 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/PruebasCovidCarga", ReplyAction="http://tempuri.org/IServicio/PruebasCovidCargaResponse")]
         System.Threading.Tasks.Task<int> PruebasCovidCargaAsync(SISFORM_WEB.ServicioWcf.CargaMasiva[] lstCarga, string idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistroPruebasCovidOperacion", ReplyAction="http://tempuri.org/IServicio/RegistroPruebasCovidOperacionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/RegistroPruebasCovidOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string RegistroPruebasCovidOperacion(SISFORM_WEB.ServicioWcf.PruebasCovid oPruebasCovid, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistroPruebasCovidOperacion", ReplyAction="http://tempuri.org/IServicio/RegistroPruebasCovidOperacionResponse")]
+        System.Threading.Tasks.Task<string> RegistroPruebasCovidOperacionAsync(SISFORM_WEB.ServicioWcf.PruebasCovid oPruebasCovid, string op);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/CtrlAccionOperacion", ReplyAction="http://tempuri.org/IServicio/CtrlAccionOperacionResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/CtrlAccionOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -4531,6 +4975,13 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarPruebasCovidCsv", ReplyAction="http://tempuri.org/IServicio/ListarPruebasCovidCsvResponse")]
         System.Threading.Tasks.Task<string> ListarPruebasCovidCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarResultadoPruebasCovidCsv", ReplyAction="http://tempuri.org/IServicio/ListarResultadoPruebasCovidCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarResultadoPruebasCovidCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarResultadoPruebasCovidCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarResultadoPruebasCovidCsv", ReplyAction="http://tempuri.org/IServicio/ListarResultadoPruebasCovidCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarResultadoPruebasCovidCsvAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarResultadosCovidPorFechaCsv", ReplyAction="http://tempuri.org/IServicio/ListarResultadosCovidPorFechaCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarResultadosCovidPorFechaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -4791,20 +5242,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoFiltroIncidenciaCsvResponse")]
         System.Threading.Tasks.Task<string> ListarTipoFiltroIncidenciaCsvAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsvResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ObtenerIncidenciaPorFiltroCsv(string ID_TipoFilto, string Filtro);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorFiltroCsvResponse")]
-        System.Threading.Tasks.Task<string> ObtenerIncidenciaPorFiltroCsvAsync(string ID_TipoFilto, string Filtro);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarSolucion", ReplyAction="http://tempuri.org/IServicio/RegistrarSolucionResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/RegistrarSolucionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string RegistrarSolucion(SISFORM_WEB.ServicioWcf.Solucion oSolucion);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarSolucion", ReplyAction="http://tempuri.org/IServicio/RegistrarSolucionResponse")]
-        System.Threading.Tasks.Task<string> RegistrarSolucionAsync(SISFORM_WEB.ServicioWcf.Solucion oSolucion);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -4832,6 +5269,22 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public ServicioClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public string ObtenerIncidenciaPorFiltroCsv(string ID_TipoFilto, string Filtro) {
+            return base.Channel.ObtenerIncidenciaPorFiltroCsv(ID_TipoFilto, Filtro);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerIncidenciaPorFiltroCsvAsync(string ID_TipoFilto, string Filtro) {
+            return base.Channel.ObtenerIncidenciaPorFiltroCsvAsync(ID_TipoFilto, Filtro);
+        }
+        
+        public string RegistrarSolucion(SISFORM_WEB.ServicioWcf.Solucion oSolucion) {
+            return base.Channel.RegistrarSolucion(oSolucion);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegistrarSolucionAsync(SISFORM_WEB.ServicioWcf.Solucion oSolucion) {
+            return base.Channel.RegistrarSolucionAsync(oSolucion);
         }
         
         public string ListarTipoSeguimientoIncidenciaCsv() {
@@ -4978,6 +5431,46 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.ListarTiemposComidaCboCsvAsync();
         }
         
+        public int ImplementacionCheff(SISFORM_WEB.ServicioWcf.ImplementacionCheff oImplementacioncheff, string op) {
+            return base.Channel.ImplementacionCheff(oImplementacioncheff, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> ImplementacionCheffAsync(SISFORM_WEB.ServicioWcf.ImplementacionCheff oImplementacioncheff, string op) {
+            return base.Channel.ImplementacionCheffAsync(oImplementacioncheff, op);
+        }
+        
+        public string ListarEstadoImplementacionCsv() {
+            return base.Channel.ListarEstadoImplementacionCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarEstadoImplementacionCsvAsync() {
+            return base.Channel.ListarEstadoImplementacionCsvAsync();
+        }
+        
+        public string ListarTemaImplementacionCsv(int tipoServicio, int FK_ID_UnidadGestion) {
+            return base.Channel.ListarTemaImplementacionCsv(tipoServicio, FK_ID_UnidadGestion);
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarTemaImplementacionCsvAsync(int tipoServicio, int FK_ID_UnidadGestion) {
+            return base.Channel.ListarTemaImplementacionCsvAsync(tipoServicio, FK_ID_UnidadGestion);
+        }
+        
+        public string ListarImplementacionesCsv(int idUsuario) {
+            return base.Channel.ListarImplementacionesCsv(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarImplementacionesCsvAsync(int idUsuario) {
+            return base.Channel.ListarImplementacionesCsvAsync(idUsuario);
+        }
+        
+        public string ListarComedorBusquedaCsv() {
+            return base.Channel.ListarComedorBusquedaCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarComedorBusquedaCsvAsync() {
+            return base.Channel.ListarComedorBusquedaCsvAsync();
+        }
+        
         public string ListarPoderConvocatoriaCboCsv() {
             return base.Channel.ListarPoderConvocatoriaCboCsv();
         }
@@ -5072,6 +5565,54 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarStakeholderSucesoPorIdStakeholderCsvAsync(string idStakeholder) {
             return base.Channel.ListarStakeholderSucesoPorIdStakeholderCsvAsync(idStakeholder);
+        }
+        
+        public string ListarEmpresasHospedajesCsv() {
+            return base.Channel.ListarEmpresasHospedajesCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarEmpresasHospedajesCsvAsync() {
+            return base.Channel.ListarEmpresasHospedajesCsvAsync();
+        }
+        
+        public string ListarTipoHabitacionCboCsv() {
+            return base.Channel.ListarTipoHabitacionCboCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarTipoHabitacionCboCsvAsync() {
+            return base.Channel.ListarTipoHabitacionCboCsvAsync();
+        }
+        
+        public int HabitacionOperacion(SISFORM_WEB.ServicioWcf.Habitacion oHabitacion, string op) {
+            return base.Channel.HabitacionOperacion(oHabitacion, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> HabitacionOperacionAsync(SISFORM_WEB.ServicioWcf.Habitacion oHabitacion, string op) {
+            return base.Channel.HabitacionOperacionAsync(oHabitacion, op);
+        }
+        
+        public string ListarHabitacionPorIdEmpresaCsv(string idEmpresa) {
+            return base.Channel.ListarHabitacionPorIdEmpresaCsv(idEmpresa);
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarHabitacionPorIdEmpresaCsvAsync(string idEmpresa) {
+            return base.Channel.ListarHabitacionPorIdEmpresaCsvAsync(idEmpresa);
+        }
+        
+        public string ObtenerHabitacionPorIdCsv(string idHabitacion) {
+            return base.Channel.ObtenerHabitacionPorIdCsv(idHabitacion);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerHabitacionPorIdCsvAsync(string idHabitacion) {
+            return base.Channel.ObtenerHabitacionPorIdCsvAsync(idHabitacion);
+        }
+        
+        public string ObtenerTotalHabitacionPorIdEmpresaCsv(string idEmpresa) {
+            return base.Channel.ObtenerTotalHabitacionPorIdEmpresaCsv(idEmpresa);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerTotalHabitacionPorIdEmpresaCsvAsync(string idEmpresa) {
+            return base.Channel.ObtenerTotalHabitacionPorIdEmpresaCsvAsync(idEmpresa);
         }
         
         public SISFORM_WEB.ServicioWcf.VistaUsuario AutenticarUsuario(string usuario, string clave) {
@@ -5232,6 +5773,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<int> PruebasCovidCargaAsync(SISFORM_WEB.ServicioWcf.CargaMasiva[] lstCarga, string idUsuario) {
             return base.Channel.PruebasCovidCargaAsync(lstCarga, idUsuario);
+        }
+        
+        public string RegistroPruebasCovidOperacion(SISFORM_WEB.ServicioWcf.PruebasCovid oPruebasCovid, string op) {
+            return base.Channel.RegistroPruebasCovidOperacion(oPruebasCovid, op);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegistroPruebasCovidOperacionAsync(SISFORM_WEB.ServicioWcf.PruebasCovid oPruebasCovid, string op) {
+            return base.Channel.RegistroPruebasCovidOperacionAsync(oPruebasCovid, op);
         }
         
         public int CtrlAccionOperacion(SISFORM_WEB.ServicioWcf.CtrlAccion oCtrlAccion) {
@@ -5440,6 +5989,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarPruebasCovidCsvAsync() {
             return base.Channel.ListarPruebasCovidCsvAsync();
+        }
+        
+        public string ListarResultadoPruebasCovidCsv() {
+            return base.Channel.ListarResultadoPruebasCovidCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarResultadoPruebasCovidCsvAsync() {
+            return base.Channel.ListarResultadoPruebasCovidCsvAsync();
         }
         
         public string ListarResultadosCovidPorFechaCsv(string fechaPrueba) {
@@ -5736,22 +6293,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarTipoFiltroIncidenciaCsvAsync() {
             return base.Channel.ListarTipoFiltroIncidenciaCsvAsync();
-        }
-        
-        public string ObtenerIncidenciaPorFiltroCsv(string ID_TipoFilto, string Filtro) {
-            return base.Channel.ObtenerIncidenciaPorFiltroCsv(ID_TipoFilto, Filtro);
-        }
-        
-        public System.Threading.Tasks.Task<string> ObtenerIncidenciaPorFiltroCsvAsync(string ID_TipoFilto, string Filtro) {
-            return base.Channel.ObtenerIncidenciaPorFiltroCsvAsync(ID_TipoFilto, Filtro);
-        }
-        
-        public string RegistrarSolucion(SISFORM_WEB.ServicioWcf.Solucion oSolucion) {
-            return base.Channel.RegistrarSolucion(oSolucion);
-        }
-        
-        public System.Threading.Tasks.Task<string> RegistrarSolucionAsync(SISFORM_WEB.ServicioWcf.Solucion oSolucion) {
-            return base.Channel.RegistrarSolucionAsync(oSolucion);
         }
     }
 }

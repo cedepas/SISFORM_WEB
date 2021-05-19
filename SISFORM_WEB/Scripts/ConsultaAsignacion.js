@@ -28,6 +28,10 @@ window.onload = function () {
 
         cboTipoEmpresa.onchange = function () {
             CargarCboTipoEmpresa();
+            tipoHabitacion.style.display = "none";
+            if (cboTipoEmpresa.value == 3) {
+                tipoHabitacion.style.display = "inline-block";
+            }
             empresaServicio.style.display = "inline-block";
             Http.get("Trabajador/ListarServiciosAsignadosPorEmpresaECM?FK_ID_EmpresaECM=" + idEmpresaECM + "&FK_ID_TipoEmpresa=" + cboTipoEmpresa.value, CrearTablaCsv);
         }

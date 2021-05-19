@@ -23,8 +23,6 @@ window.onload = function () {
     Http.get("Trabajador/ListarUnidadGestionCsv", mostrarUnidadGestionCbo);
 
     if (!isMobile.any()) {
-
-
         var divRows = document.getElementsByClassName('form-row');
         for (var i = 0; i < divRows.length; i++) {
             divRows[i].classList.add("row-eq-spacing-sm");
@@ -68,6 +66,7 @@ window.onload = function () {
         frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
         frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
+        frm.append("FK_ID_NivelInstruccion", cboNivelInstruccion.value);
         if (validarRequeridos('T')) {
             Http.post("Trabajador/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -143,6 +142,11 @@ window.onload = function () {
         limpiarControles('form-control');
         btnModal.style.visibility = "hidden";
         btnNuevo.style.visibility = "hidden";
+    }
+
+    btnModal.onclick = function () {
+        limpiarControles('form-control-modal');
+        Http.get("Trabajador/ListarPuestoTrabajoporIdCsv?idTrabajador=" + idTrabajador, CrearTablaCsvPuestos);
     }
     txtbuscarPorEmpresa.onkeyup = function () {
         var a, b;
@@ -229,8 +233,13 @@ function ValidacionDNIPorRENIEC(rpta) {
 
 function mostrarTipoDocumentoCbo(rpta) {
     if (rpta) {
-        lstCboTipoDoc = rpta.split("¬");
+        campos = rpta.split("¯");
+        lstCboTipoDoc = campos[0].split("¬");
         CrearCombo(lstCboTipoDoc, cboTipoDocumento, "Seleccione");
+        lstCboUnidadGestionDoc = campos[1].split("¬");
+        CrearCombo(lstCboUnidadGestionDoc, cboUnidadGestion, "Seleccione");
+        lstCboNivelInstruccion = campos[2].split("¬");
+        CrearCombo(lstCboNivelInstruccion, cboNivelInstruccion, "Seleccione");
     }
 }
 
@@ -362,8 +371,13 @@ function CrearTablaCsv(rpta) {
     }
 }
 function CrearTablaCsvPuestos(rpta) {
+    document.getElementById("divTablaPuestos").innerHTML = "";
     if (rpta) {
         lstPuestosTrabajador = rpta.split('¬');
+        var grillaModal = new GrillaModal(lstPuestosTrabajador, "divTablaPuestos", 10, 3);
+    }
+    else {
+        lstPuestosTrabajador;
         var grillaModal = new GrillaModal(lstPuestosTrabajador, "divTablaPuestos", 10, 3);
     }
 }
@@ -439,6 +453,7 @@ function obtenerRegistroPorId(id) {
 
     Http.get("Trabajador/ObtenerTrabajadorPorId?idTrabajador=" + id, AsignarCampos);
     Http.get("Trabajador/ListarPuestoTrabajoporIdCsv?idTrabajador=" + id, CrearTablaCsvPuestos);
+
 }
 
 function modalObtenerRegistroPorId(id) {
@@ -457,7 +472,7 @@ function AsignarCamposPuestoTrabajo(rpta) {
         idEmpresaPuesto = campos[6];
         txtEstadoPuesto.checked = (campos[5] == "ACT" ? true : false);
         idPuestoTrabajo = campos[7];
-    }
+    } else limpiarControles('form-control-modal');
 }
 
 function AsignarCampos(rpta) {
@@ -488,6 +503,7 @@ function AsignarCampos(rpta) {
             txtTelefonoContacto.value = campos[12];
             txtEstado.checked = (campos[13] == "ACT" ? true : false);
             cboUnidadGestion.value = campos[14];
+            cboNivelInstruccion.value = campos[15];
         }
         limpiarControles('P')
 

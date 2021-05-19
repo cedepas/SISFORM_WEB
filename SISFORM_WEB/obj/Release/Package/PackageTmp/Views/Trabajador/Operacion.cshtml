@@ -16,26 +16,26 @@
                             <div class="form-row">
                                 <div class="col-sm">
                                     <label for="txtIdTrabajadorPuesto">Codigo</label>
-                                    <input type="text" class="form-control form-control-sm P" id="txtIdTrabajadorPuesto" placeholder="Codigo" readonly="readonly">
+                                    <input type="text" class="form-control form-control-sm form-control-modal P" id="txtIdTrabajadorPuesto" placeholder="Codigo" readonly="readonly">
                                 </div>
                                 <div class="col-sm">
                                     <label for="cboEmpresa" class="required">Empresa</label>
-                                    <input type="text" class="form-control form-control-sm P" id="txtbuscarPorEmpresa" placeholder="Empresa" required="required" />
+                                    <input type="text" class="form-control form-control-sm form-control-modal P" id="txtbuscarPorEmpresa" placeholder="Empresa" required="required" />
                                 </div>
                                 <div class="col-sm">
                                     <label for="txtPuestoTrabajo" class="required">Puesto de trabajo</label>
                                     @*<input type="text" class="form-control form-control-sm P" id="txtPuestoTrabajo" placeholder="Empresa" required="required" />*@
-                                    <select class="form-control form-control-sm P" id="cboPuestoTrabajo" required="required"></select>
+                                    <select class="form-control form-control-sm form-control-modal P" id="cboPuestoTrabajo" required="required"></select>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-sm">
                                     <label for="txtFechaIngreso" class="required">Fecha de ingreso</label>
-                                    <input type="date" class="form-control form-control-sm P" id="txtFechaIngreso" required="required" />
+                                    <input type="date" class="form-control form-control-sm form-control-modal P" id="txtFechaIngreso" required="required" />
                                 </div>
                                 <div class="col-sm">
                                     <label for="txtFechaSalida">Fecha de salida</label>
-                                    <input type="date" class="form-control form-control-sm P" id="txtFechaSalida" />
+                                    <input type="date" class="form-control form-control-sm form-control-modal P" id="txtFechaSalida" />
                                 </div>
                                 <div class="col-sm">
                                     <label for="txtEstadoPuesto" class="required">Estado</label>
@@ -124,15 +124,19 @@
         </div>
     </div>
     <div class="form-row">
-        <div class="col-sm">
+        <div class="col-sm-3">
             <label for="txtTelefono" class="required">Telefono</label>
             <input type="text" class="form-control form-control-sm T" id="txtTelefono" placeholder="Telefono" required="required" pattern="[0-9]*" inputmode="numeric" />
         </div>
-        <div class="col-sm">
+        <div class="col-sm-3">
             <label for="txtDireccion" class="required">Direccion</label>
             <input type="text" class="form-control form-control-sm T" id="txtDireccion" placeholder="Direccion" required="required" />
         </div>
-        <div class="col-sm">
+        <div class="col-sm-3">
+            <label for="cboNivelInstruccion" class="required">Nivel de Instrucción</label>
+            <select class="form-control form-control-sm T" id="cboNivelInstruccion" required="required"></select>
+        </div>
+        <div class="col-sm-3">
             <label for="txtEstado" class="required">Estado</label>
             <div class="custom-control">
                 <div class="custom-switch">
