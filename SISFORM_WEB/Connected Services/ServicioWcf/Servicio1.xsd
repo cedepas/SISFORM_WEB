@@ -335,7 +335,10 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_DistribucionPruebasCovid" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+<<<<<<< HEAD
       <xs:element minOccurs="0" name="FK_ID_FrecuenciaPruebaCovid" type="xs:int" />
+=======
+>>>>>>> 52be1d3f8e7247e95e734951979fd086d0c46b36
       <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
       <xs:element minOccurs="0" name="ID_PruebasCovid" type="xs:int" />

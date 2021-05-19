@@ -3486,9 +3486,12 @@ namespace SISFORM_WEB.ServicioWcf {
         private int FK_ID_EmpresaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+<<<<<<< HEAD
         private int FK_ID_FrecuenciaPruebaCovidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+=======
+>>>>>>> 52be1d3f8e7247e95e734951979fd086d0c46b36
         private int FK_ID_TrabajadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3552,6 +3555,7 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+<<<<<<< HEAD
         public int FK_ID_FrecuenciaPruebaCovid {
             get {
                 return this.FK_ID_FrecuenciaPruebaCovidField;
@@ -3565,6 +3569,8 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+=======
+>>>>>>> 52be1d3f8e7247e95e734951979fd086d0c46b36
         public int FK_ID_Trabajador {
             get {
                 return this.FK_ID_TrabajadorField;
