@@ -1215,6 +1215,9 @@ namespace SISFORM_WEB.ServicioWcf {
         private int FK_ID_EmpresaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FK_ID_EstadoHabitacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private short FK_ID_TipoHabitacionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1251,6 +1254,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
                     this.FK_ID_EmpresaField = value;
                     this.RaisePropertyChanged("FK_ID_Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FK_ID_EstadoHabitacion {
+            get {
+                return this.FK_ID_EstadoHabitacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FK_ID_EstadoHabitacionField, value) != true)) {
+                    this.FK_ID_EstadoHabitacionField = value;
+                    this.RaisePropertyChanged("FK_ID_EstadoHabitacion");
                 }
             }
         }
@@ -3486,12 +3502,6 @@ namespace SISFORM_WEB.ServicioWcf {
         private int FK_ID_EmpresaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-<<<<<<< HEAD
-        private int FK_ID_FrecuenciaPruebaCovidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-=======
->>>>>>> 52be1d3f8e7247e95e734951979fd086d0c46b36
         private int FK_ID_TrabajadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3555,22 +3565,6 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
-        public int FK_ID_FrecuenciaPruebaCovid {
-            get {
-                return this.FK_ID_FrecuenciaPruebaCovidField;
-            }
-            set {
-                if ((this.FK_ID_FrecuenciaPruebaCovidField.Equals(value) != true)) {
-                    this.FK_ID_FrecuenciaPruebaCovidField = value;
-                    this.RaisePropertyChanged("FK_ID_FrecuenciaPruebaCovid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-=======
->>>>>>> 52be1d3f8e7247e95e734951979fd086d0c46b36
         public int FK_ID_Trabajador {
             get {
                 return this.FK_ID_TrabajadorField;
@@ -4622,6 +4616,13 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoHabitacionCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoHabitacionCboCsvResponse")]
         System.Threading.Tasks.Task<string> ListarTipoHabitacionCboCsvAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoHabitacionCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoHabitacionCboCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarEstadoHabitacionCboCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarEstadoHabitacionCboCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoHabitacionCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoHabitacionCboCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarEstadoHabitacionCboCsvAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/HabitacionOperacion", ReplyAction="http://tempuri.org/IServicio/HabitacionOperacionResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/HabitacionOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         int HabitacionOperacion(SISFORM_WEB.ServicioWcf.Habitacion oHabitacion, string op);
@@ -5587,6 +5588,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarTipoHabitacionCboCsvAsync() {
             return base.Channel.ListarTipoHabitacionCboCsvAsync();
+        }
+        
+        public string ListarEstadoHabitacionCboCsv() {
+            return base.Channel.ListarEstadoHabitacionCboCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarEstadoHabitacionCboCsvAsync() {
+            return base.Channel.ListarEstadoHabitacionCboCsvAsync();
         }
         
         public int HabitacionOperacion(SISFORM_WEB.ServicioWcf.Habitacion oHabitacion, string op) {

@@ -43,6 +43,21 @@ namespace SISFORM_WEB.Controllers
             }
         }
 
+        public async Task<string> ListarEstadoHabitacionCboCsv()
+        {
+            try
+            {
+                string rpta = string.Empty;
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEstadoHabitacionCboCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public async Task<string> GrabarHabitacion(Habitacion oHabitacion)
         {
             ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
