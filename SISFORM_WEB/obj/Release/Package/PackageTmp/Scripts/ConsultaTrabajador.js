@@ -376,10 +376,6 @@ function CrearTablaCsvPuestos(rpta) {
         lstPuestosTrabajador = rpta.split('¬');
         var grillaModal = new GrillaModal(lstPuestosTrabajador, "divTablaPuestos", 10, 3);
     }
-    else {
-        lstPuestosTrabajador;
-        var grillaModal = new GrillaModal(lstPuestosTrabajador, "divTablaPuestos", 10, 3);
-    }
 }
 
 function CrearListaCsv(rpta) {

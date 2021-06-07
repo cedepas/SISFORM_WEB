@@ -23,6 +23,7 @@ window.onload = function () {
         frm.append("numeroHabitacion", txtNumeroHabitacion.value);
         frm.append("numeroCamas", txtNumeroCamas.value);
         frm.append("detalleHabitacion", txtDetalleHabitacion.value);
+        frm.append("FK_ID_EstadoHabitacion", cboEstadoHabitacion.value);
         if (validarRequeridos('HD')) {
             if (validarTipoHabitacion()) {
                 Http.post("Habitacion/GrabarHabitacion", MostrarGrabarHabitacion, frm);
@@ -33,6 +34,7 @@ window.onload = function () {
     btnModalHabitacion.onclick = function () {
         Http.get("Habitacion/ListarHabitacionPorIdEmpresaCsv?idEmpresa=" + idEmpresa, CrearTablaCsvHabitaciones);
         Http.get("Habitacion/ListarTipoHabitacionCboCsv", mostrarTipoHabitacion);
+        Http.get("Habitacion/ListarEstadoHabitacionCboCsv", mostrarEstadoHabitacion);
     }
 
     btnNuevaHabitacion.onclick = function () {
@@ -97,6 +99,13 @@ function mostrarTipoHabitacion(rpta) {
     if (rpta) {
         lstCboTipoHabitacion = rpta.split('¬');
         CrearCombo(lstCboTipoHabitacion, cboTipoHabitacion, "Seleccione");
+    }
+}
+
+function mostrarEstadoHabitacion(rpta) {
+    if (rpta) {
+        lstCboEstadoHabitacion = rpta.split('¬');
+        CrearCombo(lstCboEstadoHabitacion, cboEstadoHabitacion, "Seleccione");
     }
 }
 
