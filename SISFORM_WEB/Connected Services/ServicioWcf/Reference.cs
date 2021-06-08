@@ -1235,6 +1235,9 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string numeroHabitacionField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numeroTVField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -1345,6 +1348,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((object.ReferenceEquals(this.numeroHabitacionField, value) != true)) {
                     this.numeroHabitacionField = value;
                     this.RaisePropertyChanged("numeroHabitacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int numeroTV {
+            get {
+                return this.numeroTVField;
+            }
+            set {
+                if ((this.numeroTVField.Equals(value) != true)) {
+                    this.numeroTVField = value;
+                    this.RaisePropertyChanged("numeroTV");
                 }
             }
         }

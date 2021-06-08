@@ -113,6 +113,7 @@
       <xs:element minOccurs="0" name="detalleHabitacion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="numeroCamas" type="xs:short" />
       <xs:element minOccurs="0" name="numeroHabitacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroTV" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Habitacion" nillable="true" type="tns:Habitacion" />

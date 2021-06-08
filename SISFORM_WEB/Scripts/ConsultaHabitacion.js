@@ -24,6 +24,7 @@ window.onload = function () {
         frm.append("numeroCamas", txtNumeroCamas.value);
         frm.append("detalleHabitacion", txtDetalleHabitacion.value);
         frm.append("FK_ID_EstadoHabitacion", cboEstadoHabitacion.value);
+        frm.append("numeroTV", txtNumeroTv.value);
         if (validarRequeridos('HD')) {
             if (validarTipoHabitacion()) {
                 Http.post("Habitacion/GrabarHabitacion", MostrarGrabarHabitacion, frm);
@@ -57,6 +58,7 @@ function validarTipoHabitacion() {
             return true;
         }
     }
+
     else {
         if (txtNumeroCamas.value <= 0) {
             txtNumeroCamas.style.borderColor = "red";
@@ -134,6 +136,7 @@ function modalObtenerRegistroPorId(id) {
             txtDetalleHabitacion.value = campos[5];
             cboEstadoHabitacion.value = campos[6];
             cboEstadoHabitacion.text = campos[7];
+            txtNumeroTv.value = campos[8];
         } else {
             limpiarControles('form-control');
         }

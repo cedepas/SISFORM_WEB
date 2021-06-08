@@ -132,6 +132,8 @@ function modalObtenerRegistroPorId(id) {
             txtNumeroHabitacion.value = campos[3];
             txtNumeroCamas.value = campos[4];
             txtDetalleHabitacion.value = campos[5];
+            cboEstadoHabitacion.value = campos[6];
+            cboEstadoHabitacion.text = campos[7];
         } else {
             limpiarControles('form-control');
         }
