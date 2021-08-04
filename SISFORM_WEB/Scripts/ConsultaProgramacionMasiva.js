@@ -2,8 +2,9 @@
 var colId = 0;
 
 window.onload = function () {
+    fk_id_UnidadGestion = window.sessionStorage.getItem('FK_ID_UnidadGestion');
     if (!isMobile.any()) {
-        Http.get("PruebaCovid/ListarPruebas", CrearTablaCsv);
+        Http.get("PruebaCovid/ListarPruebas?FK_ID_UnidadGestion=" + fk_id_UnidadGestion, CrearTablaCsv);
 
         var divRows = document.getElementsByClassName('form-row');
         for (var i = 0; i < divRows.length; i++) {
@@ -47,7 +48,7 @@ function MostrarFile(rpta) {
     if (rpta) {
         if (!isMobile.any()) {
             ids = [];
-            Http.get("PruebaCovid/ListarPruebas", CrearTablaCsv);
+            Http.get("PruebaCovid/ListarPruebas?FK_ID_UnidadGestion=" + fk_id_UnidadGestion, CrearTablaCsv);
         }
         toastSuccessAlert("Los registros se cargaron correctamente", "¡Exito!");
     }
@@ -69,7 +70,7 @@ function MostrarGrabar(rpta) {
         else {
             if (!isMobile.any()) {
                 ids = [];
-                Http.get("PruebaCovid/ListarPruebas", CrearTablaCsv);
+                Http.get("PruebaCovid/ListarPruebas?FK_ID_UnidadGestion=" + fk_id_UnidadGestion, CrearTablaCsv);
             }
             toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
             txtIdTrabajadorPuesto.value = rpta;

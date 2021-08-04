@@ -372,6 +372,7 @@ function MostrarIncidenciaImagen(rpta) {
 }
 function mostrarEnvioCorreo(rpta) {
     if (rpta) {
+        document.getElementById("lblAlertaRegistro").innerHTML = "4/4 Completos";
         toastSuccessAlert("Se envió el correo al Infractor correctamente.", "¡Exito!");
     }
     else toastDangerAlert("No se logró enviar el correo del incidente", "¡Error!");
@@ -386,46 +387,50 @@ function obtenerRegistroPorId(id) {
     Http.get("Incidencia/ObtenerIncidenciaPorIdCsv?idIncidencia=" + id, AsignarCampos);
 }
 function AsignarCampos(rpta) {
-
     if (rpta) {
         var campos = rpta.split('|');
-
         document.getElementById("lblNumeroIncidencia").innerHTML = campos[0];
         idIncidencia = campos[0];
         txtFechaIncidencia.value = campos[1];
-        cboEmpresaIncidente.value = campos[2];
-        cboZona.value = campos[3];
-        cboUbicacion.value = campos[4];
-        cboTipoProgInci.value = campos[5];
-        cboTipoEvento.value = campos[6];
-        cboCategoria.value = campos[7];
-        cboBloque.value = campos[8];
-        cboEspecificacion.value = campos[9];
-        cboEmpresaInvolucrada.value = campos[10];
-        txtDetalles.value = campos[11];
-        cboBarrera.value = campos[12];
-        cboTipoBarrera.value = campos[13];
-        txtBarrera.value = campos[14];
+        cboTipoEmpresa.value = campos[2];
+        txtbuscarPorEmpresaInfractora.value = campos[3];
+        cboZona.value = campos[4];
+        cboUbicacion.value = campos[5];
+        cboTipoProgInci.value = campos[6];
+        cboTipoEvento.value = campos[7];
+        cboCategoria.value = campos[8];
+        cboBloque.value = campos[9];
+        cboEspecificacion.value = campos[10];
+        //cboEmpresaInvolucrada.value = campos[10];
+        txtDetalles.value = campos[12];
+        cboBarrera.value = campos[13];
+        cboTipoBarrera.value = campos[14];
+        txtBarrera.value = campos[15];
         if (cboTipoEvento.value == 0 || cboTipoEvento.value == "") {
             btnGrabarIncidencia.style.display = "none";
             btnModalTipoEvento.style.display = "inline-block";
             lblRegTitu.style.visibility = "visible";
             lblAlertaRegistro.style.visibility = "visible";
             document.getElementById("lblAlertaRegistro").innerHTML = "1/4 Completos";
-        } else {
-            if (cboTipoEvento.value > 0) {
-                btnGrabarIncidencia.style.display = "none";
-                btnModalTipoEvento.style.display = "none";
-                lblRegTitu.style.visibility = "visible";
-                lblAlertaRegistro.style.visibility = "visible";
-                document.getElementById("lblAlertaRegistro").innerHTML = "2/4 Completos";
-            }
-            if (cboBarrera.value == 0 || cboBarrera.value == "") {
-                btnModalBarrera.style.display = "inline-block";
-
-            }
         }
-    } else {
+        else if (cboBarrera.value == 0 || cboBarrera.value == ""){
+            btnGrabarIncidencia.style.display = "none";
+            btnModalTipoEvento.style.display = "none";
+            btnModalBarrera.style.display = "inline-block";
+            lblRegTitu.style.visibility = "visible";
+            lblAlertaRegistro.style.visibility = "visible";
+            document.getElementById("lblAlertaRegistro").innerHTML = "2/4 Completos";
+        }
+        else if (campos[16] == 0 || campos[16] == "") {
+            btnGrabarIncidencia.style.display = "none";
+            btnModalTipoEvento.style.display = "none";
+            btnModalBarrera.style.display = "none";
+            btnModalImagen.style.display = "inline-block";
+            lblRegTitu.style.visibility = "visible";
+            lblAlertaRegistro.style.visibility = "visible";
+            document.getElementById("lblAlertaRegistro").innerHTML = "3/4 Completos";
+        }
+    } else { 
         limpiarControles('form-control');
     }
 }

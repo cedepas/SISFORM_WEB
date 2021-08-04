@@ -1017,7 +1017,6 @@ D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.Razor.resources.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.resources.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csprojAssemblyReference.cache
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CoreCompileInputs.cache
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CopyComplete
 D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.dll
@@ -1255,3 +1254,4 @@ D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CopyCom
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.pdb
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csprojAssemblyReference.cache
+D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.AssemblyReference.cache

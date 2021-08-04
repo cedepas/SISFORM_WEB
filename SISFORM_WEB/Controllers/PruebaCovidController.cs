@@ -71,13 +71,13 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> ListarPruebasCovid()
+        public async Task<string> ListarPruebasCovid(int FK_ID_UnidadGestion)
         {
             try
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.ListarPruebasCovidCsvAsync();
+                rpta = await servicio.ListarPruebasCovidCsvAsync(FK_ID_UnidadGestion);
                 return rpta;
             }
             catch (Exception ex)
@@ -85,13 +85,13 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> ListarPruebas()
+        public async Task<string> ListarPruebas(int FK_ID_UnidadGestion)
         {
             try
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.ListarPruebasCsvAsync();
+                rpta = await servicio.ListarPruebasCsvAsync(FK_ID_UnidadGestion);
                 return rpta;
             }
             catch (Exception ex)
@@ -113,13 +113,13 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> ListarResultadoPruebasCovidCsv()
+        public async Task<string> ListarResultadoPruebasCovidCsv(int FK_ID_UnidadGestion)
         {
             try
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.ListarResultadoPruebasCovidCsvAsync();
+                rpta = await servicio.ListarResultadoPruebasCovidCsvAsync(FK_ID_UnidadGestion);
                 return rpta;
             }
             catch (Exception ex)
@@ -127,14 +127,13 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        
-        public async Task<string> ListarResultadosCovidPorFechaCsv(string fechaPrueba)
+        public async Task<string> ListarResultadosCovidPorFechaCsv(string fechaPrueba, int FK_ID_UnidadGestion)
         {
             try
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                rpta = await servicio.ListarResultadosCovidPorFechaCsvAsync(fechaPrueba);
+                rpta = await servicio.ListarResultadosCovidPorFechaCsvAsync(fechaPrueba, FK_ID_UnidadGestion);
                 return rpta;
             }
             catch (Exception ex)

@@ -166,7 +166,6 @@ function mostrarPreguntas(rpta) {
         document.getElementById('nroEvaluacion').value = lstValores[2];
         document.getElementById('versionCheckList').value = lstValores[4];
         document.getElementById('UnidadGestion').value = lstValores[6];
-        
     }
     else
         toastDangerAlert("El tipo de empresa no cuenta con CheckList", "¡Error!");

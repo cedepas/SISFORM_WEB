@@ -1,0 +1,30 @@
+﻿.derecha {
+    text-align:end;
+}
+body{
+    padding: 70px;
+    font-size: 16px;
+}
+
+.listadoIncidenciasEmpresa {
+    font-size: 10px;
+}
+
+.piePaginaDerecha {
+    /*float: right;
+    display: inline;
+    text-align: right;*/
+    flex-basis: 30%;
+}
+
+.piePaginaIzquierda {
+    /*float: left;
+    display: inline;*/
+    flex-basis: 70%;
+}
+
+.flexContainer {
+    margin: 2px 10px;
+    display: flex;
+}
+

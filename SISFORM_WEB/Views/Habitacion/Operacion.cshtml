@@ -20,9 +20,19 @@
                         <label class="required">Número de camas :</label>
                         <input type="number" min="1" value="1" class="form-control form-control-sm HD" id="txtNumeroCamas" required />
                     </div>
+                    @*<div class="col-sm">
+                            <label class="required">Estado de habitación :</label>
+                            <select class="form-control form-control-sm HD" id="cboEstadoHabitacion" required></select>
+                        <input type="checkbox" id="txtEstadoPuesto" checked>
+                        </div>*@
                     <div class="col-sm">
-                        <label class="required">Estado de habitación :</label>
-                        <select class="form-control form-control-sm HD" id="cboEstadoHabitacion" required></select>
+                        <label for="txtEstadoRAH" class="required">Estado Habitación RAH</label>
+                        <div class="custom-control">
+                            <div class="custom-switch">
+                                <input type="checkbox" id="txtEstadoRAH">
+                                <label for="txtEstadoRAH">Estado RAH</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm">
                         <label class="required">Número de Televisores :</label>
@@ -36,7 +46,8 @@
                     </div>
                 </div>
                 <div class="text-right">
-                    <input class="btn btn-primary btn-sm" id="btnNuevaHabitacion" type="button" value="Nueva Habitacion" style="visibility:hidden" />
+                    <input class="btn btn-danger btn-sm" id="btnEliminarHabitacion" type="button" value="Eliminar Habitación" style="visibility:hidden" />
+                    <input class="btn btn-primary btn-sm" id="btnNuevaHabitacion" type="button" value="Nueva Habitación" style="visibility:hidden" />
                     <input class="btn btn-success btn-sm" type="button" id="btnAgregarHabitacion" value="Guardar">
                 </div>
 

@@ -15,20 +15,20 @@ namespace SISFORM_WEB.Controllers
             ViewBag.Title = "Permisos";
             return View();
         }
-        public async Task<string> ListarCtrlModulosCbo()
-        {
-            try
-            {
-                string rpta = "";
-                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-                //rpta = await servicio.ListarCtrlModulosCboCsvAsync();
-                return rpta;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
+        //public async Task<string> ListarCtrlModulosCbo()
+        //{
+        //    try
+        //    {
+        //        string rpta = "";
+        //        ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+        //        //rpta = await servicio.ListarCtrlModulosCboCsvAsync();
+        //        return rpta;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+        //}
         public async Task<string> ObtenerporDni(string dni)
         {
             try

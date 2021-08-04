@@ -10,6 +10,7 @@
   <xs:element name="Error" nillable="true" type="tns:Error" />
   <xs:complexType name="Solucion">
     <xs:sequence>
+      <xs:element minOccurs="0" name="ExtencionImagen" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FK_ID_TrabajadorSoluciona" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Incidencia" type="xs:int" />
       <xs:element minOccurs="0" name="ID_TipoSolucion" type="xs:int" />
@@ -105,8 +106,8 @@
   <xs:element name="StakeholderSuceso" nillable="true" type="tns:StakeholderSuceso" />
   <xs:complexType name="Habitacion">
     <xs:sequence>
+      <xs:element minOccurs="0" name="EstadoRAH" type="xs:boolean" />
       <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_EstadoHabitacion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FK_ID_TipoHabitacion" type="xs:short" />
       <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Habitacion" type="xs:int" />
@@ -119,6 +120,7 @@
   <xs:element name="Habitacion" nillable="true" type="tns:Habitacion" />
   <xs:complexType name="VistaUsuario">
     <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Empresa" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Trabajador" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Usuario" type="xs:int" />
@@ -214,6 +216,34 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfEmpresa" nillable="true" type="tns:ArrayOfEmpresa" />
+  <xs:complexType name="DirectorioECM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cargo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FK_ID_EmpresaECM" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_DirectorioECM" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreContacto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="xs:int" />
+      <xs:element minOccurs="0" name="telefono" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DirectorioECM" nillable="true" type="tns:DirectorioECM" />
+  <xs:complexType name="DetalleEmpresa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_AntiguedadEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Condicion" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_SistemaAguaCaliente" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TipoSistemaElectrico" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Usuario_Crea" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_materialEdificacion" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_tipoEmpresaHospedaje" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_zonaEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="numeroBañosCompartidos" type="xs:int" />
+      <xs:element minOccurs="0" name="numeroPisosHabitables" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetalleEmpresa" nillable="true" type="tns:DetalleEmpresa" />
   <xs:complexType name="ProgresoEmpresa">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
@@ -338,6 +368,7 @@
       <xs:element minOccurs="0" name="FK_ID_DistribucionPruebasCovid" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
       <xs:element minOccurs="0" name="ID_PruebasCovid" type="xs:int" />
       <xs:element minOccurs="0" name="cantidadPruebas" type="xs:int" />
@@ -391,6 +422,7 @@
   <xs:element name="Incidencia" nillable="true" type="tns:Incidencia" />
   <xs:complexType name="Imagen">
     <xs:sequence>
+      <xs:element minOccurs="0" name="ExtencionImagen" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FK_ID_Incidencia" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_SolucionIncidencia" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_TipoImagen" type="xs:int" />

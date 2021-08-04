@@ -15,7 +15,11 @@ namespace SISFORM_WEB.Controllers
             ViewBag.Title = "Empresa";
             return View();
         }
-
+        public ActionResult Directorio()
+        {
+            ViewBag.Title = "Directorio";
+            return View();
+        }
         public async Task<string> ListarEmpresa()
         {
             try
@@ -44,6 +48,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarDetallesEmpresasHospedajesCboCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarDetallesEmpresasHospedajesCboCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         public async Task<string> ListarTipoEmpresaCbo()
         {
             try
@@ -104,6 +123,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarDirectorioECMCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarDirectorioECMCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         public async Task<string> ObtenerEmpresaPorIdCsv(string idEmpresa)
         {
             try
@@ -111,6 +145,34 @@ namespace SISFORM_WEB.Controllers
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
                 rpta = await servicio.ObtenerEmpresaPorIdCsvAsync(idEmpresa);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ObtenerDetallesEmpresaHospedajesPorIdCsv(int FK_ID_Empresa)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerDetallesEmpresaHospedajesPorIdCsvAsync(FK_ID_Empresa);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ObtenerDirectorioECMPorId(int idDirectorioECM)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerDirectorioECMPorIdAsync(idDirectorioECM);
                 return rpta;
             }
             catch (Exception ex)
@@ -142,6 +204,47 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
+        public async Task<string> SPDirectorioECM(DirectorioECM oEmpresaECM)
+        {
+            int rpta = 0;
+            string op = "";
+            if (oEmpresaECM.ID_DirectorioECM == 0)
+            {
+                op = "I";
+            }
+            else
+            {
+                op = "U";
+            }
+
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.DirectorioECMOperacionAsync(oEmpresaECM, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
+        public async Task<string> GrabarDetalleEmpresasHospedajes(DetalleEmpresa oDetalleEmpresa, string op)
+        {
+            int rpta = 0;
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.DetalleEmpresaOperacionAsync(oDetalleEmpresa, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
+        
+
+        
         public async Task<string> GrabarObservacion(ProgresoEmpresa oProgresoEmpresa)
         {
             int rpta = 0;

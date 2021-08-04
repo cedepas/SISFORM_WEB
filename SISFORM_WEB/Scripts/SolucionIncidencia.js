@@ -32,6 +32,11 @@ window.onload = function () {
             Http.post("Incidencia/GuardarImagenStore", MostrarGrabarSolucion, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
+
+    bntNuevo.onclick = function () {
+        limpiarControles('form-control');
+        location.reload();
+    }
 }
 
 function checkSubmit(boton) {
@@ -71,6 +76,8 @@ function MostrarGrabarSolucion(rpta) {
         divSolucion.style.display = "none";
         Http.get("Incidencia/ListarIncidenciaParaSolucionCsv", CrearTablaCsv);
         Http.get("Incidencia/EnviarCorreoSolucion?idIncidencia=" + idIncidente, mostrarEnvioCorreo);
+    } else {
+        toastDangerAlert("La incidencia ya cuenta con una solución, Actualizar la Pagina", "¡Error!");
     }
 
 }

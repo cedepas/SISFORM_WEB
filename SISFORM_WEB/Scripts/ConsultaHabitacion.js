@@ -17,13 +17,16 @@ window.onload = function () {
     btnAgregarHabitacion.onclick = function () {
         var frm = new FormData();
         if (idHabitacion) { frm.append("ID_Habitacion", idHabitacion); }
+        if (txtNumeroCamas.value == 1) {
+            txtEstadoRAH.checked = 0;
+        }
         frm.append("FK_ID_Empresa", idEmpresa);
         frm.append("FK_ID_TipoHabitacion", cboTipoHabitacion.value);
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
         frm.append("numeroHabitacion", txtNumeroHabitacion.value);
         frm.append("numeroCamas", txtNumeroCamas.value);
         frm.append("detalleHabitacion", txtDetalleHabitacion.value);
-        frm.append("FK_ID_EstadoHabitacion", cboEstadoHabitacion.value);
+        frm.append("EstadoRAH", (txtEstadoRAH.checked == true ? 1 : 0));
         frm.append("numeroTV", txtNumeroTv.value);
         if (validarRequeridos('HD')) {
             if (validarTipoHabitacion()) {
@@ -33,15 +36,26 @@ window.onload = function () {
     }
 
     btnModalHabitacion.onclick = function () {
+        idHabitacion = undefined;
         Http.get("Habitacion/ListarHabitacionPorIdEmpresaCsv?idEmpresa=" + idEmpresa, CrearTablaCsvHabitaciones);
         Http.get("Habitacion/ListarTipoHabitacionCboCsv", mostrarTipoHabitacion);
-        Http.get("Habitacion/ListarEstadoHabitacionCboCsv", mostrarEstadoHabitacion);
+        //Http.get("Habitacion/ListarEstadoHabitacionCboCsv", mostrarEstadoHabitacion);
     }
 
     btnNuevaHabitacion.onclick = function () {
         limpiarControles("HD");
         btnNuevaHabitacion.style.visibility = "hidden";
+        btnEliminarHabitacion.style.visibility = "hidden";
         idHabitacion = undefined;
+    }
+
+    btnEliminarHabitacion.onclick = function () {
+        console.log(idHabitacion);
+        var frm = new FormData();
+        if (idHabitacion) { frm.append("ID_Habitacion", idHabitacion); }
+        if (validarTipoHabitacion()) {
+            Http.post("Habitacion/EliminarHabitacion?op=D", MostrarGrabarHabitacion, frm);
+        }
     }
 
 }
@@ -71,6 +85,7 @@ function validarTipoHabitacion() {
         }
     }
 }
+
 
 function MostrarGrabarHabitacion(rpta) {
     if (rpta) {
@@ -104,12 +119,12 @@ function mostrarTipoHabitacion(rpta) {
     }
 }
 
-function mostrarEstadoHabitacion(rpta) {
-    if (rpta) {
-        lstCboEstadoHabitacion = rpta.split('¬');
-        CrearCombo(lstCboEstadoHabitacion, cboEstadoHabitacion, "Seleccione");
-    }
-}
+//function mostrarEstadoHabitacion(rpta) {
+//    if (rpta) {
+//        lstCboEstadoHabitacion = rpta.split('¬');
+//        CrearCombo(lstCboEstadoHabitacion, cboEstadoHabitacion, "Seleccione");
+//    }
+//}
 
 function CrearTablaCsv(rpta) {
     if (rpta) {
@@ -127,6 +142,7 @@ function modalObtenerRegistroPorId(id) {
     btnNuevaHabitacion.style.visibility = "visible";
     Http.get("Habitacion/ObtenerHabitacionPorIdCsv?idHabitacion=" + id, function (rpta) {
         if (rpta) {
+            btnEliminarHabitacion.style.visibility = "visible";
             var campos = rpta.split('|');
             idHabitacion = campos[0];
             cboTipoHabitacion.value = campos[1];
@@ -134,9 +150,10 @@ function modalObtenerRegistroPorId(id) {
             txtNumeroHabitacion.value = campos[3];
             txtNumeroCamas.value = campos[4];
             txtDetalleHabitacion.value = campos[5];
-            cboEstadoHabitacion.value = campos[6];
-            cboEstadoHabitacion.text = campos[7];
-            txtNumeroTv.value = campos[8];
+            txtEstadoRAH.checked = (campos[6] == 0 ? false : true);
+            //cboEstadoHabitacion.value = campos[6];
+            //cboEstadoHabitacion.text = campos[7];
+            txtNumeroTv.value = campos[7];
         } else {
             limpiarControles('form-control');
         }

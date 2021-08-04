@@ -24,6 +24,7 @@ function Autenticar(rpta) {
         var obj = JSON.parse(rpta)
         window.sessionStorage.setItem("idUsuario", obj.ID_Usuario);
         window.sessionStorage.setItem("Nombre", obj.Nombre);
+        window.sessionStorage.setItem("FK_ID_UnidadGestion", obj.FK_ID_UnidadGestion);
         progressLogin.style.width = "100%";
         navegar("Home/Inicio");
     } else {

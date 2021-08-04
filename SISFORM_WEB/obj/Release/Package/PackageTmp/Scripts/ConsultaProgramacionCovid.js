@@ -4,10 +4,12 @@ var idTrabajador;
 var numeroPrueba;
 var idEmpresaPuesto;
 var idPruebaCovid;
+var fk_id_UnidadGestion;
 
 window.onload = function () {
+    fk_id_UnidadGestion = window.sessionStorage.getItem('FK_ID_UnidadGestion');
     if (!isMobile.any()) {
-        Http.get("PruebaCovid/ListarPruebasCovid", CrearTablaCsv);
+        Http.get("PruebaCovid/ListarPruebasCovid?FK_ID_UnidadGestion=" + fk_id_UnidadGestion, CrearTablaCsv);
         //Http.get("PruebaCovid/ListarResultadoPruebaCbo", mostrarCbo);
         //Http.get("Trabajador/ListarEmpresaCbo", mostrarEmpresaCbo);
         Http.get("PruebaCovid/ListarResultadoPruebaCbo", mostrarCbo);
@@ -98,7 +100,7 @@ window.onload = function () {
         btnNuevo.style.visibility = "hidden";
     }
     btnModalPruebasPorDia.onclick = function () {
-        Http.get("PruebaCovid/ListarResultadoPruebasCovidCsv", crearTablaTodosLosResultados);
+        Http.get("PruebaCovid/ListarResultadoPruebasCovidCsv?FK_ID_UnidadGestion=" + fk_id_UnidadGestion, crearTablaTodosLosResultados);
         txtCantidadCasosPositivos.value = 0;
     }
 
@@ -108,7 +110,7 @@ window.onload = function () {
     //}
 
     txtfechaResultados.onchange = function () {
-        Http.get("PruebaCovid/ListarResultadosCovidPorFechaCsv?fechaPrueba=" + txtfechaResultados.value, mostrarResultadosPorFecha);
+        Http.get("PruebaCovid/ListarResultadosCovidPorFechaCsv?fechaPrueba=" + txtfechaResultados.value + "&FK_ID_UnidadGestion=" + fk_id_UnidadGestion, mostrarResultadosPorFecha);
     }
     btnIngresoPruebas.onclick = function () {
         var frm = new FormData();
@@ -117,6 +119,8 @@ window.onload = function () {
         frm.append("cantidadPruebas", txtCantidadPruebas.value);
         frm.append("casosPositivos", txtCantidadCasosPositivos.value);
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
+        frm.append("FK_ID_UnidadGestion", fk_id_UnidadGestion);
+        
         if (validarRequeridos('T')) {
             Http.post("PruebaCovid/RegitroPruebasCovid", MostrarGrabarResultados, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -240,7 +244,7 @@ function mostrarResultadosPorFecha(rpta) {
             document.getElementById('resultadosPruebas').appendChild(c);
         }
     }
-    else toastDangerAlert("Error al obtener resultados por fecha", "¡Error!");
+    else toastDangerAlert("No se realizaron pruebas Covid en esta fecha", "¡Error!");
 }
 
 function consulta(e) {

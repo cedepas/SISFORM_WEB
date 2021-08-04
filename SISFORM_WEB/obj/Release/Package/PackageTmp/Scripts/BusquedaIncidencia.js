@@ -17,6 +17,7 @@ window.onload = function () {
     //Http.get("Trabajador/ObtenerIdTrabajadorPorIdUsuarioCsv?idUsuario=" + window.sessionStorage.getItem('idUsuario'), obtenerIdTrabajador);
 
     btnBuscarIncidencias.onclick = function () {
+        checkSubmit(btnBuscarIncidencias);
         if (filtro) {
             filtro = filtro;
         } else {
@@ -77,6 +78,11 @@ window.onload = function () {
         }
     }
 
+    bntNuevo.onclick = function () {
+        limpiarControles('form-control');
+        location.reload();
+    }
+
 }
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
@@ -85,6 +91,12 @@ function closeAllLists(elmnt) {
             x[i].parentNode.removeChild(x[i]);
         }
     }
+}
+
+function checkSubmit(boton) {
+    boton.value = "Enviando...";
+    boton.disabled = true;
+    return true;
 }
 
 function mostrarCboTipoFiltroIncidencia(rpta) {

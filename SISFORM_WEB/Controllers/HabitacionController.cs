@@ -13,6 +13,10 @@ namespace SISFORM_WEB.Controllers
         {
             return View();
         }
+        public ActionResult OcupacionHospedajes()
+        {
+            return View();
+        }
         public async Task<string> ListarEmpresasHospedajesCsv()
         {
             try
@@ -64,7 +68,12 @@ namespace SISFORM_WEB.Controllers
             var rpta = await servicio.HabitacionOperacionAsync(oHabitacion, oHabitacion.ID_Habitacion == 0 ? "I" : "U");
             return rpta == 0 ? "" : rpta.ToString();
         }
-
+        public async Task<string> EliminarHabitacion(Habitacion oHabitacion, string op)
+        {
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            var rpta = await servicio.HabitacionOperacionAsync(oHabitacion, op);
+            return rpta == 0 ? "" : rpta.ToString();
+        }
         public async Task<string> ListarHabitacionPorIdEmpresaCsv(string idEmpresa)
         {
             try

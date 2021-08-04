@@ -1,4 +1,5 @@
-﻿
+﻿var fechaActual;
+
 window.onload = function () {
     if (!isMobile.any()) {
         //Llenar Combo Zona
@@ -9,21 +10,28 @@ window.onload = function () {
     }
     //Http.get("Trabajador/ListarEmpresaCbo", mostrarEmpresaCbo);
     Http.get("Cheff/ListarTiemposComidaCboCsv", mostrarTiemposComidaCbo);
+    Http.get("Cheff/ListarSeguimientosChefCsv?FK_ID_Usuario=" + window.sessionStorage.getItem('idUsuario'), CrearTablaCsv);
+
+    obtenerfechaActual();
+
     datosEnDuro =
         [
             {
-                'Numeracion': '1'
+                'Negocio Local': 'RIHANNA'
                 , 'Tiempos Comida': 'Desayuno'
-                , 'Tipo Comida' : 'Postre'
+                , 'Fecha Seguimiento': fechaActual
+                , 'Estado Seguimiento':'Ejecutado'
             }
         ]
 }
+
 function mostrarTiemposComidaCbo(rpta) {
     if (rpta) {
         lstCabeceraChef = rpta.split("¯");
         lstTiempoComida = lstCabeceraChef[0].split("|");
         lstTipoComida = lstCabeceraChef[1].split("|");
-        lstCriterioComida = lstCabeceraChef[2].split("|");
+        lstSeguimientoComida = lstCabeceraChef[2].split("|");
+        lstComedores = lstCabeceraChef[3].split("|");
         llenarDatos(datosEnDuro);
     }
 }
@@ -33,15 +41,16 @@ function llenarDatos(llegoDato) {
     configuraciones = {
         data: datosDB,
         colHeaders: [
-            'Numeracion', 'Tiempos Comida', 'Tipo Comida'
+            'Negocio Local', 'Tiempos Comida', 'Fecha Seguimiento', 'Estado Seguimiento'
         ],
         rowHeaders: true,
         licenseKey: 'non-commercial-and-evaluation',
         fillHandle: true,
         columns: [
-            { data: "Numeracion", type: 'numeric' },
+            { data: "Negocio Local", type: 'dropdown', source: lstComedores },
             { data: "Tiempos Comida", type: 'dropdown', source: lstTiempoComida },
-            { data: "Tipo Comida", type: 'dropdown', source: lstTipoComida }
+            { data: "Fecha Seguimiento", type: 'date', dateFormat: 'DD/MM/YYYY' },
+            { data: "Estado Seguimiento", type: 'dropdown', source: lstSeguimientoComida }
         ],
 
         filters: true,
@@ -92,78 +101,130 @@ function llenarDatos(llegoDato) {
         }
     }
 
-    document.getElementById("guardaTrabajadores").addEventListener("click", function (event) {
-        lstTrabajadores = tblExcel.getPlugin("exportFile").exportAsString("csv", { columnDelimiter: '|', rowDelimiter: '¬', });
+    document.getElementById("btnGuardar").addEventListener("click", function (event) {
+        lstSeguimientos = tblExcel.getPlugin("exportFile").exportAsString("csv", { columnDelimiter: '|', rowDelimiter: '¬', });
         console.log(tblExcel.getPlugin("exportFile").exportAsString("csv", { columnDelimiter: '|', rowDelimiter: '¬', }));
         lstFilas = tblExcel.getPlugin("exportFile").exportAsString("csv", { columnDelimiter: '|', rowDelimiter: '¬', }).split('¬');
         errorVacio = 0;
         for (var i = 0; i < lstFilas.length; i++) {
             lstColumnas = lstFilas[i].split('|');
             var textoBusqueda;
-            for (var j = 1; j < lstColumnas.length; j++) {
-                if (j == 1) {
-                    var tiempoComida = 0;
-                    for (var k = 0; k < lstTiempoComida.length; k++) {
-                        textoBusqueda = lstColumnas[j].toLowerCase();
-                        var datoTiempoComida = lstTiempoComida[k].toLowerCase();
-                        if (datoTiempoComida.indexOf(textoBusqueda) !== -1) {
-                            tiempoComida = 1;
+            for (var j = 0; j < lstColumnas.length; j++) {
+                if (lstColumnas[j] == "") {
+                    errorVacio = 1;
+                } else {
+                    if (j == 0) {
+                        var comedor = 0;
+                        for (var k = 0; k < lstComedores.length; k++) {
+                            textoBusqueda = lstColumnas[j].toLowerCase();
+                            var datoComedor = lstComedores[k].toLowerCase();
+                            if (datoComedor.indexOf(textoBusqueda) !== -1) {
+                                comedor = 1;
+                            }
+                        }
+                        //if (comedor == 0) {
+                        //    errorVacio = 2;
+                        //    toastDangerAlert("Dato no valido", "!Error¡");
+                        //}
+                    }
+                    if (j == 1) {
+                        var tiempoComida = 0;
+                        for (var k = 0; k < lstTiempoComida.length; k++) {
+                            textoBusqueda = lstColumnas[j].toLowerCase();
+                            var datoTiempoComida = lstTiempoComida[k].toLowerCase();
+                            if (datoTiempoComida.indexOf(textoBusqueda) !== -1) {
+                                tiempoComida = 1;
+                            }
+                        }
+                        if (tiempoComida == 0) {
+                            errorVacio = 2;
+                            toastDangerAlert("Dato no valido TIEMPO comida", "!Error¡");
                         }
                     }
-                    if (tiempoComida == 0) {
-                        errorVacio = 2;
-                        toastDangerAlert("Dato no valido", "!Error¡");
+                    if (j == 3) {
+                        var estadoSeguimiento = 0;
+                        for (var k = 0; k < lstTiempoComida.length; k++) {
+                            textoBusqueda = lstColumnas[j].toLowerCase();
+                            var datoTiempoComida = lstTiempoComida[k].toLowerCase();
+                            if (datoTiempoComida.indexOf(textoBusqueda) !== -1) {
+                                estadoSeguimiento = 1;
+                            }
+                        }
+                        //if (estadoSeguimiento == 0) {
+                        //    errorVacio = 2;
+                        //    toastDangerAlert("Dato no valido estado", "!Error¡");
+                        //}
                     }
                 }
-                else {
-                    if (lstColumnas[j] == "") {
-                        errorVacio = 2;
-                        var nroColumna, nroFila;
-                        nroColumna = i + 1;
-                        nroFila = j + 1;
-                        Swal.fire({
-                            icon: 'error',
-                            title: '¡Celda Vacia!',
-                            text: 'Columna ' + nroColumna + ' y la fila ' + nroFila + ' No permite datos Vacios',
-                        });
-                    }
-                }
+
             }
         }
         if (errorVacio == 1) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Celda Vacia!',
-                text: 'Existe una celda Vacia! favor de verificar',
-            });
-        }
-        else if (errorVacio == 2) {
-
+            toastDangerAlert("Existe una celda Vacia Favor de Verificar", "¡Aviso!");
         }
         else {
-            var frm = new FormData();
-            frm.append("FK_ID_Empresa", idEmpresa);
-            frm.append("FK_ID_Usuario", idUsuario);
-            frm.append("lstTrabajadores", lstTrabajadores);
-            Swal.fire({
-                title: 'Esta Seguro de Registrar los Trabajadores?',
-                text: "Favor de verificar las celdas de rojo!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, Registrar Trabajadores!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Http.post("Trabajador/RegistroTrabajorExcel", MostrarGrabar, frm)
-                    Swal.fire(
-                        'Procesando',
-                        'Se ha procedido a realizar el Registro.',
-                        'success'
-                    )
-                }
-            });
+            checkSubmit(btnGuardar);
+            Http.get("Cheff/GuardarSeguimiento?FK_ID_Usuario=" + window.sessionStorage.getItem('idUsuario') + "&lstSeguimientos=" + lstSeguimientos, MostrarGrabarSeguimiento);
         }
+        //else {
+        //    var frm = new FormData();
+        //    frm.append("FK_ID_Empresa", idEmpresa);
+        //    frm.append("FK_ID_Usuario", idUsuario);
+        //    frm.append("lstTrabajadores", lstTrabajadores);
+        //    Swal.fire({
+        //        title: 'Esta Seguro de Registrar los Trabajadores?',
+        //        text: "Favor de verificar las celdas de rojo!",
+        //        icon: 'warning',
+        //        showCancelButton: true,
+        //        confirmButtonColor: '#3085d6',
+        //        cancelButtonColor: '#d33',
+        //        confirmButtonText: 'Si, Registrar Trabajadores!'
+        //    }).then((result) => {
+        //        if (result.isConfirmed) {
+        //            Http.post("Trabajador/RegistroTrabajorExcel", MostrarGrabar, frm)
+        //            Swal.fire(
+        //                'Procesando',
+        //                'Se ha procedido a realizar el Registro.',
+        //                'success'
+        //            )
+        //        }
+        //    });
+        //}
         //console.log(tblExcel.getPlugin("exportFile").exportAsString("csv", { columnDelimiter: '|' }));
+        //})
     })
+}
+
+function MostrarGrabarSeguimiento(rpta) {
+    if (rpta) {
+        //btnLimpiardivTabla.dispatchEvent(new Event('click'));
+        toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
+        limpiarControles('form-control');
+        Http.get("Cheff/ListarSeguimientosChefCsv?FK_ID_Usuario=" + window.sessionStorage.getItem('idUsuario'), CrearTablaCsv);
+    }
+    else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
+}
+
+function CrearTablaCsv(rpta) {
+    if (rpta) {
+        var lista = rpta.split('¬');
+        var grilla = new Grilla(lista, "divTabla", 10, 3);
+    }
+}
+function checkSubmit(boton) {
+    boton.value = "Enviando...";
+    boton.disabled = true;
+    return true;
+}
+
+function obtenerfechaActual() {
+    var fecha = new Date();
+    var mes = fecha.getMonth() + 1;
+    var dia = fecha.getDate();
+    var ano = fecha.getFullYear();
+    if (dia < 10)
+        dia = '0' + dia;
+    if (mes < 10)
+        mes = '0' + mes
+    fechaActual = dia + "/" + mes + "/" + ano;
 }

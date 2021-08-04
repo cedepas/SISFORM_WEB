@@ -75,6 +75,9 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -179,6 +182,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AdministracionController.cs" />
+    <Compile Include="Controllers\CartaController.cs" />
     <Compile Include="Controllers\CheffController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HabitacionController.cs" />
@@ -200,6 +204,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Connected Services\ServicioWcf\configuration91.svcinfo" />
     <None Include="Connected Services\ServicioWcf\configuration.svcinfo" />
     <None Include="Connected Services\ServicioWcf\Reference.svcmap">
@@ -221,44 +226,115 @@
     <Content Include="plugins\Handsontable\handsontable.js" />
     <Content Include="plugins\Handsontable\handsontable.min.css" />
     <Content Include="plugins\Handsontable\handsontable.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\all.js" />
-    <Content Include="plugins\Handsontable\lenguages\all.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\de-CH.js" />
-    <Content Include="plugins\Handsontable\lenguages\de-CH.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\de-DE.js" />
-    <Content Include="plugins\Handsontable\lenguages\de-DE.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\en-US.js" />
-    <Content Include="plugins\Handsontable\lenguages\en-US.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\es-MX.js" />
-    <Content Include="plugins\Handsontable\lenguages\es-MX.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\fr-FR.js" />
-    <Content Include="plugins\Handsontable\lenguages\fr-FR.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\it-IT.js" />
-    <Content Include="plugins\Handsontable\lenguages\it-IT.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\ja-JP.js" />
-    <Content Include="plugins\Handsontable\lenguages\ja-JP.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\ko-KR.js" />
-    <Content Include="plugins\Handsontable\lenguages\ko-KR.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\lv-LV.js" />
-    <Content Include="plugins\Handsontable\lenguages\lv-LV.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\nb-NO.js" />
-    <Content Include="plugins\Handsontable\lenguages\nb-NO.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\nl-NL.js" />
-    <Content Include="plugins\Handsontable\lenguages\nl-NL.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\pl-PL.js" />
-    <Content Include="plugins\Handsontable\lenguages\pl-PL.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\pt-BR.js" />
-    <Content Include="plugins\Handsontable\lenguages\pt-BR.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\ru-RU.js" />
-    <Content Include="plugins\Handsontable\lenguages\ru-RU.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\zh-CN.js" />
-    <Content Include="plugins\Handsontable\lenguages\zh-CN.min.js" />
-    <Content Include="plugins\Handsontable\lenguages\zh-TW.js" />
-    <Content Include="plugins\Handsontable\lenguages\zh-TW.min.js" />
+    <Content Include="plugins\Handsontable\languages\all.js" />
+    <Content Include="plugins\Handsontable\languages\all.min.js" />
+    <Content Include="plugins\Handsontable\languages\de-CH.js" />
+    <Content Include="plugins\Handsontable\languages\de-CH.min.js" />
+    <Content Include="plugins\Handsontable\languages\de-DE.js" />
+    <Content Include="plugins\Handsontable\languages\de-DE.min.js" />
+    <Content Include="plugins\Handsontable\languages\en-US.js" />
+    <Content Include="plugins\Handsontable\languages\en-US.min.js" />
+    <Content Include="plugins\Handsontable\languages\es-MX.js" />
+    <Content Include="plugins\Handsontable\languages\es-MX.min.js" />
+    <Content Include="plugins\Handsontable\languages\fr-FR.js" />
+    <Content Include="plugins\Handsontable\languages\fr-FR.min.js" />
+    <Content Include="plugins\Handsontable\languages\it-IT.js" />
+    <Content Include="plugins\Handsontable\languages\it-IT.min.js" />
+    <Content Include="plugins\Handsontable\languages\ja-JP.js" />
+    <Content Include="plugins\Handsontable\languages\ja-JP.min.js" />
+    <Content Include="plugins\Handsontable\languages\ko-KR.js" />
+    <Content Include="plugins\Handsontable\languages\ko-KR.min.js" />
+    <Content Include="plugins\Handsontable\languages\lv-LV.js" />
+    <Content Include="plugins\Handsontable\languages\lv-LV.min.js" />
+    <Content Include="plugins\Handsontable\languages\nb-NO.js" />
+    <Content Include="plugins\Handsontable\languages\nb-NO.min.js" />
+    <Content Include="plugins\Handsontable\languages\nl-NL.js" />
+    <Content Include="plugins\Handsontable\languages\nl-NL.min.js" />
+    <Content Include="plugins\Handsontable\languages\pl-PL.js" />
+    <Content Include="plugins\Handsontable\languages\pl-PL.min.js" />
+    <Content Include="plugins\Handsontable\languages\pt-BR.js" />
+    <Content Include="plugins\Handsontable\languages\pt-BR.min.js" />
+    <Content Include="plugins\Handsontable\languages\ru-RU.js" />
+    <Content Include="plugins\Handsontable\languages\ru-RU.min.js" />
+    <Content Include="plugins\Handsontable\languages\zh-CN.js" />
+    <Content Include="plugins\Handsontable\languages\zh-CN.min.js" />
+    <Content Include="plugins\Handsontable\languages\zh-TW.js" />
+    <Content Include="plugins\Handsontable\languages\zh-TW.min.js" />
     <Content Include="plugins\Handsontable\numbro.js" />
+    <Content Include="plugins\Handsontable\numbro\languages.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\bg.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\cs-CZ.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\da-DK.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\de-AT.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\de-CH.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\de-DE.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\de-LI.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\el.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\en-AU.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\en-GB.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\en-IE.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\en-NZ.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\en-ZA.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\es-AR.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\es-CL.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\es-CO.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\es-CR.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\es-ES.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\es-MX.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\es-NI.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\es-PE.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\es-PR.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\es-SV.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\et-EE.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\fa-IR.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\fi-FI.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\fil-PH.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\fr-CA.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\fr-CH.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\fr-FR.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\he-IL.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\hu-HU.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\id.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\it-CH.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\it-IT.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\ja-JP.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\ko-KR.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\lv-LV.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\nb-NO.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\nb.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\nl-BE.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\nl-NL.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\nn.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\pl-PL.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\pt-BR.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\pt-PT.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\ro-RO.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\ro.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\ru-RU.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\ru-UA.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\sk-SK.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\sl.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\sr-Cyrl-RS.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\sv-SE.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\th-TH.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\tr-TR.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\uk-UA.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\zh-CN.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\zh-MO.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\zh-SG.min.js" />
+    <Content Include="plugins\Handsontable\numbro\languages\zh-TW.min.js" />
+    <Content Include="plugins\Handsontable\numbro\numbro.js" />
+    <Content Include="plugins\html2pdf\html2pdf.js" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\apexcharts.js" />
     <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\buttons.js" />
+    <Content Include="Scripts\ConsultaCartaPreocupacion.js" />
+    <Content Include="Scripts\ConsultaOcupacionHospedajes.js" />
+    <Content Include="Scripts\ConsultaCumplimientoMenu.js" />
     <Content Include="Scripts\ConsultaImplementacion.js" />
     <Content Include="Scripts\ConsultaCapacitacion.js" />
     <Content Include="Scripts\ConsultaCheckList.js" />
@@ -268,8 +344,11 @@
     <Content Include="Scripts\ConsultaInspecciones.js" />
     <Content Include="Scripts\ConsultaStakeholders.js" />
     <Content Include="Scripts\ConsultaTrabajadorMasivo.js" />
+    <Content Include="Scripts\ConsultaDirectorioECM.js" />
+    <Content Include="Scripts\Cosulta_VPCartaPre.js" />
     <Content Include="Scripts\SeguimientoIncidencia.js" />
     <Content Include="Styles\apexcharts.css" />
+    <Content Include="Styles\cartaPreocupacion.css" />
     <Content Include="Styles\chartist.min.css" />
     <Content Include="Scripts\chartist.min.js" />
     <Content Include="Scripts\ConsultaCovid.js" />
@@ -294,6 +373,7 @@
     <Content Include="Styles\halfmoon-highlight-js-theme.css" />
     <Content Include="Styles\halfmoon.css" />
     <Content Include="Styles\halfmoon.min.css" />
+    <Content Include="Styles\normalize.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -370,8 +450,9 @@
     <None Include="Connected Services\ServicioWcf\Servicio35.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="plugins\Handsontable\numbro\LICENSE" />
+    <Content Include="plugins\Handsontable\numbro\LICENSE-Numeraljs" />
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\PruebaCovid\ProgramacionPruebaCovid.cshtml" />
     <Content Include="Views\Reporte\Consulta.cshtml" />
     <Content Include="Views\PruebaCovid\PruebaCovid.cshtml" />
@@ -386,11 +467,16 @@
     <Content Include="Views\SeguimientoNegocios\Inspecciones.cshtml" />
     <Content Include="Views\SeguimientoNegocios\CheckList.cshtml" />
     <Content Include="Views\SeguimientoNegocios\Capacitacion.cshtml" />
-    <Content Include="Views\Cheff\Evaluacion.cshtml" />
+    <Content Include="Views\Cheff\Seguimiento.cshtml" />
     <Content Include="Views\Incidencia\SeguimientoIncidencia.cshtml" />
     <Content Include="Views\Stakeholder\Stakeholders.cshtml" />
     <Content Include="Views\Habitacion\Operacion.cshtml" />
     <Content Include="Views\Cheff\Implementacion.cshtml" />
+    <Content Include="Views\Empresa\Directorio.cshtml" />
+    <Content Include="Views\Cheff\CumplimientoMenu.cshtml" />
+    <Content Include="Views\Habitacion\OcupacionHospedajes.cshtml" />
+    <Content Include="Views\Carta\CartaPreocupacion.cshtml" />
+    <Content Include="Views\Carta\_CartaPreocupacionPV.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -429,18 +515,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54945</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/SISFORM_WEB</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost/SISFORM_WEB</IISAppRootUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

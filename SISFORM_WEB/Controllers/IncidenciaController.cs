@@ -35,6 +35,12 @@ namespace SISFORM_WEB.Controllers
             ViewBag.Title = "SeguimientoIncidencia";
             return View();
         }
+
+        public ActionResult CartaPreocupacion()
+        {
+            ViewBag.Title = "CartaPreocupacion";
+            return View();
+        }
         public async Task<string> ListarTipoEventoCsv()
         {
             try
@@ -214,6 +220,22 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarIncidenciasAbiertasECMCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarIncidenciasAbiertasECMCsvAsync();
+                return rpta;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         public async Task<string> ObtenerIncidenciaPorIdCsv(string idIncidencia)
         {
             try
@@ -411,6 +433,7 @@ namespace SISFORM_WEB.Controllers
             oSolucion.FK_ID_TrabajadorSoluciona = oimgencito.FK_ID_TrabajadorSoluciona;
             oSolucion.detalleSolucion = oimgencito.detalleSolucion;
             oSolucion.imagen = nombreImagen;
+            oSolucion.ExtencionImagen = tipodeImagen;
 
             string rpta = "";
             rpta = await RegistrarSolucion(oSolucion);
@@ -454,35 +477,43 @@ namespace SISFORM_WEB.Controllers
         }
         public async Task<string> IncidenciaImagen(imgencito oimgencito)
         {
-            string imagen = oimgencito.cabeseraImg + oimgencito.imagen;
-            string tipodeImagen = oimgencito.tipoimagen.Substring(6, 3);
-            string fecha = DateTime.Now.ToString("yyyyMMdd");
-            string nombreImagen = oimgencito.ID_Incidencia.ToString() + '-' + '1' + '-' + oimgencito.FK_ID_TrabajadorSoluciona.ToString() + '-' + fecha;
-            Image img;
-            img = Base64ToImage(oimgencito.imagen);
-            byte[] bytes = CopyImageToByteArray(img);
-            String keys = CloudConfigurationManager.GetSetting("ConexionStoreAzure");
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(keys);
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference("imagenesincidenai");
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(nombreImagen + "." + tipodeImagen);
-            blockBlob.UploadFromByteArray(bytes, 0, bytes.Length);
+            try
+            {
+                string imagen = oimgencito.cabeseraImg + oimgencito.imagen;
+                string tipodeImagen = oimgencito.tipoimagen.Substring(6, 3);
+                string fecha = DateTime.Now.ToString("yyyyMMdd");
+                string nombreImagen = oimgencito.ID_Incidencia.ToString() + '-' + '1' + '-' + oimgencito.FK_ID_TrabajadorSoluciona.ToString() + '-' + fecha;
+                Image img;
+                img = Base64ToImage(oimgencito.imagen);
+                byte[] bytes = CopyImageToByteArray(img);
+                String keys = CloudConfigurationManager.GetSetting("ConexionStoreAzure");
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(keys);
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference("imagenesincidenai");
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(nombreImagen + "." + tipodeImagen);
+                blockBlob.UploadFromByteArray(bytes, 0, bytes.Length);
 
 
-            Imagen oImagen = new Imagen();
-            oImagen.FK_ID_Incidencia = oimgencito.ID_Incidencia;
-            oImagen.imagen = nombreImagen;
-            oImagen.FK_ID_TipoImagen = 1;
-            oImagen.FK_ID_SolucionIncidencia = 0;
-            oImagen.ID_ImagenIncidencia = 0;
+                Imagen oImagen = new Imagen();
+                oImagen.FK_ID_Incidencia = oimgencito.ID_Incidencia;
+                oImagen.imagen = nombreImagen;
+                oImagen.FK_ID_TipoImagen = 1;
+                oImagen.FK_ID_SolucionIncidencia = 0;
+                oImagen.ID_ImagenIncidencia = 0;
+                oImagen.ExtencionImagen = tipodeImagen;
 
-            int rpta = 0;
-            string op = "";
-            op = "I";
-            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-            rpta = await servicio.IncidenciaImagenAsync(oImagen, op);
+                int rpta = 0;
+                string op = "";
+                op = "I";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.IncidenciaImagenAsync(oImagen, op);
 
-            return rpta.ToString();
+                return rpta.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         public async Task<string> GrabarIncidencia(Incidencia oIncidencia)
         {

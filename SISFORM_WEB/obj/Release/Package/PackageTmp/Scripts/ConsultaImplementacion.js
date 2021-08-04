@@ -43,6 +43,9 @@ window.onload = function () {
             lstTrabajadoresImplementacion = lstTrabajadoresImplementacion.substring(0, lstTrabajadoresImplementacion.length - 1);
         }
         var frm = new FormData();
+        if (idTemaImplementacion === undefined) {
+            toastDangerAlert("Digite y Seleccione el Tema de  Implementación*", "¡Aviso!");
+        }
         frm.append("FK_ID_Empresa", idEmpresa);
         frm.append("Id_usuario", idUsuario);
         frm.append("FechaImplementacion", txtFechaImplementacion.value);

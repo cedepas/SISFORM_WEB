@@ -17,11 +17,12 @@ var textoBusquedaTrabajador;
 var idRepresentante;
 
 var idEmpresa;
+var detalleEmpresaUI;
 
 window.onload = function () {
     Http.get("Empresa/ListarTipoEstadoRegimenUnidadGestionEmpresaCboCsv", mostrarTipoEmpresaCbo);
     Http.get("Incidencia/ListarTrabajadorBusquedaCsv", CrearListaCsvAllEmpresas);
-
+    Http.get("Empresa/ListarDetallesEmpresasHospedajesCboCsv", mostrarDetallesEmpresasCbo);
     if (!isMobile.any()) {
         Http.get("Empresa/ListarEmpresa", CrearTablaCsv);
 
@@ -52,6 +53,54 @@ window.onload = function () {
         if (validarRequeridos('E')) {
             Http.post("Empresa/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+    }
+
+    btnDetallesNG.onclick = function () {
+        Http.get("Empresa/ObtenerDetallesEmpresaHospedajesPorIdCsv?FK_ID_Empresa=" + idEmpresa, function (rpta) {
+            if (rpta) {
+                detalleEmpresaUI = 'U';
+                var campos = rpta.split('|');
+                lblNombreEmpresa.value = campos[0];
+                cboTipoEmpresaHospedaje.value = campos[1];
+                cboSistemaAguaCaliente.value = campos[2];
+                cboMaterialEdificacion.value = campos[3];
+                txtNumeroBaños.value = campos[4];
+                cboZonaEmpresa.value = campos[5];
+                txtNumeroPisos.value = campos[6];
+                cboSistemaElectrico.value = campos[7];
+                cboCondicionActual.value = campos[8];
+                cboAntiguedadEmpresa.value = campos[9];
+                //btnModalSuceso.style.display = "inline-block";
+                //btnNuevoSuceso.style.visibility = "hidden";
+                //btnGuardar.value = "Guardar";
+            } else {
+                detalleEmpresaUI = 'I';
+                toastDangerAlert("La empresa no Registro Detalles", "¡Aviso!");
+            }
+        });
+    }
+
+    btnGuardarDetalles.onclick = function () {
+        if (cboTipoEmpresa.value == 3) {
+            var frm = new FormData();
+            frm.append("FK_ID_empresa", idEmpresa);
+            frm.append("FK_ID_SistemaAguaCaliente", cboSistemaAguaCaliente.value);
+            frm.append("FK_ID_materialEdificacion", cboMaterialEdificacion.value);
+            frm.append("numeroBañosCompartidos", txtNumeroBaños.value);
+            frm.append("FK_ID_zonaEmpresa", cboZonaEmpresa.value);
+            frm.append("numeroPisosHabitables", txtNumeroPisos.value);
+            frm.append("numeroBañosCompartidos", txtNumeroBaños.value);
+            frm.append("FK_ID_TipoSistemaElectrico", cboSistemaElectrico.value);
+            frm.append("FK_ID_Condicion", cboCondicionActual.value);
+            frm.append("FK_ID_AntiguedadEmpresa", cboAntiguedadEmpresa.value);
+            frm.append("FK_ID_Usuario_Crea", window.sessionStorage.getItem('idUsuario'));
+            frm.append("FK_ID_tipoEmpresaHospedaje", cboTipoEmpresaHospedaje.value);
+            
+            if (validarRequeridos('DT')) {
+                Http.post("Empresa/GrabarDetalleEmpresasHospedajes?op=" + detalleEmpresaUI, MostrarGrabarDetallesEmpresa, frm);
+            } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+        }
+        else toastDangerAlert("La Empresa no es un Hospedaje*", "¡Aviso!");
     }
 
     btnObservacion.onclick = function () {
@@ -167,6 +216,13 @@ function closeAllListsAllEmpresas(elmnt) {
     }
 }
 
+function MostrarGrabarDetallesEmpresa(rpta) {
+    if (rpta) {
+        toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
+    }
+    else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
+}
+
 function mostrarTipoEmpresaCbo(rpta) {
     if (rpta) {
         lstCombos = rpta.split('¯');
@@ -214,6 +270,27 @@ function mostrarTipoEmpresaCbo(rpta) {
         CrearCombo(lstCboPlano, cboEstrituraPublica, "Seleccione");
         CrearCombo(lstCboPlano, cboCroquisUbicacion, "Seleccione");
     }
+}
+
+function mostrarDetallesEmpresasCbo(rpta) {
+    if (rpta) {
+        lstCombos = rpta.split('¯');
+        lstSistemaAguaCaliente = lstCombos[0].split("¬");
+        CrearCombo(lstSistemaAguaCaliente, cboSistemaAguaCaliente, "Seleccione");
+        lstMaterialEdificacion = lstCombos[1].split("¬");
+        CrearCombo(lstMaterialEdificacion, cboMaterialEdificacion, "Seleccione");
+        lstZonaEmpresa = lstCombos[2].split("¬");
+        CrearCombo(lstZonaEmpresa, cboZonaEmpresa, "Seleccione");
+        lstSistemaElectrico = lstCombos[3].split("¬");
+        CrearCombo(lstSistemaElectrico, cboSistemaElectrico, "Seleccione");
+        lstCondicionActual = lstCombos[4].split("¬");
+        CrearCombo(lstCondicionActual, cboCondicionActual, "Seleccione");
+        lstAntiguedadEmpresa = lstCombos[5].split("¬");
+        CrearCombo(lstAntiguedadEmpresa, cboAntiguedadEmpresa, "Seleccione");
+        lstTipoEmpresaHospedaje = lstCombos[6].split("¬");
+        CrearCombo(lstTipoEmpresaHospedaje, cboTipoEmpresaHospedaje, "Seleccione");
+    }
+    else toastDangerAlert("No se pudo Cargar Detalles de Empresas", "¡Error!");
 }
 
 function MostrarGrabar(rpta) {
@@ -307,6 +384,7 @@ function AsignarCampos(rpta) {
         btnModalSal.style.visibility = "visible";
         btnModalDef.style.visibility = "visible";
         btnNuevo.style.visibility = "visible";
+        btnDetallesNG.style.visibility = "visible";
         var listas = rpta.split('¯');
         var campos = [];
         if (listas[0]) {

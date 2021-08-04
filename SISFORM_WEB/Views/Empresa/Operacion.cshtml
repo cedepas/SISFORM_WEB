@@ -3,54 +3,70 @@
 }
 <!-- Modals start -->
 @section modals{
-    <div class="modal modal-full ie-scroll-fix" id="#detalles-modal" tabindex="-1" role="dialog">
+    <div class="modal modal-full ie-scroll-fix" id="detalles-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <div class="modal-content w-lg-auto">
+            <div class="modal-content w-lg-three-quarter">
                 <a href="#" class="close" role="button" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </a>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 offset-sm-1">
-                            <h5 class="modal-title">Registro de Detalles de Negocio Local</h5>
+                            <h5 class="modal-title">Registro Detalles de Negocios Locales (Hospedajes)</h5>
                             <div class="form-row">
                                 <div class="col-sm">
-                                    <label for="txtIdProgreso">Codigo</label>
-                                    <input type="text" class="form-control form-control-sm O" id="txtIdProgreso" placeholder="Codigo" readonly="readonly">
+                                    <label for="lblNombreEmpresa">Nombre Empresa</label>
+                                    <input type="text" class="form-control form-control-sm DT" id="lblNombreEmpresa" placeholder="Codigo" readonly="readonly">
                                 </div>
                                 <div class="col-sm">
-                                    <label for="txtObservaciones" class="required">Observacion</label>
-                                    <input type="text" class="form-control form-control-sm O" id="txtObservaciones" placeholder="Codigo" required="required">
+                                    <label for="cboTipoEmpresaHospedaje" class="required">Tipo de Empresa - Hospedaje</label>
+                                    <select class="form-control form-control-sm DT" id="cboTipoEmpresaHospedaje" required="required"></select>
                                 </div>
                                 <div class="col-sm">
-                                    <label for="txtFechaVisita" class="required">Fecha de visita</label>
-                                    <input type="date" class="form-control form-control-sm O" id="txtFechaVisita" required="required" />
+                                    <label for="cboSistemaAguaCaliente" class="required">Sistema de Agua Caliente</label>
+                                    <select class="form-control form-control-sm DT" id="cboSistemaAguaCaliente" required="required"></select>
                                 </div>
                                 <div class="col-sm">
-                                    <label for="txtEstadoObs" class="required">Estado Obs</label>
-                                    <div class="custom-control">
-                                        <div class="custom-switch">
-                                            <input type="checkbox" id="txtEstadoObs" checked>
-                                            <label for="txtEstadoObs">Estado Obs</label>
-                                        </div>
-                                    </div>
+                                    <label for="cboMaterialEdificacion" class="required">Material de Edificación</label>
+                                    <select class="form-control form-control-sm DT" id="cboMaterialEdificacion" required="required"></select>
                                 </div>
                             </div>
-
+                            <div class="form-row">
+                                <div class="col-sm">
+                                    <label for="txtNumeroBaños" class="required">Número de Baños Obrero</label>
+                                    <input type="number" class="form-control form-control-sm DT" id="txtNumeroBaños" placeholder="Número de Baños">
+                                </div>
+                                <div class="col-sm">
+                                    <label for="cboZonaEmpresa" class="required">Zona Empresa</label>
+                                    <select class="form-control form-control-sm DT" id="cboZonaEmpresa" required="required"></select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="txtNumeroPisos" class="required">Número de Pisos</label>
+                                    <input type="number" class="form-control form-control-sm DT" id="txtNumeroPisos" placeholder="Número de Pisos">
+                                </div>
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="col-sm">
+                                    <label for="cboSistemaElectrico" class="required">Sistema Electrico</label>
+                                    <select class="form-control form-control-sm DT" id="cboSistemaElectrico" required="required"></select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="cboCondicionActual" class="required">Condición Actual</label>
+                                    <select class="form-control form-control-sm DT" id="cboCondicionActual" required="required"></select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="cboAntiguedadEmpresa" class="required">Antiguedad de la Empresa</label>
+                                    <select class="form-control form-control-sm DT" id="cboAntiguedadEmpresa" required="required"></select>
+                                </div>
+                            </div>
                             <div class="text-right">
                                 <input class="btn btn-success" type="button" id="btnGuardarDetalles" value="Guardar">
                             </div>
                         </div>
                     </div>
                     <hr class="mb-10" />
-                    <div class="row">
-                        <div class="card p-0 bg-very-dark-dm">
-                            <div id="divTablaObs" class="table-responsive">
-                                <table id="tablaDatos" class="table table-inner-bordered">
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -75,6 +91,7 @@
                                     <label for="txtObservaciones" class="required">Observacion</label>
                                     <input type="text" class="form-control form-control-sm O" id="txtObservaciones" placeholder="Codigo" required="required">
                                 </div>
+                                
                                 <div class="col-sm">
                                     <label for="txtFechaVisita" class="required">Fecha de visita</label>
                                     <input type="date" class="form-control form-control-sm O" id="txtFechaVisita" required="required" />
@@ -403,7 +420,7 @@
 
     <div class="text-right">
         <input class="btn btn-primary" id="btnNuevo" type="button" value="Nuevo" style="visibility:hidden">
-        <a href="#detalles-modal" class="btn btn-secondary" id="btnDetallesNG" role="button" data-toggle="tooltip" data-title="Detalles de Negocios Locales" style="visibility:hidden">Negocios Locales</a>
+        <a href="#detalles-modal" class="btn btn-secondary" id="btnDetallesNG" role="button" data-toggle="tooltip" data-title="Detalles Hospedajes" style="visibility:hidden">Detalles Hospedajes</a>
         <a href="#observacion-modal" class="btn btn-secondary" id="btnModalObs" role="button" style="visibility:hidden">Observaciones</a>
         <a href="#licencia-modal" class="btn btn-secondary" id="btnModalLic" role="button" data-toggle="tooltip" data-title="Licencia de funcionamiento" style="visibility:hidden">Criterio 1</a>
         <a href="#salud-modal" class="btn btn-secondary" id="btnModalSal" role="button" data-toggle="tooltip" data-title="Certificado de salud ambiental" style="visibility:hidden">Criterio 2</a>
