@@ -207,8 +207,11 @@ function obtenerRegistroPorId(id) {
 }
 
 function CrearTablaCsvSucesos(rpta) {
-    lstSucesosStakeholder = rpta.split('¬');
+    campos = rpta.split('¯');
+    lstSucesosStakeholder = campos[0].split('¬');
     new GrillaModal(lstSucesosStakeholder, "divTablaSucesos", 10, 3);
+    lstCboEmpresasStakeHolder = campos[1].split('¬');
+    CrearCombo(lstCboEmpresasStakeHolder, cboNNLL, "Seleccione");
 }
 
 function MostrarGrabarStakeholder(rpta) {

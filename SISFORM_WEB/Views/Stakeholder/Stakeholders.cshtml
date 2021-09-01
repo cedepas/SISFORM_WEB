@@ -8,8 +8,12 @@
                 </a>
                 <div class="form-row">
                     <div class="col-sm">
-                        <label class="required">ECM</label>
+                        <label for="cboECM" class="required">ECM</label>
                         <select class="form-control form-control-sm SE" id="cboECM" required></select>
+                    </div>
+                    <div class="col-sm">
+                        <label for="cboNNLL"class="required">NNLL</label>
+                        <select class="form-control form-control-sm SE" id="cboNNLL" required></select>
                     </div>
                     <div class="col-sm">
                         <label class="required">Estado Suceso</label>
@@ -29,19 +33,32 @@
                         <label class="required">Acciones inmediatas</label>
                         <textarea id="txtAccionesSuceso" class="form-control SE" rows=10 cols=50 maxlength=500 required></textarea>
                     </div>
+                    <div class="col-sm">
+                        <label class="required">Compromiso de Propietario</label>
+                        <textarea id="txtCompromisoPropietario" class="form-control SE" rows=10 cols=50 maxlength=500 required></textarea>
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="col-sm">
                         <label class="required">Fecha Reporte</label>
-                        <input type="date" class="form-control form-control-sm SE" id="txtFechaReporte" required/>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaReporte" required />
                     </div>
                     <div class="col-sm">
                         <label>Fecha Inicio de Acciones</label>
-                        <input type="date" class="form-control form-control-sm SE" id="txtFechaInicio"/>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaInicio" />
                     </div>
                     <div class="col-sm">
                         <label>Fecha Cierre</label>
-                        <input type="date" class="form-control form-control-sm SE" id="txtFechaCierre"/>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaCierre" />
+                    </div>
+                    <div class="col-sm">
+                        <label for="txtAceptaQueja" class="required">Propietario Acepta Queja</label>
+                        <div class="custom-control">
+                            <div class="custom-switch">
+                                <input type="checkbox" id="txtAceptaQueja" checked>
+                                <label for="txtAceptaQueja">Estado</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm">

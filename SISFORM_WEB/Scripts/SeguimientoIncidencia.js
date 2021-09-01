@@ -7,6 +7,7 @@ var TipoDato;
 var fechaSeguimiento;
 var ids = [];
 var colId = 0;
+var matriz2 = [];
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -46,23 +47,22 @@ window.onload = function () {
                 data += ids[i];
                 data += '|';
             }
-            if (validarRequeridos('E')) {
-                var fecha = txtFechaPrueba.value;
-                data = data.substring(0, data.length - 1);
-                data = fecha + '_' + data;
-                var frm = new FormData();
-                frm.append("ID_Incidencia", idIncidente);
-                frm.append("fechaSeguimientoIncidencia", txtFechaSeguimientoECM.value);
-                frm.append("detalleSeguimientoIncidencia", txtSeguimientoECM.value);
-
-                if (validarRequeridos('E')) {
-                    checkSubmit(btnGrabarSeguimiento);
-                    Http.post("Incidencia/ListarIncidenciaParaSolucionCsv", MostrarGrabarSeguimiento, frm);
-                } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+            //var fecha = txtFechaPrueba.value;
+            data = data.substring(0, data.length - 1);
+            //data = fecha + '_' + data;
+            var frm = new FormData();
+            frm.append("lstIncidencias", data);
+            frm.append("fechaSeguimiento", txtFechaSeguimientoECM.value);
+            frm.append("detalleSeguimiento", txtSeguimientoECM.value);
+            frm.append("FK_ID_Usuario", window.sessionStorage.getItem('idUsuario'));
+            if (validarRequeridos('F')) {
+                checkSubmit(btnSeguimientoECM);
+                Http.post("Incidencia/SeguimientoIncidenciasECM", MostrarGrabarSeguimiento, frm);
+            } else {
+                toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+                data = "";
             }
         } else toastDangerAlert("No selecciono ningun trabajador", "¡Aviso!");
-
-        
     }
 }
 
@@ -106,6 +106,13 @@ function MostrarGrabarSeguimiento(rpta) {
     }
 
 }
+function MostrarGrabarSeguimientoECM(rpta) {
+    if (rpta) {
+        toastSuccessAlert("El registro del seguimiento se registró correctamente", "¡Exito!");
+        Http.get("Incidencia/ListarIncidenciaParaSolucionCsv", CrearTablaCsv);
+    }
+    else toastDangerAlert("Ocurrio un error en el registro!", "¡Aviso!");
+}
 
 function CrearTablaCsv(rpta) {
     if (rpta) {
@@ -132,7 +139,7 @@ function CrearTablaCsvECM(rpta) {
 }
 
 function Grilla2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
-    var matriz = [];
+    //var matriz2 = [];
 
     var indicePagina = 0;
     if (registrosPagina == null) registrosPagina = 20;
@@ -180,7 +187,6 @@ function Grilla2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
     }
 
     function crearMatriz() {
-        matriz = [];
         var campos = [];
         var nRegistros = lista.length;
         var nCampos = lista[0].split('|').length;
@@ -219,32 +225,32 @@ function Grilla2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
                         else fila.push(+campos[j]);
                     }
                 }
-                matriz.push(fila);
+                matriz2.push(fila);
             }
         }
     }
 
     function mostrarMatriz() {
         var html = "";
-        var nRegistros = matriz.length;
+        var nRegistros = matriz2.length;
 
         if (nRegistros > 0) {
-            var ncampos = matriz[0].length;
+            var ncampos = matriz2[0].length;
             var inicio = indicePagina * registrosPagina;
             var fin = inicio + registrosPagina;
             var seleccionada = false;
 
             for (var i = inicio; i < fin; i++) {
                 if (i < nRegistros) {
-                    seleccionada = (ids.indexOf(matriz[i][0]) > -1);
+                    seleccionada = (ids.indexOf(matriz2[i][0]) > -1);
                     html += "<tr ";
-                    if (matriz[i][5] > 7) {
+                    if (matriz2[i][5] > 7) {
                         html += "class='table-danger'";
-                    } else if (matriz[i][5] >= 4 & matriz[i][5] <= 7) {
+                    } else if (matriz2[i][5] >= 4 & matriz2[i][5] <= 7) {
                         html += "class='table-secondary'";
-                    } else if (matriz[i][5] >= 0 & matriz[i][5] <= 3) {
+                    } else if (matriz2[i][5] >= 0 & matriz2[i][5] <= 3) {
                         html += "class='table-success'";
-                    } else if (matriz[i][5] < 0) {
+                    } else if (matriz2[i][5] < 0) {
                         html += "class='table-primary'";
                     }
 
@@ -252,12 +258,12 @@ function Grilla2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
                     html += "<td><input class='check' type='checkbox' ";
                     html += (seleccionada ? 'checked ' : '');
                     html += "onclick='seleccionar(this,";
-                    html += matriz[i][colId];
+                    html += matriz2[i][colId];
                     html += ");'/></td>";
 
                     for (var j = 0; j < ncampos; j++) {
                         html += "<td>";
-                        html += matriz[i][j];
+                        html += matriz2[i][j];
                         html += "</td>";
                     }
                     html += "</tr>";
@@ -305,7 +311,7 @@ function Grilla2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
 
     function crearPaginacion() {
         var contenido = "";
-        var nRegistros = matriz.length;
+        var nRegistros = matriz2.length;
         var indiceUltimaPagina = Math.floor(nRegistros / registrosPagina);
         if (nRegistros % registrosPagina == 0) indiceUltimaPagina--;
         var registrosBloque = Math.floor(registrosPagina * paginasBloque);
@@ -355,7 +361,7 @@ function Grilla2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
     function paginar(indice) {
         if (indice > -1) indicePagina = indice;
         else {
-            var nRegistros = matriz.length;
+            var nRegistros = matriz2.length;
             var indiceUltimaPagina = Math.floor(nRegistros / registrosPagina);
             if (nRegistros % registrosPagina == 0) indiceUltimaPagina--;
             var registrosBloque = Math.floor(registrosPagina * paginasBloque);
@@ -433,9 +439,9 @@ function selecionarTodo(checkCabecera) {
     }
     ids = [];
     if (seleccion) {
-        var n = matriz.length;
+        var n = matriz2.length;
         for (var i = 0; i < n; i++) {
-            ids.push(matriz[i][0]);
+            ids.push(matriz2[i][0]);
         }
     }
 }

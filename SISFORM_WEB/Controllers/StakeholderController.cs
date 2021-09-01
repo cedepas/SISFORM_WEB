@@ -115,10 +115,10 @@ namespace SISFORM_WEB.Controllers
             return rpta == 0 ? "" : rpta.ToString();
         }
 
-        public async Task<string> GrabarStakeholderSuceso(StakeholderSuceso oStakeholderSuceso)
+        public async Task<string> GrabarStakeholderSuceso(QuejasECM_NNLL oQuejasECM_NNLL)
         {
             ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
-            var rpta = await servicio.StakeholderSucesoOperacionAsync(oStakeholderSuceso, oStakeholderSuceso.ID_StakeholderSuceso == 0 ? "I" : "U");
+            var rpta = await servicio.QuejasECM_NNLLOperacionAsync(oQuejasECM_NNLL, oQuejasECM_NNLL.ID_QuejasECM_NNLL == 0 ? "I" : "U");
             return rpta == 0 ? "" : rpta.ToString();
         }
 

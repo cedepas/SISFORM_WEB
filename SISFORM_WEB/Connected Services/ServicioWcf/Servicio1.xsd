@@ -52,6 +52,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CheckList" nillable="true" type="tns:CheckList" />
+  <xs:complexType name="DeudaNNLL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EstadoOrdenServicioECM" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_ECM" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_NNLL" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
+      <xs:element minOccurs="0" name="añoDeuda" type="xs:int" />
+      <xs:element minOccurs="0" name="estadoFacturacion" type="xs:int" />
+      <xs:element minOccurs="0" name="estadoPago" type="xs:int" />
+      <xs:element minOccurs="0" name="estadoValorizacion" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaFacturacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaOrdenServicioECM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaPago" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaValorizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id_deudaNNLL" type="xs:int" />
+      <xs:element minOccurs="0" name="mes" type="xs:int" />
+      <xs:element minOccurs="0" name="montoValorizacion" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeudaNNLL" nillable="true" type="tns:DeudaNNLL" />
   <xs:complexType name="Capacitacion">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
@@ -104,6 +124,25 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="StakeholderSuceso" nillable="true" type="tns:StakeholderSuceso" />
+  <xs:complexType name="QuejasECM_NNLL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AceptacionQueda" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EmpresaECM" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EmpresaNNLL" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EstadoSuceso" type="xs:short" />
+      <xs:element minOccurs="0" name="FK_ID_Stakeholder" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TipoSuceso" type="xs:short" />
+      <xs:element minOccurs="0" name="FK_ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_QuejasECM_NNLL" type="xs:int" />
+      <xs:element minOccurs="0" name="accionesSuceso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="detalleCompromiso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="detalleSuceso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaCierre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaReporte" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuejasECM_NNLL" nillable="true" type="tns:QuejasECM_NNLL" />
   <xs:complexType name="Habitacion">
     <xs:sequence>
       <xs:element minOccurs="0" name="EstadoRAH" type="xs:boolean" />
@@ -118,6 +157,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Habitacion" nillable="true" type="tns:Habitacion" />
+  <xs:complexType name="CartaPreocupacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_EmpresaECM" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
+      <xs:element minOccurs="0" name="correlativoCarta" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaCarta" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CartaPreocupacion" nillable="true" type="tns:CartaPreocupacion" />
   <xs:complexType name="VistaUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
@@ -431,4 +479,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Imagen" nillable="true" type="tns:Imagen" />
+  <xs:complexType name="SeguimientoIncidenciaECM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="detalleSeguimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaSeguimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lstIncidencias" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SeguimientoIncidenciaECM" nillable="true" type="tns:SeguimientoIncidenciaECM" />
 </xs:schema>

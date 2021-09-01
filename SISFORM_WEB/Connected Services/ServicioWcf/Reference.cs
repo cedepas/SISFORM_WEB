@@ -592,6 +592,275 @@ namespace SISFORM_WEB.ServicioWcf {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeudaNNLL", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class DeudaNNLL : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EstadoOrdenServicioECMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_ECMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_NNLLField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_UsuarioCreaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int añoDeudaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int estadoFacturacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int estadoPagoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int estadoValorizacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaFacturacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaOrdenServicioECMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaPagoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaValorizacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int id_deudaNNLLField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int mesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float montoValorizacionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EstadoOrdenServicioECM {
+            get {
+                return this.EstadoOrdenServicioECMField;
+            }
+            set {
+                if ((this.EstadoOrdenServicioECMField.Equals(value) != true)) {
+                    this.EstadoOrdenServicioECMField = value;
+                    this.RaisePropertyChanged("EstadoOrdenServicioECM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_ECM {
+            get {
+                return this.FK_ID_ECMField;
+            }
+            set {
+                if ((this.FK_ID_ECMField.Equals(value) != true)) {
+                    this.FK_ID_ECMField = value;
+                    this.RaisePropertyChanged("FK_ID_ECM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_NNLL {
+            get {
+                return this.FK_ID_NNLLField;
+            }
+            set {
+                if ((this.FK_ID_NNLLField.Equals(value) != true)) {
+                    this.FK_ID_NNLLField = value;
+                    this.RaisePropertyChanged("FK_ID_NNLL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_UsuarioCrea {
+            get {
+                return this.FK_ID_UsuarioCreaField;
+            }
+            set {
+                if ((this.FK_ID_UsuarioCreaField.Equals(value) != true)) {
+                    this.FK_ID_UsuarioCreaField = value;
+                    this.RaisePropertyChanged("FK_ID_UsuarioCrea");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int añoDeuda {
+            get {
+                return this.añoDeudaField;
+            }
+            set {
+                if ((this.añoDeudaField.Equals(value) != true)) {
+                    this.añoDeudaField = value;
+                    this.RaisePropertyChanged("añoDeuda");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int estadoFacturacion {
+            get {
+                return this.estadoFacturacionField;
+            }
+            set {
+                if ((this.estadoFacturacionField.Equals(value) != true)) {
+                    this.estadoFacturacionField = value;
+                    this.RaisePropertyChanged("estadoFacturacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int estadoPago {
+            get {
+                return this.estadoPagoField;
+            }
+            set {
+                if ((this.estadoPagoField.Equals(value) != true)) {
+                    this.estadoPagoField = value;
+                    this.RaisePropertyChanged("estadoPago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int estadoValorizacion {
+            get {
+                return this.estadoValorizacionField;
+            }
+            set {
+                if ((this.estadoValorizacionField.Equals(value) != true)) {
+                    this.estadoValorizacionField = value;
+                    this.RaisePropertyChanged("estadoValorizacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaFacturacion {
+            get {
+                return this.fechaFacturacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaFacturacionField, value) != true)) {
+                    this.fechaFacturacionField = value;
+                    this.RaisePropertyChanged("fechaFacturacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaOrdenServicioECM {
+            get {
+                return this.fechaOrdenServicioECMField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaOrdenServicioECMField, value) != true)) {
+                    this.fechaOrdenServicioECMField = value;
+                    this.RaisePropertyChanged("fechaOrdenServicioECM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaPago {
+            get {
+                return this.fechaPagoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaPagoField, value) != true)) {
+                    this.fechaPagoField = value;
+                    this.RaisePropertyChanged("fechaPago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaValorizacion {
+            get {
+                return this.fechaValorizacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaValorizacionField, value) != true)) {
+                    this.fechaValorizacionField = value;
+                    this.RaisePropertyChanged("fechaValorizacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id_deudaNNLL {
+            get {
+                return this.id_deudaNNLLField;
+            }
+            set {
+                if ((this.id_deudaNNLLField.Equals(value) != true)) {
+                    this.id_deudaNNLLField = value;
+                    this.RaisePropertyChanged("id_deudaNNLL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int mes {
+            get {
+                return this.mesField;
+            }
+            set {
+                if ((this.mesField.Equals(value) != true)) {
+                    this.mesField = value;
+                    this.RaisePropertyChanged("mes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float montoValorizacion {
+            get {
+                return this.montoValorizacionField;
+            }
+            set {
+                if ((this.montoValorizacionField.Equals(value) != true)) {
+                    this.montoValorizacionField = value;
+                    this.RaisePropertyChanged("montoValorizacion");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Capacitacion", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
     [System.SerializableAttribute()]
     public partial class Capacitacion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1220,6 +1489,259 @@ namespace SISFORM_WEB.ServicioWcf {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QuejasECM_NNLL", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class QuejasECM_NNLL : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AceptacionQuedaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaECMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaNNLLField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short FK_ID_EstadoSucesoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_StakeholderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short FK_ID_TipoSucesoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_UsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_QuejasECM_NNLLField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string accionesSucesoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string detalleCompromisoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string detalleSucesoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaCierreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaInicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaReporteField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AceptacionQueda {
+            get {
+                return this.AceptacionQuedaField;
+            }
+            set {
+                if ((this.AceptacionQuedaField.Equals(value) != true)) {
+                    this.AceptacionQuedaField = value;
+                    this.RaisePropertyChanged("AceptacionQueda");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_EmpresaECM {
+            get {
+                return this.FK_ID_EmpresaECMField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaECMField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaECMField = value;
+                    this.RaisePropertyChanged("FK_ID_EmpresaECM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_EmpresaNNLL {
+            get {
+                return this.FK_ID_EmpresaNNLLField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaNNLLField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaNNLLField = value;
+                    this.RaisePropertyChanged("FK_ID_EmpresaNNLL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short FK_ID_EstadoSuceso {
+            get {
+                return this.FK_ID_EstadoSucesoField;
+            }
+            set {
+                if ((this.FK_ID_EstadoSucesoField.Equals(value) != true)) {
+                    this.FK_ID_EstadoSucesoField = value;
+                    this.RaisePropertyChanged("FK_ID_EstadoSuceso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Stakeholder {
+            get {
+                return this.FK_ID_StakeholderField;
+            }
+            set {
+                if ((this.FK_ID_StakeholderField.Equals(value) != true)) {
+                    this.FK_ID_StakeholderField = value;
+                    this.RaisePropertyChanged("FK_ID_Stakeholder");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short FK_ID_TipoSuceso {
+            get {
+                return this.FK_ID_TipoSucesoField;
+            }
+            set {
+                if ((this.FK_ID_TipoSucesoField.Equals(value) != true)) {
+                    this.FK_ID_TipoSucesoField = value;
+                    this.RaisePropertyChanged("FK_ID_TipoSuceso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Usuario {
+            get {
+                return this.FK_ID_UsuarioField;
+            }
+            set {
+                if ((this.FK_ID_UsuarioField.Equals(value) != true)) {
+                    this.FK_ID_UsuarioField = value;
+                    this.RaisePropertyChanged("FK_ID_Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_QuejasECM_NNLL {
+            get {
+                return this.ID_QuejasECM_NNLLField;
+            }
+            set {
+                if ((this.ID_QuejasECM_NNLLField.Equals(value) != true)) {
+                    this.ID_QuejasECM_NNLLField = value;
+                    this.RaisePropertyChanged("ID_QuejasECM_NNLL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string accionesSuceso {
+            get {
+                return this.accionesSucesoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.accionesSucesoField, value) != true)) {
+                    this.accionesSucesoField = value;
+                    this.RaisePropertyChanged("accionesSuceso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string detalleCompromiso {
+            get {
+                return this.detalleCompromisoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.detalleCompromisoField, value) != true)) {
+                    this.detalleCompromisoField = value;
+                    this.RaisePropertyChanged("detalleCompromiso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string detalleSuceso {
+            get {
+                return this.detalleSucesoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.detalleSucesoField, value) != true)) {
+                    this.detalleSucesoField = value;
+                    this.RaisePropertyChanged("detalleSuceso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaCierre {
+            get {
+                return this.fechaCierreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaCierreField, value) != true)) {
+                    this.fechaCierreField = value;
+                    this.RaisePropertyChanged("fechaCierre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaInicio {
+            get {
+                return this.fechaInicioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaInicioField, value) != true)) {
+                    this.fechaInicioField = value;
+                    this.RaisePropertyChanged("fechaInicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaReporte {
+            get {
+                return this.fechaReporteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaReporteField, value) != true)) {
+                    this.fechaReporteField = value;
+                    this.RaisePropertyChanged("fechaReporte");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Habitacion", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
     [System.SerializableAttribute()]
     public partial class Habitacion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1377,6 +1899,99 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((this.numeroTVField.Equals(value) != true)) {
                     this.numeroTVField = value;
                     this.RaisePropertyChanged("numeroTV");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CartaPreocupacion", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class CartaPreocupacion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaECMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_UsuarioCreaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int correlativoCartaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaCartaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_EmpresaECM {
+            get {
+                return this.FK_ID_EmpresaECMField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaECMField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaECMField = value;
+                    this.RaisePropertyChanged("FK_ID_EmpresaECM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_UsuarioCrea {
+            get {
+                return this.FK_ID_UsuarioCreaField;
+            }
+            set {
+                if ((this.FK_ID_UsuarioCreaField.Equals(value) != true)) {
+                    this.FK_ID_UsuarioCreaField = value;
+                    this.RaisePropertyChanged("FK_ID_UsuarioCrea");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int correlativoCarta {
+            get {
+                return this.correlativoCartaField;
+            }
+            set {
+                if ((this.correlativoCartaField.Equals(value) != true)) {
+                    this.correlativoCartaField = value;
+                    this.RaisePropertyChanged("correlativoCarta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaCarta {
+            get {
+                return this.fechaCartaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaCartaField, value) != true)) {
+                    this.fechaCartaField = value;
+                    this.RaisePropertyChanged("fechaCarta");
                 }
             }
         }
@@ -4764,9 +5379,109 @@ namespace SISFORM_WEB.ServicioWcf {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SeguimientoIncidenciaECM", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class SeguimientoIncidenciaECM : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_UsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string detalleSeguimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaSeguimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lstIncidenciasField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Usuario {
+            get {
+                return this.FK_ID_UsuarioField;
+            }
+            set {
+                if ((this.FK_ID_UsuarioField.Equals(value) != true)) {
+                    this.FK_ID_UsuarioField = value;
+                    this.RaisePropertyChanged("FK_ID_Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string detalleSeguimiento {
+            get {
+                return this.detalleSeguimientoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.detalleSeguimientoField, value) != true)) {
+                    this.detalleSeguimientoField = value;
+                    this.RaisePropertyChanged("detalleSeguimiento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaSeguimiento {
+            get {
+                return this.fechaSeguimientoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaSeguimientoField, value) != true)) {
+                    this.fechaSeguimientoField = value;
+                    this.RaisePropertyChanged("fechaSeguimiento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lstIncidencias {
+            get {
+                return this.lstIncidenciasField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lstIncidenciasField, value) != true)) {
+                    this.lstIncidenciasField = value;
+                    this.RaisePropertyChanged("lstIncidencias");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioWcf.IServicio")]
     public interface IServicio {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdParaSolucionCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdParaSolucionCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdParaSolucionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerIncidenciaPorIdParaSolucionCsv(string idIncidencia);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdParaSolucionCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdParaSolucionCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerIncidenciaPorIdParaSolucionCsvAsync(string idIncidencia);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerImagenPorIdIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerImagenPorIdIncidenciaCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerImagenPorIdIncidenciaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -4873,6 +5588,27 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoInspeccionCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoInspeccionCsvResponse")]
         System.Threading.Tasks.Task<string> ListarEstadoInspeccionCsvAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarDuedasNNLLCsv", ReplyAction="http://tempuri.org/IServicio/ListarDuedasNNLLCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarDuedasNNLLCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarDuedasNNLLCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarDuedasNNLLCsv", ReplyAction="http://tempuri.org/IServicio/ListarDuedasNNLLCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarDuedasNNLLCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerDeudaNNLLPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerDeudaNNLLPorIdCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerDeudaNNLLPorIdCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerDeudaNNLLPorIdCsv(int ID_DeudaNNLL);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerDeudaNNLLPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerDeudaNNLLPorIdCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerDeudaNNLLPorIdCsvAsync(int ID_DeudaNNLL);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoCheckListCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoCheckListCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTipoCheckListCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarTipoCheckListCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoCheckListCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoCheckListCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarTipoCheckListCsvAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/InspeccionOperacion", ReplyAction="http://tempuri.org/IServicio/InspeccionOperacionResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/InspeccionOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         int InspeccionOperacion(SISFORM_WEB.ServicioWcf.Inspeccion oInspeccion, string op);
@@ -4886,6 +5622,13 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/CheckListOperacion", ReplyAction="http://tempuri.org/IServicio/CheckListOperacionResponse")]
         System.Threading.Tasks.Task<int> CheckListOperacionAsync(SISFORM_WEB.ServicioWcf.CheckList oCheckList, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/deudasNNLLOperacion", ReplyAction="http://tempuri.org/IServicio/deudasNNLLOperacionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/deudasNNLLOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int deudasNNLLOperacion(SISFORM_WEB.ServicioWcf.DeudaNNLL oDeudaNNLL, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/deudasNNLLOperacion", ReplyAction="http://tempuri.org/IServicio/deudasNNLLOperacionResponse")]
+        System.Threading.Tasks.Task<int> deudasNNLLOperacionAsync(SISFORM_WEB.ServicioWcf.DeudaNNLL oDeudaNNLL, string op);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/CapacitacionOperacion", ReplyAction="http://tempuri.org/IServicio/CapacitacionOperacionResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/CapacitacionOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -4910,10 +5653,10 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsv", ReplyAction="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ListarCantidadPreguntasChecklistCsv(int FK_ID_Empresa, int tipoServicio);
+        string ListarCantidadPreguntasChecklistCsv(int FK_ID_Empresa, int tipoServicio, int tipoCheckList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsv", ReplyAction="http://tempuri.org/IServicio/ListarCantidadPreguntasChecklistCsvResponse")]
-        System.Threading.Tasks.Task<string> ListarCantidadPreguntasChecklistCsvAsync(int FK_ID_Empresa, int tipoServicio);
+        System.Threading.Tasks.Task<string> ListarCantidadPreguntasChecklistCsvAsync(int FK_ID_Empresa, int tipoServicio, int tipoCheckList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarEstadoCapacitacionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -5062,6 +5805,13 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/StakeholderSucesoOperacion", ReplyAction="http://tempuri.org/IServicio/StakeholderSucesoOperacionResponse")]
         System.Threading.Tasks.Task<int> StakeholderSucesoOperacionAsync(SISFORM_WEB.ServicioWcf.StakeholderSuceso oStakeholderSuceso, string op);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/QuejasECM_NNLLOperacion", ReplyAction="http://tempuri.org/IServicio/QuejasECM_NNLLOperacionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/QuejasECM_NNLLOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int QuejasECM_NNLLOperacion(SISFORM_WEB.ServicioWcf.QuejasECM_NNLL oQuejasECM_NNLL, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/QuejasECM_NNLLOperacion", ReplyAction="http://tempuri.org/IServicio/QuejasECM_NNLLOperacionResponse")]
+        System.Threading.Tasks.Task<int> QuejasECM_NNLLOperacionAsync(SISFORM_WEB.ServicioWcf.QuejasECM_NNLL oQuejasECM_NNLL, string op);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerStakeholderSucesoPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerStakeholderSucesoPorIdCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerStakeholderSucesoPorIdCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ObtenerStakeholderSucesoPorIdCsv(string idStakeholderSuceso);
@@ -5154,12 +5904,33 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCumplimientoMenuCsv", ReplyAction="http://tempuri.org/IServicio/ListarCumplimientoMenuCsvResponse")]
         System.Threading.Tasks.Task<string> ListarCumplimientoMenuCsvAsync(int FK_ID_Usuario);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/CartaPreocupacionOperacion", ReplyAction="http://tempuri.org/IServicio/CartaPreocupacionOperacionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/CartaPreocupacionOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int CartaPreocupacionOperacion(SISFORM_WEB.ServicioWcf.CartaPreocupacion oCartaPreocupacion, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/CartaPreocupacionOperacion", ReplyAction="http://tempuri.org/IServicio/CartaPreocupacionOperacionResponse")]
+        System.Threading.Tasks.Task<int> CartaPreocupacionOperacionAsync(SISFORM_WEB.ServicioWcf.CartaPreocupacion oCartaPreocupacion, string op);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarIncidenciasAbiertasPorECMCsv", ReplyAction="http://tempuri.org/IServicio/ListarIncidenciasAbiertasPorECMCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarIncidenciasAbiertasPorECMCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarIncidenciasAbiertasPorECMCsv(int ID_Empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarIncidenciasAbiertasPorECMCsv", ReplyAction="http://tempuri.org/IServicio/ListarIncidenciasAbiertasPorECMCsvResponse")]
         System.Threading.Tasks.Task<string> ListarIncidenciasAbiertasPorECMCsvAsync(int ID_Empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCartasPreocupacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarCartasPreocupacionCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarCartasPreocupacionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarCartasPreocupacionCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCartasPreocupacionCsv", ReplyAction="http://tempuri.org/IServicio/ListarCartasPreocupacionCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarCartasPreocupacionCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObenerterCorrelativoCartaECMCsv", ReplyAction="http://tempuri.org/IServicio/ObenerterCorrelativoCartaECMCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObenerterCorrelativoCartaECMCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObenerterCorrelativoCartaECMCsv(int ID_Empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObenerterCorrelativoCartaECMCsv", ReplyAction="http://tempuri.org/IServicio/ObenerterCorrelativoCartaECMCsvResponse")]
+        System.Threading.Tasks.Task<string> ObenerterCorrelativoCartaECMCsvAsync(int ID_Empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/AutenticarUsuario", ReplyAction="http://tempuri.org/IServicio/AutenticarUsuarioResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/AutenticarUsuarioErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -5342,6 +6113,13 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/IncidenciaImagen", ReplyAction="http://tempuri.org/IServicio/IncidenciaImagenResponse")]
         System.Threading.Tasks.Task<int> IncidenciaImagenAsync(SISFORM_WEB.ServicioWcf.Imagen IncidenciaImagen, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/SeguimientoIncidenciaECM", ReplyAction="http://tempuri.org/IServicio/SeguimientoIncidenciaECMResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/SeguimientoIncidenciaECMErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string SeguimientoIncidenciaECM(SISFORM_WEB.ServicioWcf.SeguimientoIncidenciaECM oSeguimientoIncidenciaECM);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/SeguimientoIncidenciaECM", ReplyAction="http://tempuri.org/IServicio/SeguimientoIncidenciaECMResponse")]
+        System.Threading.Tasks.Task<string> SeguimientoIncidenciaECMAsync(SISFORM_WEB.ServicioWcf.SeguimientoIncidenciaECM oSeguimientoIncidenciaECM);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarUbigeoCsv", ReplyAction="http://tempuri.org/IServicio/ListarUbigeoCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarUbigeoCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -5752,13 +6530,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdCsvResponse")]
         System.Threading.Tasks.Task<string> ObtenerIncidenciaPorIdCsvAsync(string idIncidencia);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdParaSolucionCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdParaSolucionCsvResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdParaSolucionCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ObtenerIncidenciaPorIdParaSolucionCsv(string idIncidencia);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdParaSolucionCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerIncidenciaPorIdParaSolucionCsvResponse")]
-        System.Threading.Tasks.Task<string> ObtenerIncidenciaPorIdParaSolucionCsvAsync(string idIncidencia);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -5786,6 +6557,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public ServicioClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public string ObtenerIncidenciaPorIdParaSolucionCsv(string idIncidencia) {
+            return base.Channel.ObtenerIncidenciaPorIdParaSolucionCsv(idIncidencia);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerIncidenciaPorIdParaSolucionCsvAsync(string idIncidencia) {
+            return base.Channel.ObtenerIncidenciaPorIdParaSolucionCsvAsync(idIncidencia);
         }
         
         public string ObtenerImagenPorIdIncidenciaCsv(string idIncidencia, string idTipoImagen) {
@@ -5908,6 +6687,30 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.ListarEstadoInspeccionCsvAsync();
         }
         
+        public string ListarDuedasNNLLCsv() {
+            return base.Channel.ListarDuedasNNLLCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarDuedasNNLLCsvAsync() {
+            return base.Channel.ListarDuedasNNLLCsvAsync();
+        }
+        
+        public string ObtenerDeudaNNLLPorIdCsv(int ID_DeudaNNLL) {
+            return base.Channel.ObtenerDeudaNNLLPorIdCsv(ID_DeudaNNLL);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerDeudaNNLLPorIdCsvAsync(int ID_DeudaNNLL) {
+            return base.Channel.ObtenerDeudaNNLLPorIdCsvAsync(ID_DeudaNNLL);
+        }
+        
+        public string ListarTipoCheckListCsv() {
+            return base.Channel.ListarTipoCheckListCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarTipoCheckListCsvAsync() {
+            return base.Channel.ListarTipoCheckListCsvAsync();
+        }
+        
         public int InspeccionOperacion(SISFORM_WEB.ServicioWcf.Inspeccion oInspeccion, string op) {
             return base.Channel.InspeccionOperacion(oInspeccion, op);
         }
@@ -5922,6 +6725,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<int> CheckListOperacionAsync(SISFORM_WEB.ServicioWcf.CheckList oCheckList, string op) {
             return base.Channel.CheckListOperacionAsync(oCheckList, op);
+        }
+        
+        public int deudasNNLLOperacion(SISFORM_WEB.ServicioWcf.DeudaNNLL oDeudaNNLL, string op) {
+            return base.Channel.deudasNNLLOperacion(oDeudaNNLL, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> deudasNNLLOperacionAsync(SISFORM_WEB.ServicioWcf.DeudaNNLL oDeudaNNLL, string op) {
+            return base.Channel.deudasNNLLOperacionAsync(oDeudaNNLL, op);
         }
         
         public int CapacitacionOperacion(SISFORM_WEB.ServicioWcf.Capacitacion oCapacitacion, string op) {
@@ -5948,12 +6759,12 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.ListarTipoOperacionEmpresaCsvAsync(tipoEmpresa);
         }
         
-        public string ListarCantidadPreguntasChecklistCsv(int FK_ID_Empresa, int tipoServicio) {
-            return base.Channel.ListarCantidadPreguntasChecklistCsv(FK_ID_Empresa, tipoServicio);
+        public string ListarCantidadPreguntasChecklistCsv(int FK_ID_Empresa, int tipoServicio, int tipoCheckList) {
+            return base.Channel.ListarCantidadPreguntasChecklistCsv(FK_ID_Empresa, tipoServicio, tipoCheckList);
         }
         
-        public System.Threading.Tasks.Task<string> ListarCantidadPreguntasChecklistCsvAsync(int FK_ID_Empresa, int tipoServicio) {
-            return base.Channel.ListarCantidadPreguntasChecklistCsvAsync(FK_ID_Empresa, tipoServicio);
+        public System.Threading.Tasks.Task<string> ListarCantidadPreguntasChecklistCsvAsync(int FK_ID_Empresa, int tipoServicio, int tipoCheckList) {
+            return base.Channel.ListarCantidadPreguntasChecklistCsvAsync(FK_ID_Empresa, tipoServicio, tipoCheckList);
         }
         
         public string ListarEstadoCapacitacionCsv() {
@@ -6124,6 +6935,14 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.StakeholderSucesoOperacionAsync(oStakeholderSuceso, op);
         }
         
+        public int QuejasECM_NNLLOperacion(SISFORM_WEB.ServicioWcf.QuejasECM_NNLL oQuejasECM_NNLL, string op) {
+            return base.Channel.QuejasECM_NNLLOperacion(oQuejasECM_NNLL, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> QuejasECM_NNLLOperacionAsync(SISFORM_WEB.ServicioWcf.QuejasECM_NNLL oQuejasECM_NNLL, string op) {
+            return base.Channel.QuejasECM_NNLLOperacionAsync(oQuejasECM_NNLL, op);
+        }
+        
         public string ObtenerStakeholderSucesoPorIdCsv(string idStakeholderSuceso) {
             return base.Channel.ObtenerStakeholderSucesoPorIdCsv(idStakeholderSuceso);
         }
@@ -6228,12 +7047,36 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.ListarCumplimientoMenuCsvAsync(FK_ID_Usuario);
         }
         
+        public int CartaPreocupacionOperacion(SISFORM_WEB.ServicioWcf.CartaPreocupacion oCartaPreocupacion, string op) {
+            return base.Channel.CartaPreocupacionOperacion(oCartaPreocupacion, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> CartaPreocupacionOperacionAsync(SISFORM_WEB.ServicioWcf.CartaPreocupacion oCartaPreocupacion, string op) {
+            return base.Channel.CartaPreocupacionOperacionAsync(oCartaPreocupacion, op);
+        }
+        
         public string ListarIncidenciasAbiertasPorECMCsv(int ID_Empresa) {
             return base.Channel.ListarIncidenciasAbiertasPorECMCsv(ID_Empresa);
         }
         
         public System.Threading.Tasks.Task<string> ListarIncidenciasAbiertasPorECMCsvAsync(int ID_Empresa) {
             return base.Channel.ListarIncidenciasAbiertasPorECMCsvAsync(ID_Empresa);
+        }
+        
+        public string ListarCartasPreocupacionCsv() {
+            return base.Channel.ListarCartasPreocupacionCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarCartasPreocupacionCsvAsync() {
+            return base.Channel.ListarCartasPreocupacionCsvAsync();
+        }
+        
+        public string ObenerterCorrelativoCartaECMCsv(int ID_Empresa) {
+            return base.Channel.ObenerterCorrelativoCartaECMCsv(ID_Empresa);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObenerterCorrelativoCartaECMCsvAsync(int ID_Empresa) {
+            return base.Channel.ObenerterCorrelativoCartaECMCsvAsync(ID_Empresa);
         }
         
         public SISFORM_WEB.ServicioWcf.VistaUsuario AutenticarUsuario(string usuario, string clave) {
@@ -6442,6 +7285,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<int> IncidenciaImagenAsync(SISFORM_WEB.ServicioWcf.Imagen IncidenciaImagen, string op) {
             return base.Channel.IncidenciaImagenAsync(IncidenciaImagen, op);
+        }
+        
+        public string SeguimientoIncidenciaECM(SISFORM_WEB.ServicioWcf.SeguimientoIncidenciaECM oSeguimientoIncidenciaECM) {
+            return base.Channel.SeguimientoIncidenciaECM(oSeguimientoIncidenciaECM);
+        }
+        
+        public System.Threading.Tasks.Task<string> SeguimientoIncidenciaECMAsync(SISFORM_WEB.ServicioWcf.SeguimientoIncidenciaECM oSeguimientoIncidenciaECM) {
+            return base.Channel.SeguimientoIncidenciaECMAsync(oSeguimientoIncidenciaECM);
         }
         
         public string ListarUbigeoCsv() {
@@ -6906,14 +7757,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ObtenerIncidenciaPorIdCsvAsync(string idIncidencia) {
             return base.Channel.ObtenerIncidenciaPorIdCsvAsync(idIncidencia);
-        }
-        
-        public string ObtenerIncidenciaPorIdParaSolucionCsv(string idIncidencia) {
-            return base.Channel.ObtenerIncidenciaPorIdParaSolucionCsv(idIncidencia);
-        }
-        
-        public System.Threading.Tasks.Task<string> ObtenerIncidenciaPorIdParaSolucionCsvAsync(string idIncidencia) {
-            return base.Channel.ObtenerIncidenciaPorIdParaSolucionCsvAsync(idIncidencia);
         }
     }
 }

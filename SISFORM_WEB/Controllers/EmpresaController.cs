@@ -242,9 +242,6 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
-        
-
-        
         public async Task<string> GrabarObservacion(ProgresoEmpresa oProgresoEmpresa)
         {
             int rpta = 0;

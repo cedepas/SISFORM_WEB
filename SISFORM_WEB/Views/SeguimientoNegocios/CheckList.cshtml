@@ -13,9 +13,13 @@
 <div class="content container">
     <div class="title"><h5 id="CheckList"></h5></div>
     <div class="form-row">
-        <div>
+        <div class="col-sm-4">
             <label for="txtbuscarPorEmpresa" class="required">Digite los datos de la empresa a realizar el checkList</label>
             <input type="text" class="form-control form-control-sm E" id="txtbuscarPorEmpresa" placeholder="Nombre Empresa" required="required" />
+        </div>
+        <div class="col-sm-4">
+            <label for="cboTipoCheckList" class="required">Seleccione el tipo de evaluación</label>
+            <select class="form-control form-control-sm" id="cboTipoCheckList"></select>
         </div>
     </div>
     <div class="form-row row" id="datosServicio" style="display:none">

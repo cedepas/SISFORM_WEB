@@ -14,6 +14,7 @@ window.onload = function () {
         idUsuario = window.sessionStorage.getItem('idUsuario');
         Http.get("SeguimientoNegocios/ListarCheckListCsv?idUsuario=" + idUsuario, CrearTablaCsv);
         Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
+        Http.get("SeguimientoNegocios/ListarTipoCheckListCsv", mostrarTipoCheckListCbo);
 
         var divRows = document.getElementsByClassName('form-row');
         for (var i = 0; i < divRows.length; i++) {
@@ -84,7 +85,8 @@ window.onload = function () {
                     txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
                     idEmpresa = objeto.IDEmpr;
                     idTipoEmpresa = objeto.TipoEmpresa;
-                    obtenerTipoServicio(objeto.TipoEmpresa);
+                    txtbuscarPorEmpresa.disabled = "disabled";
+                    //obtenerTipoServicio(objeto.TipoEmpresa);
                     closeAllLists();
                 });
                 a.appendChild(b);
@@ -92,9 +94,19 @@ window.onload = function () {
         }
     }
 
+    cboTipoCheckList.onchange = function () {
+        if (idTipoEmpresa === undefined) {
+            toastDangerAlert("Digitar la empresa para", "¡Error!");
+        }
+        else {
+            cboTipoCheckList.disabled = "disabled";
+            obtenerTipoServicio(idTipoEmpresa);
+        }
+    }
+
     cboTipoServicio.onchange = function () {
         idTipoServicio = cboTipoServicio.value;
-        Http.get("SeguimientoNegocios/ListarCantidadPreguntasChecklistCsv?FK_ID_Empresa=" + idEmpresa + "&tipoServicio=" + cboTipoServicio.value, mostrarPreguntas);
+        Http.get("SeguimientoNegocios/ListarCantidadPreguntasChecklistCsv?FK_ID_Empresa=" + idEmpresa + "&tipoServicio=" + cboTipoServicio.value + "&tipoCheckList=" + cboTipoCheckList.value, mostrarPreguntas);
     }
 
     bntNuevo.onclick = function () {
@@ -109,6 +121,13 @@ function closeAllLists(elmnt) {
         }
     }
 }
+function mostrarTipoCheckListCbo(rpta) {
+    if (rpta) {
+        lstCboTipoCheckList = rpta.split("¬");
+        CrearCombo(lstCboTipoCheckList, cboTipoCheckList, "Seleccione");
+    }
+}
+
 function obtenerTipoServicio(tipoEmpresa) {
     Http.get("SeguimientoNegocios/ListarTipoOperacionEmpresaCsv?tipoEmpresa=" + tipoEmpresa, mostrarTipoServicioCbo);
 }
@@ -130,9 +149,8 @@ function mostrarTipoServicioCbo(rpta) {
         else {
             lstCboTipoDeServicio = lstCboTipoServicio[0].split("|");
             idTipoServicio = lstCboTipoDeServicio[0];
-            Http.get("SeguimientoNegocios/ListarCantidadPreguntasChecklistCsv?FK_ID_Empresa=" + idEmpresa + "&tipoServicio=" + lstCboTipoDeServicio[0], mostrarPreguntas);
+            Http.get("SeguimientoNegocios/ListarCantidadPreguntasChecklistCsv?FK_ID_Empresa=" + idEmpresa + "&tipoServicio=" + lstCboTipoDeServicio[0] + "&tipoCheckList=" + cboTipoCheckList.value, mostrarPreguntas);
         }
-            
     }
     else {
         limpiarControles('form-control');
@@ -151,7 +169,7 @@ function mostrarPreguntas(rpta) {
             b = document.createElement("div");
             b.innerHTML = "<label>N° : " + i + "</label>&nbsp; &nbsp; &nbsp; ";
             b.innerHTML += "<span>Puntuacion</span>&nbsp; ";
-            if (lstValores[2] == 1) {
+            if (lstValores[7] == 1) {
                 b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='1'>1</option>";
             }
             else {

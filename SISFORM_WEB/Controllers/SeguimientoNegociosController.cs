@@ -24,7 +24,63 @@ namespace SISFORM_WEB.Controllers
             ViewBag.Title = "Capacitacion";
             return View();
         }
+        public ActionResult DeudasNNLL()
+        {
+            ViewBag.Title = "Deusas a Negocios Locales";
+            return View();
+        }
+        public async Task<string> GrabarDeuda(DeudaNNLL oDeudaNNLL)
+        {
+            int rpta = 0;
+            string op = "";
+            if (oDeudaNNLL.id_deudaNNLL == 0)
+            {
+                op = "I";
+            }
+            else
+            {
+                op = "U";
+            }
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.deudasNNLLOperacionAsync(oDeudaNNLL, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
 
+        public async Task<string> ListarDuedasNNLLCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarDuedasNNLLCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ObtenerDeudaNNLLPorIdCsv(int idDeuda)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerDeudaNNLLPorIdCsvAsync(idDeuda);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         public async Task<string> ListarCapacitacionesCsv(int idUsuario)
         {
             try
@@ -81,6 +137,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarTipoCheckListCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarTipoCheckListCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public async Task<string> GrabarInspeccion(Inspeccion oInspeccion, string op)
         {
             int rpta = 0;
@@ -111,14 +182,14 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        public async Task<string> ListarCantidadPreguntasChecklistCsv(int FK_ID_Empresa, int tipoServicio)
+        public async Task<string> ListarCantidadPreguntasChecklistCsv(int FK_ID_Empresa, int tipoServicio, int tipoCheckList)
         {
             try
             {
                 string rpta = "";
                 ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
                 //rpta = await servicio.ListarEstadoInspeccionCsvAsync();
-                rpta = await servicio.ListarCantidadPreguntasChecklistCsvAsync(FK_ID_Empresa, tipoServicio);
+                rpta = await servicio.ListarCantidadPreguntasChecklistCsvAsync(FK_ID_Empresa, tipoServicio, tipoCheckList);
 
                 return rpta;
             }

@@ -539,6 +539,20 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
+        public async Task<string> SeguimientoIncidenciasECM(SeguimientoIncidenciaECM oSeguimientoIncidenciaECM)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.SeguimientoIncidenciaECMAsync(oSeguimientoIncidenciaECM);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         public async Task<string> ListarTipoEmpresaCbo()
         {
             try

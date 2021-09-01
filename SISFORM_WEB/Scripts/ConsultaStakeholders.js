@@ -115,16 +115,20 @@ window.onload = function () {
 
     btnGuardarSuceso.onclick = function () {
         var frm = new FormData();
-        if (idStakeholderSuceso) { frm.append("ID_StakeholderSuceso", idStakeholderSuceso); }
+        if (idStakeholderSuceso) { frm.append("ID_QuejasECM_NNLL", idStakeholderSuceso); }
         frm.append("FK_ID_Stakeholder", idStakeholder);
-        frm.append("FK_ID_Empresa", cboECM.value);
+        frm.append("FK_ID_EmpresaNNLL", cboNNLL.value);
+        frm.append("FK_ID_EmpresaECM", cboECM.value);
         frm.append("FK_ID_EstadoSuceso", cboEstadoSuceso.value);
         frm.append("FK_ID_TipoSuceso", cboTipoSuceso.value);
         frm.append("detalleSuceso", txtDetalleSuceso.value);
         frm.append("accionesSuceso", txtAccionesSuceso.value);
+        frm.append("detalleCompromiso", txtCompromisoPropietario.value);
         frm.append("fechaReporte", txtFechaReporte.value);
         frm.append("fechaInicio", txtFechaInicio.value);
         frm.append("fechaCierre", txtFechaCierre.value);
+        frm.append("AceptacionQueda", (txtAceptaQueja.checked == true ? 1 : 0));
+        frm.append("FK_ID_Usuario", window.sessionStorage.getItem('idUsuario'));
         if (validarRequeridos('SE')) {
             checkSubmit(btnGuardarSuceso);
             Http.post("Stakeholder/GrabarStakeholderSuceso", MostrarGrabarStakeholderSuceso, frm);
@@ -207,8 +211,11 @@ function obtenerRegistroPorId(id) {
 }
 
 function CrearTablaCsvSucesos(rpta) {
-    lstSucesosStakeholder = rpta.split('¬');
+    campos = rpta.split('¯');
+    lstSucesosStakeholder = campos[0].split('¬');
     new GrillaModal(lstSucesosStakeholder, "divTablaSucesos", 10, 3);
+    lstCboEmpresasStakeHolder = campos[1].split('¬');
+    CrearCombo(lstCboEmpresasStakeHolder, cboNNLL, "Seleccione");
 }
 
 function MostrarGrabarStakeholder(rpta) {

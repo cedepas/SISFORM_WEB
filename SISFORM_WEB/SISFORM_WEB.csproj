@@ -212,6 +212,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Content\icon_empresa.png" />
+    <Content Include="Content\Logo-MINSUR.jpg" />
     <Content Include="Content\logo2-white.svg" />
     <Content Include="Content\logo2.svg" />
     <Content Include="Content\logo-white.svg" />
@@ -333,6 +334,7 @@
     <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\buttons.js" />
     <Content Include="Scripts\ConsultaCartaPreocupacion.js" />
+    <Content Include="Scripts\ConsultaDeudasNNLL.js" />
     <Content Include="Scripts\ConsultaOcupacionHospedajes.js" />
     <Content Include="Scripts\ConsultaCumplimientoMenu.js" />
     <Content Include="Scripts\ConsultaImplementacion.js" />
@@ -477,6 +479,7 @@
     <Content Include="Views\Habitacion\OcupacionHospedajes.cshtml" />
     <Content Include="Views\Carta\CartaPreocupacion.cshtml" />
     <Content Include="Views\Carta\_CartaPreocupacionPV.cshtml" />
+    <Content Include="Views\SeguimientoNegocios\DeudasNNLL.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
