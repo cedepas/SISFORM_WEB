@@ -7,7 +7,13 @@ var lista;
 var objetoBusqueda = [];
 var objetoParametrizado = [];
 var textoBusqueda;
+
+var objetoBusquedaECM = [];
+var objetoParametrizadoECM = [];
+var textoBusquedaECM;
+
 var idTrabajador;
+var idEmpresaECM;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -94,6 +100,34 @@ window.onload = function () {
             btnNuevo.dispatchEvent(new Event('click'));
         }
     }
+    txtBuscarPorECM.onkeyup = function () {
+        var a, b;
+        closeAllListsECM();
+        a = document.createElement("div");
+        a.setAttribute("id", this.id + "predictivo-list");
+        a.setAttribute("class", "predictivo-items");
+        this.parentNode.appendChild(a);
+        textoBusquedaECM = txtBuscarPorECM.value.toLowerCase();
+        for (let objeto of objetoBusquedaECM) {
+            let Nombre = objeto.NombreComercial.toLowerCase();
+            if (Nombre.indexOf(textoBusquedaECM) !== -1) {
+                b = document.createElement("div");
+                b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
+                b.addEventListener("click", function (e) {
+                    txtBuscarPorECM.value = this.getElementsByTagName("input")[0].value;
+                    idEmpresaECM = objeto.IDEmpr;
+                    closeAllListsECM();
+                });
+                a.appendChild(b);
+            }
+        }
+        if (!txtBuscarPorTrabajador.value) {
+            txtBuscarPorTrabajador.value = "";
+            closeAllLists();
+            btnNuevo.dispatchEvent(new Event('click'));
+        }
+    }
 
     btnGuardar.onclick = function () {
         var frm = new FormData();
@@ -118,7 +152,7 @@ window.onload = function () {
         if (idStakeholderSuceso) { frm.append("ID_QuejasECM_NNLL", idStakeholderSuceso); }
         frm.append("FK_ID_Stakeholder", idStakeholder);
         frm.append("FK_ID_EmpresaNNLL", cboNNLL.value);
-        frm.append("FK_ID_EmpresaECM", cboECM.value);
+        frm.append("FK_ID_EmpresaECM", idEmpresaECM);
         frm.append("FK_ID_EstadoSuceso", cboEstadoSuceso.value);
         frm.append("FK_ID_TipoSuceso", cboTipoSuceso.value);
         frm.append("detalleSuceso", txtDetalleSuceso.value);
@@ -143,10 +177,12 @@ window.onload = function () {
 
     btnModalSuceso.onclick = function () {
         limpiarControles("SE");
-        Http.get("Stakeholder/ListarEmpresasEspecializadasCboCsv", mostrarECM);
+        //Http.get("Stakeholder/ListarEmpresasEspecializadasCboCsv", mostrarECM);
+        Http.get("Trabajador/ListarEmpresasEspecializadasCsv", mostrarECM);
         Http.get("Stakeholder/ListarEstadoSucesoCboCsv", mostrarEstadoSuceso);
         Http.get("Stakeholder/ListarTipoSucesoCboCsv", mostrarTipoSuceso);
         Http.get("Stakeholder/ListarStakeholderSucesoPorIdStakeholderCsv?idStakeholder=" + idStakeholder, CrearTablaCsvSucesos);
+        Http.get("Stakeholder/ListarEmpresasPorIDStakeHoldersCsv?idStakeholder=" + idStakeholder, mostrarEmpresasDeStakeHolder);
     }
 
     btnNuevo.onclick = function () {
@@ -211,11 +247,9 @@ function obtenerRegistroPorId(id) {
 }
 
 function CrearTablaCsvSucesos(rpta) {
-    campos = rpta.split('¯');
-    lstSucesosStakeholder = campos[0].split('¬');
+    //campos = rpta.split('¯');
+    lstSucesosStakeholder = rpta.split('¬');
     new GrillaModal(lstSucesosStakeholder, "divTablaSucesos", 10, 3);
-    lstCboEmpresasStakeHolder = campos[1].split('¬');
-    CrearCombo(lstCboEmpresasStakeHolder, cboNNLL, "Seleccione");
 }
 
 function MostrarGrabarStakeholder(rpta) {
@@ -270,8 +304,10 @@ function modalObtenerRegistroPorId(id) {
 
 function mostrarECM(rpta) {
     if (rpta) {
-        lstCboECM = rpta.split('¬');
-        CrearCombo(lstCboECM, cboECM, "Seleccione");
+        lista = rpta.split('¬');
+        crearObjetoECM(lista);
+        //lstCboECM = rpta.split('¬');
+        //CrearCombo(lstCboECM, cboECM, "Seleccione");
     }
 }
 
@@ -286,6 +322,13 @@ function mostrarTipoSuceso(rpta) {
     if (rpta) {
         lstCboTipoSuceso = rpta.split('¬');
         CrearCombo(lstCboTipoSuceso, cboTipoSuceso, "Seleccione");
+    }
+}
+
+function mostrarEmpresasDeStakeHolder(rpta) {
+    if (rpta) {
+        lstCboEmpresasStakeHolder = rpta.split('¬');
+        CrearCombo(lstCboEmpresasStakeHolder, cboNNLL, "Seleccione");
     }
 }
 
@@ -307,6 +350,15 @@ function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
     for (var i = 0; i < x.length; i++) {
         if (elmnt != x[i] && elmnt != textoBusqueda) {
+            x[i].parentNode.removeChild(x[i]);
+        }
+    }
+}
+
+function closeAllListsECM(elmnt) {
+    var x = document.getElementsByClassName("predictivo-items");
+    for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != textoBusquedaECM) {
             x[i].parentNode.removeChild(x[i]);
         }
     }
@@ -344,5 +396,33 @@ function crearObjetoAllTrabajador() {
             });
         }
         objetoBusqueda.push(valoresAInsertar);
+    }
+}
+
+function crearObjetoECM() {
+    objetoBusquedaECM = [];
+    objetoParametrizadoECM = [];
+    cabeceras = lista[0].split('|');
+    var nRegistros = lista.length;
+    var nCampos = cabeceras.length;
+    var clave;
+    var valor;
+    for (var i = 1; i < nRegistros; i++) {
+        for (var j = 0; j < nCampos; j++) {
+            datos = lista[i].split('|');
+        }
+        objetoParametrizadoECM.push(datos);
+    }
+    for (var i = 0; i < (nRegistros - 1); i++) {
+        var valoresAInsertar = {};
+        for (var j = 0; j < nCampos; j++) {
+            clave = cabeceras[j];
+            valor = objetoParametrizadoECM[i][j];
+            Object.defineProperty(valoresAInsertar, clave.toString(), {
+                value: valor,
+                writable: false
+            });
+        }
+        objetoBusquedaECM.push(valoresAInsertar);
     }
 }

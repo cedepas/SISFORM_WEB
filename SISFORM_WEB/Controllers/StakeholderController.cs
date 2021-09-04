@@ -77,7 +77,6 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-
         public async Task<string> ListarTipoPosicionamientoCbo()
         {
             try
@@ -92,7 +91,6 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-
         public async Task<string> ListarEmpresaRazonSocialPorTipoCboCsv(string idTipoEmpresa)
         {
             try
@@ -107,7 +105,6 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-
         public async Task<string> GrabarStakeholder(Stakeholder oStakeholder)
         {
             ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
@@ -177,7 +174,19 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-
+        public async Task<string> ListarEmpresasPorIDStakeHoldersCsv(string idStakeholder)
+        {
+            try
+            {
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                var rpta = await servicio.ListarEmpresasPorIDStakeHoldersCsvAsync(idStakeholder);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         #endregion
     }
 }

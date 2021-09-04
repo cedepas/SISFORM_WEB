@@ -5827,6 +5827,13 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarStakeholderSucesoPorIdStakeholderCsv", ReplyAction="http://tempuri.org/IServicio/ListarStakeholderSucesoPorIdStakeholderCsvResponse")]
         System.Threading.Tasks.Task<string> ListarStakeholderSucesoPorIdStakeholderCsvAsync(string idStakeholder);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEmpresasPorIDStakeHoldersCsv", ReplyAction="http://tempuri.org/IServicio/ListarEmpresasPorIDStakeHoldersCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarEmpresasPorIDStakeHoldersCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarEmpresasPorIDStakeHoldersCsv(string idStakeholder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEmpresasPorIDStakeHoldersCsv", ReplyAction="http://tempuri.org/IServicio/ListarEmpresasPorIDStakeHoldersCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarEmpresasPorIDStakeHoldersCsvAsync(string idStakeholder);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEmpresasHospedajesCsv", ReplyAction="http://tempuri.org/IServicio/ListarEmpresasHospedajesCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarEmpresasHospedajesCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarEmpresasHospedajesCsv();
@@ -6957,6 +6964,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarStakeholderSucesoPorIdStakeholderCsvAsync(string idStakeholder) {
             return base.Channel.ListarStakeholderSucesoPorIdStakeholderCsvAsync(idStakeholder);
+        }
+        
+        public string ListarEmpresasPorIDStakeHoldersCsv(string idStakeholder) {
+            return base.Channel.ListarEmpresasPorIDStakeHoldersCsv(idStakeholder);
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarEmpresasPorIDStakeHoldersCsvAsync(string idStakeholder) {
+            return base.Channel.ListarEmpresasPorIDStakeHoldersCsvAsync(idStakeholder);
         }
         
         public string ListarEmpresasHospedajesCsv() {
