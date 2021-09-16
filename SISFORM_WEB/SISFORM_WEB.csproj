@@ -326,15 +326,12 @@
     <Content Include="plugins\Handsontable\numbro\languages\zh-TW.min.js" />
     <Content Include="plugins\Handsontable\numbro\numbro.js" />
     <Content Include="plugins\html2pdf\html2pdf.js" />
-    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
-    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
-    <Content Include="Rotativa\wkhtmltoimage.exe" />
-    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\apexcharts.js" />
     <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\buttons.js" />
     <Content Include="Scripts\ConsultaCartaPreocupacion.js" />
     <Content Include="Scripts\ConsultaDeudasNNLL.js" />
+    <Content Include="Scripts\ConsultaOperacionOcupacion.js" />
     <Content Include="Scripts\ConsultaOcupacionHospedajes.js" />
     <Content Include="Scripts\ConsultaCumplimientoMenu.js" />
     <Content Include="Scripts\ConsultaImplementacion.js" />
@@ -349,6 +346,7 @@
     <Content Include="Scripts\ConsultaDirectorioECM.js" />
     <Content Include="Scripts\Cosulta_VPCartaPre.js" />
     <Content Include="Scripts\SeguimientoIncidencia.js" />
+    <Content Include="Scripts\AplazarIncidencia.js" />
     <Content Include="Styles\apexcharts.css" />
     <Content Include="Styles\cartaPreocupacion.css" />
     <Content Include="Styles\chartist.min.css" />
@@ -454,7 +452,6 @@
     </None>
     <Content Include="plugins\Handsontable\numbro\LICENSE" />
     <Content Include="plugins\Handsontable\numbro\LICENSE-Numeraljs" />
-    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <Content Include="Views\PruebaCovid\ProgramacionPruebaCovid.cshtml" />
     <Content Include="Views\Reporte\Consulta.cshtml" />
     <Content Include="Views\PruebaCovid\PruebaCovid.cshtml" />
@@ -480,6 +477,8 @@
     <Content Include="Views\Carta\CartaPreocupacion.cshtml" />
     <Content Include="Views\Carta\_CartaPreocupacionPV.cshtml" />
     <Content Include="Views\SeguimientoNegocios\DeudasNNLL.cshtml" />
+    <Content Include="Views\Habitacion\OperacionOcupacion.cshtml" />
+    <Content Include="Views\Incidencia\aplazarincidencia.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -490,6 +489,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

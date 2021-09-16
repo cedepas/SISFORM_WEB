@@ -35,10 +35,14 @@ namespace SISFORM_WEB.Controllers
             ViewBag.Title = "SeguimientoIncidencia";
             return View();
         }
-
         public ActionResult CartaPreocupacion()
         {
             ViewBag.Title = "CartaPreocupacion";
+            return View();
+        }
+        public ActionResult aplazarincidencia()
+        {
+            ViewBag.Title = "aplazarincidencia";
             return View();
         }
         public async Task<string> ListarTipoEventoCsv()
@@ -234,8 +238,7 @@ namespace SISFORM_WEB.Controllers
             {
                 throw;
             }
-        }
-        
+        }        
         public async Task<string> ObtenerIncidenciaPorIdCsv(string idIncidencia)
         {
             try
@@ -475,6 +478,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> AplazarInciden(AplazarIncidencia oAplazarIncidencia)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.AplazarIncidenciaAsync(oAplazarIncidencia);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
         public async Task<string> IncidenciaImagen(imgencito oimgencito)
         {
             try
@@ -626,6 +644,5 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-
     }
 }

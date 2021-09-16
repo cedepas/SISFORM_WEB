@@ -13,7 +13,7 @@ namespace SISFORM_WEB.Controllers
         {
             return View();
         }
-        public ActionResult OcupacionHospedajes()
+        public ActionResult OperacionOcupacion()
         {
             return View();
         }

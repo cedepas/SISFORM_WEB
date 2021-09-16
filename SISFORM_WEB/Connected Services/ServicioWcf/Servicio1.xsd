@@ -157,6 +157,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Habitacion" nillable="true" type="tns:Habitacion" />
+  <xs:complexType name="OperacionOcupacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CantidadHuespedes" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EmpresaCliente" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EmpresaServicio" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TipoHabitacion" type="xs:short" />
+      <xs:element minOccurs="0" name="FK_ID_TipoOcupacion" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_OperacionOcupacion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperacionOcupacion" nillable="true" type="tns:OperacionOcupacion" />
   <xs:complexType name="CartaPreocupacion">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_EmpresaECM" type="xs:int" />
@@ -488,4 +499,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SeguimientoIncidenciaECM" nillable="true" type="tns:SeguimientoIncidenciaECM" />
+  <xs:complexType name="AplazarIncidencia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Incidencia" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TrabajadorAplaza" type="xs:int" />
+      <xs:element minOccurs="0" name="detalleaplazamiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="diasaplazamiento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AplazarIncidencia" nillable="true" type="tns:AplazarIncidencia" />
 </xs:schema>

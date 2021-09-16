@@ -6,7 +6,7 @@
 
     <script>
         var siteActive = document.getElementById("docs-section-id");
-        siteActive.value = "solucionIncidencia";
+        siteActive.value = "aplazarincidencia";
     </script>
 
 }
@@ -17,7 +17,7 @@
 <div class="content">
     <div class="form-row">
         <div class="col-sm">
-            <div class="title"><h5>Registro de Incidencias</h5></div>
+            <div class="title"><h5>Información de Incidencias</h5></div>
         </div>
         <div class="col-sm-2">
             <label for="txtIdIncidente" class="required">N° de Indicente</label>
@@ -56,17 +56,18 @@
     <hr class="mb-20" />
     <div class="form-row">
         <div class="col-sm">
-            <div class="title"><h5>Registrar la Solución</h5></div>
+            <div class="title"><h5>Registrar dias a aplazar</h5></div>
         </div>
     </div>
 
     <div class="form-row">
         <div class="col-sm-5">
-            <label for="cboTipoSolucion" class="required">Tipo Solución</label>
-            <select class="form-control form-control-sm E" id="cboTipoSolucion" placeholder="Tipo Solución"></select>
+            <label for="cboTipoSolucion" class="required">Cantidad de dias de solicitado</label>
+            <input type="number" min="0" value="1" class="form-control form-control-sm HD" id="txtDiasAplazar" required />
+            @*<select class="form-control form-control-sm E" id="cboTipoSolucion" placeholder="Tipo Solución"></select>*@
         </div>
     </div>
-    <div class="form-row">
+    @*<div class="form-row">
         <div class="col-sm">
             <input type="file" onchange="codificarImg(this)" />
         </div>
@@ -75,13 +76,13 @@
         <div class="col-sm">
             <img id="imgVistaPrevia" class="E" src="" name="imgVistaPrevia" alt="Imagen a Cargar" height="64" style="display:none">
         </div>
-    </div>
+    </div>*@
     <div class="form-row">
-        <p>Detalle del Solucion</p>
-        <textarea class="form-control form-control-sm E" id="txtSolucion" style="border: none; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"></textarea>
+        <p>Detalle de solicitud de aplazamiento</p>
+        <textarea class="form-control form-control-sm E" id="txtdetalleapla" style="border: none; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"></textarea>
     </div>
     <div class="text-right">
-        <input class="btn btn-success E" type="button" id="btnGrabarSolucion" value="Aceptar">
+        <input class="btn btn-success E" type="button" id="btnGrabaraplazamiento" value="Aceptar">
         <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>
     </div>
 </div>
@@ -98,5 +99,5 @@
 </div>
 <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
 @section scripts{
-    @Scripts.Render("~/Scripts/SolucionIncidencia.js")
+    @Scripts.Render("~/Scripts/AplazarIncidencia.js")
 }

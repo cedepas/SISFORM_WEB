@@ -1,6 +1,5 @@
 ﻿var idHabitacion;
 var idEmpresa;
-
 var objetoBusqueda = [];
 var objetoParametrizado = [];
 var textoBusqueda;
@@ -14,7 +13,7 @@ window.onload = function () {
 
     Http.get("Habitacion/ListarEmpresasHospedajesCsv", CrearTablaCsv);
 
-    btnAgregarHabitacion.onclick = function () {
+    btnEliminarRegistro.onclick = function () {
         var frm = new FormData();
         if (idHabitacion) { frm.append("ID_Habitacion", idHabitacion); }
         if (txtNumeroCamas.value == 1) {
@@ -35,7 +34,7 @@ window.onload = function () {
         }
     }
 
-    btnModalHabitacion.onclick = function () {
+    btnModalOcupacion.onclick = function () {
         idHabitacion = undefined;
         Http.get("Habitacion/ListarHabitacionPorIdEmpresaCsv?idEmpresa=" + idEmpresa, CrearTablaCsvHabitaciones);
         Http.get("Habitacion/ListarTipoHabitacionCboCsv", mostrarTipoHabitacion);

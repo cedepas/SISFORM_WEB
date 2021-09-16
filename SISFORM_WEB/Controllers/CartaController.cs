@@ -1,7 +1,6 @@
 ﻿using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-using Rotativa;
 using SISFORM_WEB.ServicioWcf;
 using System;
 using System.Collections.Generic;
