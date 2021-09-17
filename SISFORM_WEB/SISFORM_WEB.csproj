@@ -479,6 +479,7 @@
     <Content Include="Views\SeguimientoNegocios\DeudasNNLL.cshtml" />
     <Content Include="Views\Habitacion\OperacionOcupacion.cshtml" />
     <Content Include="Views\Incidencia\aplazarincidencia.cshtml" />
+    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -489,7 +490,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
