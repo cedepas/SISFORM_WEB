@@ -238,6 +238,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfTrabajador" nillable="true" type="tns:ArrayOfTrabajador" />
+  <xs:complexType name="Vacuna">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Vacuna" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_DetalleVacuna" type="xs:int" />
+      <xs:element minOccurs="0" name="fechavacuna" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroDosis" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vacuna" nillable="true" type="tns:Vacuna" />
   <xs:complexType name="Empresa">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_EstadoEmpresa" type="xs:int" />

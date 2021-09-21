@@ -236,3 +236,4 @@ D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.CoreCompi
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.CopyComplete
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.pdb
+D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csprojAssemblyReference.cache

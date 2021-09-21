@@ -13,8 +13,10 @@ var textoBusqueda;
 //var textoBusquedaPuesto;
 var estadoModal;
 var lstPuestosTrabajador;
+var lstDetalleVacuna;
 var idEmpresaPuesto;
 var idPuestoTrabajo;
+var FK_ID_Vacuna;
 
 window.onload = function () {
     Http.get("Trabajador/ListarTipoDocumentoCbo", mostrarTipoDocumentoCbo);
@@ -138,15 +140,34 @@ window.onload = function () {
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
 
+    btnGrabarVacuna.onclick = function () {
+        var frm = new FormData();
+        frm.append("ID_DetalleVacuna",(txtiddetallevacuna.value == "" ? "0" : txtiddetallevacuna.value));
+        frm.append("FK_ID_Vacuna", cboTipoVacuna.value);
+        frm.append("numeroDosis", numeroDosis.value);
+        frm.append("fechavacuna", txtFechaVacuna.value);
+        frm.append("FK_ID_Trabajador", idTrabajador);
+        if (validarRequeridos('T')) {
+            Http.post("Trabajador/GrabarVacuna", MostrarGrabarVacuna, frm);
+        } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+    }
+
     btnNuevo.onclick = function () {
         limpiarControles('form-control');
         btnModal.style.visibility = "hidden";
         btnNuevo.style.visibility = "hidden";
+        btnModalVacuna.style.visibility = "hidden";
     }
 
     btnModal.onclick = function () {
         limpiarControles('form-control-modal');
         Http.get("Trabajador/ListarPuestoTrabajoporIdCsv?idTrabajador=" + idTrabajador, CrearTablaCsvPuestos);
+    }
+    btnModalVacuna.onclick = function () {
+        limpiarControles('form-control-modal');        
+        Http.get("Trabajador/ListarDetalleVacunaporIdTrabajadorCsv?idTrabajador=" + idTrabajador, CrearTablaCsvVacuna);
+        AsignarCamposDetalleVacuna();
+        ListarTipoVacuna();
     }
     txtbuscarPorEmpresa.onkeyup = function () {
         var a, b;
@@ -172,7 +193,7 @@ window.onload = function () {
             }
         }
     }
-    //txtPuestoTrabajo.onkeyup = function () {
+    /*/txtPuestoTrabajo.onkeyup = function () {
     //    var a, b;
     //    closeAllListsPuesto();
     //    a = document.createElement("div");
@@ -195,7 +216,7 @@ window.onload = function () {
     //            a.appendChild(b);
     //        }
     //    }
-    //}
+    /}*/
 }
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
@@ -257,6 +278,12 @@ function mostrarPuestoTrabajoCbo(rpta) {
         cboPuestoTrabajo.value = idPuestoTrabajo;
     }
 }
+function mostrarTipoVacunaCbo(rpta) {
+    if (rpta) {
+        lstCboTipoVacuna = rpta.split("¬");
+        CrearCombo(lstCboTipoVacuna, cboTipoVacuna, "Seleccione");
+    }
+}
 
 function mostrarEmpresaCbo(rpta) {
     if (rpta) {
@@ -266,6 +293,9 @@ function mostrarEmpresaCbo(rpta) {
 }
 function listarPuestoTrabajo() {
     Http.get("Trabajador/ListarPuestoTrabajoPorEmpresaCboCsv?idEmpresa=" + idEmpresaPuesto, mostrarPuestoTrabajoCbo);
+}
+function ListarTipoVacuna() {
+    Http.get("Trabajador/ListarTipoVacunaCboCsv", mostrarTipoVacunaCbo);
 }
 
 function mostrarListaUbigeo(rpta) {
@@ -363,6 +393,18 @@ function MostrarGrabarPuesto(rpta) {
     }
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
+function MostrarGrabarVacuna(rpta) {
+    if (rpta) {
+        if (!isMobile.any()) {
+            Http.get("Trabajador/ListarDetalleVacunaporIdTrabajadorCsv?idTrabajador=" + idTrabajador, CrearTablaCsvVacuna);
+        }
+        toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
+        txtiddetallevacuna.value = rpta;
+    }
+    else {
+        toastDangerAlert("No se pudo grabar el registro", "¡Error!");
+    }
+}
 
 function CrearTablaCsv(rpta) {
     if (rpta) {
@@ -376,6 +418,14 @@ function CrearTablaCsvPuestos(rpta) {
         lstPuestosTrabajador = rpta.split('¬');
         var grillaModal = new GrillaModal(lstPuestosTrabajador, "divTablaPuestos", 10, 3);
     }
+}
+function CrearTablaCsvVacuna(rpta) {
+    document.getElementById("divTablaDetalleVacuna").innerHTML = "";
+    if (rpta) {
+        lstDetalleVacuna = rpta.split('¬');
+        var grillaModal = new GrillaModal(lstDetalleVacuna, "divTablaDetalleVacuna", 10, 3);
+    }
+
 }
 
 function CrearListaCsv(rpta) {
@@ -470,11 +520,18 @@ function AsignarCamposPuestoTrabajo(rpta) {
         idPuestoTrabajo = campos[7];
     } else limpiarControles('form-control-modal');
 }
+function AsignarCamposDetalleVacuna() {
+    {
+        txtiddetallevacuna.value = "";
+        lblNombreTrabajador.value = txtNombre.value
+    }
+}
 
 function AsignarCampos(rpta) {
     if (rpta) {
         btnModal.style.visibility = "visible";
         btnNuevo.style.visibility = "visible";
+        btnModalVacuna.style.visibility = "visible";
         var listas = rpta.split('¯');
         var campos = [];
         if (listas[0]) {
