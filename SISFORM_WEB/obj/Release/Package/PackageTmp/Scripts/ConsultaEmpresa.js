@@ -47,6 +47,10 @@ window.onload = function () {
         frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
         frm.append("FK_ID_EstadoEmpresa", CboEstadoEmpresa.value);
         frm.append("FK_ID_TrabajadorRepresentante", idRepresentante);
+        frm.append("latitud", txtLatitud.value);
+        frm.append("longitud", txtLongitud.value);
+        frm.append("asociado", (txtAsociado.checked == true ? 1:0));
+        frm.append("inicioActividades", txtFechaInicioActividades.value);
         if (validarRequeridos('E')) {
             Http.post("Empresa/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -67,9 +71,11 @@ window.onload = function () {
                 cboSistemaElectrico.value = campos[7];
                 cboCondicionActual.value = campos[8];
                 cboAntiguedadEmpresa.value = campos[9];
-                //btnModalSuceso.style.display = "inline-block";
-                //btnNuevoSuceso.style.visibility = "hidden";
-                //btnGuardar.value = "Guardar";
+                txtLlaveDiferencial.checked = (campos[10] == 1 ? true : false);
+                txtMinutosAlB2.value = campos[11];
+                txtVestuario.checked = (campos[12] == 1 ? true : false);
+                txtCantidadOficinas.value = campos[13];
+                cboTipoEscalera.value = campos[14];
             } else {
                 detalleEmpresaUI = 'I';
                 toastDangerAlert("La empresa no Registro Detalles", "¡Aviso!");
@@ -92,7 +98,11 @@ window.onload = function () {
             frm.append("FK_ID_AntiguedadEmpresa", cboAntiguedadEmpresa.value);
             frm.append("FK_ID_Usuario_Crea", window.sessionStorage.getItem('idUsuario'));
             frm.append("FK_ID_tipoEmpresaHospedaje", cboTipoEmpresaHospedaje.value);
-            
+            frm.append("llaveDiferencial", (txtLlaveDiferencial.checked == true ? 1 : 0));
+            frm.append("minutosalB2", txtMinutosAlB2.value);
+            frm.append("vestuario", (txtVestuario.checked == true ? 1 : 0));
+            frm.append("cantOficinas", txtCantidadOficinas.value);
+            frm.append("FK_ID_TipoEscalera", cboTipoEscalera.value);
             if (validarRequeridos('DT')) {
                 Http.post("Empresa/GrabarDetalleEmpresasHospedajes?op=" + detalleEmpresaUI, MostrarGrabarDetallesEmpresa, frm);
             } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -286,6 +296,8 @@ function mostrarDetallesEmpresasCbo(rpta) {
         CrearCombo(lstAntiguedadEmpresa, cboAntiguedadEmpresa, "Seleccione");
         lstTipoEmpresaHospedaje = lstCombos[6].split("¬");
         CrearCombo(lstTipoEmpresaHospedaje, cboTipoEmpresaHospedaje, "Seleccione");
+        lstTipoEscalera = lstCombos[7].split("¬");
+        CrearCombo(lstTipoEscalera, cboTipoEscalera, "Seleccione");
     }
     else toastDangerAlert("No se pudo Cargar Detalles de Empresas", "¡Error!");
 }
@@ -390,7 +402,7 @@ function AsignarCampos(rpta) {
             cboTipoEmpresa.value = campos[1];
             txtNombreComercial.value = campos[2];
             txtRazonSocial.value = campos[3];
-            txtTieneRuc.value = (campos[4] == "SI" ? true : false);
+            txtTieneRuc.checked = (campos[4] == "SI" ? true : false);
             cboRegimenTributario.value = campos[5];
             cboTipoPersona.value = campos[6];
             txtRuc.value = campos[7];
@@ -402,6 +414,10 @@ function AsignarCampos(rpta) {
             cboUnidadGestion.value = campos[12];
             txtRepresentante.value = campos[13];
             idRepresentante = campos[14];
+            txtLatitud.value = campos[15];
+            txtLongitud.value = campos[16];
+            txtAsociado.checked = (campos[17] == 1 ? true : false);
+            txtFechaInicioActividades.value = campos[18];
         }
 
         if (listas[1]) {

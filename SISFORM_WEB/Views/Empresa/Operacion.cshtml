@@ -44,7 +44,7 @@
                                     <label for="txtNumeroPisos" class="required">Número de Pisos</label>
                                     <input type="number" class="form-control form-control-sm DT" id="txtNumeroPisos" placeholder="Número de Pisos">
                                 </div>
-                                
+
                             </div>
                             <div class="form-row">
                                 <div class="col-sm">
@@ -58,6 +58,38 @@
                                 <div class="col-sm">
                                     <label for="cboAntiguedadEmpresa" class="required">Antiguedad de la Empresa</label>
                                     <select class="form-control form-control-sm DT" id="cboAntiguedadEmpresa" required="required"></select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="txtLlaveDiferencial" class="required">Llave Diferencial</label>
+                                    <div class="custom-control">
+                                        <div class="custom-switch">
+                                            <input type="checkbox" id="txtLlaveDiferencial" checked>
+                                            <label for="txtLlaveDiferencial">SI/NO</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-sm">
+                                    <label for="txtMinutosAlB2" class="required">Minutos al B2</label>
+                                    <input type="number" class="form-control form-control-sm DT" id="txtMinutosAlB2" placeholder="Minutos al B2">
+                                </div>
+                                <div class="col-sm">
+                                    <label for="txtVestuario" class="required">Vestuario</label>
+                                    <div class="custom-control">
+                                        <div class="custom-switch">
+                                            <input type="checkbox" id="txtVestuario" checked>
+                                            <label for="txtVestuario">SI/NO</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="txtCantidadOficinas" class="required">Cantidad de Oficinas</label>
+                                    <input type="number" class="form-control form-control-sm DT" id="txtCantidadOficinas" placeholder="Cantidad de Oficinas">
+                                </div>
+                                <div class="col-sm">
+                                    <label for="cboTipoEscalera" class="required">Tipo de Escalera</label>
+                                    <select class="form-control form-control-sm DT" id="cboTipoEscalera" required="required"></select>
                                 </div>
                             </div>
                             <div class="text-right">
@@ -91,7 +123,7 @@
                                     <label for="txtObservaciones" class="required">Observacion</label>
                                     <input type="text" class="form-control form-control-sm O" id="txtObservaciones" placeholder="Codigo" required="required">
                                 </div>
-                                
+
                                 <div class="col-sm">
                                     <label for="txtFechaVisita" class="required">Fecha de visita</label>
                                     <input type="date" class="form-control form-control-sm O" id="txtFechaVisita" required="required" />
@@ -375,31 +407,52 @@
         </div>
     </div>
     <div class="form-row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <label for="txtTelefono" class="required">Telefono</label>
             <input type="text" class="form-control form-control-sm E" id="txtTelefono" placeholder="Telefono" required="required" />
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <label for="txtDireccion" class="required">Direccion</label>
             <input type="text" class="form-control form-control-sm E" id="txtDireccion" placeholder="Direccion" required="required" />
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <label for="txtRepresentante">Nombre Representante</label>
             <input type="text" class="form-control form-control-sm" id="txtRepresentante" placeholder="Nombre Representante" />
         </div>
-    </div>
-    <div class="form-row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <label for="txtEmail" class="required">Email</label>
             <input type="email" class="form-control form-control-sm E" id="txtEmail" placeholder="Email" required="required" />
         </div>
-        <div class="col-sm-4">
+    </div>
+    <div class="form-row">
+        <div class="col-sm-2">
+            <label for="txtLatitud">Latitud</label>
+            <input class="form-control form-control-sm" id="txtLatitud" placeholder="Latitud">
+        </div>
+        <div class="col-sm-2">
+            <label for="txtLongitud">Longitud</label>
+            <input class="form-control form-control-sm" id="txtLongitud" placeholder="Longitud">
+        </div>
+        <div class="col-sm-2">
+            <label for="txtAsociado">Pertenece a Asociación</label>
+            <div class="custom-control">
+                <div class="custom-switch">
+                    <input type="checkbox" id="txtAsociado" checked>
+                    <label for="txtAsociado">SI/NO</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
             <label for="cboUnidadGestion" class="required">Unidad de Gestion</label>
             <select class="form-control form-control-sm E" id="cboUnidadGestion" required="required"></select>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             <label for="cboEstadoEmpresa" class="required">Estado Empresa</label>
             <select class="form-control form-control-sm E" id="CboEstadoEmpresa" required="required"></select>
+        </div>
+        <div class="col-sm-2">
+            <label for="txtFechaInicioActividades">Fecha Inicio Actividades</label>
+            <input type="date" class="form-control form-control-sm" id="txtFechaInicioActividades" required="required" />
         </div>
     </div>
     @*<div class="form-row">

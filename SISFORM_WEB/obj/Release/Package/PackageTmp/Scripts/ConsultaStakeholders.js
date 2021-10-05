@@ -177,7 +177,6 @@ window.onload = function () {
 
     btnModalSuceso.onclick = function () {
         limpiarControles("SE");
-        //Http.get("Stakeholder/ListarEmpresasEspecializadasCboCsv", mostrarECM);
         Http.get("Trabajador/ListarEmpresasEspecializadasCsv", mostrarECM);
         Http.get("Stakeholder/ListarEstadoSucesoCboCsv", mostrarEstadoSuceso);
         Http.get("Stakeholder/ListarTipoSucesoCboCsv", mostrarTipoSuceso);
@@ -247,7 +246,6 @@ function obtenerRegistroPorId(id) {
 }
 
 function CrearTablaCsvSucesos(rpta) {
-    //campos = rpta.split('¯');
     lstSucesosStakeholder = rpta.split('¬');
     new GrillaModal(lstSucesosStakeholder, "divTablaSucesos", 10, 3);
 }
@@ -306,8 +304,6 @@ function mostrarECM(rpta) {
     if (rpta) {
         lista = rpta.split('¬');
         crearObjetoECM(lista);
-        //lstCboECM = rpta.split('¬');
-        //CrearCombo(lstCboECM, cboECM, "Seleccione");
     }
 }
 

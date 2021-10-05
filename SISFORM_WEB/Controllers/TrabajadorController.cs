@@ -395,6 +395,22 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ObtenerCapacidadHospedajePorIDCsv(int FK_ID_Empresa)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerCapacidadHospedajePorIDCsvAsync(FK_ID_Empresa);
+                return rpta;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         public async Task<string> ListarPruebasCovid(int FK_ID_UnidadGestion)
         {
             try

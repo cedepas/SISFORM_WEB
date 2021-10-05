@@ -26,27 +26,32 @@ window.onload = function () {
             divRows[i].classList.add("row-eq-spacing-sm");
         }
 
+        obtenerfechaActual();
+        txtFechaAsignacion.value = fechaActual;
+
         cboTipoEmpresa.onchange = function () {
             CargarCboTipoEmpresa();
-            tipoHabitacion.style.display = "none";
+            asignacionStaft.style.display = "none";
             if (cboTipoEmpresa.value == 3) {
-                tipoHabitacion.style.display = "inline-block";
+                asignacionStaft.style.display = "inline-block";
             }
             empresaServicio.style.display = "inline-block";
+            tipoDeEmpresa.style.display = "inline-block";
+            asignacionObrero.style.display = "inline-block";
             Http.get("Trabajador/ListarServiciosAsignadosPorEmpresaECM?FK_ID_EmpresaECM=" + idEmpresaECM + "&FK_ID_TipoEmpresa=" + cboTipoEmpresa.value, CrearTablaCsv);
         }
-        cboTipoHabitacion.onchange = function () {
-            Http.get("Trabajador/ListarEmpresaGraficoHospedajeCsv?FK_ID_tipoHabitacion=" + cboTipoHabitacion.value, cargarData);
-        }
+        //cboTipoHabitacion.onchange = function () {
+        //    Http.get("Trabajador/ListarEmpresaGraficoHospedajeCsv?FK_ID_tipoHabitacion=" + cboTipoHabitacion.value, cargarData);
+        //}
 
-        txtbuscarPorEmpresa.onkeyup = function () {
+        txtbuscarPorEmpresaECM.onkeyup = function () {
             var a, b;
             closeAllLists();
             a = document.createElement("div");
             a.setAttribute("id", this.id + "predictivo-list");
             a.setAttribute("class", "predictivo-items");
             this.parentNode.appendChild(a);
-            textoBusqueda = txtbuscarPorEmpresa.value.toLowerCase();
+            textoBusqueda = txtbuscarPorEmpresaECM.value.toLowerCase();
             for (let objeto of objetoBusqueda) {
                 let Nombre = objeto.NombreComercial.toLowerCase();
                 if (Nombre.indexOf(textoBusqueda) !== -1) {
@@ -54,10 +59,10 @@ window.onload = function () {
                     b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
                     b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
                     b.addEventListener("click", function (e) {
-                        txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
+                        txtbuscarPorEmpresaECM.value = this.getElementsByTagName("input")[0].value;
                         idEmpresaECM = objeto.IDEmpr;
                         closeAllLists();
-                        txtbuscarPorEmpresa.disabled = true;
+                        txtbuscarPorEmpresaECM.disabled = true;
                         tipoEmpresa.style.display = "inline-block";
                     });
                     a.appendChild(b);
@@ -84,6 +89,9 @@ window.onload = function () {
                         idEmpresaServicio = objeto.IDEmpr;
                         closeAllListsServicio();
                         txtEmpresaServicio.disabled = true;
+                        if (cboTipoEmpresa.value == 3) {
+                            Http.get("Trabajador/ObtenerCapacidadHospedajePorIDCsv?FK_ID_Empresa=" + idEmpresaServicio, capacidadHospedajes);
+                        }
                     });
                     a.appendChild(b);
                 }
@@ -95,16 +103,40 @@ window.onload = function () {
             if (idAsignacionServicios) {
                 frm.append("ID_AsignacionServicios", idAsignacionServicios);
             }
-            frm.append("ID_AsignacionServicios", idAsignacionServicios);
-            frm.append("FK_ID_EmpresaECM", idEmpresaECM);
-            frm.append("FK_ID_TipoServicio", cboTipoEmpresa.value);
-            frm.append("FK_ID_EmpresaServicio", idEmpresaServicio);
-            frm.append("FK_ID_Usuario", idUsuario);
-            frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
-            if (validarRequeridos('T')) {
-                checkSubmit(btnGrabar);
-                Http.post("Trabajador/AsignacionServiciosOperacion", MostrarGrabar, frm);
-            } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+            if (cboTipoEmpresa.value == 3) {
+                //if (txtHabStaft.value <= txtCapHabStaft.value && txtHabObrero.value <= txtCapHabObrero.value) {
+                if (parseInt(txtHabStaft.value, 10) <= parseInt(txtCapHabStaft.value, 10) && parseInt(txtHabObrero.value) <= parseInt(txtCapHabObrero.value)) {
+                    frm.append("ID_AsignacionServicios", idAsignacionServicios);
+                    frm.append("FK_ID_EmpresaECM", idEmpresaECM);
+                    frm.append("FK_ID_EmpresaNNLL", idEmpresaServicio);
+                    frm.append("FK_ID_EstadoAsignacionServicios", cboEstadoAsignacion.value);
+                    frm.append("habStatf", txtHabStaft.value);
+                    frm.append("habObrero", txtHabObrero.value);
+                    frm.append("fechaAsignacion", txtFechaAsignacion.value);
+                    frm.append("fechaTermino", txtFechaTermino.value);
+                    frm.append("FK_ID_UsuarioCrea", idUsuario);
+                    if (validarRequeridos('T')) {
+                        checkSubmit(btnGrabar);
+                        Http.post("Trabajador/AsignacionServiciosOperacion", MostrarGrabar, frm);
+                    } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+                }
+                else toastDangerAlert("El número de camas supera la capacidad del NNLL", "¡Aviso!");
+            } else {
+                frm.append("ID_AsignacionServicios", idAsignacionServicios);
+                frm.append("FK_ID_EmpresaECM", idEmpresaECM);
+                frm.append("FK_ID_EmpresaNNLL", idEmpresaServicio);
+                frm.append("FK_ID_EstadoAsignacionServicios", cboEstadoAsignacion.value);
+                frm.append("habStatf", txtHabStaft.value);
+                frm.append("habObrero", txtHabObrero.value);
+                frm.append("fechaAsignacion", txtFechaAsignacion.value);
+                frm.append("fechaTermino", txtFechaTermino.value);
+                frm.append("FK_ID_UsuarioCrea", idUsuario);
+                if (validarRequeridos('T')) {
+                    checkSubmit(btnGrabar);
+                    Http.post("Trabajador/AsignacionServiciosOperacion", MostrarGrabar, frm);
+                } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+            }
+
         }
 
         function checkSubmit(boton) {
@@ -113,7 +145,12 @@ window.onload = function () {
             return true;
         }
 
+        bntNuevo.onclick = function () {
+            location.reload();
+        }
+
     }
+
 }
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
@@ -132,13 +169,23 @@ function closeAllListsServicio(elmnt) {
     }
 }
 
+function capacidadHospedajes(rpta) {
+    if (rpta) {
+        campos = rpta.split('|');
+        txtCapHabStaft.value = campos[0];
+        txtCapHabObrero.value = campos[1];
+    }
+}
+
 function mostrarTipoEmpresa(rpta) {
     if (rpta) {
         lstCbos = rpta.split('¯');
         lstCboTipoEmpresa = lstCbos[0].split('¬');
         lstCboTipoHabitacion = lstCbos[1].split('¬');
+        lstCboEstadoAsignacion = lstCbos[2].split('¬');
         CrearCombo(lstCboTipoEmpresa, cboTipoEmpresa, "Seleccione");
-        CrearCombo(lstCboTipoHabitacion, cboTipoHabitacion, "Seleccione");
+        //CrearCombo(lstCboTipoHabitacion, cboTipoHabitacion, "Seleccione");
+        CrearCombo(lstCboEstadoAsignacion, cboEstadoAsignacion, "Seleccione");
     }
 }
 
@@ -147,19 +194,17 @@ function CargarCboTipoEmpresa() {
     asignacion = [];
     Http.get("Trabajador/ListarEmpresaPorTipoCbo?idTipoEmpresa=" + cboTipoEmpresa.value, CrearListaEmpresaServicioCsv);
 
-    Http.get("Trabajador/ListarEmpresaGrafico?idTipoEmpresa=" + cboTipoEmpresa.value, cargarData);
+    //Http.get("Trabajador/ListarEmpresaGrafico?idTipoEmpresa=" + cboTipoEmpresa.value, cargarData);
 
-    if (cboTipoEmpresa.value == 3) {
-        tipoHabitacion.style.display = "inline-block";
-    }
+    //if (cboTipoEmpresa.value == 3) {
+    //    tipoHabitacion.style.display = "inline-block";
+    //}
 }
 
 function MostrarGrabar(rpta) {
-    btnGrabar.disabled = false;
-    btnGrabar.value = "Grabar";
     if (rpta) {
+        Http.get("Trabajador/ListarServiciosAsignadosPorEmpresaECM?FK_ID_EmpresaECM=" + idEmpresaECM + "&FK_ID_TipoEmpresa=" + cboTipoEmpresa.value, CrearTablaCsv);
         toastSuccessAlert("Los registros se guardaron correctamente", "¡Exito!");
-
     }
     else toastDangerAlert("No se pudieron grabar los registros", "¡Error!");
 }
@@ -250,15 +295,24 @@ function obtenerRegistroPorId(id) {
 function AsignarCampos(rpta) {
     if (rpta) {
         var campos = rpta.split('|');
-        estadoAsiganacion.style.display = "inline-block";
+        fechaTermino.style.display = "inline-block";
+        btnGrabar.disabled = false;
+        btnGrabar.value = "Grabar";
         idAsignacionServicios = campos[0];
         document.getElementById("lblNumeroAsignacion").innerHTML = campos[0];
-        txtbuscarPorEmpresa.value = campos[1];
+        txtbuscarPorEmpresaECM.value = campos[1];
         idEmpresaECM = campos[2];
         cboTipoEmpresa.value = campos[3];
         txtEmpresaServicio.value = campos[4];
         idEmpresaServicio = campos[5];
-        txtEstado.checked = (campos[6] == "ACT" ? true : false);
+        txtEmpresaServicio.disabled = true;
+        cboEstadoAsignacion.value = campos[6];
+        txtFechaAsignacion.value = campos[7];
+        txtFechaTermino.value = campos[8];
+        txtHabStaft.value = campos[9];
+        txtHabObrero.value = campos[10];
+        txtCapHabStaft.value = campos[11];
+        txtCapHabObrero.value = campos[12];
     }
 }
 
@@ -398,4 +452,14 @@ function cargarData(rpta) {
     });
     dibujarGrafico2()
 }
-
+function obtenerfechaActual() {
+    var fecha = new Date();
+    var mes = fecha.getMonth() + 1;
+    var dia = fecha.getDate();
+    var ano = fecha.getFullYear();
+    if (dia < 10)
+        dia = '0' + dia;
+    if (mes < 10)
+        mes = '0' + mes
+    fechaActual = ano + "-" + mes + "-" + dia;
+}

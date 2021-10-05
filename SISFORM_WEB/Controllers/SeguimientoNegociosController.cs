@@ -29,6 +29,11 @@ namespace SISFORM_WEB.Controllers
             ViewBag.Title = "Deusas a Negocios Locales";
             return View();
         }
+        public ActionResult VehiculosDeliverys()
+        {
+            return View();
+        }
+        
         public async Task<string> GrabarDeuda(DeudaNNLL oDeudaNNLL)
         {
             int rpta = 0;
@@ -43,6 +48,29 @@ namespace SISFORM_WEB.Controllers
             }
             ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
             rpta = await servicio.deudasNNLLOperacionAsync(oDeudaNNLL, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
+        public async Task<string> VehiculosDelivery(VehiculosDeliverys oVehiculosDeliverys)
+        {
+            int rpta = 0;
+            string op = "";
+            if (oVehiculosDeliverys.ID_VehiculosDelivery == 0)
+            {
+                op = "I";
+            }
+            else
+            {
+                op = "U";
+            }
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.VehiculosDeliverysOperacionAsync(oVehiculosDeliverys, op);
             if (rpta == 0)
             {
                 return "";
@@ -269,5 +297,35 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+
+        public async Task<string> ListarVehiculoDeliverysCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarVehiculoDeliverysCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ObtenerVehiculoDeliveryPorIdCsv(int idVehiculo)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerVehiculoDeliveryPorIdCsvAsync(idVehiculo);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
     }
 }

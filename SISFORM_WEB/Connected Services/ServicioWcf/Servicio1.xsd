@@ -177,6 +177,31 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CartaPreocupacion" nillable="true" type="tns:CartaPreocupacion" />
+  <xs:complexType name="VehiculosDeliverys">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Usuario_Crea" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_VehiculosDelivery" type="xs:int" />
+      <xs:element minOccurs="0" name="anioFabricacionVehiculo" type="xs:int" />
+      <xs:element minOccurs="0" name="breveteMinimo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="capacidadCoolers" type="xs:int" />
+      <xs:element minOccurs="0" name="categoriaVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="circulacionSUNARP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="combustible" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInspeccionTecnicaVehicular" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaSeguroContraTerceros" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaVencimientoSOAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="marcaVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="modeloVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="placaVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="propietarioVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="seguroContraTerceros" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vinculoVehiculo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehiculosDeliverys" nillable="true" type="tns:VehiculosDeliverys" />
   <xs:complexType name="VistaUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
@@ -256,8 +281,12 @@
       <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
       <xs:element minOccurs="0" name="ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="asociado" type="xs:int" />
       <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="inicioActividades" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="latitud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="longitud" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nombreComercial" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="razonSocial" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="regimenTributario" nillable="true" type="xs:string" />
@@ -271,11 +300,14 @@
   <xs:complexType name="AsignacionServicios">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_EmpresaECM" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_EmpresaServicio" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_TipoServicio" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EmpresaNNLL" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EstadoAsignacionServicios" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
       <xs:element minOccurs="0" name="ID_AsignacionServicios" type="xs:int" />
-      <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaAsignacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaTermino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="habObrero" type="xs:int" />
+      <xs:element minOccurs="0" name="habStatf" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AsignacionServicios" nillable="true" type="tns:AsignacionServicios" />
@@ -293,7 +325,7 @@
       <xs:element minOccurs="0" name="NombreContacto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="estado" type="xs:int" />
-      <xs:element minOccurs="0" name="telefono" type="xs:int" />
+      <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DirectorioECM" nillable="true" type="tns:DirectorioECM" />
@@ -303,13 +335,18 @@
       <xs:element minOccurs="0" name="FK_ID_Condicion" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_SistemaAguaCaliente" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TipoEscalera" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_TipoSistemaElectrico" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Usuario_Crea" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_materialEdificacion" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_tipoEmpresaHospedaje" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_zonaEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="cantOficinas" type="xs:int" />
+      <xs:element minOccurs="0" name="llaveDiferencial" type="xs:int" />
+      <xs:element minOccurs="0" name="minutosalB2" type="xs:float" />
       <xs:element minOccurs="0" name="numeroBañosCompartidos" type="xs:int" />
       <xs:element minOccurs="0" name="numeroPisosHabitables" type="xs:int" />
+      <xs:element minOccurs="0" name="vestuario" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DetalleEmpresa" nillable="true" type="tns:DetalleEmpresa" />

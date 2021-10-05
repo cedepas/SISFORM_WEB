@@ -22,7 +22,7 @@ window.onload = function () {
 
     btnGrabar.onclick = function () {
         var frm = new FormData();
-        if (idEmpresa) {
+        if (idDirectorioECM) {
             frm.append("ID_DirectorioECM", idDirectorioECM);
         }
         frm.append("ID_DirectorioECM", idDirectorioECM);
@@ -69,9 +69,10 @@ window.onload = function () {
     }
 
     btnNuevo.onclick = function () {
+        window.location.reload();
         limpiarControles('form-control');
-        boton.value = "Grabar";
-        boton.disabled = false;
+        btnGrabar.value = "Grabar";
+        btnGrabar.disabled = false;
     }
 
 }
@@ -87,6 +88,7 @@ function closeAllLists(elmnt) {
 function MostrarRegistroDirectorioECM(rpta) {
     if (rpta) {
         if (!isMobile.any()) {
+            toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
             Http.get("Empresa/ListarDirectorioECMCsv", CrearTablaCsv);
             limpiarControles('form-control');
         }

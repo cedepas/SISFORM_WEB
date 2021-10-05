@@ -2133,6 +2133,355 @@ namespace SISFORM_WEB.ServicioWcf {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VehiculosDeliverys", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class VehiculosDeliverys : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_Usuario_CreaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_VehiculosDeliveryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int anioFabricacionVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string breveteMinimoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int capacidadCoolersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string categoriaVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string circulacionSUNARPField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string combustibleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaInspeccionTecnicaVehicularField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaSeguroContraTercerosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaVencimientoSOATField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string marcaVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string modeloVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string placaVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string propietarioVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sedeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string seguroContraTercerosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tipoVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string vinculoVehiculoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Empresa {
+            get {
+                return this.FK_ID_EmpresaField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Usuario_Crea {
+            get {
+                return this.FK_ID_Usuario_CreaField;
+            }
+            set {
+                if ((this.FK_ID_Usuario_CreaField.Equals(value) != true)) {
+                    this.FK_ID_Usuario_CreaField = value;
+                    this.RaisePropertyChanged("FK_ID_Usuario_Crea");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_VehiculosDelivery {
+            get {
+                return this.ID_VehiculosDeliveryField;
+            }
+            set {
+                if ((this.ID_VehiculosDeliveryField.Equals(value) != true)) {
+                    this.ID_VehiculosDeliveryField = value;
+                    this.RaisePropertyChanged("ID_VehiculosDelivery");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int anioFabricacionVehiculo {
+            get {
+                return this.anioFabricacionVehiculoField;
+            }
+            set {
+                if ((this.anioFabricacionVehiculoField.Equals(value) != true)) {
+                    this.anioFabricacionVehiculoField = value;
+                    this.RaisePropertyChanged("anioFabricacionVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string breveteMinimo {
+            get {
+                return this.breveteMinimoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.breveteMinimoField, value) != true)) {
+                    this.breveteMinimoField = value;
+                    this.RaisePropertyChanged("breveteMinimo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int capacidadCoolers {
+            get {
+                return this.capacidadCoolersField;
+            }
+            set {
+                if ((this.capacidadCoolersField.Equals(value) != true)) {
+                    this.capacidadCoolersField = value;
+                    this.RaisePropertyChanged("capacidadCoolers");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string categoriaVehiculo {
+            get {
+                return this.categoriaVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.categoriaVehiculoField, value) != true)) {
+                    this.categoriaVehiculoField = value;
+                    this.RaisePropertyChanged("categoriaVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string circulacionSUNARP {
+            get {
+                return this.circulacionSUNARPField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.circulacionSUNARPField, value) != true)) {
+                    this.circulacionSUNARPField = value;
+                    this.RaisePropertyChanged("circulacionSUNARP");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string combustible {
+            get {
+                return this.combustibleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.combustibleField, value) != true)) {
+                    this.combustibleField = value;
+                    this.RaisePropertyChanged("combustible");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaInspeccionTecnicaVehicular {
+            get {
+                return this.fechaInspeccionTecnicaVehicularField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaInspeccionTecnicaVehicularField, value) != true)) {
+                    this.fechaInspeccionTecnicaVehicularField = value;
+                    this.RaisePropertyChanged("fechaInspeccionTecnicaVehicular");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaSeguroContraTerceros {
+            get {
+                return this.fechaSeguroContraTercerosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaSeguroContraTercerosField, value) != true)) {
+                    this.fechaSeguroContraTercerosField = value;
+                    this.RaisePropertyChanged("fechaSeguroContraTerceros");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaVencimientoSOAT {
+            get {
+                return this.fechaVencimientoSOATField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaVencimientoSOATField, value) != true)) {
+                    this.fechaVencimientoSOATField = value;
+                    this.RaisePropertyChanged("fechaVencimientoSOAT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string marcaVehiculo {
+            get {
+                return this.marcaVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.marcaVehiculoField, value) != true)) {
+                    this.marcaVehiculoField = value;
+                    this.RaisePropertyChanged("marcaVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string modeloVehiculo {
+            get {
+                return this.modeloVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.modeloVehiculoField, value) != true)) {
+                    this.modeloVehiculoField = value;
+                    this.RaisePropertyChanged("modeloVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string placaVehiculo {
+            get {
+                return this.placaVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.placaVehiculoField, value) != true)) {
+                    this.placaVehiculoField = value;
+                    this.RaisePropertyChanged("placaVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string propietarioVehiculo {
+            get {
+                return this.propietarioVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.propietarioVehiculoField, value) != true)) {
+                    this.propietarioVehiculoField = value;
+                    this.RaisePropertyChanged("propietarioVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sede {
+            get {
+                return this.sedeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sedeField, value) != true)) {
+                    this.sedeField = value;
+                    this.RaisePropertyChanged("sede");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string seguroContraTerceros {
+            get {
+                return this.seguroContraTercerosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.seguroContraTercerosField, value) != true)) {
+                    this.seguroContraTercerosField = value;
+                    this.RaisePropertyChanged("seguroContraTerceros");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tipoVehiculo {
+            get {
+                return this.tipoVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tipoVehiculoField, value) != true)) {
+                    this.tipoVehiculoField = value;
+                    this.RaisePropertyChanged("tipoVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string vinculoVehiculo {
+            get {
+                return this.vinculoVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.vinculoVehiculoField, value) != true)) {
+                    this.vinculoVehiculoField = value;
+                    this.RaisePropertyChanged("vinculoVehiculo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="VistaUsuario", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
     [System.SerializableAttribute()]
     public partial class VistaUsuario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2899,10 +3248,22 @@ namespace SISFORM_WEB.ServicioWcf {
         private int ID_EmpresaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int asociadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string direccionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string emailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string inicioActividadesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string latitudField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string longitudField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string nombreComercialField;
@@ -3014,6 +3375,19 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int asociado {
+            get {
+                return this.asociadoField;
+            }
+            set {
+                if ((this.asociadoField.Equals(value) != true)) {
+                    this.asociadoField = value;
+                    this.RaisePropertyChanged("asociado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string direccion {
             get {
                 return this.direccionField;
@@ -3035,6 +3409,45 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((object.ReferenceEquals(this.emailField, value) != true)) {
                     this.emailField = value;
                     this.RaisePropertyChanged("email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string inicioActividades {
+            get {
+                return this.inicioActividadesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.inicioActividadesField, value) != true)) {
+                    this.inicioActividadesField = value;
+                    this.RaisePropertyChanged("inicioActividades");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string latitud {
+            get {
+                return this.latitudField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.latitudField, value) != true)) {
+                    this.latitudField = value;
+                    this.RaisePropertyChanged("latitud");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string longitud {
+            get {
+                return this.longitudField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.longitudField, value) != true)) {
+                    this.longitudField = value;
+                    this.RaisePropertyChanged("longitud");
                 }
             }
         }
@@ -3153,19 +3566,28 @@ namespace SISFORM_WEB.ServicioWcf {
         private int FK_ID_EmpresaECMField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int FK_ID_EmpresaServicioField;
+        private int FK_ID_EmpresaNNLLField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int FK_ID_TipoServicioField;
+        private int FK_ID_EstadoAsignacionServiciosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int FK_ID_UsuarioField;
+        private int FK_ID_UsuarioCreaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ID_AsignacionServiciosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string estadoField;
+        private string fechaAsignacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaTerminoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int habObreroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int habStatfField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -3191,40 +3613,40 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FK_ID_EmpresaServicio {
+        public int FK_ID_EmpresaNNLL {
             get {
-                return this.FK_ID_EmpresaServicioField;
+                return this.FK_ID_EmpresaNNLLField;
             }
             set {
-                if ((this.FK_ID_EmpresaServicioField.Equals(value) != true)) {
-                    this.FK_ID_EmpresaServicioField = value;
-                    this.RaisePropertyChanged("FK_ID_EmpresaServicio");
+                if ((this.FK_ID_EmpresaNNLLField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaNNLLField = value;
+                    this.RaisePropertyChanged("FK_ID_EmpresaNNLL");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FK_ID_TipoServicio {
+        public int FK_ID_EstadoAsignacionServicios {
             get {
-                return this.FK_ID_TipoServicioField;
+                return this.FK_ID_EstadoAsignacionServiciosField;
             }
             set {
-                if ((this.FK_ID_TipoServicioField.Equals(value) != true)) {
-                    this.FK_ID_TipoServicioField = value;
-                    this.RaisePropertyChanged("FK_ID_TipoServicio");
+                if ((this.FK_ID_EstadoAsignacionServiciosField.Equals(value) != true)) {
+                    this.FK_ID_EstadoAsignacionServiciosField = value;
+                    this.RaisePropertyChanged("FK_ID_EstadoAsignacionServicios");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FK_ID_Usuario {
+        public int FK_ID_UsuarioCrea {
             get {
-                return this.FK_ID_UsuarioField;
+                return this.FK_ID_UsuarioCreaField;
             }
             set {
-                if ((this.FK_ID_UsuarioField.Equals(value) != true)) {
-                    this.FK_ID_UsuarioField = value;
-                    this.RaisePropertyChanged("FK_ID_Usuario");
+                if ((this.FK_ID_UsuarioCreaField.Equals(value) != true)) {
+                    this.FK_ID_UsuarioCreaField = value;
+                    this.RaisePropertyChanged("FK_ID_UsuarioCrea");
                 }
             }
         }
@@ -3243,14 +3665,53 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string estado {
+        public string fechaAsignacion {
             get {
-                return this.estadoField;
+                return this.fechaAsignacionField;
             }
             set {
-                if ((object.ReferenceEquals(this.estadoField, value) != true)) {
-                    this.estadoField = value;
-                    this.RaisePropertyChanged("estado");
+                if ((object.ReferenceEquals(this.fechaAsignacionField, value) != true)) {
+                    this.fechaAsignacionField = value;
+                    this.RaisePropertyChanged("fechaAsignacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaTermino {
+            get {
+                return this.fechaTerminoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaTerminoField, value) != true)) {
+                    this.fechaTerminoField = value;
+                    this.RaisePropertyChanged("fechaTermino");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int habObrero {
+            get {
+                return this.habObreroField;
+            }
+            set {
+                if ((this.habObreroField.Equals(value) != true)) {
+                    this.habObreroField = value;
+                    this.RaisePropertyChanged("habObrero");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int habStatf {
+            get {
+                return this.habStatfField;
+            }
+            set {
+                if ((this.habStatfField.Equals(value) != true)) {
+                    this.habStatfField = value;
+                    this.RaisePropertyChanged("habStatf");
                 }
             }
         }
@@ -3293,7 +3754,7 @@ namespace SISFORM_WEB.ServicioWcf {
         private int estadoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int telefonoField;
+        private string telefonoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -3384,12 +3845,12 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int telefono {
+        public string telefono {
             get {
                 return this.telefonoField;
             }
             set {
-                if ((this.telefonoField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.telefonoField, value) != true)) {
                     this.telefonoField = value;
                     this.RaisePropertyChanged("telefono");
                 }
@@ -3428,6 +3889,9 @@ namespace SISFORM_WEB.ServicioWcf {
         private int FK_ID_SistemaAguaCalienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_TipoEscaleraField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int FK_ID_TipoSistemaElectricoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3443,10 +3907,22 @@ namespace SISFORM_WEB.ServicioWcf {
         private int FK_ID_zonaEmpresaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantOficinasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int llaveDiferencialField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float minutosalB2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int numeroBañosCompartidosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int numeroPisosHabitablesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int vestuarioField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -3506,6 +3982,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((this.FK_ID_SistemaAguaCalienteField.Equals(value) != true)) {
                     this.FK_ID_SistemaAguaCalienteField = value;
                     this.RaisePropertyChanged("FK_ID_SistemaAguaCaliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_TipoEscalera {
+            get {
+                return this.FK_ID_TipoEscaleraField;
+            }
+            set {
+                if ((this.FK_ID_TipoEscaleraField.Equals(value) != true)) {
+                    this.FK_ID_TipoEscaleraField = value;
+                    this.RaisePropertyChanged("FK_ID_TipoEscalera");
                 }
             }
         }
@@ -3576,6 +4065,45 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantOficinas {
+            get {
+                return this.cantOficinasField;
+            }
+            set {
+                if ((this.cantOficinasField.Equals(value) != true)) {
+                    this.cantOficinasField = value;
+                    this.RaisePropertyChanged("cantOficinas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int llaveDiferencial {
+            get {
+                return this.llaveDiferencialField;
+            }
+            set {
+                if ((this.llaveDiferencialField.Equals(value) != true)) {
+                    this.llaveDiferencialField = value;
+                    this.RaisePropertyChanged("llaveDiferencial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float minutosalB2 {
+            get {
+                return this.minutosalB2Field;
+            }
+            set {
+                if ((this.minutosalB2Field.Equals(value) != true)) {
+                    this.minutosalB2Field = value;
+                    this.RaisePropertyChanged("minutosalB2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int numeroBañosCompartidos {
             get {
                 return this.numeroBañosCompartidosField;
@@ -3597,6 +4125,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((this.numeroPisosHabitablesField.Equals(value) != true)) {
                     this.numeroPisosHabitablesField = value;
                     this.RaisePropertyChanged("numeroPisosHabitables");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int vestuario {
+            get {
+                return this.vestuarioField;
+            }
+            set {
+                if ((this.vestuarioField.Equals(value) != true)) {
+                    this.vestuarioField = value;
+                    this.RaisePropertyChanged("vestuario");
                 }
             }
         }
@@ -5957,6 +6498,13 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerDeudaNNLLPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerDeudaNNLLPorIdCsvResponse")]
         System.Threading.Tasks.Task<string> ObtenerDeudaNNLLPorIdCsvAsync(int ID_DeudaNNLL);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerCapacidadHospedajePorIDCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerCapacidadHospedajePorIDCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerCapacidadHospedajePorIDCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerCapacidadHospedajePorIDCsv(int FK_ID_Empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerCapacidadHospedajePorIDCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerCapacidadHospedajePorIDCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerCapacidadHospedajePorIDCsvAsync(int FK_ID_Empresa);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoCheckListCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoCheckListCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTipoCheckListCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarTipoCheckListCsv();
@@ -6321,6 +6869,27 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarAsistenciaCedepas", ReplyAction="http://tempuri.org/IServicio/RegistrarAsistenciaCedepasResponse")]
         System.Threading.Tasks.Task<string> RegistrarAsistenciaCedepasAsync(string numeroDocumento, int tipoMarcacion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/VehiculosDeliverysOperacion", ReplyAction="http://tempuri.org/IServicio/VehiculosDeliverysOperacionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/VehiculosDeliverysOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int VehiculosDeliverysOperacion(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/VehiculosDeliverysOperacion", ReplyAction="http://tempuri.org/IServicio/VehiculosDeliverysOperacionResponse")]
+        System.Threading.Tasks.Task<int> VehiculosDeliverysOperacionAsync(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsv", ReplyAction="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarVehiculoDeliverysCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsv", ReplyAction="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarVehiculoDeliverysCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerVehiculoDeliveryPorIdCsv(int IDVehiculosDelivery);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/AutenticarUsuario", ReplyAction="http://tempuri.org/IServicio/AutenticarUsuarioResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/AutenticarUsuarioErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -7125,6 +7694,14 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.ObtenerDeudaNNLLPorIdCsvAsync(ID_DeudaNNLL);
         }
         
+        public string ObtenerCapacidadHospedajePorIDCsv(int FK_ID_Empresa) {
+            return base.Channel.ObtenerCapacidadHospedajePorIDCsv(FK_ID_Empresa);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerCapacidadHospedajePorIDCsvAsync(int FK_ID_Empresa) {
+            return base.Channel.ObtenerCapacidadHospedajePorIDCsvAsync(FK_ID_Empresa);
+        }
+        
         public string ListarTipoCheckListCsv() {
             return base.Channel.ListarTipoCheckListCsv();
         }
@@ -7539,6 +8116,30 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> RegistrarAsistenciaCedepasAsync(string numeroDocumento, int tipoMarcacion) {
             return base.Channel.RegistrarAsistenciaCedepasAsync(numeroDocumento, tipoMarcacion);
+        }
+        
+        public int VehiculosDeliverysOperacion(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op) {
+            return base.Channel.VehiculosDeliverysOperacion(oVehiculosDeliverys, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> VehiculosDeliverysOperacionAsync(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op) {
+            return base.Channel.VehiculosDeliverysOperacionAsync(oVehiculosDeliverys, op);
+        }
+        
+        public string ListarVehiculoDeliverysCsv() {
+            return base.Channel.ListarVehiculoDeliverysCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarVehiculoDeliverysCsvAsync() {
+            return base.Channel.ListarVehiculoDeliverysCsvAsync();
+        }
+        
+        public string ObtenerVehiculoDeliveryPorIdCsv(int IDVehiculosDelivery) {
+            return base.Channel.ObtenerVehiculoDeliveryPorIdCsv(IDVehiculosDelivery);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery) {
+            return base.Channel.ObtenerVehiculoDeliveryPorIdCsvAsync(IDVehiculosDelivery);
         }
         
         public SISFORM_WEB.ServicioWcf.VistaUsuario AutenticarUsuario(string usuario, string clave) {
