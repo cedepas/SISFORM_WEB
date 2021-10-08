@@ -1500,16 +1500,28 @@ namespace SISFORM_WEB.ServicioWcf {
         private int AceptacionQuedaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short FK_ID_CategoriaSucesoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int FK_ID_EmpresaECMField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int FK_ID_EmpresaNNLLField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short FK_ID_EspecificacionSucesoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private short FK_ID_EstadoSucesoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_ResponsableComedorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int FK_ID_StakeholderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_SupFirmaActaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private short FK_ID_TipoSucesoField;
@@ -1521,7 +1533,7 @@ namespace SISFORM_WEB.ServicioWcf {
         private int ID_QuejasECM_NNLLField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string accionesSucesoField;
+        private string detalleAceptacionQuejaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string detalleCompromisoField;
@@ -1530,10 +1542,19 @@ namespace SISFORM_WEB.ServicioWcf {
         private string detalleSucesoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string fechaCierreField;
+        private string fechaCierrePlandeAccionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string fechaInicioField;
+        private string fechaCierreSeguimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaFirmadeActaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaInicioPlandeAccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaInicioSeguimientoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string fechaReporteField;
@@ -1557,6 +1578,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((this.AceptacionQuedaField.Equals(value) != true)) {
                     this.AceptacionQuedaField = value;
                     this.RaisePropertyChanged("AceptacionQueda");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short FK_ID_CategoriaSuceso {
+            get {
+                return this.FK_ID_CategoriaSucesoField;
+            }
+            set {
+                if ((this.FK_ID_CategoriaSucesoField.Equals(value) != true)) {
+                    this.FK_ID_CategoriaSucesoField = value;
+                    this.RaisePropertyChanged("FK_ID_CategoriaSuceso");
                 }
             }
         }
@@ -1588,6 +1622,19 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public short FK_ID_EspecificacionSuceso {
+            get {
+                return this.FK_ID_EspecificacionSucesoField;
+            }
+            set {
+                if ((this.FK_ID_EspecificacionSucesoField.Equals(value) != true)) {
+                    this.FK_ID_EspecificacionSucesoField = value;
+                    this.RaisePropertyChanged("FK_ID_EspecificacionSuceso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public short FK_ID_EstadoSuceso {
             get {
                 return this.FK_ID_EstadoSucesoField;
@@ -1601,6 +1648,19 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_ResponsableComedor {
+            get {
+                return this.FK_ID_ResponsableComedorField;
+            }
+            set {
+                if ((this.FK_ID_ResponsableComedorField.Equals(value) != true)) {
+                    this.FK_ID_ResponsableComedorField = value;
+                    this.RaisePropertyChanged("FK_ID_ResponsableComedor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int FK_ID_Stakeholder {
             get {
                 return this.FK_ID_StakeholderField;
@@ -1609,6 +1669,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((this.FK_ID_StakeholderField.Equals(value) != true)) {
                     this.FK_ID_StakeholderField = value;
                     this.RaisePropertyChanged("FK_ID_Stakeholder");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_SupFirmaActa {
+            get {
+                return this.FK_ID_SupFirmaActaField;
+            }
+            set {
+                if ((this.FK_ID_SupFirmaActaField.Equals(value) != true)) {
+                    this.FK_ID_SupFirmaActaField = value;
+                    this.RaisePropertyChanged("FK_ID_SupFirmaActa");
                 }
             }
         }
@@ -1653,14 +1726,14 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string accionesSuceso {
+        public string detalleAceptacionQueja {
             get {
-                return this.accionesSucesoField;
+                return this.detalleAceptacionQuejaField;
             }
             set {
-                if ((object.ReferenceEquals(this.accionesSucesoField, value) != true)) {
-                    this.accionesSucesoField = value;
-                    this.RaisePropertyChanged("accionesSuceso");
+                if ((object.ReferenceEquals(this.detalleAceptacionQuejaField, value) != true)) {
+                    this.detalleAceptacionQuejaField = value;
+                    this.RaisePropertyChanged("detalleAceptacionQueja");
                 }
             }
         }
@@ -1692,27 +1765,66 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string fechaCierre {
+        public string fechaCierrePlandeAccion {
             get {
-                return this.fechaCierreField;
+                return this.fechaCierrePlandeAccionField;
             }
             set {
-                if ((object.ReferenceEquals(this.fechaCierreField, value) != true)) {
-                    this.fechaCierreField = value;
-                    this.RaisePropertyChanged("fechaCierre");
+                if ((object.ReferenceEquals(this.fechaCierrePlandeAccionField, value) != true)) {
+                    this.fechaCierrePlandeAccionField = value;
+                    this.RaisePropertyChanged("fechaCierrePlandeAccion");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string fechaInicio {
+        public string fechaCierreSeguimiento {
             get {
-                return this.fechaInicioField;
+                return this.fechaCierreSeguimientoField;
             }
             set {
-                if ((object.ReferenceEquals(this.fechaInicioField, value) != true)) {
-                    this.fechaInicioField = value;
-                    this.RaisePropertyChanged("fechaInicio");
+                if ((object.ReferenceEquals(this.fechaCierreSeguimientoField, value) != true)) {
+                    this.fechaCierreSeguimientoField = value;
+                    this.RaisePropertyChanged("fechaCierreSeguimiento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaFirmadeActa {
+            get {
+                return this.fechaFirmadeActaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaFirmadeActaField, value) != true)) {
+                    this.fechaFirmadeActaField = value;
+                    this.RaisePropertyChanged("fechaFirmadeActa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaInicioPlandeAccion {
+            get {
+                return this.fechaInicioPlandeAccionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaInicioPlandeAccionField, value) != true)) {
+                    this.fechaInicioPlandeAccionField = value;
+                    this.RaisePropertyChanged("fechaInicioPlandeAccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaInicioSeguimiento {
+            get {
+                return this.fechaInicioSeguimientoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaInicioSeguimientoField, value) != true)) {
+                    this.fechaInicioSeguimientoField = value;
+                    this.RaisePropertyChanged("fechaInicioSeguimiento");
                 }
             }
         }
@@ -6701,6 +6813,20 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoSucesoCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoSucesoCboCsvResponse")]
         System.Threading.Tasks.Task<string> ListarTipoSucesoCboCsvAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCategoriaSucesoCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarCategoriaSucesoCboCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarCategoriaSucesoCboCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarCategoriaSucesoCboCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarCategoriaSucesoCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarCategoriaSucesoCboCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarCategoriaSucesoCboCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEspecificacionSucesoCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarEspecificacionSucesoCboCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarEspecificacionSucesoCboCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarEspecificacionSucesoCboCsv(string ID_CategoriaSuceso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEspecificacionSucesoCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarEspecificacionSucesoCboCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarEspecificacionSucesoCboCsvAsync(string ID_CategoriaSuceso);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/StakeholderSucesoOperacion", ReplyAction="http://tempuri.org/IServicio/StakeholderSucesoOperacionResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/StakeholderSucesoOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         int StakeholderSucesoOperacion(SISFORM_WEB.ServicioWcf.StakeholderSuceso oStakeholderSuceso, string op);
@@ -7924,6 +8050,22 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarTipoSucesoCboCsvAsync() {
             return base.Channel.ListarTipoSucesoCboCsvAsync();
+        }
+        
+        public string ListarCategoriaSucesoCboCsv() {
+            return base.Channel.ListarCategoriaSucesoCboCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarCategoriaSucesoCboCsvAsync() {
+            return base.Channel.ListarCategoriaSucesoCboCsvAsync();
+        }
+        
+        public string ListarEspecificacionSucesoCboCsv(string ID_CategoriaSuceso) {
+            return base.Channel.ListarEspecificacionSucesoCboCsv(ID_CategoriaSuceso);
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarEspecificacionSucesoCboCsvAsync(string ID_CategoriaSuceso) {
+            return base.Channel.ListarEspecificacionSucesoCboCsvAsync(ID_CategoriaSuceso);
         }
         
         public int StakeholderSucesoOperacion(SISFORM_WEB.ServicioWcf.StakeholderSuceso oStakeholderSuceso, string op) {

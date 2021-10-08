@@ -1137,7 +1137,8 @@ E:\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CoreCompileInputs.cach
 E:\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CopyComplete
 E:\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.dll
 E:\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.pdb
-D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CoreCompileInputs.cache
+D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.AssemblyReference.cache
+D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Rotativa.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.dll.config
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\SISFORM_WEB.pdb
@@ -1250,9 +1251,7 @@ D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.Razor.resources.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.resources.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CopyComplete
+D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.AssemblyReference.cache
+D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CoreCompileInputs.cache
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.pdb
-D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csprojAssemblyReference.cache
-D:\Cedepas\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.AssemblyReference.cache
-D:\Cedepas\SISFORM_WEB\SISFORM_WEB\bin\Rotativa.dll

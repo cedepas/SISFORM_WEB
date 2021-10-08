@@ -9,11 +9,11 @@
                 <div class="form-row">
                     <div class="col-sm">
                         <label for="txtBuscarPorECM" class="required">ECM</label>
-                        <input type="search" class="form-control form-control-sm SE" id="txtBuscarPorECM" required="required" placeholder="Digite Nombre de la Empresa"/>
-                        @*<select class="form-control form-control-sm SE" id="cboECM" required></select>*@
+                        <input type="search" class="form-control form-control-sm SE" id="txtBuscarPorECM" required="required" placeholder="Digite Nombre de la Empresa" />
+                        <select class="form-control form-control-sm SE" id="cboECM" style="visibility:hidden"></select>
                     </div>
                     <div class="col-sm">
-                        <label for="cboNNLL"class="required">NNLL</label>
+                        <label for="cboNNLL" class="required">NNLL</label>
                         <select class="form-control form-control-sm SE" id="cboNNLL" required></select>
                     </div>
                     <div class="col-sm">
@@ -27,16 +27,27 @@
                 </div>
                 <div class="form-row">
                     <div class="col-sm">
+                        <label class="required">Categoria Suceso</label>
+                        <select class="form-control form-control-sm SE" id="cboCategoriaSuceso" required></select>
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Especificación Suceso</label>
+                        <select class="form-control form-control-sm SE" id="cboEspecificacionSuceso" required></select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm">
                         <label class="required">Detalle del Suceso</label>
                         <textarea id="txtDetalleSuceso" class="form-control SE" rows=10 cols=50 maxlength=500 required></textarea>
                     </div>
-                    <div class="col-sm">
-                        <label class="required">Acciones inmediatas</label>
-                        <textarea id="txtAccionesSuceso" class="form-control SE" rows=10 cols=50 maxlength=500 required></textarea>
-                    </div>
+
                     <div class="col-sm">
                         <label class="required">Compromiso de Propietario</label>
                         <textarea id="txtCompromisoPropietario" class="form-control SE" rows=10 cols=50 maxlength=500 required></textarea>
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Detalle, de no ser aceptada la queja</label>
+                        <textarea id="txtdetalleAceptacionQueja" class="form-control SE" rows=10 cols=50 maxlength=500 required></textarea>
                     </div>
                 </div>
                 <div class="form-row">
@@ -44,13 +55,29 @@
                         <label class="required">Fecha Reporte</label>
                         <input type="date" class="form-control form-control-sm SE" id="txtFechaReporte" required />
                     </div>
+                    @*<div class="col-sm">
+                <label>Fecha Inicio de Acciones</label>
+                <input type="date" class="form-control form-control-sm SE" id="txtFechaInicio" />
+            </div>*@
+                    @*<div class="col-sm">
+                <label>Fecha Cierre</label>
+                <input type="date" class="form-control form-control-sm SE" id="txtFechaCierre" />
+            </div>*@
                     <div class="col-sm">
-                        <label>Fecha Inicio de Acciones</label>
-                        <input type="date" class="form-control form-control-sm SE" id="txtFechaInicio" />
+                        <label>Fecha Inicio Seguimiento</label>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaInicioSeg" />
                     </div>
                     <div class="col-sm">
-                        <label>Fecha Cierre</label>
-                        <input type="date" class="form-control form-control-sm SE" id="txtFechaCierre" />
+                        <label>Fecha Cierre Seguimiento</label>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaCierreSeg" />
+                    </div>
+                    <div class="col-sm">
+                        <label>Fecha Inicio Plan de Acción</label>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaInicioPlan" />
+                    </div>
+                    <div class="col-sm">
+                        <label>Fecha Cierre Plan de Accion</label>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaCierrePlan" />
                     </div>
                     <div class="col-sm">
                         <label for="txtAceptaQueja" class="required">Propietario Acepta Queja</label>
@@ -61,6 +88,28 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="content">
+                    <hr class="mb-20" />
+                </div>
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label>Fecha Firma de Acta</label>
+                        <input type="date" class="form-control form-control-sm SE" id="txtFechaFirmaDeActa" required="required"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="txtBuscarSupervisor" class="required">Supervisor que firma el acta</label>
+                        <input type="search" class="form-control form-control-sm SE" id="txtBuscarSupervisor" required="required" placeholder="Digite el nombre del supervisor" />
+                    </div>
+                    <div class="col-sm">
+                        <label for="txtBuscarResponsable" class="required">Responsable del Servicio</label>
+                        <input type="search" class="form-control form-control-sm SE" id="txtBuscarResponsable" required="required" placeholder="Digite el nombre del responsable" />
+                    </div>
+                    @*<div class="col-sm">
+                        <label for="txtBuscarPorECM" class="required">Cargar</label>
+                        <input type="file" class="form-control form-control-sm SE" id="txtBuscarResponsable" required="required" placeholder="Digite el nombre del responsable" />
+                    </div>*@
+
                 </div>
                 <div class="col-sm">
                     <div class="text-right">

@@ -62,6 +62,34 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarCategoriaSucesoCboCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarCategoriaSucesoCboCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ListarEspecificacionSucesoCboCsv(string ID_CategoriaSuceso)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEspecificacionSucesoCboCsvAsync(ID_CategoriaSuceso);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
         public async Task<string> ListarPoderConvocatoriaCbo()
         {

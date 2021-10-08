@@ -2,11 +2,14 @@
 var idTipoEmpresa;
 var idStakeholder;
 var idStakeholderSuceso;
-
+var idCategoriaSuceso;
+var idEspecificacionSuceso;
 var lista;
 var objetoBusqueda = [];
+var objetoBusquedaTrabajador = [];
 var objetoParametrizado = [];
 var textoBusqueda;
+var objetoParametrizadoTrabajador =[];
 
 var objetoBusquedaECM = [];
 var objetoParametrizadoECM = [];
@@ -14,6 +17,8 @@ var textoBusquedaECM;
 
 var idTrabajador;
 var idEmpresaECM;
+var idTrabajadorRes;
+var idTrabajadorSup;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -42,6 +47,7 @@ window.onload = function () {
     });
 
     Http.get("Trabajador/ListarTrabajadorRepresentanteCsv", mostrarListarTrabajador);
+    Http.get("Incidencia/ListarTrabajadorBusquedaCsv", mostrarListarTrabajadorBusquedaCsv);
     Http.get("Stakeholder/ListarPoderConvocatoriaCbo", mostrarPoderConvocatoria);
     Http.get("Stakeholder/ListarTipoPosicionamientoCbo", mostrarPosicion);
     Http.get("Stakeholder/ListarStakeholderCsv", CrearTablaCsv);
@@ -89,6 +95,62 @@ window.onload = function () {
                 b.addEventListener("click", function (e) {
                     txtBuscarPorTrabajador.value = this.getElementsByTagName("input")[0].value;
                     idTrabajador = objeto.IDTrab;
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+        if (!txtBuscarPorTrabajador.value) {
+            txtBuscarPorTrabajador.value = "";
+            closeAllLists();
+            btnNuevo.dispatchEvent(new Event('click'));
+        }
+    }
+    txtBuscarResponsable.onkeyup = function () {
+        var a, b;
+        closeAllLists();
+        a = document.createElement("div");
+        a.setAttribute("id", this.id + "predictivo-list");
+        a.setAttribute("class", "predictivo-items");
+        this.parentNode.appendChild(a);
+        textoBusqueda = txtBuscarResponsable.value.toLowerCase();
+        for (let objeto of objetoBusquedaTrabajador) {
+            let Nombre = objeto.NombreApellido.toLowerCase();
+            if (Nombre.indexOf(textoBusqueda) !== -1) {
+                b = document.createElement("div");
+                b.innerHTML = "<strong>" + objeto.NombreApellido + "</strong>";
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreApellido + "'>";
+                b.addEventListener("click", function (e) {
+                    txtBuscarResponsable.value = this.getElementsByTagName("input")[0].value;
+                    idTrabajadorRes = objeto.IDTrab;
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+        if (!txtBuscarPorTrabajador.value) {
+            txtBuscarPorTrabajador.value = "";
+            closeAllLists();
+            btnNuevo.dispatchEvent(new Event('click'));
+        }
+    }
+    txtBuscarSupervisor.onkeyup = function () {
+        var a, b;
+        closeAllLists();
+        a = document.createElement("div");
+        a.setAttribute("id", this.id + "predictivo-list");
+        a.setAttribute("class", "predictivo-items");
+        this.parentNode.appendChild(a);
+        textoBusqueda = txtBuscarSupervisor.value.toLowerCase();
+        for (let objeto of objetoBusquedaTrabajador) {
+            let Nombre = objeto.NombreApellido.toLowerCase();
+            if (Nombre.indexOf(textoBusqueda) !== -1) {
+                b = document.createElement("div");
+                b.innerHTML = "<strong>" + objeto.NombreApellido + "</strong>";
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreApellido + "'>";
+                b.addEventListener("click", function (e) {
+                    txtBuscarSupervisor.value = this.getElementsByTagName("input")[0].value;
+                    idTrabajadorSup = objeto.IDTrab;
                     closeAllLists();
                 });
                 a.appendChild(b);
@@ -156,34 +218,47 @@ window.onload = function () {
         frm.append("FK_ID_EstadoSuceso", cboEstadoSuceso.value);
         frm.append("FK_ID_TipoSuceso", cboTipoSuceso.value);
         frm.append("detalleSuceso", txtDetalleSuceso.value);
-        frm.append("accionesSuceso", txtAccionesSuceso.value);
+        //frm.append("accionesSuceso", txtAccionesSuceso.value); quitar del controller
         frm.append("detalleCompromiso", txtCompromisoPropietario.value);
         frm.append("fechaReporte", txtFechaReporte.value);
-        frm.append("fechaInicio", txtFechaInicio.value);
-        frm.append("fechaCierre", txtFechaCierre.value);
+        //frm.append("fechaInicio", txtFechaInicio.value);
+        //frm.append("fechaCierre", txtFechaCierre.value);
         frm.append("AceptacionQueda", (txtAceptaQueja.checked == true ? 1 : 0));
         frm.append("FK_ID_Usuario", window.sessionStorage.getItem('idUsuario'));
+        frm.append("FK_ID_CategoriaSuceso", idCategoriaSuceso);
+        frm.append("FK_ID_EspecificacionSuceso", cboEspecificacionSuceso.value);
+        frm.append("detalleAceptacionQueja", txtdetalleAceptacionQueja.value);
+        frm.append("FK_ID_SupFirmaActa", idTrabajadorSup);
+        frm.append("fechaInicioSeguimiento", txtFechaInicioSeg.value);
+        frm.append("fechaCierreSeguimiento", txtFechaCierreSeg.value);
+        frm.append("fechaInicioPlandeAccion", txtFechaInicioPlan.value);
+        frm.append("fechaCierrePlandeAccion", txtFechaCierrePlan.value);
+        frm.append("FK_ID_ResponsableComedor", idTrabajadorRes);
+        frm.append("fechaFirmadeActa", txtFechaFirmaDeActa.value);
         if (validarRequeridos('SE')) {
             checkSubmit(btnGuardarSuceso);
             Http.post("Stakeholder/GrabarStakeholderSuceso", MostrarGrabarStakeholderSuceso, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
-
     function checkSubmit(boton) {
         boton.value = "Enviando...";
         boton.disabled = true;
         return true;
     }
-
     btnModalSuceso.onclick = function () {
         limpiarControles("SE");
         Http.get("Trabajador/ListarEmpresasEspecializadasCsv", mostrarECM);
         Http.get("Stakeholder/ListarEstadoSucesoCboCsv", mostrarEstadoSuceso);
         Http.get("Stakeholder/ListarTipoSucesoCboCsv", mostrarTipoSuceso);
+        Http.get("Stakeholder/ListarCategoriaSucesoCboCsv", mostrarCategoriaSuceso);
+     //   Http.get("Stakeholder/ListarEspecificacionSucesoCboCsv", mostrarEspecificacionSuceso);
         Http.get("Stakeholder/ListarStakeholderSucesoPorIdStakeholderCsv?idStakeholder=" + idStakeholder, CrearTablaCsvSucesos);
         Http.get("Stakeholder/ListarEmpresasPorIDStakeHoldersCsv?idStakeholder=" + idStakeholder, mostrarEmpresasDeStakeHolder);
     }
-
+    cboCategoriaSuceso.onchange = function () {
+        idCategoriaSuceso = cboCategoriaSuceso.value;
+        ListarEspecificacionSucesoCbo();
+    }
     btnNuevo.onclick = function () {
         limpiarControles("form-control");
         document.querySelectorAll('.servicio').forEach(function (element) {
@@ -197,13 +272,12 @@ window.onload = function () {
         btnNuevo.style.visibility = "hidden";
         btnModalSuceso.style.display = "none";
     }
-
     btnNuevoSuceso.onclick = function () {
         limpiarControles("SE");
         btnNuevoSuceso.style.visibility = "hidden";
         btnGuardarSuceso.value = "Guardar";
         idStakeholderSuceso = undefined;
-        cboECM.value = '';
+      /*  cboECM.value = '';*/
     }
 }
 
@@ -282,17 +356,38 @@ function modalObtenerRegistroPorId(id) {
         if (rpta) {
             var campos = rpta.split('|');
             idStakeholderSuceso = campos[0];
-            cboECM.value = campos[2];
-            cboECM.text = campos[3];
-            cboEstadoSuceso.value = campos[4];
-            cboEstadoSuceso.text = campos[5];
-            cboTipoSuceso.value = campos[6];
-            cboTipoSuceso.text = campos[7];
-            txtDetalleSuceso.value = campos[8];
-            txtAccionesSuceso.value = campos[9];
-            txtFechaReporte.value = campos[10];
-            txtFechaInicio.value = campos[11] ? campos[11] : '';
-            txtFechaCierre.value = campos[12] ? campos[12] : '';
+            /*txtBuscarPorECM.text = campos[2];*/
+            txtBuscarPorECM.value = campos[2];
+            idEmpresaECM = campos[1]
+            cboNNLL.value = campos[3];
+            cboNNLL.text = campos[4];
+            cboEstadoSuceso.value = campos[5];
+            cboEstadoSuceso.text = campos[6];
+            Http.get("Stakeholder/ListarTipoSucesoCboCsv", mostrarTipoSucesoesp);
+            cboTipoSuceso.value = campos[7];            
+            cboTipoSuceso.text = campos[8];
+            cboCategoriaSuceso.value = campos[9]
+            idCategoriaSuceso = campos[9]
+            ListarEspecificacionSucesoCboesp();
+            cboCategoriaSuceso.text = campos[10]
+            cboEspecificacionSuceso.value = campos[11]
+            cboEspecificacionSuceso.text = campos[12]
+            txtDetalleSuceso.value = campos[13];
+            txtCompromisoPropietario.value = campos[14];
+            txtdetalleAceptacionQueja.value = campos[15];
+            txtFechaReporte.value = campos[16];
+            txtFechaInicioSeg.value = campos[17] ? campos[17] : '';
+            txtFechaCierreSeg.value = campos[18] ? campos[18] : '';
+            txtFechaInicioPlan.value = campos[19] ? campos[19]:'';
+            txtFechaCierrePlan.value = campos[20] ? campos[20]:'';
+            campos[21] == 1 ? txtAceptaQueja.checked == true : txtAceptaQueja.checked == false ;
+            txtFechaFirmaDeActa.value = campos[22];
+            txtBuscarSupervisor.value = campos[23];
+            idTrabajadorSup = campos[23];
+            txtBuscarSupervisor.text = campos[24];
+            txtBuscarResponsable.value = campos[25];
+            idTrabajadorRes = campos[25];
+            txtBuscarResponsable.text = campos[26];
             btnNuevoSuceso.style.visibility = "visible";
         } else {
             limpiarControles('SE');
@@ -318,6 +413,39 @@ function mostrarTipoSuceso(rpta) {
     if (rpta) {
         lstCboTipoSuceso = rpta.split('¬');
         CrearCombo(lstCboTipoSuceso, cboTipoSuceso, "Seleccione");
+    }
+}
+function mostrarTipoSucesoesp(rpta) {
+    if (rpta) {
+        lstCboTipoSuceso = rpta.split('¬');
+        CrearCombo(lstCboTipoSuceso, cboTipoSuceso,);
+    }
+}
+function mostrarCategoriaSuceso(rpta) {
+    if (rpta) {
+        lstCboCategoriaSuceso = rpta.split('¬');
+        CrearCombo(lstCboCategoriaSuceso, cboCategoriaSuceso, "Seleccione");
+    }
+}
+function ListarEspecificacionSucesoCbo() {
+    Http.get("Stakeholder/ListarEspecificacionSucesoCboCsv?ID_CategoriaSuceso=" + idCategoriaSuceso, mostrarEspecificacionSuceso);
+
+}
+function ListarEspecificacionSucesoCboesp() {
+    Http.get("Stakeholder/ListarEspecificacionSucesoCboCsv?ID_CategoriaSuceso=" + idCategoriaSuceso, mostrarEspecificacionSucesoesp);
+
+}
+
+function mostrarEspecificacionSuceso(rpta) {
+    if (rpta) {
+        lstCboEspecificacionSuceso = rpta.split('¬');
+        CrearCombo(lstCboEspecificacionSuceso, cboEspecificacionSuceso, "Seleccione");
+    }
+}
+function mostrarEspecificacionSucesoesp(rpta) {
+    if (rpta) {
+        lstCboEspecificacionSuceso = rpta.split('¬');
+        CrearCombo(lstCboEspecificacionSuceso, cboEspecificacionSuceso);
     }
 }
 
@@ -366,6 +494,12 @@ function mostrarListarTrabajador(rpta) {
         crearObjetoAllTrabajador(lista)
     }
 }
+function mostrarListarTrabajadorBusquedaCsv(rpta) {
+    if (rpta) {
+        lista = rpta.split('¬');
+        crearObjetoTrabajadorBusqueda(lista)
+    }
+}
 
 function crearObjetoAllTrabajador() {
     objetoBusqueda = [];
@@ -392,6 +526,33 @@ function crearObjetoAllTrabajador() {
             });
         }
         objetoBusqueda.push(valoresAInsertar);
+    }
+}
+function crearObjetoTrabajadorBusqueda() {
+    objetoBusquedaTrabajador = [];
+    objetoParametrizadoTrabajador = [];
+    cabeceras = lista[0].split('|');
+    var nRegistros = lista.length;
+    var nCampos = cabeceras.length;
+    var clave;
+    var valor;
+    for (var i = 1; i < nRegistros; i++) {
+        for (var j = 0; j < nCampos; j++) {
+            datos = lista[i].split('|');
+        }
+        objetoParametrizadoTrabajador.push(datos);
+    }
+    for (var i = 0; i < (nRegistros - 1); i++) {
+        var valoresAInsertar = {};
+        for (var j = 0; j < nCampos; j++) {
+            clave = cabeceras[j];
+            valor = objetoParametrizadoTrabajador[i][j];
+            Object.defineProperty(valoresAInsertar, clave.toString(), {
+                value: valor,
+                writable: false
+            });
+        }
+        objetoBusquedaTrabajador.push(valoresAInsertar);
     }
 }
 

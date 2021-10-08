@@ -127,18 +127,25 @@
   <xs:complexType name="QuejasECM_NNLL">
     <xs:sequence>
       <xs:element minOccurs="0" name="AceptacionQueda" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_CategoriaSuceso" type="xs:short" />
       <xs:element minOccurs="0" name="FK_ID_EmpresaECM" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_EmpresaNNLL" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_EspecificacionSuceso" type="xs:short" />
       <xs:element minOccurs="0" name="FK_ID_EstadoSuceso" type="xs:short" />
+      <xs:element minOccurs="0" name="FK_ID_ResponsableComedor" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Stakeholder" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_SupFirmaActa" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_TipoSuceso" type="xs:short" />
       <xs:element minOccurs="0" name="FK_ID_Usuario" type="xs:int" />
       <xs:element minOccurs="0" name="ID_QuejasECM_NNLL" type="xs:int" />
-      <xs:element minOccurs="0" name="accionesSuceso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="detalleAceptacionQueja" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="detalleCompromiso" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="detalleSuceso" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="fechaCierre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="fechaInicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaCierrePlandeAccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaCierreSeguimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaFirmadeActa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInicioPlandeAccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInicioSeguimiento" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="fechaReporte" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
