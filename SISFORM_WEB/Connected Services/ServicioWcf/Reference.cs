@@ -343,6 +343,9 @@ namespace SISFORM_WEB.ServicioWcf {
         private string FK_ID_UsuarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string detalleInspeccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string fechaInspeccionField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -390,6 +393,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((object.ReferenceEquals(this.FK_ID_UsuarioField, value) != true)) {
                     this.FK_ID_UsuarioField = value;
                     this.RaisePropertyChanged("FK_ID_Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string detalleInspeccion {
+            get {
+                return this.detalleInspeccionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.detalleInspeccionField, value) != true)) {
+                    this.detalleInspeccionField = value;
+                    this.RaisePropertyChanged("detalleInspeccion");
                 }
             }
         }
@@ -886,6 +902,9 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TrabajadoresCapacitadosField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string detalleCapacitacionField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -970,6 +989,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((object.ReferenceEquals(this.TrabajadoresCapacitadosField, value) != true)) {
                     this.TrabajadoresCapacitadosField = value;
                     this.RaisePropertyChanged("TrabajadoresCapacitados");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string detalleCapacitacion {
+            get {
+                return this.detalleCapacitacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.detalleCapacitacionField, value) != true)) {
+                    this.detalleCapacitacionField = value;
+                    this.RaisePropertyChanged("detalleCapacitacion");
                 }
             }
         }

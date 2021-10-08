@@ -32,6 +32,7 @@ window.onload = function () {
         frm.append("FK_ID_EstadoInspeccion", cboTipoInspeccion.value);
         frm.append("FK_ID_Usuario", idUsuario);
         frm.append("fechaInspeccion", txtFechaInspeccion.value);
+        frm.append("detalleInspeccion", txtDetalleInspeccion.value);
         if (validarRequeridos('E')) {
             checkSubmit(btnGrabarInspeccion);
             Http.post("SeguimientoNegocios/GrabarInspeccion?op=I", MostrarRegistroInspeccion, frm);
@@ -113,6 +114,8 @@ function MostrarRegistroInspeccion(rpta) {
 function mostrarActualizacion(rpta) {
     fechaInspeccion.style.display = "inline-block";
     estadoInspeccion.style.display = "inline-block";
+    txtDetalleInspeccion.style.display = "inline-block";
+    detalleInspeccion.style.display = "inline-block";
     btnGrabarInspeccion.style.display = "inline-block";
     if (rpta) {
         toastSuccessAlert("Se actualizo correctamente los Trabajadores", "¡Exito!");

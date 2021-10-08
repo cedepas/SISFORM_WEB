@@ -49,6 +49,7 @@ window.onload = function () {
         frm.append("FK_ID_TEMACAPACITACION", idTemaCapacitacion);
         frm.append("FK_ID_ESTADOCAPACITACION", cboEstadoCapacitacion.value);
         frm.append("TrabajadoresCapacitados", lstTrabajadoresCapacitados);
+        frm.append("detalleCapacitacion", txtDetalleCapacitacion.value);
         if (validarRequeridos('E')) {
             checkSubmit(btnGrabarCapacitacion);
             Http.post("SeguimientoNegocios/CapacitacionOperacion?op=I", MostrarRegistroCapacitacion, frm);

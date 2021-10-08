@@ -34,6 +34,7 @@
       <xs:element minOccurs="0" name="FK_ID_Empresa" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FK_ID_EstadoInspeccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FK_ID_Usuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="detalleInspeccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="fechaInspeccion" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -80,6 +81,7 @@
       <xs:element minOccurs="0" name="FechaCapacitacion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ID_Usuario" type="xs:int" />
       <xs:element minOccurs="0" name="TrabajadoresCapacitados" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="detalleCapacitacion" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Capacitacion" nillable="true" type="tns:Capacitacion" />
