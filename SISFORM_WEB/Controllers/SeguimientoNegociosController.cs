@@ -33,7 +33,11 @@ namespace SISFORM_WEB.Controllers
         {
             return View();
         }
-        
+        public ActionResult SIG()
+        {
+            return View();
+        }
+
         public async Task<string> GrabarDeuda(DeudaNNLL oDeudaNNLL)
         {
             int rpta = 0;

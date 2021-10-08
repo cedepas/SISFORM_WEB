@@ -480,8 +480,9 @@
     <Content Include="Views\SeguimientoNegocios\DeudasNNLL.cshtml" />
     <Content Include="Views\Habitacion\OperacionOcupacion.cshtml" />
     <Content Include="Views\Incidencia\aplazarincidencia.cshtml" />
-    <Content Include="Views\SeguimientoNegocios\VehiculosDeliverys.cshtml" />
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
+    <Content Include="Views\SeguimientoNegocios\VehiculosDeliverys.cshtml" />
+    <Content Include="Views\SeguimientoNegocios\SIG.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
