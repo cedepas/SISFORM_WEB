@@ -684,6 +684,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListarCategoriaSucesoCboCsv">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarCategoriaSucesoCboCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarCategoriaSucesoCboCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEspecificacionSucesoCboCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID_CategoriaSuceso" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEspecificacionSucesoCboCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarEspecificacionSucesoCboCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="StakeholderSucesoOperacion">
     <xs:complexType>
       <xs:sequence>
