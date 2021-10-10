@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Modals start -->
+@section modals{
+
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "Implementacion";
+    </script>
+
+}
+<div class="content">
+    <div class="title"><h5 id="Implementacion"></h5></div>
+    <div class="form-row">
+        <div class="col-sm-5">
+            <label for="txtbuscarPorEmpresa" class="required">Digite los datos de la Empresa a la que se realiza la Implementación</label>
+            <input type="text" class="form-control form-control-sm E" id="txtbuscarPorEmpresa" placeholder="Nombre Empresa" required="required" />
+        </div>
+    </div>
+    <div class="form-row" id="tipoServicio" style="display:none">
+        <div>
+            <label for="cboTipoServicio" class="required">Seleccione el tipo de operacion de la Empresa</label>
+            <select class="form-control form-control-sm" id="cboTipoServicio"></select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-3" id="fechaImplementacion" style="display:inline">
+            <label for="txtFechaImplementacion">Fecha de Implementacion</label>
+            <input type="date" class="form-control form-control-sm E" id="txtFechaImplementacion" style="visibility:visible" required="required" />
+        </div>
+        <div class="col-sm-3" id="estadoImplementacion" style="display:inline">
+            <label for="cboEstadoImplementacion">Estado Implementacion</label>
+            <select class="form-control form-control-sm E" id="cboEstadoImplementacion" required="required"></select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-12">
+            <label for="txtBuscarTrabajador" class="required p-4">Digite Nombre del Trabajador al que se hace la Implementación</label>
+            <input type="text" class="form-control-sm  p-4" id="txtBuscarTrabajador" placeholder="Nombre Trabajador" />
+        </div>
+        <div>
+            <fieldset>
+                <legend>Listado de Trabajadores a las que se hace la Implementación</legend>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombres y Apellidos</th>
+                            <th>DNI</th>
+                        </tr>
+                    </thead>
+                    <tbody id="TrabajadoresImplementacion">
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </div>
+    <div class="form-row" id="temaImplementacion" style="display:none">
+        <div>
+            <label for="txtBuscaTemaImplementacion" class="required">Digite Nombre del Tema de la Implementación</label>
+            <input type="text" class="form-control form-control-sm E" id="txtBuscaTemaImplementacion" placeholder="Tema de la Implementación" required="required" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-4">
+            <button class="btn btn-success" type="button" id="btnGrabarImplementacion">Grabar Implementación</button>
+            <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+@section scripts{
+    @Scripts.Render("~/Scripts/ConsultaImplementacion.js")
+}

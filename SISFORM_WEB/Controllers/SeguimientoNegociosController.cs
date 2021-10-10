@@ -37,7 +37,14 @@ namespace SISFORM_WEB.Controllers
         {
             return View();
         }
-
+        public ActionResult detalleComedores()
+        {
+            return View();
+        }
+        public ActionResult detalleLavanderias()
+        {
+            return View();
+        }
         public async Task<string> GrabarDeuda(DeudaNNLL oDeudaNNLL)
         {
             int rpta = 0;
@@ -84,7 +91,52 @@ namespace SISFORM_WEB.Controllers
                 return rpta.ToString();
             }
         }
-
+        public async Task<string> detallesComedores(detalleComedores odetalleComedores)
+        {
+            int rpta = 0;
+            string op = "";
+            if (odetalleComedores.ID_detalleComedor == 0)
+            {
+                op = "I";
+            }
+            else
+            {
+                op = "U";
+            }
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.detallesComedoresAsync(odetalleComedores, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
+        public async Task<string> detallesLavanderias(DetalleLavanderias oDetalleLavanderias)
+        {
+            int rpta = 0;
+            string op = "";
+            if (oDetalleLavanderias.ID_detalleLavanderias == 0)
+            {
+                op = "I";
+            }
+            else
+            {
+                op = "U";
+            }
+            ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+            rpta = await servicio.DetalleLavanderiasAsync(oDetalleLavanderias, op);
+            if (rpta == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return rpta.ToString();
+            }
+        }
         public async Task<string> ListarDuedasNNLLCsv()
         {
             try
@@ -330,6 +382,61 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
-        
+        public async Task<string> ListarDetallesLavanderiasCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarDetallesLavanderiasCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ListarDetallesComedoresCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarDetallesComedoresCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ObtenerDetalleComedoresPorIdCsv(int ID_detalleComedor)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerDetalleComedoresPorIdCsvAsync(ID_detalleComedor);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<string> ObtenerDetalleLavanderiasPorIdCsv(int ID_detalleLavanderias)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerDetalleLavanderiasPorIdCsvAsync(ID_detalleLavanderias);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

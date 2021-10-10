@@ -330,6 +330,8 @@
     <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\buttons.js" />
     <Content Include="Scripts\ConsultaCartaPreocupacion.js" />
+    <Content Include="Scripts\ConsultaDetalleComedores.js" />
+    <Content Include="Scripts\ConsultaDetalleLavanderias.js" />
     <Content Include="Scripts\ConsultaVehiculosDelivery.js" />
     <Content Include="Scripts\ConsultaDeudasNNLL.js" />
     <Content Include="Scripts\ConsultaOperacionOcupacion.js" />
@@ -480,9 +482,11 @@
     <Content Include="Views\SeguimientoNegocios\DeudasNNLL.cshtml" />
     <Content Include="Views\Habitacion\OperacionOcupacion.cshtml" />
     <Content Include="Views\Incidencia\aplazarincidencia.cshtml" />
-    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <Content Include="Views\SeguimientoNegocios\VehiculosDeliverys.cshtml" />
     <Content Include="Views\SeguimientoNegocios\SIG.cshtml" />
+    <Content Include="Views\SeguimientoNegocios\detalleComedores.cshtml" />
+    <Content Include="Views\SeguimientoNegocios\detalleLavanderias.cshtml" />
+    <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

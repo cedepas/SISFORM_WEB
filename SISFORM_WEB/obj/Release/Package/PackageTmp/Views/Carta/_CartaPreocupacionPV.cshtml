@@ -1,0 +1,95 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Styles/cartaPreocupacion.css" rel="stylesheet">
+    <link href="~/Styles/normalize.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="totalCarta" id="totaldelaCarta">
+        <div class="derecha" align="left">
+            <img src="~/Content/Logo-MINSUR.jpg" alt="Logo de Minsur" width="160" height="80" />
+            <p> Lima, <span id="fechaCarta"></span></p>
+        </div>
+        <div class="data">
+            <div>
+                <p><span id="soloAño"></span>-<span id="soloMes"></span>-GUM-JC-<span id="correlativoCarta"></span></p>
+            </div>
+            <p>Señores</p>
+            <b><p id="nombreECM"></p></b>
+            <p>Atencion: &nbsp;&nbsp;&nbsp;&nbsp;Sr.&nbsp;&nbsp;<span id="encargadoECM"></span></p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="cargoRepresentante"></span>
+            </p>Asunto:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Carta de preocupación por la falta de cumplimiento de Protocolos COVID-19 y requisitos de Salud y Seguridad en el trabajo</span> </p>
+            <br />
+            <p>Estimado Señor:</p>
+            <p align="justify">
+                Mediante la presente, nos dirigimos a usted para expresarle nuestra profunda preocupación en relación con la falta de cumplimiento de los protocolos COVID 19 y requisitos de Salud y Seguridad en el trabajo.
+            </p>
+            <p align="justify">A la fecha tenemos <span id="cantidadIncidenciastexto"></span> observaciones abiertas (anexo), las cuales se necesita levantar a la brevedad posible, es necesario enviar un plan de acción para corregir la desviación y las acciones correctivas que permitan prevenir este tipo de observaciones en vuestra empresa.</p>
+            <p align="justify">Finalmente, instamos a que tomen las acciones inmediatas para corregir a la brevedad posible lo mencionado líneas arriba, respetando los compromisos, estándares y directivas establecidas para la ejecución de este contrato.</p>
+            <br />
+            <p>Sin otro particular, quedamos a usted.</p>
+            <p>Atentamente.</p>
+            <br />
+            <br />
+        </div>
+        <div class="derecha">
+            <p> Lima, <span id="fechaCartaFinal"></span></p>
+        </div>
+        <div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <hr class="lineaAzul"/>
+        </div>
+        <div class="flexContainer">
+            <div class="piePaginaIzquierda">
+                <p>Jr. Giovanni Batista Lorenzo Bernini </p>
+                <p>Nro 149 Of 501 San Borja Lima Perú </p>
+                <br />
+                <p>Telf. (511)215-8330</p>
+            </div>
+            <div class="piePaginaDerecha">
+                <p>Inscrita en la P.E. Nro 01141929 del</p>
+                <p>registro de Personas Jurídicas de Lima </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div><button class="btn btn-success" type="button" id="bntGrabarCarta">Grabar Carta</button></div>
+        <div class="listadoIncidenciasEmpresa" id="listadoIncidencias" style="display:none">
+            <div>
+                <div class="text-right">
+                    <label>N° de Incidencias: </label>
+                    <label id="lblNumeroIncidencias"></label>
+                </div>
+                <fieldset>
+                    <legend>Listado de Incidencias</legend>
+                    <table class="table" id="tablaIncidencias">
+                        <thead id="IncidenciasEmpresa">
+                        </thead>
+                        <tbody id="IncidenciasDeLaEmpresa">
+                        </tbody>
+                    </table>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <script src="~/plugins/html2pdf/html2pdf.js"></script>
+    <script src="~/Scripts/Cosulta_VPCartaPre.js"></script>
+</body>
+</html>
