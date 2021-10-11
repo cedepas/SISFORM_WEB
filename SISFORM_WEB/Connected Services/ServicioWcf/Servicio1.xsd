@@ -85,6 +85,62 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Capacitacion" nillable="true" type="tns:Capacitacion" />
+  <xs:complexType name="detalleComedores">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Condicion" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_MaterialEdificacion" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_PropiedadLocal" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TipoCocina" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_antiguedadEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_categoriaComedor" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_detalleComedor" type="xs:int" />
+      <xs:element minOccurs="0" name="cantPosasCemento" type="xs:int" />
+      <xs:element minOccurs="0" name="cantPosasInox" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadCocinas" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadCongeladoras" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadExtintoresPqs" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadHornillas" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadHornos" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadMesasInox" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadRefrigeradoras" type="xs:int" />
+      <xs:element minOccurs="0" name="capacidadOperativa" type="xs:int" />
+      <xs:element minOccurs="0" name="concineroCertificado" type="xs:int" />
+      <xs:element minOccurs="0" name="contraGuardiaCocinero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroPisosUtilizados" type="xs:int" />
+      <xs:element minOccurs="0" name="precioAlquiler" type="xs:int" />
+      <xs:element minOccurs="0" name="trampaGrasa" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="detalleComedores" nillable="true" type="tns:detalleComedores" />
+  <xs:complexType name="DetalleLavanderias">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_antiguedadEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_condicion" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_propiedadLocal" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_tipoParedes" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_tipoPiso" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_tipoTecho" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_detalleLavanderias" type="xs:int" />
+      <xs:element minOccurs="0" name="bitacora" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadInstalada" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadLavadoras" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadSecadoras" type="xs:int" />
+      <xs:element minOccurs="0" name="extintorVigente" type="xs:int" />
+      <xs:element minOccurs="0" name="llaveDiferencial" type="xs:int" />
+      <xs:element minOccurs="0" name="lucesEmergencia" type="xs:int" />
+      <xs:element minOccurs="0" name="pediluvio" type="xs:int" />
+      <xs:element minOccurs="0" name="puntoDesinfeccion" type="xs:int" />
+      <xs:element minOccurs="0" name="registroTemperatura" type="xs:int" />
+      <xs:element minOccurs="0" name="tamizaje" type="xs:int" />
+      <xs:element minOccurs="0" name="termaSolar" type="xs:int" />
+      <xs:element minOccurs="0" name="termometro" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetalleLavanderias" nillable="true" type="tns:DetalleLavanderias" />
   <xs:complexType name="ImplementacionCheff">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />

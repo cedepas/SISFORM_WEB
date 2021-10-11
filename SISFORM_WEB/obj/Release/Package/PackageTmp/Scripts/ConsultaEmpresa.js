@@ -388,13 +388,14 @@ function obtenerRegistroPorId(id) {
 
 function AsignarCampos(rpta) {
     if (rpta) {
+        datoRemplazado = rpta.replace(/&amp;/gi, "&");
         btnModalObs.style.visibility = "visible";
         btnModalLic.style.visibility = "visible";
         btnModalSal.style.visibility = "visible";
         btnModalDef.style.visibility = "visible";
         btnNuevo.style.visibility = "visible";
         btnDetallesNG.style.visibility = "visible";
-        var listas = rpta.split('¯');
+        var listas = datoRemplazado.split('¯');
         var campos = [];
         if (listas[0]) {
             campos = listas[0].split('|');

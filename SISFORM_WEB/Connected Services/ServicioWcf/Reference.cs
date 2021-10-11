@@ -1018,6 +1018,800 @@ namespace SISFORM_WEB.ServicioWcf {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="detalleComedores", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class detalleComedores : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_CondicionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_MaterialEdificacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_PropiedadLocalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_TipoCocinaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_UsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_antiguedadEmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_categoriaComedorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_detalleComedorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantPosasCementoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantPosasInoxField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadCocinasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadCongeladorasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadExtintoresPqsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadHornillasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadHornosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadMesasInoxField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadRefrigeradorasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int capacidadOperativaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int concineroCertificadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string contraGuardiaCocineroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numeroPisosUtilizadosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int precioAlquilerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int trampaGrasaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Condicion {
+            get {
+                return this.FK_ID_CondicionField;
+            }
+            set {
+                if ((this.FK_ID_CondicionField.Equals(value) != true)) {
+                    this.FK_ID_CondicionField = value;
+                    this.RaisePropertyChanged("FK_ID_Condicion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Empresa {
+            get {
+                return this.FK_ID_EmpresaField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_MaterialEdificacion {
+            get {
+                return this.FK_ID_MaterialEdificacionField;
+            }
+            set {
+                if ((this.FK_ID_MaterialEdificacionField.Equals(value) != true)) {
+                    this.FK_ID_MaterialEdificacionField = value;
+                    this.RaisePropertyChanged("FK_ID_MaterialEdificacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_PropiedadLocal {
+            get {
+                return this.FK_ID_PropiedadLocalField;
+            }
+            set {
+                if ((this.FK_ID_PropiedadLocalField.Equals(value) != true)) {
+                    this.FK_ID_PropiedadLocalField = value;
+                    this.RaisePropertyChanged("FK_ID_PropiedadLocal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_TipoCocina {
+            get {
+                return this.FK_ID_TipoCocinaField;
+            }
+            set {
+                if ((this.FK_ID_TipoCocinaField.Equals(value) != true)) {
+                    this.FK_ID_TipoCocinaField = value;
+                    this.RaisePropertyChanged("FK_ID_TipoCocina");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Usuario {
+            get {
+                return this.FK_ID_UsuarioField;
+            }
+            set {
+                if ((this.FK_ID_UsuarioField.Equals(value) != true)) {
+                    this.FK_ID_UsuarioField = value;
+                    this.RaisePropertyChanged("FK_ID_Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_antiguedadEmpresa {
+            get {
+                return this.FK_ID_antiguedadEmpresaField;
+            }
+            set {
+                if ((this.FK_ID_antiguedadEmpresaField.Equals(value) != true)) {
+                    this.FK_ID_antiguedadEmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_antiguedadEmpresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_categoriaComedor {
+            get {
+                return this.FK_ID_categoriaComedorField;
+            }
+            set {
+                if ((this.FK_ID_categoriaComedorField.Equals(value) != true)) {
+                    this.FK_ID_categoriaComedorField = value;
+                    this.RaisePropertyChanged("FK_ID_categoriaComedor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_detalleComedor {
+            get {
+                return this.ID_detalleComedorField;
+            }
+            set {
+                if ((this.ID_detalleComedorField.Equals(value) != true)) {
+                    this.ID_detalleComedorField = value;
+                    this.RaisePropertyChanged("ID_detalleComedor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantPosasCemento {
+            get {
+                return this.cantPosasCementoField;
+            }
+            set {
+                if ((this.cantPosasCementoField.Equals(value) != true)) {
+                    this.cantPosasCementoField = value;
+                    this.RaisePropertyChanged("cantPosasCemento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantPosasInox {
+            get {
+                return this.cantPosasInoxField;
+            }
+            set {
+                if ((this.cantPosasInoxField.Equals(value) != true)) {
+                    this.cantPosasInoxField = value;
+                    this.RaisePropertyChanged("cantPosasInox");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadCocinas {
+            get {
+                return this.cantidadCocinasField;
+            }
+            set {
+                if ((this.cantidadCocinasField.Equals(value) != true)) {
+                    this.cantidadCocinasField = value;
+                    this.RaisePropertyChanged("cantidadCocinas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadCongeladoras {
+            get {
+                return this.cantidadCongeladorasField;
+            }
+            set {
+                if ((this.cantidadCongeladorasField.Equals(value) != true)) {
+                    this.cantidadCongeladorasField = value;
+                    this.RaisePropertyChanged("cantidadCongeladoras");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadExtintoresPqs {
+            get {
+                return this.cantidadExtintoresPqsField;
+            }
+            set {
+                if ((this.cantidadExtintoresPqsField.Equals(value) != true)) {
+                    this.cantidadExtintoresPqsField = value;
+                    this.RaisePropertyChanged("cantidadExtintoresPqs");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadHornillas {
+            get {
+                return this.cantidadHornillasField;
+            }
+            set {
+                if ((this.cantidadHornillasField.Equals(value) != true)) {
+                    this.cantidadHornillasField = value;
+                    this.RaisePropertyChanged("cantidadHornillas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadHornos {
+            get {
+                return this.cantidadHornosField;
+            }
+            set {
+                if ((this.cantidadHornosField.Equals(value) != true)) {
+                    this.cantidadHornosField = value;
+                    this.RaisePropertyChanged("cantidadHornos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadMesasInox {
+            get {
+                return this.cantidadMesasInoxField;
+            }
+            set {
+                if ((this.cantidadMesasInoxField.Equals(value) != true)) {
+                    this.cantidadMesasInoxField = value;
+                    this.RaisePropertyChanged("cantidadMesasInox");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadRefrigeradoras {
+            get {
+                return this.cantidadRefrigeradorasField;
+            }
+            set {
+                if ((this.cantidadRefrigeradorasField.Equals(value) != true)) {
+                    this.cantidadRefrigeradorasField = value;
+                    this.RaisePropertyChanged("cantidadRefrigeradoras");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int capacidadOperativa {
+            get {
+                return this.capacidadOperativaField;
+            }
+            set {
+                if ((this.capacidadOperativaField.Equals(value) != true)) {
+                    this.capacidadOperativaField = value;
+                    this.RaisePropertyChanged("capacidadOperativa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int concineroCertificado {
+            get {
+                return this.concineroCertificadoField;
+            }
+            set {
+                if ((this.concineroCertificadoField.Equals(value) != true)) {
+                    this.concineroCertificadoField = value;
+                    this.RaisePropertyChanged("concineroCertificado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string contraGuardiaCocinero {
+            get {
+                return this.contraGuardiaCocineroField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.contraGuardiaCocineroField, value) != true)) {
+                    this.contraGuardiaCocineroField = value;
+                    this.RaisePropertyChanged("contraGuardiaCocinero");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int numeroPisosUtilizados {
+            get {
+                return this.numeroPisosUtilizadosField;
+            }
+            set {
+                if ((this.numeroPisosUtilizadosField.Equals(value) != true)) {
+                    this.numeroPisosUtilizadosField = value;
+                    this.RaisePropertyChanged("numeroPisosUtilizados");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int precioAlquiler {
+            get {
+                return this.precioAlquilerField;
+            }
+            set {
+                if ((this.precioAlquilerField.Equals(value) != true)) {
+                    this.precioAlquilerField = value;
+                    this.RaisePropertyChanged("precioAlquiler");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int trampaGrasa {
+            get {
+                return this.trampaGrasaField;
+            }
+            set {
+                if ((this.trampaGrasaField.Equals(value) != true)) {
+                    this.trampaGrasaField = value;
+                    this.RaisePropertyChanged("trampaGrasa");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetalleLavanderias", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class DetalleLavanderias : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_UsuarioCreaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_antiguedadEmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_condicionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_propiedadLocalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_tipoParedesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_tipoPisoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_tipoTechoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_detalleLavanderiasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int bitacoraField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadInstaladaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadLavadorasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cantidadSecadorasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int extintorVigenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int llaveDiferencialField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int lucesEmergenciaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int pediluvioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int puntoDesinfeccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int registroTemperaturaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int tamizajeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int termaSolarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int termometroField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Empresa {
+            get {
+                return this.FK_ID_EmpresaField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_UsuarioCrea {
+            get {
+                return this.FK_ID_UsuarioCreaField;
+            }
+            set {
+                if ((this.FK_ID_UsuarioCreaField.Equals(value) != true)) {
+                    this.FK_ID_UsuarioCreaField = value;
+                    this.RaisePropertyChanged("FK_ID_UsuarioCrea");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_antiguedadEmpresa {
+            get {
+                return this.FK_ID_antiguedadEmpresaField;
+            }
+            set {
+                if ((this.FK_ID_antiguedadEmpresaField.Equals(value) != true)) {
+                    this.FK_ID_antiguedadEmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_antiguedadEmpresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_condicion {
+            get {
+                return this.FK_ID_condicionField;
+            }
+            set {
+                if ((this.FK_ID_condicionField.Equals(value) != true)) {
+                    this.FK_ID_condicionField = value;
+                    this.RaisePropertyChanged("FK_ID_condicion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_propiedadLocal {
+            get {
+                return this.FK_ID_propiedadLocalField;
+            }
+            set {
+                if ((this.FK_ID_propiedadLocalField.Equals(value) != true)) {
+                    this.FK_ID_propiedadLocalField = value;
+                    this.RaisePropertyChanged("FK_ID_propiedadLocal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_tipoParedes {
+            get {
+                return this.FK_ID_tipoParedesField;
+            }
+            set {
+                if ((this.FK_ID_tipoParedesField.Equals(value) != true)) {
+                    this.FK_ID_tipoParedesField = value;
+                    this.RaisePropertyChanged("FK_ID_tipoParedes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_tipoPiso {
+            get {
+                return this.FK_ID_tipoPisoField;
+            }
+            set {
+                if ((this.FK_ID_tipoPisoField.Equals(value) != true)) {
+                    this.FK_ID_tipoPisoField = value;
+                    this.RaisePropertyChanged("FK_ID_tipoPiso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_tipoTecho {
+            get {
+                return this.FK_ID_tipoTechoField;
+            }
+            set {
+                if ((this.FK_ID_tipoTechoField.Equals(value) != true)) {
+                    this.FK_ID_tipoTechoField = value;
+                    this.RaisePropertyChanged("FK_ID_tipoTecho");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_detalleLavanderias {
+            get {
+                return this.ID_detalleLavanderiasField;
+            }
+            set {
+                if ((this.ID_detalleLavanderiasField.Equals(value) != true)) {
+                    this.ID_detalleLavanderiasField = value;
+                    this.RaisePropertyChanged("ID_detalleLavanderias");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int bitacora {
+            get {
+                return this.bitacoraField;
+            }
+            set {
+                if ((this.bitacoraField.Equals(value) != true)) {
+                    this.bitacoraField = value;
+                    this.RaisePropertyChanged("bitacora");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadInstalada {
+            get {
+                return this.cantidadInstaladaField;
+            }
+            set {
+                if ((this.cantidadInstaladaField.Equals(value) != true)) {
+                    this.cantidadInstaladaField = value;
+                    this.RaisePropertyChanged("cantidadInstalada");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadLavadoras {
+            get {
+                return this.cantidadLavadorasField;
+            }
+            set {
+                if ((this.cantidadLavadorasField.Equals(value) != true)) {
+                    this.cantidadLavadorasField = value;
+                    this.RaisePropertyChanged("cantidadLavadoras");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cantidadSecadoras {
+            get {
+                return this.cantidadSecadorasField;
+            }
+            set {
+                if ((this.cantidadSecadorasField.Equals(value) != true)) {
+                    this.cantidadSecadorasField = value;
+                    this.RaisePropertyChanged("cantidadSecadoras");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int extintorVigente {
+            get {
+                return this.extintorVigenteField;
+            }
+            set {
+                if ((this.extintorVigenteField.Equals(value) != true)) {
+                    this.extintorVigenteField = value;
+                    this.RaisePropertyChanged("extintorVigente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int llaveDiferencial {
+            get {
+                return this.llaveDiferencialField;
+            }
+            set {
+                if ((this.llaveDiferencialField.Equals(value) != true)) {
+                    this.llaveDiferencialField = value;
+                    this.RaisePropertyChanged("llaveDiferencial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int lucesEmergencia {
+            get {
+                return this.lucesEmergenciaField;
+            }
+            set {
+                if ((this.lucesEmergenciaField.Equals(value) != true)) {
+                    this.lucesEmergenciaField = value;
+                    this.RaisePropertyChanged("lucesEmergencia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int pediluvio {
+            get {
+                return this.pediluvioField;
+            }
+            set {
+                if ((this.pediluvioField.Equals(value) != true)) {
+                    this.pediluvioField = value;
+                    this.RaisePropertyChanged("pediluvio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int puntoDesinfeccion {
+            get {
+                return this.puntoDesinfeccionField;
+            }
+            set {
+                if ((this.puntoDesinfeccionField.Equals(value) != true)) {
+                    this.puntoDesinfeccionField = value;
+                    this.RaisePropertyChanged("puntoDesinfeccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int registroTemperatura {
+            get {
+                return this.registroTemperaturaField;
+            }
+            set {
+                if ((this.registroTemperaturaField.Equals(value) != true)) {
+                    this.registroTemperaturaField = value;
+                    this.RaisePropertyChanged("registroTemperatura");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int tamizaje {
+            get {
+                return this.tamizajeField;
+            }
+            set {
+                if ((this.tamizajeField.Equals(value) != true)) {
+                    this.tamizajeField = value;
+                    this.RaisePropertyChanged("tamizaje");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int termaSolar {
+            get {
+                return this.termaSolarField;
+            }
+            set {
+                if ((this.termaSolarField.Equals(value) != true)) {
+                    this.termaSolarField = value;
+                    this.RaisePropertyChanged("termaSolar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int termometro {
+            get {
+                return this.termometroField;
+            }
+            set {
+                if ((this.termometroField.Equals(value) != true)) {
+                    this.termometroField = value;
+                    this.RaisePropertyChanged("termometro");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ImplementacionCheff", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
     [System.SerializableAttribute()]
     public partial class ImplementacionCheff : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -6488,6 +7282,13 @@ namespace SISFORM_WEB.ServicioWcf {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioWcf.IServicio")]
     public interface IServicio {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerVehiculoDeliveryPorIdCsv(int IDVehiculosDelivery);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoIncidenciaCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarEstadoIncidenciaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarEstadoIncidenciaCsv();
@@ -6684,6 +7485,20 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/CapacitacionOperacion", ReplyAction="http://tempuri.org/IServicio/CapacitacionOperacionResponse")]
         System.Threading.Tasks.Task<int> CapacitacionOperacionAsync(SISFORM_WEB.ServicioWcf.Capacitacion oCapacitacion, string op);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/detallesComedores", ReplyAction="http://tempuri.org/IServicio/detallesComedoresResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/detallesComedoresErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int detallesComedores(SISFORM_WEB.ServicioWcf.detalleComedores oDetalleComedores, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/detallesComedores", ReplyAction="http://tempuri.org/IServicio/detallesComedoresResponse")]
+        System.Threading.Tasks.Task<int> detallesComedoresAsync(SISFORM_WEB.ServicioWcf.detalleComedores oDetalleComedores, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/DetalleLavanderias", ReplyAction="http://tempuri.org/IServicio/DetalleLavanderiasResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/DetalleLavanderiasErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int DetalleLavanderias(SISFORM_WEB.ServicioWcf.DetalleLavanderias oDetalleLavanderias, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/DetalleLavanderias", ReplyAction="http://tempuri.org/IServicio/DetalleLavanderiasResponse")]
+        System.Threading.Tasks.Task<int> DetalleLavanderiasAsync(SISFORM_WEB.ServicioWcf.DetalleLavanderias oDetalleLavanderias, string op);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarInspeccionesCsv", ReplyAction="http://tempuri.org/IServicio/ListarInspeccionesCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarInspeccionesCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarInspeccionesCsv(string idUsuario);
@@ -6781,6 +7596,34 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarComedorBusquedaCsv", ReplyAction="http://tempuri.org/IServicio/ListarComedorBusquedaCsvResponse")]
         System.Threading.Tasks.Task<string> ListarComedorBusquedaCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerDetalleLavanderiasPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerDetalleLavanderiasPorIdCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerDetalleLavanderiasPorIdCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerDetalleLavanderiasPorIdCsv(int ID_detalleLavanderias);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerDetalleLavanderiasPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerDetalleLavanderiasPorIdCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerDetalleLavanderiasPorIdCsvAsync(int ID_detalleLavanderias);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerDetalleComedoresPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerDetalleComedoresPorIdCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerDetalleComedoresPorIdCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerDetalleComedoresPorIdCsv(int ID_detalleComedor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerDetalleComedoresPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerDetalleComedoresPorIdCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerDetalleComedoresPorIdCsvAsync(int ID_detalleComedor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarDetallesComedoresCsv", ReplyAction="http://tempuri.org/IServicio/ListarDetallesComedoresCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarDetallesComedoresCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarDetallesComedoresCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarDetallesComedoresCsv", ReplyAction="http://tempuri.org/IServicio/ListarDetallesComedoresCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarDetallesComedoresCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarDetallesLavanderiasCsv", ReplyAction="http://tempuri.org/IServicio/ListarDetallesLavanderiasCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarDetallesLavanderiasCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarDetallesLavanderiasCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarDetallesLavanderiasCsv", ReplyAction="http://tempuri.org/IServicio/ListarDetallesLavanderiasCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarDetallesLavanderiasCsvAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarPoderConvocatoriaCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarPoderConvocatoriaCboCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarPoderConvocatoriaCboCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -7041,13 +7884,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsv", ReplyAction="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvResponse")]
         System.Threading.Tasks.Task<string> ListarVehiculoDeliverysCsvAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ObtenerVehiculoDeliveryPorIdCsv(int IDVehiculosDelivery);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvResponse")]
-        System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/AutenticarUsuario", ReplyAction="http://tempuri.org/IServicio/AutenticarUsuarioResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/AutenticarUsuarioErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -7676,6 +8512,14 @@ namespace SISFORM_WEB.ServicioWcf {
                 base(binding, remoteAddress) {
         }
         
+        public string ObtenerVehiculoDeliveryPorIdCsv(int IDVehiculosDelivery) {
+            return base.Channel.ObtenerVehiculoDeliveryPorIdCsv(IDVehiculosDelivery);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery) {
+            return base.Channel.ObtenerVehiculoDeliveryPorIdCsvAsync(IDVehiculosDelivery);
+        }
+        
         public string ListarEstadoIncidenciaCsv() {
             return base.Channel.ListarEstadoIncidenciaCsv();
         }
@@ -7900,6 +8744,22 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.CapacitacionOperacionAsync(oCapacitacion, op);
         }
         
+        public int detallesComedores(SISFORM_WEB.ServicioWcf.detalleComedores oDetalleComedores, string op) {
+            return base.Channel.detallesComedores(oDetalleComedores, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> detallesComedoresAsync(SISFORM_WEB.ServicioWcf.detalleComedores oDetalleComedores, string op) {
+            return base.Channel.detallesComedoresAsync(oDetalleComedores, op);
+        }
+        
+        public int DetalleLavanderias(SISFORM_WEB.ServicioWcf.DetalleLavanderias oDetalleLavanderias, string op) {
+            return base.Channel.DetalleLavanderias(oDetalleLavanderias, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> DetalleLavanderiasAsync(SISFORM_WEB.ServicioWcf.DetalleLavanderias oDetalleLavanderias, string op) {
+            return base.Channel.DetalleLavanderiasAsync(oDetalleLavanderias, op);
+        }
+        
         public string ListarInspeccionesCsv(string idUsuario) {
             return base.Channel.ListarInspeccionesCsv(idUsuario);
         }
@@ -8010,6 +8870,38 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarComedorBusquedaCsvAsync() {
             return base.Channel.ListarComedorBusquedaCsvAsync();
+        }
+        
+        public string ObtenerDetalleLavanderiasPorIdCsv(int ID_detalleLavanderias) {
+            return base.Channel.ObtenerDetalleLavanderiasPorIdCsv(ID_detalleLavanderias);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerDetalleLavanderiasPorIdCsvAsync(int ID_detalleLavanderias) {
+            return base.Channel.ObtenerDetalleLavanderiasPorIdCsvAsync(ID_detalleLavanderias);
+        }
+        
+        public string ObtenerDetalleComedoresPorIdCsv(int ID_detalleComedor) {
+            return base.Channel.ObtenerDetalleComedoresPorIdCsv(ID_detalleComedor);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerDetalleComedoresPorIdCsvAsync(int ID_detalleComedor) {
+            return base.Channel.ObtenerDetalleComedoresPorIdCsvAsync(ID_detalleComedor);
+        }
+        
+        public string ListarDetallesComedoresCsv() {
+            return base.Channel.ListarDetallesComedoresCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarDetallesComedoresCsvAsync() {
+            return base.Channel.ListarDetallesComedoresCsvAsync();
+        }
+        
+        public string ListarDetallesLavanderiasCsv() {
+            return base.Channel.ListarDetallesLavanderiasCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarDetallesLavanderiasCsvAsync() {
+            return base.Channel.ListarDetallesLavanderiasCsvAsync();
         }
         
         public string ListarPoderConvocatoriaCboCsv() {
@@ -8306,14 +9198,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarVehiculoDeliverysCsvAsync() {
             return base.Channel.ListarVehiculoDeliverysCsvAsync();
-        }
-        
-        public string ObtenerVehiculoDeliveryPorIdCsv(int IDVehiculosDelivery) {
-            return base.Channel.ObtenerVehiculoDeliveryPorIdCsv(IDVehiculosDelivery);
-        }
-        
-        public System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery) {
-            return base.Channel.ObtenerVehiculoDeliveryPorIdCsvAsync(IDVehiculosDelivery);
         }
         
         public SISFORM_WEB.ServicioWcf.VistaUsuario AutenticarUsuario(string usuario, string clave) {
