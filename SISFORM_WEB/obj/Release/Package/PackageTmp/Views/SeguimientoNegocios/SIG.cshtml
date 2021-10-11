@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Modals start -->
+@section modals{
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "SIG";
+    </script>
+}
+
+<div class="content">
+    <div class="title text-center"><h5>Documentos del Sistema Integrado de Gestion Cedepas</h5></div>
+    <div class="form-row">
+        <div class="col-sm-6">
+            <label for="txtEmpresaNNLL" class="required">Política de Gestión</label>
+            <img src="~/Content/logo-white.svg" class="hidden-lm mr-5 mr-sm-10" alt="bamani-logo-white">
+        </div>
+        <div class="col-sm-6">
+            <label for="txtEmpresaNNLL" class="required">Listado de Datos</label>
+        </div>
+    </div>
+</div>

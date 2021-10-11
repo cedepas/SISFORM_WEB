@@ -1,0 +1,92 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Modals start -->
+@section modals{
+
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "Capacitacion";
+    </script>
+
+}
+<div class="content">
+    <div class="title"><h5 id="Inspecciones"></h5></div>
+    <div class="form-row">
+        <div class="col-sm-4">
+            <label for="txtbuscarPorEmpresa" class="required">Digite los datos de la Empresa Capacitada</label>
+            <input type="text" class="form-control form-control-sm E" id="txtbuscarPorEmpresa" placeholder="Nombre Empresa" required="required" />
+        </div>
+    </div>
+    <div class="form-row" id="tipoServicio" style="display:none">
+        <div>
+            <label for="cboTipoServicio" class="required">Seleccione el tipo de operacion de la Empresa</label>
+            <select class="form-control form-control-sm" id="cboTipoServicio"></select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-3" id="fechaCapacitacion" style="display:inline">
+            <label for="txtFechaInspeccion">Fecha de Capacitacion</label>
+            <input type="date" class="form-control form-control-sm E" id="txtFechaCapacitacion" style="visibility:visible" required="required" />
+        </div>
+        <div class="col-sm-3" id="estadoCapacitacion" style="display:inline">
+            <label for="cboEstadoCapacitacion">Estado Capacitacion</label>
+            <select class="form-control form-control-sm E" id="cboEstadoCapacitacion" required="required"></select>
+        </div>
+        <div class="col-sm-3" id="detalleCapacitacion" style="display:inline">
+            <label for="cboEstadoCapacitacion">Detalle Capacitacion</label>
+            <textarea class="form-control form-control-sm E" id="txtDetalleCapacitacion" ></textarea>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-12">
+            <label for="txtBuscarTrabajador" class="required p-4">Digite Nombre del Trabajador Capacitado</label>
+            <input type="text" class="form-control-sm  p-4" id="txtBuscarTrabajador" placeholder="Nombre Trabajador" />
+            @*<button class="p-4" type="button" id="bntAgregarTrabajador"><i class="fas fa-file-upload"></i></button>*@
+        </div>
+        <div>
+            <fieldset>
+                <legend>Listado de Trabajadores Capacitados</legend>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombres y Apellidos</th>
+                            <th>DNI</th>
+                            @*<th>Quitar</th>*@
+                        </tr>
+                    </thead>
+                    <tbody id="TrabajadoresCapacitados">
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </div>
+    <div class="form-row" id="temaCapacitacion" style="display:none">
+        <div>
+            <label for="txtBuscaTemaCapacitacion" class="required">Digite Nombre del Tema de Capacitación</label>
+            <input type="text" class="form-control form-control-sm E" id="txtBuscaTemaCapacitacion" placeholder="Tema de Capacitación" required="required" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-4">
+            <button class="btn btn-success" type="button" id="btnGrabarCapacitacion">Grabar Capacitacion</button>
+            <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+@section scripts{
+    @Scripts.Render("~/Scripts/ConsultaCapacitacion.js")
+}
