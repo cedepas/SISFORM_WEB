@@ -83,6 +83,21 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+        public async Task<string> ListarSexoCboCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarSexoCboCsvAsync();
+                return rpta;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public async Task<string> ListarUnidadGestionCsv()
         {
             try

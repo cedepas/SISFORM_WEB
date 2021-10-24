@@ -23,6 +23,7 @@ window.onload = function () {
     Http.get("Trabajador/listarUbigeoCbo", mostrarListaUbigeo);
     Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
     Http.get("Trabajador/ListarUnidadGestionCsv", mostrarUnidadGestionCbo);
+    Http.get("Trabajador/ListarSexoCboCsv", mostrarSexoCbo);
 
     if (!isMobile.any()) {
         var divRows = document.getElementsByClassName('form-row');
@@ -69,6 +70,7 @@ window.onload = function () {
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
         frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
         frm.append("FK_ID_NivelInstruccion", cboNivelInstruccion.value);
+        frm.append("FK_ID_Sexo", cboSexo.value);
         if (validarRequeridos('T')) {
             Http.post("Trabajador/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -268,6 +270,12 @@ function mostrarUnidadGestionCbo(rpta) {
     if (rpta) {
         lstCboUnidadGestionDoc = rpta.split("¬");
         CrearCombo(lstCboUnidadGestionDoc, cboUnidadGestion, "Seleccione");
+    }
+}
+function mostrarSexoCbo(rpta) {
+    if (rpta) {
+        lstCboSexo = rpta.split("¬");
+        CrearCombo(lstCboSexo, cboSexo, "Seleccione");
     }
 }
 
@@ -557,6 +565,7 @@ function AsignarCampos(rpta) {
             txtEstado.checked = (campos[13] == "ACT" ? true : false);
             cboUnidadGestion.value = campos[14];
             cboNivelInstruccion.value = campos[15];
+            cboSexo.value = campos[16];
         }
         limpiarControles('P')
 

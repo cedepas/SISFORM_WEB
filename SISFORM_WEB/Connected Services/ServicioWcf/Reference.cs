@@ -7282,12 +7282,26 @@ namespace SISFORM_WEB.ServicioWcf {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioWcf.IServicio")]
     public interface IServicio {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsv", ReplyAction="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarVehiculoDeliverysCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsv", ReplyAction="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarVehiculoDeliverysCsvAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ObtenerVehiculoDeliveryPorIdCsv(int IDVehiculosDelivery);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvResponse")]
         System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarTipoProgramacionIncidenciaCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarTipoProgramacionIncidenciaCsvAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarEstadoIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarEstadoIncidenciaCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarEstadoIncidenciaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -7878,13 +7892,6 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/VehiculosDeliverysOperacion", ReplyAction="http://tempuri.org/IServicio/VehiculosDeliverysOperacionResponse")]
         System.Threading.Tasks.Task<int> VehiculosDeliverysOperacionAsync(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsv", ReplyAction="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ListarVehiculoDeliverysCsv();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsv", ReplyAction="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvResponse")]
-        System.Threading.Tasks.Task<string> ListarVehiculoDeliverysCsvAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/AutenticarUsuario", ReplyAction="http://tempuri.org/IServicio/AutenticarUsuarioResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/AutenticarUsuarioErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         SISFORM_WEB.ServicioWcf.VistaUsuario AutenticarUsuario(string usuario, string clave);
@@ -8101,6 +8108,13 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoDocumentoCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoDocumentoCboCsvResponse")]
         System.Threading.Tasks.Task<string> ListarTipoDocumentoCboCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarSexoCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarSexoCboCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarSexoCboCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarSexoCboCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarSexoCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarSexoCboCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarSexoCboCsvAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoVacunaCboCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoVacunaCboCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTipoVacunaCboCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -8476,13 +8490,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarRangoCumplimientoCsv", ReplyAction="http://tempuri.org/IServicio/ListarRangoCumplimientoCsvResponse")]
         System.Threading.Tasks.Task<string> ListarRangoCumplimientoCsvAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsvResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ListarTipoProgramacionIncidenciaCsv();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsvResponse")]
-        System.Threading.Tasks.Task<string> ListarTipoProgramacionIncidenciaCsvAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -8512,12 +8519,28 @@ namespace SISFORM_WEB.ServicioWcf {
                 base(binding, remoteAddress) {
         }
         
+        public string ListarVehiculoDeliverysCsv() {
+            return base.Channel.ListarVehiculoDeliverysCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarVehiculoDeliverysCsvAsync() {
+            return base.Channel.ListarVehiculoDeliverysCsvAsync();
+        }
+        
         public string ObtenerVehiculoDeliveryPorIdCsv(int IDVehiculosDelivery) {
             return base.Channel.ObtenerVehiculoDeliveryPorIdCsv(IDVehiculosDelivery);
         }
         
         public System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery) {
             return base.Channel.ObtenerVehiculoDeliveryPorIdCsvAsync(IDVehiculosDelivery);
+        }
+        
+        public string ListarTipoProgramacionIncidenciaCsv() {
+            return base.Channel.ListarTipoProgramacionIncidenciaCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarTipoProgramacionIncidenciaCsvAsync() {
+            return base.Channel.ListarTipoProgramacionIncidenciaCsvAsync();
         }
         
         public string ListarEstadoIncidenciaCsv() {
@@ -9192,14 +9215,6 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.VehiculosDeliverysOperacionAsync(oVehiculosDeliverys, op);
         }
         
-        public string ListarVehiculoDeliverysCsv() {
-            return base.Channel.ListarVehiculoDeliverysCsv();
-        }
-        
-        public System.Threading.Tasks.Task<string> ListarVehiculoDeliverysCsvAsync() {
-            return base.Channel.ListarVehiculoDeliverysCsvAsync();
-        }
-        
         public SISFORM_WEB.ServicioWcf.VistaUsuario AutenticarUsuario(string usuario, string clave) {
             return base.Channel.AutenticarUsuario(usuario, clave);
         }
@@ -9446,6 +9461,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarTipoDocumentoCboCsvAsync() {
             return base.Channel.ListarTipoDocumentoCboCsvAsync();
+        }
+        
+        public string ListarSexoCboCsv() {
+            return base.Channel.ListarSexoCboCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarSexoCboCsvAsync() {
+            return base.Channel.ListarSexoCboCsvAsync();
         }
         
         public string ListarTipoVacunaCboCsv() {
@@ -9870,14 +9893,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarRangoCumplimientoCsvAsync() {
             return base.Channel.ListarRangoCumplimientoCsvAsync();
-        }
-        
-        public string ListarTipoProgramacionIncidenciaCsv() {
-            return base.Channel.ListarTipoProgramacionIncidenciaCsv();
-        }
-        
-        public System.Threading.Tasks.Task<string> ListarTipoProgramacionIncidenciaCsvAsync() {
-            return base.Channel.ListarTipoProgramacionIncidenciaCsvAsync();
         }
     }
 }
