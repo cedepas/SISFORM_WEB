@@ -11,9 +11,9 @@ var lstTrabajadores;
 window.onload = function () {
     if (!isMobile.any()) {
         idUsuario = window.sessionStorage.getItem('idUsuario');
-        Http.get("SeguimientoNegocios/ListarInspecciones?idUsuario=" + idUsuario, CrearTablaCsv);
+/*        Http.get("SeguimientoNegocios/ListarInspecciones?idUsuario=" + idUsuario, CrearTablaCsv);*/
         Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
-        Http.get("SeguimientoNegocios/ListarEstadoInspeccionCsv", mostrarTipoInspeccionCbo);
+/*        Http.get("SeguimientoNegocios/ListarEstadoInspeccionCsv", mostrarTipoInspeccionCbo);*/
 
 
         var divRows = document.getElementsByClassName('form-row');
@@ -24,20 +24,20 @@ window.onload = function () {
 
     obtenerfechaActual();
 
-    txtFechaInspeccion.value = fechaActual;
+   /* txtFechaInspeccion.value = fechaActual; */
 
-    btnGrabarInspeccion.onclick = function () {
-        var frm = new FormData();
-        frm.append("FK_ID_Empresa", idEmpresa);
-        frm.append("FK_ID_EstadoInspeccion", cboTipoInspeccion.value);
-        frm.append("FK_ID_Usuario", idUsuario);
-        frm.append("fechaInspeccion", txtFechaInspeccion.value);
-        frm.append("detalleInspeccion", txtDetalleInspeccion.value);
-        if (validarRequeridos('E')) {
-            checkSubmit(btnGrabarInspeccion);
-            Http.post("SeguimientoNegocios/GrabarInspeccion?op=I", MostrarRegistroInspeccion, frm);
-        } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
-    }
+    //btnGrabarInspeccion.onclick = function () {
+    //    var frm = new FormData();
+    //    frm.append("FK_ID_Empresa", idEmpresa);
+    //    frm.append("FK_ID_EstadoInspeccion", cboTipoInspeccion.value);
+    //    frm.append("FK_ID_Usuario", idUsuario);
+    //    frm.append("fechaInspeccion", txtFechaInspeccion.value);
+    //    frm.append("detalleInspeccion", txtDetalleInspeccion.value);
+    //    if (validarRequeridos('E')) {
+    //        checkSubmit(btnGrabarInspeccion);
+    //        Http.post("SeguimientoNegocios/GrabarInspeccion?op=I", MostrarRegistroInspeccion, frm);
+    //    } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
+    //}
 
     function checkSubmit(boton) {
         boton.value = "Enviando...";
@@ -63,7 +63,7 @@ window.onload = function () {
                     txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
                     idEmpresa = objeto.IDEmpr;
                     Http.get("Trabajador/ListarTrabajadorPorEmpresaCsv?idEmpresa=" + idEmpresa, mostrarTrabajadoresEmpresa);
-                    btnActualizar.style.display = "inline-block";
+                /*    btnActualizar.style.display = "inline-block";*/
                     closeAllLists();
                     txtbuscarPorEmpresa.disabled = true;
                 });
@@ -72,23 +72,23 @@ window.onload = function () {
         }
     }
 
-    bntNuevo.onclick = function () {
-        limpiarControles('form-control');
-        location.reload();
-    }
+    //bntNuevo.onclick = function () {
+    //    limpiarControles('form-control');
+    //    location.reload();
+    //}
 
-    btnActualizar.onclick = function () {
-        var inicio = 0;
-        while (inicio < cantidadTrabajadores) {
-            var valorCheck = "cb" + inicio;
-            lisDatosTrabajadro = lstTrabajadores[inicio].split('|');
-            lstActualizacion.push(lisDatosTrabajadro[0] + "|" + lisDatosTrabajadro[7] + "|" + document.getElementById(valorCheck).checked);
-            inicio = inicio + 1;
-        }
-        checkSubmit(btnActualizar);
-        Http.get("SeguimientoNegocios/ActualizarPuestoTrabajadorPorEmpresaCsv?FK_ID_Empresa=" + idEmpresa + "&listadoTrabajadores=" + lstActualizacion.toString() + "&FK_ID_Usuario=" + idUsuario, mostrarActualizacion);
-        console.log(lstActualizacion.toString());
-    }
+    //btnActualizar.onclick = function () {
+    //    var inicio = 0;
+    //    while (inicio < cantidadTrabajadores) {
+    //        var valorCheck = "cb" + inicio;
+    //        lisDatosTrabajadro = lstTrabajadores[inicio].split('|');
+    //        lstActualizacion.push(lisDatosTrabajadro[0] + "|" + lisDatosTrabajadro[7] + "|" + document.getElementById(valorCheck).checked);
+    //        inicio = inicio + 1;
+    //    }
+    //    checkSubmit(btnActualizar);
+    //    Http.get("SeguimientoNegocios/ActualizarPuestoTrabajadorPorEmpresaCsv?FK_ID_Empresa=" + idEmpresa + "&listadoTrabajadores=" + lstActualizacion.toString() + "&FK_ID_Usuario=" + idUsuario, mostrarActualizacion);
+    //    console.log(lstActualizacion.toString());
+    //}
 }
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
@@ -98,12 +98,12 @@ function closeAllLists(elmnt) {
         }
     }
 }
-function mostrarTipoInspeccionCbo(rpta) {
-    if (rpta) {
-        lstCboTipoInspeccion = rpta.split("¬");
-        CrearCombo(lstCboTipoInspeccion, cboTipoInspeccion, "Seleccione");
-    }
-}
+//function mostrarTipoInspeccionCbo(rpta) {
+//    if (rpta) {
+//        lstCboTipoInspeccion = rpta.split("¬");
+//        CrearCombo(lstCboTipoInspeccion, cboTipoInspeccion, "Seleccione");
+//    }
+//}
 function MostrarRegistroInspeccion(rpta) {
     if (rpta) {
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
@@ -112,11 +112,11 @@ function MostrarRegistroInspeccion(rpta) {
     else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
 }
 function mostrarActualizacion(rpta) {
-    fechaInspeccion.style.display = "inline-block";
-    estadoInspeccion.style.display = "inline-block";
-    txtDetalleInspeccion.style.display = "inline-block";
-    detalleInspeccion.style.display = "inline-block";
-    btnGrabarInspeccion.style.display = "inline-block";
+    //fechaInspeccion.style.display = "inline-block";
+    //estadoInspeccion.style.display = "inline-block";
+    //txtDetalleInspeccion.style.display = "inline-block";
+    //detalleInspeccion.style.display = "inline-block";
+    //btnGrabarInspeccion.style.display = "inline-block";
     if (rpta) {
         toastSuccessAlert("Se actualizo correctamente los Trabajadores", "¡Exito!");
         //limpiarControles('form-control');
@@ -185,12 +185,12 @@ function mostrarTrabajadoresEmpresa(rpta) {
         }
     }
 }
-function CrearTablaCsv(rpta) {
-    if (rpta) {
-        var lista = rpta.split('¬');
-        var grilla = new Grilla(lista, "divTabla", 10, 3);
-    }
-}
+//function CrearTablaCsv(rpta) {
+//    if (rpta) {
+//        var lista = rpta.split('¬');
+//        var grilla = new Grilla(lista, "divTabla", 10, 3);
+//    }
+//}
 
 function CrearListaCsv(rpta) {
     if (rpta) {

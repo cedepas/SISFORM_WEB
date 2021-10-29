@@ -1251,6 +1251,9 @@ D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.Razor.resources.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.resources.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\Interop.MMCInternalWebOcx.dll
+D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\Interop.MsRdpWebAccessLib.dll
+D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.ResolveComReference.cache
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.csproj.CoreCompileInputs.cache
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.dll
 D:\cedepasFuentes\SISFORM_WEB\SISFORM_WEB\obj\Release\SISFORM_WEB.pdb
