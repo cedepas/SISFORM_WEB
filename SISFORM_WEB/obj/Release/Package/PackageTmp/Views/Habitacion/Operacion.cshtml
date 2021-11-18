@@ -1,0 +1,126 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+@section modals{
+    <div class="modal modal-full ie-scroll-fix" id="habitacion-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content w-lg-three-quarter">
+                <a href="#" class="close" role="button" arial-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+                <h5>Registro de Habitación</h5>
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label class="required">Tipo de habitación :</label>
+                        <select class="form-control form-control-sm HD" id="cboTipoHabitacion" required></select>
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Número de habitación :</label>
+                        <input type="search" class="form-control form-control-sm HD" id="txtNumeroHabitacion" required />
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Número de camas :</label>
+                        <input type="number" min="1" value="1" class="form-control form-control-sm HD" id="txtNumeroCamas" required />
+                    </div>
+                    @*<div class="col-sm">
+                            <label class="required">Estado de habitación :</label>
+                            <select class="form-control form-control-sm HD" id="cboEstadoHabitacion" required></select>
+                        <input type="checkbox" id="txtEstadoPuesto" checked>
+                        </div>*@
+                    <div class="col-sm">
+                        <label for="txtEstadoRAH" class="required">Estado Habitación RAH</label>
+                        <div class="custom-control">
+                            <div class="custom-switch">
+                                <input type="checkbox" id="txtEstadoRAH">
+                                <label for="txtEstadoRAH">Estado RAH</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label class="required">Número de Televisores :</label>
+                        <input type="number" min="0" value="1" class="form-control form-control-sm HD" id="txtNumeroTv" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label>Detalle de Habitación</label>
+                        <textarea id="txtDetalleHabitacion" class="form-control HD" rows=10 cols=25 maxlength=250></textarea>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <input class="btn btn-danger btn-sm" id="btnEliminarHabitacion" type="button" value="Eliminar Habitación" style="visibility:hidden" />
+                    <input class="btn btn-primary btn-sm" id="btnNuevaHabitacion" type="button" value="Nueva Habitación" style="visibility:hidden" />
+                    <input class="btn btn-success btn-sm" type="button" id="btnAgregarHabitacion" value="Guardar">
+                </div>
+
+                <div class="content">
+                    <hr class="mb-20" />
+                </div>
+                <div class="mw-full">
+                    <div class="card p-0 bg-very-dark-dm">
+                        <div id="divTablaHabitaciones" class="table-responsive">
+                            <table id="tablaDatosHabitaciones" class="table table-inner-bordered">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "habitacion";
+    </script>
+}
+<div class="content">
+    <h5>Capacidad de Hospedaje</h5>
+    <div class="form-row">
+        <div class="col-sm-4">
+            <label>Nombre Comercial</label>
+            <input type="search" class="form-control form-control-sm" id="txtNombreComercial" readonly />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm">
+            <label>Habitaciones STAFF :</label>
+            <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadStaff" readonly />
+        </div>
+        <div class="col-sm">
+            <label>Habitaciones OBRERO :</label>
+            <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadObrero" readonly />
+        </div>
+        <div class="col-sm">
+            <label>Total Habitaciones :</label>
+            <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadHabitaciones" readonly />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm">
+            <label>Camas STAFF :</label>
+            <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadCamasStaff" readonly />
+        </div>
+        <div class="col-sm">
+            <label>Camas OBRERO :</label>
+            <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadCamasObrero" readonly />
+        </div>
+        <div class="col-sm">
+            <label>Número total de camas :</label>
+            <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadCamas" readonly />
+        </div>
+    </div>
+    <div class="text-right">
+        <a href="#habitacion-modal" class="btn btn-primary btn-sm" id="btnModalHabitacion" role="button" style="display:none">Ver / Registrar Habitaciones</a>
+    </div>
+</div>
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @Scripts.Render("~/Scripts/ConsultaHabitacion.js")
+}

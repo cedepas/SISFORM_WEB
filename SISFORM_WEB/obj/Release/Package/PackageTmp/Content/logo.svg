@@ -1,0 +1,17 @@
+<svg width="148" height="30" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="32" width="150" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text xml:space="preserve" text-anchor="start" font-family="'League Gothic', sans-serif" font-size="24" id="svg_1" y="24.82712" x="34.84441" stroke-width="0" stroke="#000" fill="#000000">CEDEPAS NORTE</text>
+  <ellipse ry="6.17214" rx="6.17214" id="svg_2" cy="12.55663" cx="16.96724" stroke-width="1.5" stroke="#ff0000" fill="#ff0000"/>
+  <ellipse ry="6.17214" rx="6.17214" id="svg_4" cy="18.29432" cx="12.86888" stroke-width="1.5" stroke="#00ff00" fill="#00ff00"/>
+  <ellipse ry="6.17214" rx="6.17214" id="svg_5" cy="18.70416" cx="20.65576" stroke-width="1.5" stroke="#007fff" fill="#007fff"/>
+ </g>
+</svg>

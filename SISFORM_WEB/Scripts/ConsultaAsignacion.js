@@ -38,6 +38,7 @@ window.onload = function () {
             empresaServicio.style.display = "inline-block";
             tipoDeEmpresa.style.display = "inline-block";
             asignacionObrero.style.display = "inline-block";
+            fechaTermino.style.display = "inline-block";
             Http.get("Trabajador/ListarServiciosAsignadosPorEmpresaECM?FK_ID_EmpresaECM=" + idEmpresaECM + "&FK_ID_TipoEmpresa=" + cboTipoEmpresa.value, CrearTablaCsv);
         }
         //cboTipoHabitacion.onchange = function () {

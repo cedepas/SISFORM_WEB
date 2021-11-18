@@ -1,0 +1,196 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Styles start -->
+@section styles{
+    <style>
+        /*.chart {
+            width: 100%;
+            min-height: 450px;
+        }
+
+        .row {
+            margin: 0 !important;
+        }*/
+        .ct-chart .ct-label {
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .ct-chart .ct-series.stroke-ocupado .ct-bar {
+            stroke: rgba(255, 38, 38, 0.8);
+        }
+
+        .ct-chart .ct-series.stroke-espera .ct-bar {
+            stroke: rgba(255, 167, 38, 0.8);
+        }
+
+        .ct-chart .ct-series.stroke-libre .ct-bar {
+            stroke: rgba(59, 163, 49, 0.8);
+        }
+
+        input[type="checkbox"] {
+            box-shadow: 0.7px 0.7px 0.7px 0.7px white;
+            min-width: 15px;
+        }
+
+            input[type="checkbox"]:checked {
+                box-shadow: 1px 1px 1px 1px hotpink;
+            }
+    </style>
+    @*@Styles.Render("~/Styles/chartist.min.css")*@
+    @Styles.Render("~/Styles/apexcharts.css")
+}
+<!-- Styles end -->
+<!-- Modals start -->
+@section modals{
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "asignacion";
+    </script>
+}
+<!-- Modals end -->
+<div class="content">
+    <div class="title"><h5>@ViewBag.Title</h5></div>
+    <div class="text-right">
+        <label>N° de Asignacion: </label>
+        <label id="lblNumeroAsignacion"></label>
+    </div>
+    <div class="form-row">
+        <div class="col-sm">
+            <label for="txtFechaAsignacion">Fecha de Asignación</label>
+            <input type="date" class="form-control form-control-sm T" id="txtFechaAsignacion" required="required" />
+        </div>
+        <div class="col-sm">
+            <label for="txtbuscarPorEmpresaECM" class="required">Digite Empresa Contratista</label>
+            <input type="text" class="form-control form-control-sm T" id="txtbuscarPorEmpresaECM" placeholder="Nombre Empresa" required="required" />
+        </div>
+        <div class="col-sm" id="tipoEmpresa" style="display:none">
+            <label for="cboTipoEmpresa" class="required">Tipo de empresa</label>
+            <select class="form-control form-control-sm T" id="cboTipoEmpresa" required="required"></select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm" id="empresaServicio" style="display:none">
+            <label for="txtEmpresaServicio" class="required">Digite Empresa que brindara el Servicio</label>
+            <input type="text" class="form-control form-control-sm T" id="txtEmpresaServicio" placeholder="Nombre Empresa" required="required" />
+        </div>
+        <div class="col-sm" id="tipoDeEmpresa" style="display:none">
+            <label for="cboEstadoAsignacion" class="required">Estado de Asignación</label>
+            <select class="form-control form-control-sm T" id="cboEstadoAsignacion" required="required"></select>
+        </div>
+
+    </div>
+        <div class="form-row">
+            <div class="col-sm"  id="asignacionStaft" style="display:none">
+                <label for="txtHabStaft" class="required">Cantidad Staft</label>
+                <input type="number" id="txtCapHabStaft" placeholder="Capacidad Staft" disabled />
+                <input type="number" class="form-control form-control-sm" id="txtHabStaft" placeholder="Digite Asignación Staft" required="required" />
+            </div>
+            <div class="col-sm" id="asignacionObrero" style="display:none">
+                <label for="txtHabObrero" class="required">Cantidad  Obrero</label>
+                <input type="number" id="txtCapHabObrero" placeholder="Capacidad Obrero" disabled />
+                <input type="number" class="form-control form-control-sm" id="txtHabObrero" placeholder="Digite Asignación Obrero" required="required" />
+            </div>
+        </div>
+    <div class="form-row" id="fechaTermino" style="display:none">
+        <div class="col-sm">
+            <label for="txtFechaTermino">Fecha de Termino</label>
+            <input type="date" class="form-control form-control-sm" id="txtFechaTermino" required="required" />
+        </div>
+    </div>
+    <div class="text-right">
+        <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
+        <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>
+    </div>
+</div>
+
+<!--<div class="content">
+    <div class="title"><h5>@ViewBag.Title</h5></div>
+    <div class="text-right">
+        <label>N° de Asignacion: </label>
+        <label id="lblNumeroAsignacion"></label>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-row">
+                <div class="col-sm">
+                    <label for="txtFechaAsignacion">Fecha de Asignación</label>
+                    <input type="date" class="form-control form-control-sm T" id="txtFechaAsignacion" required="required" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm">
+                    <label for="txtbuscarPorEmpresaECM" class="required">Digite Empresa Contratista</label>
+                    <input type="text" class="form-control form-control-sm T" id="txtbuscarPorEmpresaECM" placeholder="Nombre Empresa" required="required" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm" id="tipoEmpresa" style="display:none">
+                    <label for="cboTipoEmpresa" class="required">Tipo de empresa</label>
+                    <select class="form-control form-control-sm T" id="cboTipoEmpresa" required="required"></select>
+                </div>
+            </div>
+            <div class="form-row " id="empresaServicio" style="display:none">
+                <div class="col-sm">
+                    <label for="txtEmpresaServicio" class="required">Digite Empresa que brindara el Servicio</label>
+                    <input type="text" class="form-control form-control-sm T" id="txtEmpresaServicio" placeholder="Nombre Empresa" required="required" />
+                </div>
+                <div class="col-sm">
+                    <label for="cboEstadoAsignacion" class="required">Estado de Asignación</label>
+                    <select class="form-control form-control-sm T" id="cboEstadoAsignacion" required="required"></select>
+                </div>
+            </div>
+            <div class="form-row" id="tipoHabitacion" style="display:none">-->
+@*<div class="col-sm">
+        <label for="cboTipoHabitacion" class="required">Tipo de Habitación</label>
+        <select class="form-control form-control-sm" id="cboTipoHabitacion" required="required"></select>
+    </div>*@
+<!--<div class="col-sm">
+                    <label for="txtHabStaft" class="required">Cantidad Staft</label>
+                    <input type="number" id="txtCapHabStaft" placeholder="Capacidad Staft" disabled />
+                    <input type="number" class="form-control form-control-sm" id="txtHabStaft" placeholder="Digite Habitaciones Staft" required="required" />
+                </div>
+                <div class="col-sm">
+                    <label for="txtHabObrero" class="required">Cantidad Habitaciones Obrero</label>
+                    <input type="number" id="txtCapHabObrero" placeholder="Cantidad Obrero" disabled />
+                    <input type="number" class="form-control form-control-sm" id="txtHabObrero" placeholder="Digite Habitaciones Obrero" required="required" />
+                </div>
+            </div>
+            <div class="form-row" id="fechaTermino" style="display:none">
+                <div class="col-sm">
+                    <label for="txtFechaTermino">Fecha de Termino</label>
+                    <input type="date" class="form-control form-control-sm" id="txtFechaTermino" required="required" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+                <div class="chart overflow-y-hidden overflow-y-md-auto h-250">
+                    <div class="ct-chart ct-golden-section" id="ct-chart">
+
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="text-right">
+        <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
+        <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>
+    </div>
+</div>-->
+
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+@section scripts{
+    @Scripts.Render("~/Scripts/apexcharts.js")
+    @Scripts.Render("~/Scripts/ConsultaAsignacion.js")
+}

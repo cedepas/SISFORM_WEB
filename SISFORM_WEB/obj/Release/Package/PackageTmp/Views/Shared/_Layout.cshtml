@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Chrome, Firefox OS and Opera mobile address bar theming -->
+    <meta name="theme-color" content="#000000">
+    <!-- Windows Phone mobile address bar theming -->
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <!-- iOS Safari mobile address bar theming -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+
+    <!-- Fav and Title -->
+    <link rel="icon" href="~/Content/icon_empresa.png">
+    <title>CEDEPAS | @ViewBag.Title</title>
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/2d837de497.js" crossorigin="anonymous"></script>
+    <!-- Roboto font (Used when Apple system fonts are not available) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    @Styles.Render("~/Styles/halfmoon.min.css")
+    @Styles.Render("~/Styles/halfmoon-highlight-js-theme.css")
+    @Styles.Render("~/Styles/documentation-styles-2.css")
+    @RenderSection("styles", required: false)
+    <style>
+        .sidebar-footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars" data-sidebar-shortcut-enabled="true" data-dm-shortcut-enabled="true">
+    @* halfmoon.toggleDarkMode() *@
+    <!-- Documentation section id (hidden) -->
+    <input type="hidden" name="docs-section-id" id="docs-section-id">
+
+    <!-- Modals start -->
+    @RenderSection("modals", required: false)
+    <div class="sticky-alerts"></div>
+    <!-- Modals end -->
+    <!-- Page wrapper start -->
+    <div id="page-wrapper" class="page-wrapper with-navbar with-sidebar" data-sidebar-type="overlayed-sm-and-down">
+        <!-- Navbar start -->
+        <nav class="navbar">
+            <div class="navbar-content">
+                <button id="toggle-sidebar-btn" class="btn btn-action" type="button" onclick="halfmoon.toggleSidebar()">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+            <a href="@Url.Action("Inicio", "Home")" class="navbar-brand ml-10 ml-sm-15">
+                <img src="~/Content/logo.svg" class="hidden-dm mr-5 mr-sm-10" alt="bamani-logo">
+                <img src="~/Content/logo-white.svg" class="hidden-lm mr-5 mr-sm-10" alt="bamani-logo-white">
+                <span class="badge font-size-12 text-monospace px-5 px-sm-10">
+                    v1.0.1
+                </span>
+            </a>
+            <div class="navbar-content ml-auto">
+                <button class="btn btn-action" type="button" onclick="halfmoon.toggleDarkMode()"
+                        aria-label="Toggle dark mode">
+                    <i class="fa fa-moon-o" aria-hidden="true"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Navbar end -->
+        <!-- Sidebar overlay -->
+        <div class="sidebar-overlay" onclick="halfmoon.toggleSidebar()"></div>
+
+        <!-- Sidebar start -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-menu list">
+                <!-- Mantenimiento section start -->
+                <h5 class="sidebar-title">Mantenimiento</h5>
+                <div class="sidebar-divider"></div>
+                <a href="@Url.Action("Operacion", "Trabajador")" id="sidebar-trabajadores" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Trabajadores</span>
+                </a>
+                <a href="@Url.Action("Masivo", "Trabajador")" id="sidebar-Verificaciontrabajadores" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Verificación de Trabajadores</span>
+                </a>
+                @*<a href="@Url.Action("Masivo", "Trabajador")" id="sidebar-masivo" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                <i class="fas fa-file-upload" aria-hidden="true"></i>
+            </span>
+            <span class="name">Masivo trabajadores</span>
+        </a>*@
+                @*<a href="@Url.Action("Asignacion", "Trabajador")" id="sidebar-asignacion" class="sidebar-link sidebar-link-with-icon">
+            <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                <i class="fas fa-hands-helping" aria-hidden="true"></i>
+            </span>
+            <span class="name">Asignacion</span>
+        </a>*@
+                <a href="@Url.Action("Operacion", "Empresa")" id="sidebar-empresas" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fa fa-building" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Empresas</span>
+                </a>
+                <a href="@Url.Action("Directorio", "Empresa")" id="sidebar-directorioECM" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fa fa-building" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Directorio ECM</span>
+                </a>
+                <a href="@Url.Action("Stakeholders", "Stakeholder")" id="sidebar-stakeholder" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Stakeholders</span>
+                </a>
+                <a href="@Url.Action("Asignacion", "Trabajador")" id="sidebar-asignacion" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Asignación de NNLL a ECM</span>
+                </a>
+                <a href="@Url.Action("SIG", "SeguimientoNegocios")" id="sidebar-SIG" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Sistema Integrado de Gestión</span>
+                </a>
+                <br />
+                <!-- Mantenimiento section end -->
+                <!-- COVID section start -->
+                <h5 class="sidebar-title">COVID</h5>
+                <div class="sidebar-divider"></div>
+                <a href="@Url.Action("ProgramacionPruebaCovid", "PruebaCovid")" id="sidebar-programacioncovid" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Gestión de Pruebas</span>
+                </a>
+
+                <a href="@Url.Action("ProgramacionMasivaPruebaCovid", "PruebaCovid")" id="sidebar-programacionmasivacovid" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Ubicación de Trabajador</span>
+                </a>
+                <br />
+                <!-- Prueba section end -->
+                <!-- Incidencia section start -->
+                <h5 class="sidebar-title">Gestíón de Incidencias</h5>
+                <div class="sidebar-divider"></div>
+                <a href="@Url.Action("Incidencia", "Incidencia")" id="sidebar-incidencia" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Registro de Incidencia</span>
+                </a>
+                <a href="@Url.Action("SolucionIncidencia", "Incidencia")" id="sidebar-solucionIncidencia" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Solución de Incidencia</span>
+                </a>
+                <a href="@Url.Action("BusquedaIncidencia", "Incidencia")" id="sidebar-busquedaIncidencia" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Busqueda de Incidencia</span>
+                </a>
+                <a href="@Url.Action("SeguimientoIncidencia", "Incidencia")" id="sidebar-SeguimientoIncidencia" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Seguimiento de Incidencia</span>
+                </a>
+                <a href="@Url.Action("CartaPreocupacion", "Carta")" id="sidebar-CartaPreocupacion" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Carta de Preocupacion</span>
+                </a>
+                <a href="@Url.Action("aplazarincidencia", "Incidencia")" id="sidebar-aplazarincidencia" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Aplazar Incidencia</span>
+                </a>
+                <br />
+                <!-- Incidencia section end -->
+                <!-- Gestión Negocios section start -->
+                <h5 class="sidebar-title">Gestíón de Negocios Locales</h5>
+                <div class="sidebar-divider"></div>
+                <a href="@Url.Action("Inspecciones", "SeguimientoNegocios")" id="sidebar-Inspecciones" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Registro de Inspecciones</span>
+                </a>
+                <a href="@Url.Action("CheckList", "SeguimientoNegocios")" id="sidebar-CheckList" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Registro de CheckList</span>
+                </a>
+                <a href="@Url.Action("Capacitacion", "SeguimientoNegocios")" id="sidebar-Capacitacion" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Registro de Capacitacion</span>
+                </a>
+                <a href="@Url.Action("DeudasNNLL", "SeguimientoNegocios")" id="sidebar-DeudasNNLL" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Deudas a Negocios Locales</span>
+                </a>
+                <br />
+                <!-- Incidencia section end -->
+                <!-- Reportes section start -->
+
+                <h5 class="sidebar-title">Gestíón NNLL CHEF</h5>
+                <div class="sidebar-divider"></div>
+                <a href="@Url.Action("Implementacion", "Cheff")" id="sidebar-Implementacion" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Implementación</span>
+                </a>
+                <a href="@Url.Action("Seguimiento", "Cheff")" id="sidebar-Seguimiento" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Seguimiento</span>
+                </a>
+                <a href="@Url.Action("CumplimientoMenu", "Cheff")" id="sidebar-CumplimientoMenu" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Cumplimiento de Menu</span>
+                </a>
+                <br />
+
+                <h5 class="sidebar-title">Datos Generales de NNLL</h5>
+                <div class="sidebar-divider"></div>
+                <a href="@Url.Action("Operacion", "Habitacion")" id="sidebar-habitacion" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Capacidad Hospedajes(Habitaciones)</span>
+                </a>
+                <a href="@Url.Action("OperacionOcupacion", "Habitacion")" id="sidebar-ocupacionHospedajes" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Ocupación Hospedajes</span>
+                </a>
+                <a href="@Url.Action("VehiculosDeliverys", "SeguimientoNegocios")" id="sidebar-VehiculosDeliverys" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Registro Vehiculos Deliverys</span>
+                </a>
+                <a href="@Url.Action("detalleComedores", "SeguimientoNegocios")" id="sidebar-detalleComedores" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Registro Detalle Comedores</span>
+                </a>
+                <a href="@Url.Action("detalleLavanderias", "SeguimientoNegocios")" id="sidebar-detalleLavanderias" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-viruses" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Registro Detalle Lavanderias</span>
+                </a>
+                <br />
+
+
+                <!-- Reportes section end -->
+                <!-- Administracion section start -->
+                <h5 class="sidebar-title">Administracion</h5>
+                <div class="sidebar-divider"></div>
+                <a href="@Url.Action("Permisos", "Administracion")" id="sidebar-permisos" class="sidebar-link sidebar-link-with-icon">
+                    <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                        <i class="fas fa-user-lock" aria-hidden="true"></i>
+                    </span>
+                    <span class="name">Permisos</span>
+                </a>
+                <br />
+                <!-- Administracion section end -->
+                <!-- Cerrar sesion start -->
+                <div class="sidebar-divider">
+                    <a href="@Url.Action("CerrarSesion", "IniciarSesion")" id="sidebar-reporte" class="sidebar-link sidebar-link-with-icon" style="color:red;">
+                        <span class="sidebar-icon bg-transparent justify-content-start mr-0">
+                            <i class="fa fa-sign-out" aria-hidden="true" style="color:red;"></i>
+                        </span>
+                        <span class="name">Cerrar Sesion</span>
+                    </a>
+                </div>
+                <!-- Cerrar sesion end -->
+            </div>
+        </div>
+        <!-- Sidebar end -->
+        <!-- Content wrapper start -->
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content wrapper end -->
+    </div>
+    <!-- Page wrapper end -->
+    <!-- JS -->
+    @Scripts.Render("~/Scripts/list.js")
+    @Scripts.Render("~/Scripts/highlight.js")
+    @Scripts.Render("~/Scripts/halfmoon.min.js")
+    <script type="text/javascript">
+        // Function for scrolling to an element, and placing it in the middle of the view
+        // By default, the container parameter is set to the browser window
+        function scrollIntoViewMiddle(element, container) {
+            if (container === undefined) {
+                container = window;
+            }
+            var elementRect = element.getBoundingClientRect();
+            var absoluteElementTop = elementRect.top;
+            var middleDiff = (elementRect.height / 2);
+            var scrollTopOfElement = absoluteElementTop + middleDiff;
+            var scrollY = (scrollTopOfElement - (container.getBoundingClientRect().height / 2));
+            container.scrollLeft = 0;
+            container.scrollTop = scrollY;
+        }
+
+        /* Things to do once the DOM is loaded */
+        document.addEventListener("DOMContentLoaded", function () {
+            // Getting the required elements
+            var docsSectionId = document.getElementById("docs-section-id").value;
+            var activeDocsSectionSidebarMenuItem = document.getElementById("sidebar-" + docsSectionId);
+
+            // Adding the active class to the sidebar menu item
+            if (activeDocsSectionSidebarMenuItem) {
+                activeDocsSectionSidebarMenuItem.classList.add("active");
+            }
+
+            // Scroll to the active sidebar menu item
+            // Only if the sidebar menu item does not have the disabling attribute
+            if (activeDocsSectionSidebarMenuItem) {
+                if (!activeDocsSectionSidebarMenuItem.getAttribute("data-active-scroll-disabled")) {
+                    scrollIntoViewMiddle(activeDocsSectionSidebarMenuItem, document.getElementsByClassName("sidebar")[0]);
+                }
+            }
+
+            // Scroll to hash if it exists
+            if (window.location.hash) {
+                var targetElem = document.getElementById(window.location.hash.substring(1));
+                if (targetElem) {
+                    targetElem.scrollIntoView(true);
+                }
+            }
+        });
+
+    </script>
+    <script src="~/Scripts/General.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -70,6 +70,7 @@ window.onload = function () {
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
         frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
         frm.append("FK_ID_NivelInstruccion", cboNivelInstruccion.value);
+        frm.append("estadoResidencia", (txtEstadoResidencia.checked == true ? "SI" : "NO"));
         frm.append("FK_ID_Sexo", cboSexo.value);
         if (validarRequeridos('T')) {
             Http.post("Trabajador/Grabar", MostrarGrabar, frm);

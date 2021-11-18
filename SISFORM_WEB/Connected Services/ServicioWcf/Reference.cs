@@ -3746,6 +3746,9 @@ namespace SISFORM_WEB.ServicioWcf {
         private string estadoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string estadoResidenciaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string familiarContactoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3931,6 +3934,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((object.ReferenceEquals(this.estadoField, value) != true)) {
                     this.estadoField = value;
                     this.RaisePropertyChanged("estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string estadoResidencia {
+            get {
+                return this.estadoResidenciaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.estadoResidenciaField, value) != true)) {
+                    this.estadoResidenciaField = value;
+                    this.RaisePropertyChanged("estadoResidencia");
                 }
             }
         }
