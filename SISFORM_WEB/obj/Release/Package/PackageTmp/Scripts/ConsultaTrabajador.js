@@ -70,6 +70,7 @@ window.onload = function () {
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
         frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
         frm.append("FK_ID_NivelInstruccion", cboNivelInstruccion.value);
+        frm.append("estadoResidencia", (txtEstadoResidencia.checked == true ? "SI" : "NO"));
         frm.append("FK_ID_Sexo", cboSexo.value);
         if (validarRequeridos('T')) {
             Http.post("Trabajador/Grabar", MostrarGrabar, frm);
@@ -565,7 +566,8 @@ function AsignarCampos(rpta) {
             txtEstado.checked = (campos[13] == "ACT" ? true : false);
             cboUnidadGestion.value = campos[14];
             cboNivelInstruccion.value = campos[15];
-            cboSexo.value = campos[16];
+            txtEstadoResidencia.checked = (campos[16] == "SI" ? true : false);
+            cboSexo.value = campos[17];
         }
         limpiarControles('P')
 

@@ -82,7 +82,7 @@ window.onload = function () {
         while (inicio < cantidadTrabajadores) {
             var valorCheck = "cb" + inicio;
             lisDatosTrabajadro = lstTrabajadores[inicio].split('|');
-            lstActualizacion.push(lisDatosTrabajadro[0] + "|" + lisDatosTrabajadro[7] + "|" + document.getElementById(valorCheck).checked);
+            lstActualizacion.push(lisDatosTrabajadro[0] + "|" + lisDatosTrabajadro[8] + "|" + document.getElementById(valorCheck).checked);
             inicio = inicio + 1;
         }
         checkSubmit(btnActualizar);

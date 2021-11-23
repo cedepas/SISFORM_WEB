@@ -566,7 +566,8 @@ function AsignarCampos(rpta) {
             txtEstado.checked = (campos[13] == "ACT" ? true : false);
             cboUnidadGestion.value = campos[14];
             cboNivelInstruccion.value = campos[15];
-            cboSexo.value = campos[16];
+            txtEstadoResidencia.checked = (campos[16] == "SI" ? true : false);
+            cboSexo.value = campos[17];
         }
         limpiarControles('P')
 
