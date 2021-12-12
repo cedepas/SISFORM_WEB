@@ -172,6 +172,9 @@ function mostrarPreguntas(rpta) {
             if (lstValores[7] == 1) {
                 b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='1'>1</option>";
             }
+            else if (lstValores[7] == 4 ) {
+                b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='2'>2</option><option value='4'>4</option>";
+            }
             else {
                 b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option>";
             }
