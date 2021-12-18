@@ -51,6 +51,8 @@ window.onload = function () {
         frm.append("longitud", txtLongitud.value);
         frm.append("asociado", (txtAsociado.checked == true ? 1:0));
         frm.append("inicioActividades", txtFechaInicioActividades.value);
+        frm.append("FK_ID_AntiguedadEmpresa", CboAntiguedadEmpresa.value);
+
         if (validarRequeridos('E')) {
             Http.post("Empresa/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -241,6 +243,8 @@ function mostrarTipoEmpresaCbo(rpta) {
         CrearCombo(lstCboUnidadGestionDoc, cboUnidadGestion, "Seleccione");
         lstCboRegimenes = lstCombos[3].split("¬");
         CrearCombo(lstCboRegimenes, cboRegimenTributario, "Seleccione");
+        lstCboAntiguedad = lstCombos[4].split("¬");
+        CrearCombo(lstCboAntiguedad, CboAntiguedadEmpresa, "Seleccione");
 
         //var rptaRegimen = 'NRUS|NRUS¬REGIMEN ESPECIAL|REGIMEN ESPECIAL¬REGIMEN MYPE|REGIMEN MYPE¬REGIMEN GENERAL|REGIMEN GENERAL¬NO TIENE|NO TIENE';
         //lstCboRegimenes = rptaRegimen.split('¬');
@@ -419,6 +423,7 @@ function AsignarCampos(rpta) {
             txtLongitud.value = campos[16];
             txtAsociado.checked = (campos[17] == 1 ? true : false);
             txtFechaInicioActividades.value = campos[18];
+            CboAntiguedadEmpresa.value = campos[19];
         }
 
         if (listas[1]) {

@@ -5,7 +5,12 @@
       "ProjectGuid": "a18f3904-69bc-450e-a6be-9ac7cbdab900",
       "DisplayName": "SISFORM_WEB",
       "ColorIndex": 0
+    },
+    "919fd655-f067-4ba2-b932-d926e85dd6b4": {
+      "ProjectGuid": "919fd655-f067-4ba2-b932-d926e85dd6b4",
+      "DisplayName": "Documentos de script",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }

@@ -343,6 +343,7 @@
   <xs:element name="Vacuna" nillable="true" type="tns:Vacuna" />
   <xs:complexType name="Empresa">
     <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_AntiguedadEmpresa" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_EstadoEmpresa" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_TipoEmpresa" type="xs:short" />
       <xs:element minOccurs="0" name="FK_ID_TrabajadorRepresentante" type="xs:int" />

@@ -4216,6 +4216,9 @@ namespace SISFORM_WEB.ServicioWcf {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_AntiguedadEmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int FK_ID_EstadoEmpresaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -4279,6 +4282,19 @@ namespace SISFORM_WEB.ServicioWcf {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_AntiguedadEmpresa {
+            get {
+                return this.FK_ID_AntiguedadEmpresaField;
+            }
+            set {
+                if ((this.FK_ID_AntiguedadEmpresaField.Equals(value) != true)) {
+                    this.FK_ID_AntiguedadEmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_AntiguedadEmpresa");
+                }
             }
         }
         
