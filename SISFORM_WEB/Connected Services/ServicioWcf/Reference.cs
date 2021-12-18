@@ -3746,10 +3746,16 @@ namespace SISFORM_WEB.ServicioWcf {
         private string estadoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string estadoCarnetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string estadoResidenciaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string familiarContactoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaEmisionCarnetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string fechaNacimientoField;
@@ -3939,6 +3945,19 @@ namespace SISFORM_WEB.ServicioWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string estadoCarnet {
+            get {
+                return this.estadoCarnetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.estadoCarnetField, value) != true)) {
+                    this.estadoCarnetField = value;
+                    this.RaisePropertyChanged("estadoCarnet");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string estadoResidencia {
             get {
                 return this.estadoResidenciaField;
@@ -3960,6 +3979,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((object.ReferenceEquals(this.familiarContactoField, value) != true)) {
                     this.familiarContactoField = value;
                     this.RaisePropertyChanged("familiarContacto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaEmisionCarnet {
+            get {
+                return this.fechaEmisionCarnetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaEmisionCarnetField, value) != true)) {
+                    this.fechaEmisionCarnetField = value;
+                    this.RaisePropertyChanged("fechaEmisionCarnet");
                 }
             }
         }

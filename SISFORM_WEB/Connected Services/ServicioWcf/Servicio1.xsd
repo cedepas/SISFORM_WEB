@@ -311,8 +311,10 @@
       <xs:element minOccurs="0" name="apellidoPaterno" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estadoCarnet" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="estadoResidencia" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="familiarContacto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaEmisionCarnet" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="fechaNacimiento" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nombreTrabajador" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="numeroDocumento" nillable="true" type="xs:string" />
