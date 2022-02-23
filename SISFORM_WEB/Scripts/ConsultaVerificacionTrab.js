@@ -158,7 +158,7 @@ function mostrarTrabajadoresEmpresa(rpta) {
             lstDatosTrabajador = lstTrabajadores[j].split('|');
             while (k < cantidadCabecera) {
                 if (k < cantidadCabecera - 2)
-                    if (lstDatosTrabajador[5] > 7) {
+                    if (lstDatosTrabajador[5] > 14) {
                         if (true) {
                             c.innerHTML += "<td style='background-color:red'>" + lstDatosTrabajador[k] + "</td>";
                         }                        

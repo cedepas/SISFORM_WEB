@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Dominio" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dominio" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="VehiculosDeliverys">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Usuario_Crea" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_VehiculosDelivery" type="xs:int" />
+      <xs:element minOccurs="0" name="VehiculoActivo" type="xs:int" />
+      <xs:element minOccurs="0" name="anioFabricacionVehiculo" type="xs:int" />
+      <xs:element minOccurs="0" name="breveteMinimo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="capacidadCoolers" type="xs:int" />
+      <xs:element minOccurs="0" name="categoriaVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="circulacionSUNARP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="combustible" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInspeccionTecnicaVehicular" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaSeguroContraTerceros" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaVencimientoSOAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="marcaVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="modeloVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="placaVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="propietarioVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="seguroContraTerceros" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vinculoVehiculo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehiculosDeliverys" nillable="true" type="tns:VehiculosDeliverys" />
   <xs:complexType name="Error">
     <xs:sequence>
       <xs:element minOccurs="0" name="codigoError" nillable="true" type="xs:string" />
@@ -242,31 +268,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CartaPreocupacion" nillable="true" type="tns:CartaPreocupacion" />
-  <xs:complexType name="VehiculosDeliverys">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
-      <xs:element minOccurs="0" name="FK_ID_Usuario_Crea" type="xs:int" />
-      <xs:element minOccurs="0" name="ID_VehiculosDelivery" type="xs:int" />
-      <xs:element minOccurs="0" name="anioFabricacionVehiculo" type="xs:int" />
-      <xs:element minOccurs="0" name="breveteMinimo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="capacidadCoolers" type="xs:int" />
-      <xs:element minOccurs="0" name="categoriaVehiculo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="circulacionSUNARP" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="combustible" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="fechaInspeccionTecnicaVehicular" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="fechaSeguroContraTerceros" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="fechaVencimientoSOAT" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="marcaVehiculo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="modeloVehiculo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="placaVehiculo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="propietarioVehiculo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="seguroContraTerceros" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="tipoVehiculo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="vinculoVehiculo" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="VehiculosDeliverys" nillable="true" type="tns:VehiculosDeliverys" />
   <xs:complexType name="VistaUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />

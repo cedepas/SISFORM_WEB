@@ -120,7 +120,11 @@ function MostrarGrabar(rpta) {
             Http.get("SeguimientoNegocios/ListarDetallesComedoresCsv", CrearTablaCsv);
         }
     }
-    else toastDangerAlert("No se pudo grabar el registro", "¡Error!");
+    else 
+        toastDangerAlert("No se pudo grabar el registro", "¡Error!");
+        //add 21 02 2022
+
+         
 }
 
 function closeAllLists(elmnt) {

@@ -192,12 +192,6 @@ window.onload = function () {
             }
         }
     }
-    btnEnviocorreo.onclick = function () {
-
-        var idIncidenciacorreo = txtID_Enviocorreo.value
-        Http.get("Incidencia/EnviarCorreo?idIncidencia=" + idIncidenciacorreo, mostrarEnvioCorreo);
-    }
-
 }
 
 function closeAllLists(elmnt) {

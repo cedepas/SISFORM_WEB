@@ -6,7 +6,7 @@ var filtro;
 var textoBusqueda;
 var FK_ID_UnidadGestion;
 var fechaActual;
-var idVehiculo;
+var ID_VehiculosDelivery;
 
 window.onload = function () {
     if (!isMobile.any()) {
@@ -51,10 +51,10 @@ window.onload = function () {
 
     btnGrabarVehiculo.onclick = function () {
         var frm = new FormData();
-        if (idVehiculo) {
-            frm.append("idVehiculo", idVehiculo);
+        if (ID_VehiculosDelivery) {
+            frm.append("ID_VehiculosDelivery", ID_VehiculosDelivery);
         }
-        frm.append("idVehiculo", idVehiculo);
+        frm.append("ID_VehiculosDelivery", ID_VehiculosDelivery);
         frm.append("FK_ID_Empresa", idNNLL);
         frm.append("placaVehiculo", txtPlacaVehiculo.value.toUpperCase());
         frm.append("tipoVehiculo", txtTipoVehiculo.value.toUpperCase());
@@ -74,9 +74,14 @@ window.onload = function () {
         frm.append("categoriaVehiculo", txtCategoriaVehiculo.value.toUpperCase());
         frm.append("combustible", txtCombustible.value.toUpperCase());
         frm.append("fechaSeguroContraTerceros", txtfechaSeguroContraTerceros.value.toUpperCase());
+        /*  */
+        frm.append("VehiculoActivo", (txtVehiculoActivo.checked == true ? 1 : 0));
+        
+
         if (validarRequeridos('E')) {
             checkSubmit(btnGrabarVehiculo);
             Http.post("SeguimientoNegocios/VehiculosDelivery", MostrarGrabar, frm);
+            
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
 
@@ -121,7 +126,7 @@ function obtenerRegistroPorId(id) {
 function AsignarCampos(rpta) {
     if (rpta) {
         campos = rpta.split('|');
-        idVehiculo = campos[0];
+        ID_VehiculosDelivery = campos[0];
         txtEmpresaNNLL.value = campos[1];
         idNNLL = campos[2];
         txtPlacaVehiculo.value = campos[3];
@@ -137,12 +142,17 @@ function AsignarCampos(rpta) {
         txtCirculacionSUNARP.value = campos[13];
         txtVinculoVehiculo.value = campos[14];
         txtFechaInspeccionTecnica.value = campos[15]
-        txtSeguroContraTerceros.value = campos[16];9
+        txtSeguroContraTerceros.value = campos[16];
         txtCategoriaVehiculo.value = campos[17];
         txtCombustible.value = campos[18];
         txtfechaSeguroContraTerceros.value = campos[19];
+
+        txtVehiculoActivo.checked = (campos[20] == 1 ? true : false); /*lineaadd*/
+       
+
     } else limpiarControles('form-control-modal');
 }
+
 
 function obtenerfechaActual() {
     var fecha = new Date();

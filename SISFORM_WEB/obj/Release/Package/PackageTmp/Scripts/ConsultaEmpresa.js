@@ -71,9 +71,9 @@ window.onload = function () {
                 cboSistemaElectrico.value = campos[7];
                 cboCondicionActual.value = campos[8];
                 cboAntiguedadEmpresa.value = campos[9];
-                txtLlaveDiferencial.checked = (campos[10] == 1 ? true : false);
+                txtLlaveDiferencial.checked = (campos[10] == 1 ? false : true);
                 txtMinutosAlB2.value = campos[11];
-                txtVestuario.checked = (campos[12] == 1 ? true : false);
+                txtVestuario.checked = (campos[12] == 1 ? false : true);
                 txtCantidadOficinas.value = campos[13];
                 cboTipoEscalera.value = campos[14];
             } else {
@@ -98,7 +98,7 @@ window.onload = function () {
             frm.append("FK_ID_AntiguedadEmpresa", cboAntiguedadEmpresa.value);
             frm.append("FK_ID_Usuario_Crea", window.sessionStorage.getItem('idUsuario'));
             frm.append("FK_ID_tipoEmpresaHospedaje", cboTipoEmpresaHospedaje.value);
-            frm.append("llaveDiferencial", (txtLlaveDiferencial.checked == true ? 1 : 0));
+            frm.append("llaveDiferencial", (txtLlaveDiferencial.checked == true ? 0 : 1));
             frm.append("minutosalB2", txtMinutosAlB2.value);
             frm.append("vestuario", (txtVestuario.checked == true ? 1 : 0));
             frm.append("cantOficinas", txtCantidadOficinas.value);

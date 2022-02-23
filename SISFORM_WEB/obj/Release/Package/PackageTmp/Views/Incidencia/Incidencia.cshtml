@@ -28,13 +28,13 @@
                     </div>
                     <div class="col-sm-4">
                         <p for="txtbuscarPorEmpresaInvolucrada">Digite los datos de la Empresa Involucrada</p>
-                        <input class="form-control form-control-sm DE" id="txtbuscarPorEmpresaInvolucrada" required="required" />
+                        <input class="form-control form-control-sm DE" id="txtbuscarPorEmpresaInvolucrada" required="required"/>
                         @*<label for="cboEmpresaInvolucrada">Empresa Involucrada</label>
-                            <select class="form-control form-control-sm" id="cboEmpresaInvolucrada" required="required"></select>*@
+                        <select class="form-control form-control-sm" id="cboEmpresaInvolucrada" required="required"></select>*@
                     </div>
                     <div class="form-row">
                         <div class="col-sm-4">
-                            <p for="txtDetalles">Detalle del Incidente</p>
+                            <p for="txtDetalles" >Detalle del Incidente</p>
                             <textarea id="txtDetalles" class="form-control form-control-sm DE" style="border: none; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" required="required"></textarea>
                         </div>
                     </div>
@@ -75,9 +75,9 @@
         </div>
     </div>
     @*<script>
-            var siteActive = document.getElementById("docs-section-id");
-            siteActive.value = "incidencia";
-        </script>*@
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "incidencia";
+    </script>*@
 
     <div class="modal modal-full ie-scroll-fix" id="imagen-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -172,20 +172,6 @@
             </table>
         </div>
     </div>
-</div>
-<div class="content">
-    <hr class="mb-20" />
-</div>
-<div class="form-row">
-    <div class="col-sm">
-        <div class="title"><h5>Reenvio de correo</h5></div>
-    </div>
-    <div class="col-sm">
-        <input class="form-control" id="txtID_Enviocorreo" value="ID INCIDENCIA" />
-    </div>
-    <div class="col-sm">
-        <input class="btn btn-success" type="button" id="btnEnviocorreo" value="Reenviar Correo">
-    </div>    
 </div>
 <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
 @section scripts{

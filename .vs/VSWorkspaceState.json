@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SISFORM_WEB",
+    "\\SISFORM_WEB\\App_Browsers",
+    "\\SISFORM_WEB\\App_Start",
+    "\\SISFORM_WEB\\Controllers",
+    "\\SISFORM_WEB\\Views\\Administracion",
+    "\\SISFORM_WEB\\Views\\Carta",
+    "\\SISFORM_WEB\\Views\\Cheff",
+    "\\SISFORM_WEB\\Views\\Empresa",
+    "\\SISFORM_WEB\\Views\\Habitacion"
   ],
-  "SelectedNode": "\\SISFORM_WEB.sln",
+  "SelectedNode": "\\SISFORM_WEB\\Content",
   "PreviewInSolutionExplorer": false
 }

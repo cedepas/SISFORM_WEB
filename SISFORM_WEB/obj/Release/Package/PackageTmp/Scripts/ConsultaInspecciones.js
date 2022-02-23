@@ -65,7 +65,9 @@ window.onload = function () {
                     Http.get("Trabajador/ListarTrabajadorPorEmpresaCsv?idEmpresa=" + idEmpresa, mostrarTrabajadoresEmpresa);
                     btnActualizar.style.display = "inline-block";
                     closeAllLists();
+
                     txtbuscarPorEmpresa.disabled = true;
+                    
                 });
                 a.appendChild(b);
             }
@@ -79,15 +81,20 @@ window.onload = function () {
 
     btnActualizar.onclick = function () {
         var inicio = 0;
+
+        mostrarActualizacion('ok');
+
         while (inicio < cantidadTrabajadores) {
             var valorCheck = "cb" + inicio;
             lisDatosTrabajadro = lstTrabajadores[inicio].split('|');
             lstActualizacion.push(lisDatosTrabajadro[0] + "|" + lisDatosTrabajadro[8] + "|" + document.getElementById(valorCheck).checked);
             inicio = inicio + 1;
         }
+
         checkSubmit(btnActualizar);
-        Http.get("SeguimientoNegocios/ActualizarPuestoTrabajadorPorEmpresaCsv?FK_ID_Empresa=" + idEmpresa + "&listadoTrabajadores=" + lstActualizacion.toString() + "&FK_ID_Usuario=" + idUsuario, mostrarActualizacion);
+        Http.get("SeguimientoNegocios/ActualizarPuestoTrabajadorPorEmpresaCsv?FK_ID_Empresa=" + idEmpresa + "&listadoTrabajadores=" + lstActualizacion.toString() + "&FK_ID_Usuario=" + idUsuario/*, mostrarActualizacion*/);
         console.log(lstActualizacion.toString());
+        
     }
 }
 function closeAllLists(elmnt) {

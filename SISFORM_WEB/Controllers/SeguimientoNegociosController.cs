@@ -26,7 +26,7 @@ namespace SISFORM_WEB.Controllers
         }
         public ActionResult DeudasNNLL()
         {
-            ViewBag.Title = "Deusas a Negocios Locales";
+            ViewBag.Title = "Deudas a Negocios Locales";
             return View();
         }
         public ActionResult VehiculosDeliverys()

@@ -15,6 +15,371 @@ namespace SISFORM_WEB.ServicioWcf {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VehiculosDeliverys", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class VehiculosDeliverys : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_Usuario_CreaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_VehiculosDeliveryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VehiculoActivoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int anioFabricacionVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string breveteMinimoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int capacidadCoolersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string categoriaVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string circulacionSUNARPField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string combustibleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaInspeccionTecnicaVehicularField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaSeguroContraTercerosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaVencimientoSOATField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string marcaVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string modeloVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string placaVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string propietarioVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sedeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string seguroContraTercerosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tipoVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string vinculoVehiculoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Empresa {
+            get {
+                return this.FK_ID_EmpresaField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Usuario_Crea {
+            get {
+                return this.FK_ID_Usuario_CreaField;
+            }
+            set {
+                if ((this.FK_ID_Usuario_CreaField.Equals(value) != true)) {
+                    this.FK_ID_Usuario_CreaField = value;
+                    this.RaisePropertyChanged("FK_ID_Usuario_Crea");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_VehiculosDelivery {
+            get {
+                return this.ID_VehiculosDeliveryField;
+            }
+            set {
+                if ((this.ID_VehiculosDeliveryField.Equals(value) != true)) {
+                    this.ID_VehiculosDeliveryField = value;
+                    this.RaisePropertyChanged("ID_VehiculosDelivery");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int VehiculoActivo {
+            get {
+                return this.VehiculoActivoField;
+            }
+            set {
+                if ((this.VehiculoActivoField.Equals(value) != true)) {
+                    this.VehiculoActivoField = value;
+                    this.RaisePropertyChanged("VehiculoActivo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int anioFabricacionVehiculo {
+            get {
+                return this.anioFabricacionVehiculoField;
+            }
+            set {
+                if ((this.anioFabricacionVehiculoField.Equals(value) != true)) {
+                    this.anioFabricacionVehiculoField = value;
+                    this.RaisePropertyChanged("anioFabricacionVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string breveteMinimo {
+            get {
+                return this.breveteMinimoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.breveteMinimoField, value) != true)) {
+                    this.breveteMinimoField = value;
+                    this.RaisePropertyChanged("breveteMinimo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int capacidadCoolers {
+            get {
+                return this.capacidadCoolersField;
+            }
+            set {
+                if ((this.capacidadCoolersField.Equals(value) != true)) {
+                    this.capacidadCoolersField = value;
+                    this.RaisePropertyChanged("capacidadCoolers");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string categoriaVehiculo {
+            get {
+                return this.categoriaVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.categoriaVehiculoField, value) != true)) {
+                    this.categoriaVehiculoField = value;
+                    this.RaisePropertyChanged("categoriaVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string circulacionSUNARP {
+            get {
+                return this.circulacionSUNARPField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.circulacionSUNARPField, value) != true)) {
+                    this.circulacionSUNARPField = value;
+                    this.RaisePropertyChanged("circulacionSUNARP");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string combustible {
+            get {
+                return this.combustibleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.combustibleField, value) != true)) {
+                    this.combustibleField = value;
+                    this.RaisePropertyChanged("combustible");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaInspeccionTecnicaVehicular {
+            get {
+                return this.fechaInspeccionTecnicaVehicularField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaInspeccionTecnicaVehicularField, value) != true)) {
+                    this.fechaInspeccionTecnicaVehicularField = value;
+                    this.RaisePropertyChanged("fechaInspeccionTecnicaVehicular");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaSeguroContraTerceros {
+            get {
+                return this.fechaSeguroContraTercerosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaSeguroContraTercerosField, value) != true)) {
+                    this.fechaSeguroContraTercerosField = value;
+                    this.RaisePropertyChanged("fechaSeguroContraTerceros");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaVencimientoSOAT {
+            get {
+                return this.fechaVencimientoSOATField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaVencimientoSOATField, value) != true)) {
+                    this.fechaVencimientoSOATField = value;
+                    this.RaisePropertyChanged("fechaVencimientoSOAT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string marcaVehiculo {
+            get {
+                return this.marcaVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.marcaVehiculoField, value) != true)) {
+                    this.marcaVehiculoField = value;
+                    this.RaisePropertyChanged("marcaVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string modeloVehiculo {
+            get {
+                return this.modeloVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.modeloVehiculoField, value) != true)) {
+                    this.modeloVehiculoField = value;
+                    this.RaisePropertyChanged("modeloVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string placaVehiculo {
+            get {
+                return this.placaVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.placaVehiculoField, value) != true)) {
+                    this.placaVehiculoField = value;
+                    this.RaisePropertyChanged("placaVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string propietarioVehiculo {
+            get {
+                return this.propietarioVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.propietarioVehiculoField, value) != true)) {
+                    this.propietarioVehiculoField = value;
+                    this.RaisePropertyChanged("propietarioVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sede {
+            get {
+                return this.sedeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sedeField, value) != true)) {
+                    this.sedeField = value;
+                    this.RaisePropertyChanged("sede");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string seguroContraTerceros {
+            get {
+                return this.seguroContraTercerosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.seguroContraTercerosField, value) != true)) {
+                    this.seguroContraTercerosField = value;
+                    this.RaisePropertyChanged("seguroContraTerceros");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tipoVehiculo {
+            get {
+                return this.tipoVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tipoVehiculoField, value) != true)) {
+                    this.tipoVehiculoField = value;
+                    this.RaisePropertyChanged("tipoVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string vinculoVehiculo {
+            get {
+                return this.vinculoVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.vinculoVehiculoField, value) != true)) {
+                    this.vinculoVehiculoField = value;
+                    this.RaisePropertyChanged("vinculoVehiculo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
     [System.SerializableAttribute()]
     public partial class Error : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -3055,355 +3420,6 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((object.ReferenceEquals(this.fechaCartaField, value) != true)) {
                     this.fechaCartaField = value;
                     this.RaisePropertyChanged("fechaCarta");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="VehiculosDeliverys", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-    [System.SerializableAttribute()]
-    public partial class VehiculosDeliverys : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int FK_ID_EmpresaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int FK_ID_Usuario_CreaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ID_VehiculosDeliveryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int anioFabricacionVehiculoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string breveteMinimoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int capacidadCoolersField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string categoriaVehiculoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string circulacionSUNARPField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string combustibleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string fechaInspeccionTecnicaVehicularField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string fechaSeguroContraTercerosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string fechaVencimientoSOATField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string marcaVehiculoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string modeloVehiculoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string placaVehiculoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string propietarioVehiculoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string sedeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string seguroContraTercerosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string tipoVehiculoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string vinculoVehiculoField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FK_ID_Empresa {
-            get {
-                return this.FK_ID_EmpresaField;
-            }
-            set {
-                if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
-                    this.FK_ID_EmpresaField = value;
-                    this.RaisePropertyChanged("FK_ID_Empresa");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FK_ID_Usuario_Crea {
-            get {
-                return this.FK_ID_Usuario_CreaField;
-            }
-            set {
-                if ((this.FK_ID_Usuario_CreaField.Equals(value) != true)) {
-                    this.FK_ID_Usuario_CreaField = value;
-                    this.RaisePropertyChanged("FK_ID_Usuario_Crea");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID_VehiculosDelivery {
-            get {
-                return this.ID_VehiculosDeliveryField;
-            }
-            set {
-                if ((this.ID_VehiculosDeliveryField.Equals(value) != true)) {
-                    this.ID_VehiculosDeliveryField = value;
-                    this.RaisePropertyChanged("ID_VehiculosDelivery");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int anioFabricacionVehiculo {
-            get {
-                return this.anioFabricacionVehiculoField;
-            }
-            set {
-                if ((this.anioFabricacionVehiculoField.Equals(value) != true)) {
-                    this.anioFabricacionVehiculoField = value;
-                    this.RaisePropertyChanged("anioFabricacionVehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string breveteMinimo {
-            get {
-                return this.breveteMinimoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.breveteMinimoField, value) != true)) {
-                    this.breveteMinimoField = value;
-                    this.RaisePropertyChanged("breveteMinimo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int capacidadCoolers {
-            get {
-                return this.capacidadCoolersField;
-            }
-            set {
-                if ((this.capacidadCoolersField.Equals(value) != true)) {
-                    this.capacidadCoolersField = value;
-                    this.RaisePropertyChanged("capacidadCoolers");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string categoriaVehiculo {
-            get {
-                return this.categoriaVehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.categoriaVehiculoField, value) != true)) {
-                    this.categoriaVehiculoField = value;
-                    this.RaisePropertyChanged("categoriaVehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string circulacionSUNARP {
-            get {
-                return this.circulacionSUNARPField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.circulacionSUNARPField, value) != true)) {
-                    this.circulacionSUNARPField = value;
-                    this.RaisePropertyChanged("circulacionSUNARP");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string combustible {
-            get {
-                return this.combustibleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.combustibleField, value) != true)) {
-                    this.combustibleField = value;
-                    this.RaisePropertyChanged("combustible");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string fechaInspeccionTecnicaVehicular {
-            get {
-                return this.fechaInspeccionTecnicaVehicularField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.fechaInspeccionTecnicaVehicularField, value) != true)) {
-                    this.fechaInspeccionTecnicaVehicularField = value;
-                    this.RaisePropertyChanged("fechaInspeccionTecnicaVehicular");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string fechaSeguroContraTerceros {
-            get {
-                return this.fechaSeguroContraTercerosField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.fechaSeguroContraTercerosField, value) != true)) {
-                    this.fechaSeguroContraTercerosField = value;
-                    this.RaisePropertyChanged("fechaSeguroContraTerceros");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string fechaVencimientoSOAT {
-            get {
-                return this.fechaVencimientoSOATField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.fechaVencimientoSOATField, value) != true)) {
-                    this.fechaVencimientoSOATField = value;
-                    this.RaisePropertyChanged("fechaVencimientoSOAT");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string marcaVehiculo {
-            get {
-                return this.marcaVehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.marcaVehiculoField, value) != true)) {
-                    this.marcaVehiculoField = value;
-                    this.RaisePropertyChanged("marcaVehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string modeloVehiculo {
-            get {
-                return this.modeloVehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.modeloVehiculoField, value) != true)) {
-                    this.modeloVehiculoField = value;
-                    this.RaisePropertyChanged("modeloVehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string placaVehiculo {
-            get {
-                return this.placaVehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.placaVehiculoField, value) != true)) {
-                    this.placaVehiculoField = value;
-                    this.RaisePropertyChanged("placaVehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string propietarioVehiculo {
-            get {
-                return this.propietarioVehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.propietarioVehiculoField, value) != true)) {
-                    this.propietarioVehiculoField = value;
-                    this.RaisePropertyChanged("propietarioVehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string sede {
-            get {
-                return this.sedeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.sedeField, value) != true)) {
-                    this.sedeField = value;
-                    this.RaisePropertyChanged("sede");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string seguroContraTerceros {
-            get {
-                return this.seguroContraTercerosField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.seguroContraTercerosField, value) != true)) {
-                    this.seguroContraTercerosField = value;
-                    this.RaisePropertyChanged("seguroContraTerceros");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string tipoVehiculo {
-            get {
-                return this.tipoVehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tipoVehiculoField, value) != true)) {
-                    this.tipoVehiculoField = value;
-                    this.RaisePropertyChanged("tipoVehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string vinculoVehiculo {
-            get {
-                return this.vinculoVehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.vinculoVehiculoField, value) != true)) {
-                    this.vinculoVehiculoField = value;
-                    this.RaisePropertyChanged("vinculoVehiculo");
                 }
             }
         }
@@ -7346,6 +7362,13 @@ namespace SISFORM_WEB.ServicioWcf {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioWcf.IServicio")]
     public interface IServicio {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/VehiculosDeliverysOperacion", ReplyAction="http://tempuri.org/IServicio/VehiculosDeliverysOperacionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/VehiculosDeliverysOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int VehiculosDeliverysOperacion(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/VehiculosDeliverysOperacion", ReplyAction="http://tempuri.org/IServicio/VehiculosDeliverysOperacionResponse")]
+        System.Threading.Tasks.Task<int> VehiculosDeliverysOperacionAsync(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsv", ReplyAction="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarVehiculoDeliverysCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarVehiculoDeliverysCsv();
@@ -7359,6 +7382,13 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvResponse")]
         System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarRangoCumplimientoCsv", ReplyAction="http://tempuri.org/IServicio/ListarRangoCumplimientoCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarRangoCumplimientoCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarRangoCumplimientoCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarRangoCumplimientoCsv", ReplyAction="http://tempuri.org/IServicio/ListarRangoCumplimientoCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarRangoCumplimientoCsvAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTipoProgramacionIncidenciaCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
@@ -7949,13 +7979,6 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarAsistenciaCedepas", ReplyAction="http://tempuri.org/IServicio/RegistrarAsistenciaCedepasResponse")]
         System.Threading.Tasks.Task<string> RegistrarAsistenciaCedepasAsync(string numeroDocumento, int tipoMarcacion);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/VehiculosDeliverysOperacion", ReplyAction="http://tempuri.org/IServicio/VehiculosDeliverysOperacionResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/VehiculosDeliverysOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        int VehiculosDeliverysOperacion(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/VehiculosDeliverysOperacion", ReplyAction="http://tempuri.org/IServicio/VehiculosDeliverysOperacionResponse")]
-        System.Threading.Tasks.Task<int> VehiculosDeliverysOperacionAsync(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/AutenticarUsuario", ReplyAction="http://tempuri.org/IServicio/AutenticarUsuarioResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/AutenticarUsuarioErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         SISFORM_WEB.ServicioWcf.VistaUsuario AutenticarUsuario(string usuario, string clave);
@@ -8492,6 +8515,13 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarSalidaPorDniCsv", ReplyAction="http://tempuri.org/IServicio/RegistrarSalidaPorDniCsvResponse")]
         System.Threading.Tasks.Task<string> RegistrarSalidaPorDniCsvAsync(string numeroDocumento, int TipoEscaneo);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarIngresoHospedajeCsv", ReplyAction="http://tempuri.org/IServicio/RegistrarIngresoHospedajeCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/RegistrarIngresoHospedajeCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string RegistrarIngresoHospedajeCsv(string numeroDocumento, string FK_ID_Empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistrarIngresoHospedajeCsv", ReplyAction="http://tempuri.org/IServicio/RegistrarIngresoHospedajeCsvResponse")]
+        System.Threading.Tasks.Task<string> RegistrarIngresoHospedajeCsvAsync(string numeroDocumento, string FK_ID_Empresa);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoEventoCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoEventoCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarTipoEventoCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarTipoEventoCsv();
@@ -8547,13 +8577,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarTipoBarreraCsv", ReplyAction="http://tempuri.org/IServicio/ListarTipoBarreraCsvResponse")]
         System.Threading.Tasks.Task<string> ListarTipoBarreraCsvAsync(string idBarrera);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarRangoCumplimientoCsv", ReplyAction="http://tempuri.org/IServicio/ListarRangoCumplimientoCsvResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarRangoCumplimientoCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
-        string ListarRangoCumplimientoCsv();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarRangoCumplimientoCsv", ReplyAction="http://tempuri.org/IServicio/ListarRangoCumplimientoCsvResponse")]
-        System.Threading.Tasks.Task<string> ListarRangoCumplimientoCsvAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -8583,6 +8606,14 @@ namespace SISFORM_WEB.ServicioWcf {
                 base(binding, remoteAddress) {
         }
         
+        public int VehiculosDeliverysOperacion(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op) {
+            return base.Channel.VehiculosDeliverysOperacion(oVehiculosDeliverys, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> VehiculosDeliverysOperacionAsync(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op) {
+            return base.Channel.VehiculosDeliverysOperacionAsync(oVehiculosDeliverys, op);
+        }
+        
         public string ListarVehiculoDeliverysCsv() {
             return base.Channel.ListarVehiculoDeliverysCsv();
         }
@@ -8597,6 +8628,14 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery) {
             return base.Channel.ObtenerVehiculoDeliveryPorIdCsvAsync(IDVehiculosDelivery);
+        }
+        
+        public string ListarRangoCumplimientoCsv() {
+            return base.Channel.ListarRangoCumplimientoCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarRangoCumplimientoCsvAsync() {
+            return base.Channel.ListarRangoCumplimientoCsvAsync();
         }
         
         public string ListarTipoProgramacionIncidenciaCsv() {
@@ -9271,14 +9310,6 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.RegistrarAsistenciaCedepasAsync(numeroDocumento, tipoMarcacion);
         }
         
-        public int VehiculosDeliverysOperacion(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op) {
-            return base.Channel.VehiculosDeliverysOperacion(oVehiculosDeliverys, op);
-        }
-        
-        public System.Threading.Tasks.Task<int> VehiculosDeliverysOperacionAsync(SISFORM_WEB.ServicioWcf.VehiculosDeliverys oVehiculosDeliverys, string op) {
-            return base.Channel.VehiculosDeliverysOperacionAsync(oVehiculosDeliverys, op);
-        }
-        
         public SISFORM_WEB.ServicioWcf.VistaUsuario AutenticarUsuario(string usuario, string clave) {
             return base.Channel.AutenticarUsuario(usuario, clave);
         }
@@ -9887,6 +9918,14 @@ namespace SISFORM_WEB.ServicioWcf {
             return base.Channel.RegistrarSalidaPorDniCsvAsync(numeroDocumento, TipoEscaneo);
         }
         
+        public string RegistrarIngresoHospedajeCsv(string numeroDocumento, string FK_ID_Empresa) {
+            return base.Channel.RegistrarIngresoHospedajeCsv(numeroDocumento, FK_ID_Empresa);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegistrarIngresoHospedajeCsvAsync(string numeroDocumento, string FK_ID_Empresa) {
+            return base.Channel.RegistrarIngresoHospedajeCsvAsync(numeroDocumento, FK_ID_Empresa);
+        }
+        
         public string ListarTipoEventoCsv() {
             return base.Channel.ListarTipoEventoCsv();
         }
@@ -9949,14 +9988,6 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ListarTipoBarreraCsvAsync(string idBarrera) {
             return base.Channel.ListarTipoBarreraCsvAsync(idBarrera);
-        }
-        
-        public string ListarRangoCumplimientoCsv() {
-            return base.Channel.ListarRangoCumplimientoCsv();
-        }
-        
-        public System.Threading.Tasks.Task<string> ListarRangoCumplimientoCsvAsync() {
-            return base.Channel.ListarRangoCumplimientoCsvAsync();
         }
     }
 }
