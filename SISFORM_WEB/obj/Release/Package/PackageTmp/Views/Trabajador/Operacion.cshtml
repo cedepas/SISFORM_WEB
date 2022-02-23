@@ -215,6 +215,13 @@
                 </div>
             </div>
         </div>
+
+
+
+        
+
+
+
     </div>
     <div class="form-row">
         <div class="col-sm-3">
@@ -233,14 +240,33 @@
             <label for="cboSexo" class="required">Sexo</label>
             <select class="form-control form-control-sm T" id="cboSexo" required="required"></select>
         </div>
+
+        <div class="form-row">
+
+            <div class="col-sm-3">
+                <label for="txtestadoCarnet" class="required">Carnet de Sanidad</label>
+                <div class="custom-control">
+                    <div class="custom-switch">
+                        <input type="checkbox" id="txtestadoCarnet" checked>
+                        <label for="txtestadoCarnet">Estado</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-9">
+                <label for="txtfechaEmisionCarnet" class="required">Fecha Emision de Carnet</label>
+                <input type="date" class="form-control form-control-sm T" id="txtfechaEmisionCarnet" required="required" />
+            </div>
+        </div>
+
+        </div>
+        <div class="text-right">
+            <input class="btn btn-primary" id="btnNuevo" type="button" value="Nuevo" style="visibility:hidden">
+            <a href="#trabajadorPuesto-modal" class="btn btn-secondary" id="btnModal" role="button" style="visibility:hidden">Asignar Puesto</a>
+            <a href="#detalleVacuna-modal" class="btn btn-secondary" id="btnModalVacuna" role="button" style="visibility:hidden">Detalle Vacuna</a>
+            <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
+        </div>
     </div>
-    <div class="text-right">
-        <input class="btn btn-primary" id="btnNuevo" type="button" value="Nuevo" style="visibility:hidden">
-        <a href="#trabajadorPuesto-modal" class="btn btn-secondary" id="btnModal" role="button" style="visibility:hidden">Asignar Puesto</a>
-        <a href="#detalleVacuna-modal" class="btn btn-secondary" id="btnModalVacuna" role="button" style="visibility:hidden">Detalle Vacuna</a>
-        <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
-    </div>
-</div>
 <div class="content">
     <hr class="mb-20" />
 </div>

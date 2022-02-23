@@ -72,6 +72,10 @@ window.onload = function () {
         frm.append("FK_ID_NivelInstruccion", cboNivelInstruccion.value);
         frm.append("estadoResidencia", (txtEstadoResidencia.checked == true ? "SI" : "NO"));
         frm.append("FK_ID_Sexo", cboSexo.value);
+        //add 22 02 2022
+        frm.append("estadoCarnet", (txtestadoCarnet.checked == true ? "SI" : "NO"));
+        frm.append("fechaEmisionCarnet", txtfechaEmisionCarnet.value);
+
         if (validarRequeridos('T')) {
             Http.post("Trabajador/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -568,6 +572,10 @@ function AsignarCampos(rpta) {
             cboNivelInstruccion.value = campos[15];
             txtEstadoResidencia.checked = (campos[16] == "SI" ? true : false);
             cboSexo.value = campos[17];
+            //add 22 02 2022
+            txtestadoCarnet.checked = (campos[18] == "SI" ? true : false);
+            txtfechaEmisionCarnet.value = campos[19];
+
         }
         limpiarControles('P')
 

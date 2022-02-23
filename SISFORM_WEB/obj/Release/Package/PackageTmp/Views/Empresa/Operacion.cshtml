@@ -195,20 +195,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm">
-                                    <label for="cboContratoAlquiler" class="required">Contrato Alquiler</label>
-                                    <select class="form-control form-control-sm C1" id="cboContratoAlquiler" required="required"></select>
-                                </div>
-                                <div class="col-sm">
-                                    <label for="cboEstrituraPublica" class="required">Estritura Publica</label>
-                                    <select class="form-control form-control-sm C1" id="cboEstrituraPublica" required="required"></select>
-                                </div>
-                                <div class="col-sm">
-                                    <label for="cboCroquisUbicacion" class="required">Croquis Ubicacion</label>
-                                    <select class="form-control form-control-sm C1" id="cboCroquisUbicacion" required="required"></select>
-                                </div>
-                            </div>
-                            <div class="form-row">
+
                                 <div class="col-sm">
                                     <label for="cboPlano" class="required">Plano</label>
                                     <select class="form-control form-control-sm C1" id="cboPlano" required="required"></select>
@@ -217,27 +204,59 @@
                                     <label for="txtM2" class="required">M2</label>
                                     <input type="text" class="form-control form-control-sm C1" id="txtM2" placeholder="Metros cuadrados" required="required">
                                 </div>
+
+
+                            </div>
+
+                            @*<hr style="height:2px;border-width:0;color:black;background-color:red">*@
+                            
+                            <hr style="height:2px;border-top:2px solid #886E6E;border-bottom:2px solid #886E6E;background-color:black">
+
+                            <div class="form-row">
+
+                                <div class="col-sm">
+                                    <label for="cboContratoAlquiler" class="required">Contrato Alquiler</label>
+                                    <select class="form-control form-control-sm C1" id="cboContratoAlquiler" @*required="required"*@></select>
+                                </div>
+
+                                <div class="col-sm">
+                                    <label for="cboEstrituraPublica" class="required">Estritura Publica</label>
+                                    <select class="form-control form-control-sm C1" id="cboEstrituraPublica" @*required="required"*@></select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="cboCroquisUbicacion" @*class="required"*@>Croquis Ubicacion</label>
+                                    <select class="form-control form-control-sm C1" id="cboCroquisUbicacion" @*required="required"*@></select>
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-row">
+
+
                                 <div class="col-sm">
                                     <label for="cboCertificadoOperatividadExtintores" class="required">Certificado Extintores</label>
-                                    <select class="form-control form-control-sm C1" id="cboCertificadoOperatividadExtintores" required="required"></select>
+                                    <select class="form-control form-control-sm C1" id="cboCertificadoOperatividadExtintores" @*required="required"*@></select>
                                 </div>
                                 <div class="col-sm">
                                     <label for="txtFechaExpedicionCertificado" class="required">Fecha Caducidad</label>
-                                    <input type="date" class="form-control form-control-sm C1" id="txtFechaExpedicionCertificado" required="required" />
+                                    <input type="date" class="form-control form-control-sm C1" id="txtFechaExpedicionCertificado" @*required="required"*@ />
                                 </div>
                                 <div class="col-sm">
                                     <label for="txtFechaCaducidadCertificado" class="required">Fecha Caducidad</label>
-                                    <input type="date" class="form-control form-control-sm C1" id="txtFechaCaducidadCertificado" required="required" />
+                                    <input type="date" class="form-control form-control-sm C1" id="txtFechaCaducidadCertificado" @*required="required"*@ />
                                 </div>
+
                             </div>
+
                             <div class="form-row">
                                 <div class="col-sm">
                                     <label for="txtNumeroTrabajadores" class="required">N° Trabajadores</label>
-                                    <input type="text" class="form-control form-control-sm C1" id="txtNumeroTrabajadores" placeholder="N° Trabajadores" required="required">
+                                    <input type="text" class="form-control form-control-sm C1" id="txtNumeroTrabajadores" placeholder="N° Trabajadores" @*required="required"*@>
                                 </div>
                                 <div class="col-sm">
                                     <label for="txtCuentanConCarnet" class="required">Cuentan Con Carnet</label>
-                                    <input type="text" class="form-control form-control-sm C1" id="txtCuentanConCarnet" placeholder="Cuentan Con Carnet" required="required">
+                                    <input type="text" class="form-control form-control-sm C1" id="txtCuentanConCarnet" placeholder="Cuentan Con Carnet" @*required="required"*@>
                                 </div>
                                 <div class="col-sm">
                                     <label for="txtNoCuentanConCarnet" class="required">No Cuentan Con Carnet</label>
@@ -253,7 +272,7 @@
                                 <input class="btn btn-success" type="button" id="btnCriterio1" value="Guardar">
                             </div>
                         </div>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -455,7 +474,8 @@
             <input type="date" class="form-control form-control-sm" id="txtFechaInicioActividades" required="required" />
         </div>
     </div>
-    @*<div class="form-row">
+
+        @*<div class="form-row">
             <div class="col-sm">
                 <label for="cboEstadoEmpresa" class="required">EstadoEmpresa</label>
                 <select class="form-control form-control-sm E" id="CboEstadoEmpresa" required="required"></select>
