@@ -39,6 +39,8 @@ window.onload = function () {
             tipoDeEmpresa.style.display = "inline-block";
             asignacionObrero.style.display = "inline-block";
             fechaTermino.style.display = "inline-block";
+            //add 25 02 2022
+            fechaIngresoAsig.style.display = "inline-block";
             Http.get("Trabajador/ListarServiciosAsignadosPorEmpresaECM?FK_ID_EmpresaECM=" + idEmpresaECM + "&FK_ID_TipoEmpresa=" + cboTipoEmpresa.value, CrearTablaCsv);
         }
         //cboTipoHabitacion.onchange = function () {
@@ -115,6 +117,9 @@ window.onload = function () {
                     frm.append("habObrero", txtHabObrero.value);
                     frm.append("fechaAsignacion", txtFechaAsignacion.value);
                     frm.append("fechaTermino", txtFechaTermino.value);
+                    //add 25 02 2022
+                    frm.append("fechaIngresoAsig", txtfechaIngresoAsig.value);
+
                     frm.append("FK_ID_UsuarioCrea", idUsuario);
                     if (validarRequeridos('T')) {
                         checkSubmit(btnGrabar);
@@ -131,6 +136,9 @@ window.onload = function () {
                 frm.append("habObrero", txtHabObrero.value);
                 frm.append("fechaAsignacion", txtFechaAsignacion.value);
                 frm.append("fechaTermino", txtFechaTermino.value);
+                //add 25 02 2022
+                frm.append("fechaIngresoAsig", txtfechaIngresoAsig.value);
+
                 frm.append("FK_ID_UsuarioCrea", idUsuario);
                 if (validarRequeridos('T')) {
                     checkSubmit(btnGrabar);
@@ -297,6 +305,9 @@ function AsignarCampos(rpta) {
     if (rpta) {
         var campos = rpta.split('|');
         fechaTermino.style.display = "inline-block";
+        //add 25 02 2022
+        fechaIngresoAsig.style.display = "inline-block";
+
         btnGrabar.disabled = false;
         btnGrabar.value = "Grabar";
         idAsignacionServicios = campos[0];
@@ -314,6 +325,8 @@ function AsignarCampos(rpta) {
         txtHabObrero.value = campos[10];
         txtCapHabStaft.value = campos[11];
         txtCapHabObrero.value = campos[12];
+        //add 25 02 022
+        txtfechaIngresoAsig.value = campos[13];
     }
 }
 

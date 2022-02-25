@@ -81,24 +81,34 @@
         </div>
 
     </div>
-        <div class="form-row">
-            <div class="col-sm"  id="asignacionStaft" style="display:none">
-                <label for="txtHabStaft" class="required">Cantidad Staft</label>
-                <input type="number" id="txtCapHabStaft" placeholder="Capacidad Staft" disabled />
-                <input type="number" class="form-control form-control-sm" id="txtHabStaft" placeholder="Digite Asignación Staft" required="required" />
-            </div>
-            <div class="col-sm" id="asignacionObrero" style="display:none">
-                <label for="txtHabObrero" class="required">Cantidad  Obrero</label>
-                <input type="number" id="txtCapHabObrero" placeholder="Capacidad Obrero" disabled />
-                <input type="number" class="form-control form-control-sm" id="txtHabObrero" placeholder="Digite Asignación Obrero" required="required" />
-            </div>
+    <div class="form-row">
+        <div class="col-sm" id="asignacionStaft" style="display:none">
+            <label for="txtHabStaft" class="required">Cantidad Staft</label>
+            <input type="number" id="txtCapHabStaft" placeholder="Capacidad Staft" disabled />
+            <input type="number" class="form-control form-control-sm" id="txtHabStaft" placeholder="Digite Asignación Staft" required="required" />
         </div>
+        <div class="col-sm" id="asignacionObrero" style="display:none">
+            <label for="txtHabObrero" class="required">Cantidad  Obrero</label>
+            <input type="number" id="txtCapHabObrero" placeholder="Capacidad Obrero" disabled />
+            <input type="number" class="form-control form-control-sm" id="txtHabObrero" placeholder="Digite Asignación Obrero" required="required" />
+        </div>
+    </div>
+
+    @*add 25 02 2022  *@
+    <div class="form-row" id="fechaIngresoAsig" style="display:none">
+        <div class="col-sm">
+            <label for="txtfechaIngresoAsig">Fecha de Ingreso</label>
+            <input type="date" class="form-control form-control-sm" id="txtfechaIngresoAsig" required="required" />
+        </div>
+    </div>
+
     <div class="form-row" id="fechaTermino" style="display:none">
         <div class="col-sm">
             <label for="txtFechaTermino">Fecha de Termino</label>
             <input type="date" class="form-control form-control-sm" id="txtFechaTermino" required="required" />
         </div>
     </div>
+
     <div class="text-right">
         <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
         <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>

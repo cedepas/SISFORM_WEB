@@ -4599,6 +4599,9 @@ namespace SISFORM_WEB.ServicioWcf {
         private string fechaAsignacionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaIngresoAsigField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string fechaTerminoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -4691,6 +4694,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((object.ReferenceEquals(this.fechaAsignacionField, value) != true)) {
                     this.fechaAsignacionField = value;
                     this.RaisePropertyChanged("fechaAsignacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaIngresoAsig {
+            get {
+                return this.fechaIngresoAsigField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaIngresoAsigField, value) != true)) {
+                    this.fechaIngresoAsigField = value;
+                    this.RaisePropertyChanged("fechaIngresoAsig");
                 }
             }
         }

@@ -375,6 +375,7 @@
       <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />
       <xs:element minOccurs="0" name="ID_AsignacionServicios" type="xs:int" />
       <xs:element minOccurs="0" name="fechaAsignacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaIngresoAsig" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="fechaTermino" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="habObrero" type="xs:int" />
       <xs:element minOccurs="0" name="habStatf" type="xs:int" />
