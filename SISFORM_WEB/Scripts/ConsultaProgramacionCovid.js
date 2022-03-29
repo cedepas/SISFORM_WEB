@@ -58,6 +58,8 @@ window.onload = function () {
                 frm.append("FK_ID_Empresa", idEmpresaTrab);
                 frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
                 frm.append("FK_ID_FrecuenciaPruebaCovid", cboFrecuenciaPruebas.value);
+                //01 03 2022
+                frm.append("tipoPrueba", cboTipoPrueba.value);
                 if (validarRequeridos('G')) {
                     Http.post("PruebaCovid/GrabarPrueba", MostrarGrabar, frm);
                 } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -284,6 +286,8 @@ function AsignarCampos(rpta) {
                     document.getElementById("numeroPrueba").style.display = "inline";
                     document.getElementById("resultadoPrueba").style.display = "none";
                     document.getElementById("frecuenciaPruebas").style.display = "none";
+                    //01 03 2022
+                    document.getElementById("TipoPrueba").style.display = "none";
                     cboResultadoPrueba.value = 1;
                     btnGrabar.style.visibility = 'visible';
                 }
@@ -318,6 +322,8 @@ function AsignarCampos(rpta) {
                 idPruebaCovid = parseInt(lstDatosTrabajador[6], 10);
                 txtFechaPrueba.value = lstDatosTrabajador[4];
                 cboFrecuenciaPruebas.value = 1;
+                //01 03 2022
+                cboTipoPrueba.value = 4;
                 cboResultadoPrueba.value = 5;
                 lstEmpresasDeTrabajador = campos[1].split('¬');
                 btnGrabar.style.visibility = 'visible';
@@ -358,6 +364,9 @@ function mostrarCbo(rpta) {
         CrearCombo(lstTipoPoblacion, cboPersonalTamizado, "Seleccione");
         lstFrecuenciaPruebas = campos[2].split('¬');
         CrearCombo(lstFrecuenciaPruebas, cboFrecuenciaPruebas, "Seleccione");
+        //01 03 2022
+        lstTipoPrueba = campos[3].split('¬');
+        CrearCombo(lstTipoPrueba, cboTipoPrueba, "Seleccione");
     }
 }
 //function mostrarPuestoTrabajoCbo(rpta) {
