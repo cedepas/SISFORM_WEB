@@ -544,6 +544,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="FK_ID_DistribucionPruebasCovid" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_TipoPruebaCovid" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_UnidadGestion" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_UsuarioCrea" type="xs:int" />

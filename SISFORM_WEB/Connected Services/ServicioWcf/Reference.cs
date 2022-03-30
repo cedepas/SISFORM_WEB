@@ -6320,6 +6320,9 @@ namespace SISFORM_WEB.ServicioWcf {
         private int FK_ID_EmpresaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_TipoPruebaCovidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int FK_ID_TrabajadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -6381,6 +6384,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
                     this.FK_ID_EmpresaField = value;
                     this.RaisePropertyChanged("FK_ID_Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_TipoPruebaCovid {
+            get {
+                return this.FK_ID_TipoPruebaCovidField;
+            }
+            set {
+                if ((this.FK_ID_TipoPruebaCovidField.Equals(value) != true)) {
+                    this.FK_ID_TipoPruebaCovidField = value;
+                    this.RaisePropertyChanged("FK_ID_TipoPruebaCovid");
                 }
             }
         }

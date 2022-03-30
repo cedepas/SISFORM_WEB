@@ -37,7 +37,8 @@ window.onload = function () {
             frm.append("resultadoPrueba", cboResultadoPrueba.value);
             frm.append("FK_ID_Empresa", idEmpresaTrab);
             frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
-
+            //30 03 2022
+            frm.append("FK_ID_TipoPruebaCovid", cboTipoPrueba.value);
             if (validarRequeridos('E')) {
                 Http.post("PruebaCovid/GrabarPrueba", MostrarGrabar, frm);
             } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -59,7 +60,7 @@ window.onload = function () {
                 frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
                 frm.append("FK_ID_FrecuenciaPruebaCovid", cboFrecuenciaPruebas.value);
                 //01 03 2022
-                frm.append("tipoPrueba", cboTipoPrueba.value);
+                frm.append("FK_ID_TipoPruebaCovid", cboTipoPrueba.value);
                 if (validarRequeridos('G')) {
                     Http.post("PruebaCovid/GrabarPrueba", MostrarGrabar, frm);
                 } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -122,7 +123,8 @@ window.onload = function () {
         frm.append("casosPositivos", txtCantidadCasosPositivos.value);
         frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
         frm.append("FK_ID_UnidadGestion", fk_id_UnidadGestion);
-        
+        /*30 03 2022*/
+        frm.append("FK_ID_TipoPruebaCovid", cboTipoPrueba.value);
         if (validarRequeridos('T')) {
             Http.post("PruebaCovid/RegitroPruebasCovid", MostrarGrabarResultados, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
@@ -287,7 +289,7 @@ function AsignarCampos(rpta) {
                     document.getElementById("resultadoPrueba").style.display = "none";
                     document.getElementById("frecuenciaPruebas").style.display = "none";
                     //01 03 2022
-                    document.getElementById("TipoPrueba").style.display = "none";
+                    document.getElementById("TipoPrueba").style.display = "inline";
                     cboResultadoPrueba.value = 1;
                     btnGrabar.style.visibility = 'visible';
                 }
