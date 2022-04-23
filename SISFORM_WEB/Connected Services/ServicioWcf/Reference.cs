@@ -457,6 +457,195 @@ namespace SISFORM_WEB.ServicioWcf {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RegistroAlcohotest", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+    [System.SerializableAttribute()]
+    public partial class RegistroAlcohotest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_EmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_ResultadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_TrabajadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_TurnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_UsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_RegistroAlcohotestField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string codigoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string detallesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string horaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Empresa {
+            get {
+                return this.FK_ID_EmpresaField;
+            }
+            set {
+                if ((this.FK_ID_EmpresaField.Equals(value) != true)) {
+                    this.FK_ID_EmpresaField = value;
+                    this.RaisePropertyChanged("FK_ID_Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Resultado {
+            get {
+                return this.FK_ID_ResultadoField;
+            }
+            set {
+                if ((this.FK_ID_ResultadoField.Equals(value) != true)) {
+                    this.FK_ID_ResultadoField = value;
+                    this.RaisePropertyChanged("FK_ID_Resultado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Trabajador {
+            get {
+                return this.FK_ID_TrabajadorField;
+            }
+            set {
+                if ((this.FK_ID_TrabajadorField.Equals(value) != true)) {
+                    this.FK_ID_TrabajadorField = value;
+                    this.RaisePropertyChanged("FK_ID_Trabajador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Turno {
+            get {
+                return this.FK_ID_TurnoField;
+            }
+            set {
+                if ((this.FK_ID_TurnoField.Equals(value) != true)) {
+                    this.FK_ID_TurnoField = value;
+                    this.RaisePropertyChanged("FK_ID_Turno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_Usuario {
+            get {
+                return this.FK_ID_UsuarioField;
+            }
+            set {
+                if ((this.FK_ID_UsuarioField.Equals(value) != true)) {
+                    this.FK_ID_UsuarioField = value;
+                    this.RaisePropertyChanged("FK_ID_Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_RegistroAlcohotest {
+            get {
+                return this.ID_RegistroAlcohotestField;
+            }
+            set {
+                if ((this.ID_RegistroAlcohotestField.Equals(value) != true)) {
+                    this.ID_RegistroAlcohotestField = value;
+                    this.RaisePropertyChanged("ID_RegistroAlcohotest");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string codigo {
+            get {
+                return this.codigoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.codigoField, value) != true)) {
+                    this.codigoField = value;
+                    this.RaisePropertyChanged("codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string detalles {
+            get {
+                return this.detallesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.detallesField, value) != true)) {
+                    this.detallesField = value;
+                    this.RaisePropertyChanged("detalles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fecha {
+            get {
+                return this.fechaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaField, value) != true)) {
+                    this.fechaField = value;
+                    this.RaisePropertyChanged("fecha");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string hora {
+            get {
+                return this.horaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.horaField, value) != true)) {
+                    this.horaField = value;
+                    this.RaisePropertyChanged("hora");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Solucion", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
     [System.SerializableAttribute()]
     public partial class Solucion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -7415,6 +7604,27 @@ namespace SISFORM_WEB.ServicioWcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerVehiculoDeliveryPorIdCsvResponse")]
         System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistroAlcohotestOperacion", ReplyAction="http://tempuri.org/IServicio/RegistroAlcohotestOperacionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/RegistroAlcohotestOperacionErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        int RegistroAlcohotestOperacion(SISFORM_WEB.ServicioWcf.RegistroAlcohotest oRegistroAlcohotest, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/RegistroAlcohotestOperacion", ReplyAction="http://tempuri.org/IServicio/RegistroAlcohotestOperacionResponse")]
+        System.Threading.Tasks.Task<int> RegistroAlcohotestOperacionAsync(SISFORM_WEB.ServicioWcf.RegistroAlcohotest oRegistroAlcohotest, string op);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarRegistroAlcohotestCsv", ReplyAction="http://tempuri.org/IServicio/ListarRegistroAlcohotestCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarRegistroAlcohotestCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ListarRegistroAlcohotestCsv();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarRegistroAlcohotestCsv", ReplyAction="http://tempuri.org/IServicio/ListarRegistroAlcohotestCsvResponse")]
+        System.Threading.Tasks.Task<string> ListarRegistroAlcohotestCsvAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerRegistroAlcohotestPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerRegistroAlcohotestPorIdCsvResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ObtenerRegistroAlcohotestPorIdCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
+        string ObtenerRegistroAlcohotestPorIdCsv(int IDRegistroAlcohotest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ObtenerRegistroAlcohotestPorIdCsv", ReplyAction="http://tempuri.org/IServicio/ObtenerRegistroAlcohotestPorIdCsvResponse")]
+        System.Threading.Tasks.Task<string> ObtenerRegistroAlcohotestPorIdCsvAsync(int IDRegistroAlcohotest);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicio/ListarRangoCumplimientoCsv", ReplyAction="http://tempuri.org/IServicio/ListarRangoCumplimientoCsvResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SISFORM_WEB.ServicioWcf.Error), Action="http://tempuri.org/IServicio/ListarRangoCumplimientoCsvErrorFault", Name="Error", Namespace="http://schemas.datacontract.org/2004/07/Dominio")]
         string ListarRangoCumplimientoCsv();
@@ -8660,6 +8870,30 @@ namespace SISFORM_WEB.ServicioWcf {
         
         public System.Threading.Tasks.Task<string> ObtenerVehiculoDeliveryPorIdCsvAsync(int IDVehiculosDelivery) {
             return base.Channel.ObtenerVehiculoDeliveryPorIdCsvAsync(IDVehiculosDelivery);
+        }
+        
+        public int RegistroAlcohotestOperacion(SISFORM_WEB.ServicioWcf.RegistroAlcohotest oRegistroAlcohotest, string op) {
+            return base.Channel.RegistroAlcohotestOperacion(oRegistroAlcohotest, op);
+        }
+        
+        public System.Threading.Tasks.Task<int> RegistroAlcohotestOperacionAsync(SISFORM_WEB.ServicioWcf.RegistroAlcohotest oRegistroAlcohotest, string op) {
+            return base.Channel.RegistroAlcohotestOperacionAsync(oRegistroAlcohotest, op);
+        }
+        
+        public string ListarRegistroAlcohotestCsv() {
+            return base.Channel.ListarRegistroAlcohotestCsv();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarRegistroAlcohotestCsvAsync() {
+            return base.Channel.ListarRegistroAlcohotestCsvAsync();
+        }
+        
+        public string ObtenerRegistroAlcohotestPorIdCsv(int IDRegistroAlcohotest) {
+            return base.Channel.ObtenerRegistroAlcohotestPorIdCsv(IDRegistroAlcohotest);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerRegistroAlcohotestPorIdCsvAsync(int IDRegistroAlcohotest) {
+            return base.Channel.ObtenerRegistroAlcohotestPorIdCsvAsync(IDRegistroAlcohotest);
         }
         
         public string ListarRangoCumplimientoCsv() {

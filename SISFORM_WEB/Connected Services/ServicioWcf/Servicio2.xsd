@@ -42,6 +42,47 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RegistroAlcohotestOperacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oRegistroAlcohotest" nillable="true" type="q2:RegistroAlcohotest" />
+        <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroAlcohotestOperacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistroAlcohotestOperacionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarRegistroAlcohotestCsv">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarRegistroAlcohotestCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListarRegistroAlcohotestCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerRegistroAlcohotestPorIdCsv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDRegistroAlcohotest" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerRegistroAlcohotestPorIdCsvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerRegistroAlcohotestPorIdCsvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarRangoCumplimientoCsv">
     <xs:complexType>
       <xs:sequence />
@@ -235,7 +276,7 @@
   <xs:element name="RegistrarSolucion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oSolucion" nillable="true" type="q2:Solucion" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oSolucion" nillable="true" type="q3:Solucion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -261,7 +302,7 @@
   <xs:element name="RegistrarSeguimiento">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oSeguimiento" nillable="true" type="q3:Seguimiento" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oSeguimiento" nillable="true" type="q4:Seguimiento" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -381,7 +422,7 @@
   <xs:element name="InspeccionOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oInspeccion" nillable="true" type="q4:Inspeccion" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oInspeccion" nillable="true" type="q5:Inspeccion" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -396,7 +437,7 @@
   <xs:element name="CheckListOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCheckList" nillable="true" type="q5:CheckList" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCheckList" nillable="true" type="q6:CheckList" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -411,7 +452,7 @@
   <xs:element name="deudasNNLLOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oDeudaNNLL" nillable="true" type="q6:DeudaNNLL" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oDeudaNNLL" nillable="true" type="q7:DeudaNNLL" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -426,7 +467,7 @@
   <xs:element name="CapacitacionOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCapacitacion" nillable="true" type="q7:Capacitacion" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCapacitacion" nillable="true" type="q8:Capacitacion" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -441,7 +482,7 @@
   <xs:element name="detallesComedores">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oDetalleComedores" nillable="true" type="q8:detalleComedores" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oDetalleComedores" nillable="true" type="q9:detalleComedores" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -456,7 +497,7 @@
   <xs:element name="DetalleLavanderias">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oDetalleLavanderias" nillable="true" type="q9:DetalleLavanderias" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oDetalleLavanderias" nillable="true" type="q10:DetalleLavanderias" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -599,7 +640,7 @@
   <xs:element name="ImplementacionCheff">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oImplementacioncheff" nillable="true" type="q10:ImplementacionCheff" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oImplementacioncheff" nillable="true" type="q11:ImplementacionCheff" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -757,7 +798,7 @@
   <xs:element name="StakeholderOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oStakeholder" nillable="true" type="q11:Stakeholder" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oStakeholder" nillable="true" type="q12:Stakeholder" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -860,7 +901,7 @@
   <xs:element name="StakeholderSucesoOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oStakeholderSuceso" nillable="true" type="q12:StakeholderSuceso" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oStakeholderSuceso" nillable="true" type="q13:StakeholderSuceso" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -875,7 +916,7 @@
   <xs:element name="QuejasECM_NNLLOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oQuejasECM_NNLL" nillable="true" type="q13:QuejasECM_NNLL" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oQuejasECM_NNLL" nillable="true" type="q14:QuejasECM_NNLL" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -980,7 +1021,7 @@
   <xs:element name="HabitacionOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oHabitacion" nillable="true" type="q14:Habitacion" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oHabitacion" nillable="true" type="q15:Habitacion" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -995,7 +1036,7 @@
   <xs:element name="OperacionOcupacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oOperacionOcupacion" nillable="true" type="q15:OperacionOcupacion" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oOperacionOcupacion" nillable="true" type="q16:OperacionOcupacion" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1124,7 +1165,7 @@
   <xs:element name="CartaPreocupacionOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCartaPreocupacion" nillable="true" type="q16:CartaPreocupacion" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCartaPreocupacion" nillable="true" type="q17:CartaPreocupacion" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1202,7 +1243,7 @@
   <xs:element name="AutenticarUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="AutenticarUsuarioResult" nillable="true" type="q17:VistaUsuario" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="AutenticarUsuarioResult" nillable="true" type="q18:VistaUsuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1214,14 +1255,14 @@
   <xs:element name="ListarUbigeoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarUbigeoResult" nillable="true" type="q18:ArrayOfUbigeo" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarUbigeoResult" nillable="true" type="q19:ArrayOfUbigeo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TrabajadorOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oTrabajador" nillable="true" type="q19:Trabajador" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oTrabajador" nillable="true" type="q20:Trabajador" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1241,14 +1282,14 @@
   <xs:element name="ListarTrabajadorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarTrabajadorResult" nillable="true" type="q20:ArrayOfTrabajador" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarTrabajadorResult" nillable="true" type="q21:ArrayOfTrabajador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="VacunaOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oVacuna" nillable="true" type="q21:Vacuna" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oVacuna" nillable="true" type="q22:Vacuna" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1263,7 +1304,7 @@
   <xs:element name="EmpresaOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oEmpresa" nillable="true" type="q22:Empresa" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oEmpresa" nillable="true" type="q23:Empresa" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1278,7 +1319,7 @@
   <xs:element name="AsignacionServiciosOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oAsignacionServicios" nillable="true" type="q23:AsignacionServicios" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oAsignacionServicios" nillable="true" type="q24:AsignacionServicios" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1298,14 +1339,14 @@
   <xs:element name="ListarEmpresaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarEmpresaResult" nillable="true" type="q24:ArrayOfEmpresa" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarEmpresaResult" nillable="true" type="q25:ArrayOfEmpresa" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DirectorioECMOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oDirectorioECM" nillable="true" type="q25:DirectorioECM" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oDirectorioECM" nillable="true" type="q26:DirectorioECM" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1320,7 +1361,7 @@
   <xs:element name="DetalleEmpresaOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oDetalleEmpresa" nillable="true" type="q26:DetalleEmpresa" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oDetalleEmpresa" nillable="true" type="q27:DetalleEmpresa" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1335,7 +1376,7 @@
   <xs:element name="ProgresoEmpresaOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oProgresoEmpresa" nillable="true" type="q27:ProgresoEmpresa" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oProgresoEmpresa" nillable="true" type="q28:ProgresoEmpresa" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1357,14 +1398,14 @@
   <xs:element name="ListarProgresoEmpresaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarProgresoEmpresaResult" nillable="true" type="q28:ArrayOfProgresoEmpresa" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarProgresoEmpresaResult" nillable="true" type="q29:ArrayOfProgresoEmpresa" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Criterio1Operacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCriterio1" nillable="true" type="q29:Criterio1" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCriterio1" nillable="true" type="q30:Criterio1" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1386,14 +1427,14 @@
   <xs:element name="ListarCriterio1Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarCriterio1Result" nillable="true" type="q30:ArrayOfCriterio1" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarCriterio1Result" nillable="true" type="q31:ArrayOfCriterio1" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Criterio2Operacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCriterio2" nillable="true" type="q31:Criterio2" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCriterio2" nillable="true" type="q32:Criterio2" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1415,14 +1456,14 @@
   <xs:element name="ListarCriterio2Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarCriterio2Result" nillable="true" type="q32:ArrayOfCriterio2" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarCriterio2Result" nillable="true" type="q33:ArrayOfCriterio2" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Criterio3Operacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCriterio3" nillable="true" type="q33:Criterio3" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCriterio3" nillable="true" type="q34:Criterio3" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1444,14 +1485,14 @@
   <xs:element name="ListarCriterio3Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarCriterio3Result" nillable="true" type="q34:ArrayOfCriterio3" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="ListarCriterio3Result" nillable="true" type="q35:ArrayOfCriterio3" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TrabajadorPuestoOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oTrabajadorPuesto" nillable="true" type="q35:TrabajadorPuesto" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oTrabajadorPuesto" nillable="true" type="q36:TrabajadorPuesto" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1466,7 +1507,7 @@
   <xs:element name="TrabajadorCarga">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="lstCarga" nillable="true" type="q36:ArrayOfCargaMasiva" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="lstCarga" nillable="true" type="q37:ArrayOfCargaMasiva" />
         <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1481,7 +1522,7 @@
   <xs:element name="PruebasCovidOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oPruebasCovid" nillable="true" type="q37:PruebasCovid" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oPruebasCovid" nillable="true" type="q38:PruebasCovid" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1511,7 +1552,7 @@
   <xs:element name="PruebasCovidCarga">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="lstCarga" nillable="true" type="q38:ArrayOfCargaMasiva" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="lstCarga" nillable="true" type="q39:ArrayOfCargaMasiva" />
         <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1526,7 +1567,7 @@
   <xs:element name="RegistroPruebasCovidOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oPruebasCovid" nillable="true" type="q39:PruebasCovid" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oPruebasCovid" nillable="true" type="q40:PruebasCovid" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1541,7 +1582,7 @@
   <xs:element name="CtrlAccionOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCtrlAccion" nillable="true" type="q40:CtrlAccion" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oCtrlAccion" nillable="true" type="q41:CtrlAccion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1555,7 +1596,7 @@
   <xs:element name="IncidenciaOperacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oIncidencia" nillable="true" type="q41:Incidencia" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oIncidencia" nillable="true" type="q42:Incidencia" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1570,7 +1611,7 @@
   <xs:element name="IncidenciaImagen">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="IncidenciaImagen" nillable="true" type="q42:Imagen" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="IncidenciaImagen" nillable="true" type="q43:Imagen" />
         <xs:element minOccurs="0" name="op" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1585,7 +1626,7 @@
   <xs:element name="SeguimientoIncidenciaECM">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oSeguimientoIncidenciaECM" nillable="true" type="q43:SeguimientoIncidenciaECM" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oSeguimientoIncidenciaECM" nillable="true" type="q44:SeguimientoIncidenciaECM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1599,7 +1640,7 @@
   <xs:element name="AplazarIncidencia">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oAplazarIncidencia" nillable="true" type="q44:AplazarIncidencia" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Dominio" minOccurs="0" name="oAplazarIncidencia" nillable="true" type="q45:AplazarIncidencia" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

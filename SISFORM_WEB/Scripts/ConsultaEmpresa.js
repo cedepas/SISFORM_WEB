@@ -214,6 +214,8 @@ window.onload = function () {
         }
     }
 }
+
+
 function closeAllListsAllEmpresas(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
     for (var i = 0; i < x.length; i++) {

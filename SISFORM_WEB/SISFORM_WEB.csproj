@@ -183,6 +183,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AdministracionController.cs" />
+    <Compile Include="Controllers\AlcohotestController.cs" />
     <Compile Include="Controllers\CartaController.cs" />
     <Compile Include="Controllers\CheffController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
@@ -327,6 +328,7 @@
     <Content Include="plugins\Handsontable\numbro\languages\zh-TW.min.js" />
     <Content Include="plugins\Handsontable\numbro\numbro.js" />
     <Content Include="plugins\html2pdf\html2pdf.js" />
+    <Content Include="Scripts\Alcohotest.js" />
     <Content Include="Scripts\apexcharts.js" />
     <Content Include="Scripts\BusquedaIncidencia.js" />
     <Content Include="Scripts\buttons.js" />
@@ -490,6 +492,8 @@
     <Content Include="Views\SeguimientoNegocios\detalleLavanderias.cshtml" />
     <Content Include="Views\Trabajador\Verificacion.cshtml" />
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
+    <Content Include="Views\PruebaAlcohotest\Operacion.cshtml" />
+    <Content Include="Views\Alcohotest\Operacion.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

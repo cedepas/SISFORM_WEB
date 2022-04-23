@@ -34,6 +34,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Error" nillable="true" type="tns:Error" />
+  <xs:complexType name="RegistroAlcohotest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FK_ID_Empresa" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Resultado" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Turno" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_RegistroAlcohotest" type="xs:int" />
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="detalles" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fecha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="hora" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegistroAlcohotest" nillable="true" type="tns:RegistroAlcohotest" />
   <xs:complexType name="Solucion">
     <xs:sequence>
       <xs:element minOccurs="0" name="ExtencionImagen" nillable="true" type="xs:string" />

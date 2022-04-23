@@ -1,0 +1,84 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+@section modals{
+
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "Alcohotest";
+    </script>
+} 
+<div class="content">
+    <div class="title"><h5>Registro de Alcohotest</h5></div>
+    <div class="form-row">
+        <div class=" col-sm">
+            <label for="txtIdAlcohotest">Codigo</label>
+            <input type="text" class=" form-control form-control-sm" id="txtIdAlcohotest" placeholder="Codigo" readonly="readonly" />
+        </div>
+        <div class="col-sm">
+            <label for="txtBuscarPorEmpresaAlcohotest">Empresa</label>
+            <input class="form-control form-control-sm" id="txtBuscarPorEmpresaAlcohotest" placeholder="Empresa" />
+        </div>
+
+        <div class="col-sm">
+            <label for="txtTrabajadorAlcohotest">Trabajador</label>
+            <input class="form-control form-control-sm" id="txtTrabajadorAlcohotest" placeholder="Trabajador" />
+        </div>
+
+        <div class="col-sm">
+            <label for="dtFechaPrueba">Fecha de Prueba</label>
+            <input type="date" class="form-control form-control-sm" id="dtFechaPrueba" placeholder="Fecha de Prueba" />
+        </div>
+    </div>
+
+    <div class="form-row">
+        
+        <div class=" col-sm">
+            <label for="cboTurnos">Turno de Prueba</label>
+            <select class="form-control form-control-sm" id="cboTurnos" @*required="required"*@></select>
+        </div>
+        <div class="col-sm">
+            <label for="cboResultados">Resultado</label>
+            <select class="form-control form-control-sm" id="cboResultados" @*required="required"*@></select>
+        </div>
+
+        <div class="col-sm">
+            <label for="txtCodigoPruebaAlc">Codigo Prueba</label>
+            <input class="form-control form-control-sm" id="txtCodigoPruebaAlc" placeholder="Codigo Prueba" />
+        </div>
+
+        <div class="col-sm">
+            <label for="txtdetalleRegAlcohotest">Detalles</label>
+            <textarea id="txtdetalleRegAlcohotest" class="form-control" rows="5" cols="0" maxlength="240"></textarea>
+        </div>
+
+    </div>
+
+    <div class="text-right">
+        <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>
+        <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
+    </div>
+
+</div>
+
+
+
+
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+
+
+
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/Alcohotest.js")
+}
+
