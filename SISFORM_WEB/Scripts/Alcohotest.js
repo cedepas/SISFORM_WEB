@@ -1,6 +1,8 @@
-﻿var idUsuario
+﻿var idUsuario;
 var idEmpresa;
+var varhora='00:00:00';
 var objetoParametrizado = [];
+var ID_RegistroAlcohotest;
 
 var objetoParametrizadoAllEmpresas = [];
 var objetoBusquedaAllEmpresas = [];
@@ -43,14 +45,22 @@ window.onload = function () {
     //Boton Grabar
     btnGrabar.onclick = function () {
         var frm = new FormData();
-        frm.append("FK_ID_Empresa", (idEmpresa == "" ? "0" : idEmpresa));
+
+        if (ID_RegistroAlcohotest) {
+            frm.append("ID_RegistroAlcohotest", ID_RegistroAlcohotest);
+        }
+        
+        //frm.append("ID_RegistroAlcohotest", ID_RegistroAlcohotest);
+        //frm.append("FK_ID_Empresa", (idEmpresa == "" ? "0" : idEmpresa));
+        frm.append("FK_ID_Empresa", idEmpresa);
         frm.append("FK_ID_Trabajador", idRepresentante);
         frm.append("FK_ID_Usuario", window.sessionStorage.getItem('idUsuario'));
         frm.append("fecha", dtFechaPrueba.value);  
+        frm.append("hora", varhora);
         frm.append("FK_ID_Turno", cboTurnos.value);
         frm.append("FK_ID_Resultado", cboResultados.value);
         frm.append("codigo", txtCodigoPruebaAlc.value);
-        frm.append("detalles", txtdetalleRegAlcohotest.value)
+        frm.append("detalles", txtdetalleRegAlcohotest.value);
         //frm.append("razonSocial", txtRazonSocial.value);
         //frm.append("tieneRuc", (txtTieneRuc.checked == true ? "SI" : "NO"));
         //frm.append("regimenTributario", cboRegimenTributario.value);
@@ -69,6 +79,7 @@ window.onload = function () {
         //frm.append("asociado", (txtAsociado.checked == true ? 1 : 0));
         //frm.append("inicioActividades", txtFechaInicioActividades.value);
         if (validarRequeridos('E')) {
+           // checkSubmit(btnGrabar);
             Http.post("Alcohotest/Grabar", MostrarGrabar, frm);
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
@@ -144,7 +155,7 @@ function MostrarGrabar(rpta) {
             Http.get("Alcohotest/ListarRegistroAlcohotest", CrearTablaCsv);
         }
         toastSuccessAlert("El registro se guardo correctamente", "¡Exito!");
-        txtIdAlcohotest.value = rpta;
+        //txtIdAlcohotest.value = rpta;
         //btnModalObs.style.visibility = "hidden";
         //btnModalLic.style.visibility = "hidden";
         //btnModalSal.style.visibility = "hidden";
@@ -290,10 +301,14 @@ function AsignarCampos(rpta) {
     if (rpta) {
         campos = rpta.split('|');
         txtIdAlcohotest.value = campos[0];
+        ID_RegistroAlcohotest = campos[0];
+        idEmpresa = campos[1];
         txtBuscarPorEmpresaAlcohotest.value = campos[2];
+        idRepresentante = campos[3];
         txtTrabajadorAlcohotest.value = campos[5];
         dtFechaPrueba.value = campos[6];
         cboTurnos.value = campos[7];
+        varhora = campos[8];
         cboResultados.value = campos[9];
         txtCodigoPruebaAlc.value = campos[10];
         txtdetalleRegAlcohotest.value = campos[11];

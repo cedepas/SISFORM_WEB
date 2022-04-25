@@ -177,6 +177,7 @@ function CrearListaECMs(rpta) {
         crearObjetoECMs(lista)
     }
 }
+
 function crearObjeto() {
     //crea el objeto para busqueda segun los datos
     cabeceras = lista[0].split("|");

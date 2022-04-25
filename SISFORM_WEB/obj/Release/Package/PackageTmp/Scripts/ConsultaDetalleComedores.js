@@ -46,9 +46,9 @@ window.onload = function () {
     btnGrabar.onclick = function () {
         var frm = new FormData();
         if (idDetalleComedor) {
-            frm.append("ID_detalleComedor", idDetalleComedor);
+            frm.append("ID_RegistroAlcohotest", idDetalleComedor);
         }
-        frm.append("ID_detalleComedor", idDetalleComedor);
+        frm.append("ID_RegistroAlcohotest", idDetalleComedor);
         frm.append("FK_ID_Empresa", idNNLL);
         frm.append("FK_ID_Condicion", cboCondicion.value);
         frm.append("FK_ID_antiguedadEmpresa", cboAntiguedad.value);
@@ -122,9 +122,7 @@ function MostrarGrabar(rpta) {
     }
     else 
         toastDangerAlert("No se pudo grabar el registro", "¡Error!");
-        //add 21 02 2022
-
-         
+        //add 21 02 2022         
 }
 
 function closeAllLists(elmnt) {

@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section modals{
+
+}
+
+div class="content">
+<h5>Capacidad de Hospedaje</h5>
+<div class="form-row">
+    <div class="col-sm-4">
+        <label>Nombre Comercial</label>
+        <input type="search" class="form-control form-control-sm" id="txtNombreComercial" readonly />
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-sm">
+        <label>Habitaciones STAFF :</label>
+        <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadStaff" readonly />
+    </div>
+    <div class="col-sm">
+        <label>Habitaciones OBRERO :</label>
+        <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadObrero" readonly />
+    </div>
+    <div class="col-sm">
+        <label>Total Habitaciones :</label>
+        <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadHabitaciones" readonly />
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-sm">
+        <label>Camas STAFF :</label>
+        <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadCamasStaff" readonly />
+    </div>
+    <div class="col-sm">
+        <label>Camas OBRERO :</label>
+        <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadCamasObrero" readonly />
+    </div>
+    <div class="col-sm">
+        <label>Número total de camas :</label>
+        <input type="number" min="0" class="form-control form-control-sm" id="txtCantidadCamas" readonly />
+    </div>
+</div>
+<div class="text-right">
+    <a href="#habitacion-modal" class="btn btn-primary btn-sm" id="btnModalHabitacion" role="button" style="display:none">Ver / Registrar Habitaciones</a>
+</div>
+</div>
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/Alcohotest.js")
+}
