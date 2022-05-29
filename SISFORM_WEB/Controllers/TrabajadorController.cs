@@ -201,6 +201,24 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+
+        public async Task<string> ObtenerVacunaporIDTrabajadorCsv(int ID_DetalleVacuna)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerVacunaporIDTrabajadorCsvAsync(ID_DetalleVacuna);
+                return rpta;
+            }
+            catch (Exception ex)
+            { 
+                throw;
+            }
+        }
+
+
+
         public async Task<string> ListarTrabajadorPorEmpresaCsv(int idEmpresa)
         {
             try

@@ -156,6 +156,8 @@ window.onload = function () {
         frm.append("FK_ID_Trabajador", idTrabajador);
         if (validarRequeridos('T')) {
             Http.post("Trabajador/GrabarVacuna", MostrarGrabarVacuna, frm);
+            limpiarControles();
+
         } else toastDangerAlert("Ingrese todos los campos obligatorios*", "¡Aviso!");
     }
 
@@ -436,7 +438,7 @@ function CrearTablaCsvVacuna(rpta) {
     document.getElementById("divTablaDetalleVacuna").innerHTML = "";
     if (rpta) {
         lstDetalleVacuna = rpta.split('¬');
-        var grillaModal = new GrillaModal(lstDetalleVacuna, "divTablaDetalleVacuna", 10, 3);
+        var grillaModal2 = new GrillaModal2(lstDetalleVacuna, "divTablaDetalleVacuna", 10, 3);
     }
 
 }
@@ -515,9 +517,50 @@ function obtenerRegistroPorId(id) {
 
 }
 
+//2022-05-27 Completando funcion editar
 function modalObtenerRegistroPorId(id) {
+    //Http.get("Trabajador/ObtenerVacunaporIDTrabajadorCsv?ID_DetalleVacuna=" + id, AsignarCamposVacunaId);
     Http.get("Trabajador/ListarPuestoTrabajoporIdTrabajadorPuestoCsv?idTrabajadorPuesto=" + id, AsignarCamposPuestoTrabajo);
 }
+
+function modalObtenerRegistroPorIdVacuna(id) {
+    Http.get("Trabajador/ObtenerVacunaporIDTrabajadorCsv?ID_DetalleVacuna=" + id, AsignarCamposVacunaId);
+    //Http.get("Trabajador/ListarPuestoTrabajoporIdTrabajadorPuestoCsv?idTrabajadorPuesto=" + id, AsignarCamposPuestoTrabajo);
+}
+
+
+
+function AsignarCamposVacunaId(rpta) {
+    if (rpta) {
+        campos = rpta.split('|');
+                
+        txtiddetallevacuna.value = campos[4];
+        lblNombreTrabajador.value = txtNombre.value;
+        //lblNombreTrabajador.value = campos[0];
+        cboTipoVacuna.value = campos[2];
+        numeroDosis.value = campos[1];
+        txtFechaVacuna.value = campos[3];
+
+        //txtIdAlcohotest.value = campos[0];
+        //ID_RegistroAlcohotest = campos[0];
+        //idEmpresa = campos[1];
+        //txtBuscarPorEmpresaAlcohotest.value = campos[2];
+        //idRepresentante = campos[3];
+        //txtTrabajadorAlcohotest.value = campos[5];
+        //dtFechaPrueba.value = campos[6];
+        //cboTurnos.value = campos[7];
+        //varhora = campos[8];
+        //cboResultados.value = campos[9];
+        //txtCodigoPruebaAlc.value = campos[10];
+        //txtdetalleRegAlcohotest.value = campos[11];
+
+    } else limpiarControles('form-control-modal');
+
+
+}
+
+
+
 
 function AsignarCamposPuestoTrabajo(rpta) {
     if (rpta) {
@@ -536,7 +579,8 @@ function AsignarCamposPuestoTrabajo(rpta) {
 function AsignarCamposDetalleVacuna() {
     {
         txtiddetallevacuna.value = "";
-        lblNombreTrabajador.value = txtNombre.value
+        lblNombreTrabajador.value = txtNombre.value;
+        
     }
 }
 

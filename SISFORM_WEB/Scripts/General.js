@@ -707,3 +707,257 @@ function GrillaModal(lista, divGrilla, registrosPagina, paginasBloque, sinFiltro
         }
     }
 }
+
+
+
+//Grilla2
+function GrillaModal2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
+    var matriz = [];
+
+    var indicePagina = 0;
+    if (registrosPagina == null) registrosPagina = 20;
+    var indiceBloque = 0;
+    if (paginasBloque == null) paginasBloque = 10;
+    var cabeceras = [];
+
+    crearTabla();
+    filtrarMatriz();
+    configurarFiltros();
+    configurarOrdenacion();
+    configurarPaginacion();
+    configurarBotones();
+
+    function crearTabla() {
+        cabeceras = lista[0].split("|");
+        var nCampos = cabeceras.length;
+        var contenido = "";
+
+        contenido += `
+            <div class='content'><h5>Registros encontrados: <span id='spnRegistros${divGrilla}'></span></h5>
+            <input id='btnLimpiar${divGrilla}' type='button' value='Limpiar' class='btn'/></div>
+        `;
+
+        contenido += `<table class='table table-inner-bordered'><thead><tr>`;
+
+        for (var j = 0; j < nCampos; j++) {
+            contenido += `
+                <th><span class='Enlace ${divGrilla}' data-ind='${j}'>${cabeceras[j]}</span><br/>
+                <input type='text' class='${divGrilla}Cabecera form-control form-control-sm'></th>
+            `;
+        }
+        contenido += `
+            </tr></thead><tbody id='tbData${divGrilla}'>
+            </tbody>
+            <tfoot>
+            <tr><th id='tdPagina${divGrilla}' colspan='${nCampos}' class='text-center'></th></tr>
+            </tfoot>
+            </table>
+            </br>
+        `;
+
+        document.getElementById(divGrilla).innerHTML = contenido;
+    }
+
+    function crearMatriz() {
+        matriz = [];
+        var campos = [];
+        var nRegistros = lista.length;
+        var nCampos = lista[0].split('|').length;
+        var contenido = "";
+        var valores = [];
+        var controles = document.getElementsByClassName(divGrilla + "Cabecera");
+        var nControles = controles.length;
+        var control;
+        for (var j = 0; j < nControles; j++) {
+            control = controles[j];
+            if (control.className.indexOf("Combo") > -1) {
+                valores.push(control.options[control.selectedIndex].text.toLowerCase());
+            }
+            else valores.push(control.value.toLowerCase());
+        }
+        var c = 0;
+        var exito = false;
+        var fila = [];
+        for (var i = 1; i < nRegistros; i++) {
+            campos = lista[i].split("|");
+            for (var j = 0; j < nControles; j++) {
+                control = controles[j];
+                if (control.className.indexOf("Combo") > -1) {
+                    exito = (valores[j] == "todos" || campos[j].toLowerCase() == valores[j]);
+                }
+                else exito = (valores[j] == "" || campos[j].toLowerCase().indexOf(valores[j]) > -1);
+                if (!exito) break;
+            }
+            if (exito) {
+                c++;
+                fila = [];
+                for (var j = 0; j < nCampos; j++) {
+                    if (campos[j] == "" || isNaN(campos[j])) fila.push(campos[j]);
+                    else {
+                        if (campos[j].substr(0, 1) == "0") fila.push(campos[j]);
+                        else fila.push(+campos[j]);
+                    }
+                }
+                matriz.push(fila);
+            }
+        }
+    }
+
+    function mostrarMatriz() {
+        var html = "";
+        var nRegistros = matriz.length;
+        if (nRegistros > 0) {
+            var ncampos = matriz[0].length;
+            var inicio = indicePagina * registrosPagina;
+            var fin = inicio + registrosPagina;
+            for (var i = inicio; i < fin; i++) {
+                if (i < nRegistros) {
+                    html += "<tr onclick='seleccionarFila(this);' ondblclick='modalObtenerRegistroPorIdVacuna(\"";
+                    html += matriz[i][0];
+                    html += "\");'>";
+                    for (var j = 0; j < ncampos; j++) {
+                        html += "<td>";
+                        html += matriz[i][j];
+                        html += "</td>";
+                    }
+                    html += "</tr>";
+                }
+                else break;
+            }
+        }
+        document.getElementById("tbData" + divGrilla).innerHTML = html;
+        document.getElementById("spnRegistros" + divGrilla).innerHTML = nRegistros;
+        if (sinFiltros == null) crearPaginacion();
+    }
+
+    function configurarFiltros() {
+        var cabeceras = document.getElementsByClassName(divGrilla + "Cabecera");
+        var nCabeceras = cabeceras.length;
+        var cabecera;
+        for (var i = 0; i < nCabeceras; i++) {
+            cabecera = cabeceras[i];
+            if (cabecera.className.indexOf("Combo") > -1) {
+                cabecera.onchange = function () { filtrarMatriz() };
+            }
+            else cabecera.onkeyup = function (event) { filtrarMatriz() };
+        }
+    }
+
+    function configurarOrdenacion() {
+        var enlaces = document.getElementsByClassName(divGrilla + "Enlace");
+        var nEnlaces = enlaces.length;
+        var enlace;
+        for (var i = 0; i < nEnlaces; i++) {
+            enlace = enlaces[i];
+            enlace.onclick = function () { ordenar(this, this.getAttribute("data-ind") * 1); }
+        }
+    }
+
+    function configurarPaginacion() {
+        var paginas = document.getElementsByClassName(divGrilla + "Pagina");
+        var nPaginas = paginas.length;
+        var pagina;
+        for (var i = 0; i < nPaginas; i++) {
+            pagina = paginas[i];
+            pagina.onclick = function () { paginar(this.getAttribute("data-pag") * 1); }
+        }
+    }
+
+    function crearPaginacion() {
+        var contenido = "";
+        var nRegistros = matriz.length;
+        var indiceUltimaPagina = Math.floor(nRegistros / registrosPagina);
+        if (nRegistros % registrosPagina == 0) indiceUltimaPagina--;
+        var registrosBloque = Math.floor(registrosPagina * paginasBloque);
+        var indiceUltimoBloque = Math.floor(nRegistros / registrosBloque);
+        if (nRegistros % registrosBloque == 0) indiceUltimoBloque--;
+        if (indiceBloque > 0) {
+            contenido += "<input type='button' class='Pagina ";
+            contenido += divGrilla;
+            contenido += "Pagina' value='<<' data-pag='-1'/>";
+            contenido += "<input type='button' class='Pagina ";
+            contenido += divGrilla;
+            contenido += "Pagina' value='<' data-pag='-2'/>";
+        }
+        var inicio = indiceBloque * paginasBloque;
+        var fin = inicio + paginasBloque;
+        for (var i = inicio; i < fin; i++) {
+            if (i <= indiceUltimaPagina) {
+                contenido += "<input type='button' class='btn btn-square btn-sm btn-primary rounded-circle mx-5 ";
+                contenido += divGrilla;
+                contenido += "Pagina' value='";
+                contenido += (i + 1);
+                contenido += "' data-pag='";
+                contenido += i;
+                contenido += "'/>";
+            }
+            else break;
+        }
+        if (indiceBloque < indiceUltimoBloque) {
+            contenido += "<input type='button' class='Pagina ";
+            contenido += divGrilla;
+            contenido += "Pagina' value='>' data-pag='-3'/>";
+            contenido += "<input type='button' class='Pagina ";
+            contenido += divGrilla;
+            contenido += "Pagina' value='>>' data-pag='-4'/>";
+        }
+        document.getElementById("tdPagina" + divGrilla).innerHTML = contenido;
+        configurarPaginacion();
+    }
+
+    function filtrarMatriz() {
+        indicePagina = 0;
+        indiceBloque = 0;
+        crearMatriz();
+        mostrarMatriz();
+    }
+
+    function paginar(indice) {
+        if (indice > -1) indicePagina = indice;
+        else {
+            var nRegistros = matriz.length;
+            var indiceUltimaPagina = Math.floor(nRegistros / registrosPagina);
+            if (nRegistros % registrosPagina == 0) indiceUltimaPagina--;
+            var registrosBloque = Math.floor(registrosPagina * paginasBloque);
+            var indiceUltimoBloque = Math.floor(nRegistros / registrosBloque);
+            if (nRegistros % registrosBloque == 0) indiceUltimoBloque--;
+            switch (indice) {
+                case -1: //Ir al primer bloque
+                    indicePagina = 0;
+                    indiceBloque = 0;
+                    break;
+                case -2: //Ir al bloque anterior
+                    if (indiceBloque > 0) {
+                        indiceBloque--;
+                        indicePagina = indiceBloque * paginasBloque;
+                    }
+                    break;
+                case -3: //Ir al bloque siguiente
+                    if (indiceBloque < indiceUltimoBloque) {
+                        indiceBloque++;
+                        indicePagina = indiceBloque * paginasBloque;
+                    }
+                    break;
+                case -4: //Ir al último bloque
+                    indicePagina = indiceUltimaPagina;
+                    indiceBloque = indiceUltimoBloque;
+                    break;
+            }
+        }
+        mostrarMatriz();
+    }
+
+    function configurarBotones() {
+        var btnLimpiar = document.getElementById("btnLimpiar" + divGrilla);
+        if (btnLimpiar != null) {
+            btnLimpiar.onclick = function () {
+                var textos = document.getElementsByClassName(divGrilla + "Cabecera");
+                var nTextos = textos.length;
+                for (var j = 0; j < nTextos; j++) {
+                    textos[j].value = "";
+                }
+                filtrarMatriz();
+            }
+        }
+    }
+}

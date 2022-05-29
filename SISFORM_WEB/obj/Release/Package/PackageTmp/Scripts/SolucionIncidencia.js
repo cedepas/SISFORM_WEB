@@ -50,6 +50,7 @@ function consulta(e) {
         Http.get("Incidencia/ObtenerIncidenciaPorIdParaSolucionCsv?idIncidencia=" + txtIdIncidente.value, AsignarCamposBusqueda);
     }
 }
+
 function AsignarCamposBusqueda(rpta) {
     if (rpta) {
         var campos = rpta.split('|');
@@ -63,6 +64,8 @@ function AsignarCamposBusqueda(rpta) {
         divSolucion.style.display = "inline-block";
     }
 }
+
+
 function mostrarCboTipoSolucion(rpta) {
     if (rpta) {
         lstCboTipoSolucion = rpta.split('¬');

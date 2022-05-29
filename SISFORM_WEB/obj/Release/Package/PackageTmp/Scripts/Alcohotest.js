@@ -15,16 +15,27 @@ var lstActualizacion = [];
 var lstTrabajadores;
 
 
+
+let fechaActual = new Date();
+let horaActual = new Date();
+
+
 window.onload = function () {
     if (!isMobile.any()) {
 
         idUsuario = window.sessionStorage.getItem('idUsuario');
         Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
         Http.get("Incidencia/ListarTrabajadorBusquedaCsv", CrearListaCsvAllEmpresas);
-
+        //focus
+        document.getElementById("txtDNITrabajador").focus();
         //funcion para crear la lista general
         //Listar registros
         Http.get("Alcohotest/ListarRegistroAlcohotest", CrearTablaCsv);
+
+        var fechaConsultaCodigo = fechaActual.toISOString().split('T')[0];
+        txtCodigoPruebaAlc.value = Http.get("Alcohotest/ObtenerCodigoAlcohotestActualCsv?BuscarFechaCodigo=" + fechaConsultaCodigo, ActualizarFechaCodigo);
+
+        
 
         var divRows = document.getElementsByClassName('form-row');
         for (var i = 0; i < divRows.length; i++) {
@@ -41,6 +52,22 @@ window.onload = function () {
     var rptaresultado = '1|NEGATIVO¬2|POSITIVO';
     lstCboResultado = rptaresultado.split('¬');
     CrearCombo(lstCboResultado, cboResultados, "Seleccione");
+
+    //pre cargar Codigo de Prueba
+
+
+    //PRE CARGADO DE DATOS NUEVOS 
+    dtFechaPrueba.value = fechaActual.toISOString().split('T')[0];
+    //Turno
+    if ((horaActual.getHours())<=12)
+        cboTurnos.value = '1';
+    else
+        cboTurnos.value = '2';
+    
+    cboResultados.value = '1';
+    //txtCodigoPruebaAlc.value -> se tiene que obtener el ultimo codigo ingresado
+
+    
 
     //Boton Grabar
     btnGrabar.onclick = function () {
@@ -61,23 +88,7 @@ window.onload = function () {
         frm.append("FK_ID_Resultado", cboResultados.value);
         frm.append("codigo", txtCodigoPruebaAlc.value);
         frm.append("detalles", txtdetalleRegAlcohotest.value);
-        //frm.append("razonSocial", txtRazonSocial.value);
-        //frm.append("tieneRuc", (txtTieneRuc.checked == true ? "SI" : "NO"));
-        //frm.append("regimenTributario", cboRegimenTributario.value);
-        //frm.append("tipoPersona", cboTipoPersona.value);
-        //frm.append("ruc", txtRuc.value);
-        //frm.append("telefono", txtTelefono.value);
-        //frm.append("direccion", txtDireccion.value);
-        ////frm.append("estado", (txtEstado.checked == true ? "ACT" : "ANU"));
-        //frm.append("FK_ID_UsuarioCrea", window.sessionStorage.getItem('idUsuario'));
-        //frm.append("email", txtEmail.value);
-        //frm.append("FK_ID_UnidadGestion", cboUnidadGestion.value);
-        //frm.append("FK_ID_EstadoEmpresa", CboEstadoEmpresa.value);
-        //frm.append("FK_ID_TrabajadorRepresentante", idRepresentante);
-        //frm.append("latitud", txtLatitud.value);
-        //frm.append("longitud", txtLongitud.value);
-        //frm.append("asociado", (txtAsociado.checked == true ? 1 : 0));
-        //frm.append("inicioActividades", txtFechaInicioActividades.value);
+
         if (validarRequeridos('E')) {
            // checkSubmit(btnGrabar);
             Http.post("Alcohotest/Grabar", MostrarGrabar, frm);
@@ -146,6 +157,17 @@ window.onload = function () {
         location.reload();
     }
 
+}
+
+function ActualizarFechaCodigo(rpta) {
+    if (rpta) {
+        campos = rpta.split('|');
+        txtCodigoPruebaAlc.value = campos[0];
+        toastSuccessAlert("Datos Cargados!", "¡Exito!");
+        
+        
+    }
+    else toastDangerAlert("No se Registro Codigo del Día!");
 }
 
 //
@@ -332,7 +354,34 @@ function AsignarCampos(rpta) {
 }
 
 
+function consulta(e) {
+    // continuar 18 05 2022 
+    if (e.keyCode === 13 && !e.shiftKey) {       
 
+        Http.get("Alcohotest/ObtenerRegistroAlcohotestPorDNICsv?DNIRegistroAlcohotest=" + txtDNITrabajador.value, AsignarCamposBusqueda);
+
+    }
+}
+
+function AsignarCamposBusqueda(rpta) {
+    if (rpta) {
+        
+        var campos = rpta.split('|');
+        idEmpresa = campos[1];
+        txtBuscarPorEmpresaAlcohotest.value = campos[2];
+        idRepresentante = campos[3];
+        txtTrabajadorAlcohotest.value = campos[5];
+
+        toastSuccessAlert("Registro encontrado con Exito!");
+
+    }
+    else {
+
+        toastDangerAlert("Registro no Encontrado!");
+        txtDNITrabajador.value = "";
+        
+    }
+}
 
 
 

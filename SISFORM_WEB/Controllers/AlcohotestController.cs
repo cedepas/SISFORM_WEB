@@ -81,6 +81,35 @@ namespace SISFORM_WEB.Controllers
             }
         }
 
+        public async Task<string> ObtenerRegistroAlcohotestPorDNICsv(string DNIRegistroAlcohotest)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerRegistroAlcohotestPorDNICsvAsync(DNIRegistroAlcohotest);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<string> ObtenerCodigoAlcohotestActualCsv(string BuscarFechaCodigo)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ObtenerCodigoAlcohotestActualCsvAsync(BuscarFechaCodigo);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
 
     }
