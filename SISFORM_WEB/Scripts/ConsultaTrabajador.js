@@ -172,6 +172,7 @@ window.onload = function () {
         limpiarControles('form-control-modal');
         Http.get("Trabajador/ListarPuestoTrabajoporIdCsv?idTrabajador=" + idTrabajador, CrearTablaCsvPuestos);
     }
+
     btnModalVacuna.onclick = function () {
         limpiarControles('form-control-modal');        
         Http.get("Trabajador/ListarDetalleVacunaporIdTrabajadorCsv?idTrabajador=" + idTrabajador, CrearTablaCsvVacuna);
@@ -309,6 +310,7 @@ function mostrarEmpresaCbo(rpta) {
 function listarPuestoTrabajo() {
     Http.get("Trabajador/ListarPuestoTrabajoPorEmpresaCboCsv?idEmpresa=" + idEmpresaPuesto, mostrarPuestoTrabajoCbo);
 }
+
 function ListarTipoVacuna() {
     Http.get("Trabajador/ListarTipoVacunaCboCsv", mostrarTipoVacunaCbo);
 }

@@ -186,7 +186,7 @@ function Grilla2(lista, divGrilla, registrosPagina, paginasBloque, sinFiltros) {
                 if (i < nRegistros) {
                     seleccionada = (ids.indexOf(matriz[i][0]) > -1);
                     html += "<tr ";
-                    if (matriz[i][5]>7) {
+                    if (matriz[i][5]>14) {
                         html += "class='table-danger'";
                     } else if (matriz[i][5] >= 4 & matriz[i][5] <= 7) {
                         html += "class='table-secondary'";

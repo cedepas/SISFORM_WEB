@@ -41,6 +41,7 @@
       <xs:element minOccurs="0" name="FK_ID_Trabajador" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Turno" type="xs:int" />
       <xs:element minOccurs="0" name="FK_ID_Usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="FK_ID_puestoTrabajo" type="xs:int" />
       <xs:element minOccurs="0" name="ID_RegistroAlcohotest" type="xs:int" />
       <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="detalles" nillable="true" type="xs:string" />

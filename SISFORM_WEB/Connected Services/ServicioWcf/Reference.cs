@@ -480,6 +480,9 @@ namespace SISFORM_WEB.ServicioWcf {
         private int FK_ID_UsuarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FK_ID_puestoTrabajoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ID_RegistroAlcohotestField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -565,6 +568,19 @@ namespace SISFORM_WEB.ServicioWcf {
                 if ((this.FK_ID_UsuarioField.Equals(value) != true)) {
                     this.FK_ID_UsuarioField = value;
                     this.RaisePropertyChanged("FK_ID_Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FK_ID_puestoTrabajo {
+            get {
+                return this.FK_ID_puestoTrabajoField;
+            }
+            set {
+                if ((this.FK_ID_puestoTrabajoField.Equals(value) != true)) {
+                    this.FK_ID_puestoTrabajoField = value;
+                    this.RaisePropertyChanged("FK_ID_puestoTrabajo");
                 }
             }
         }

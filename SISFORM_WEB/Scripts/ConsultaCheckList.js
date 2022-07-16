@@ -170,16 +170,36 @@ function mostrarPreguntas(rpta) {
             b.innerHTML = "<label>N° : " + i + "</label>&nbsp; &nbsp; &nbsp; ";
             b.innerHTML += "<span>Puntuacion</span>&nbsp; ";
             if (lstValores[7] == 1) {
-                b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='1'>1</option>";
+                b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0' >0</option><option value='1'>1</option>";
             }
             else if (lstValores[7] == 4 ) {
                 b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='2'>2</option><option value='4'>4</option>";
             }
             else {
-                b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option>";
+                b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0' >0</option><option value='1'>1</option><option value='2'>2</option>";
             }
-            b.innerHTML += "<input type='text' id='input" + i + "' placeholder='Detalle Item " + i + "'/></div >";
+
+  
+            b.innerHTML += "<input type='text' id='input" + i + "' placeholder='Detalle Item " + i + "' size='30' />";
+
+            //if (lstValores[4] == 140 && ( i == 1 || i == 3 || i == 7 || i == 8 ))
+            //{
+            //    b.innerHTML += "<div class='row mt-1 mb-1 d-flex justify-content-center' >Alto: <div class='col-12 d-flex justify-content-end' >  <input type='text' id='alto" + i + "' placeholder='Detalle Item " + i + "' size='15' />  <input type='text' id='alto" + (i + 1) + "' placeholder='Detalle Item " + (i + 1) + "' size='15' /> <input type='text' id='alto" + (i + 2) + "' placeholder='Detalle Item " + (i + 2) + "' size='15' />       </div> </div>" + 
+
+            //        "<div class='row mt-1 mb-1 d-flex justify-content-center' >Ancho: <div class='col-12 d-flex justify-content-end'>  <input type='text' id='ancho" + i + "' placeholder='Detalle Item " + i + "' size='15' />      <input type='text' id='ancho" + (i + 1) + "' placeholder='Detalle Item " + (i + 1) + "' size='15' />        <input type='text' id='ancho" + (i + 2) + "' placeholder='Detalle Item " + (i + 2) + "' size='15' />  </div>  </div>" +
+
+
+            //        "<div class='row mt-1 mb-1 d-flex justify-content-center' >Largo: <div class='col-12 d-flex justify-content-end'>   <input type='text' id='largo" + i + "' placeholder='Detalle Item " + i + "' size='15' />      <input type='text' id='largo" + (i + 1) + "' placeholder='Detalle Item " + (i + 1) + "' size='15' />         <input type='text' id='largo" + (i + 2) + "' placeholder='Detalle Item " + (i + 2) + "' size='15' />     </div>     </div>";
+            //}
+            
+
             document.getElementById('preguntas').appendChild(b);
+          
+            
+
+
+
+
         }
         datosServicio.style.display = "inline-block";
         document.getElementById('nombreTipoEmpresa').value = lstValores[0];

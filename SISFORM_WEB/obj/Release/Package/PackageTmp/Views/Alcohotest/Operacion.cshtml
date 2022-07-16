@@ -11,7 +11,7 @@
         <div class="col-sm">
             <div class="title"><h5>Registro de Alcohotest</h5></div>
         </div>
-        
+
     </div>
 
     <div class="form-row">
@@ -22,6 +22,7 @@
     </div>
 
     <div class="form-row">
+
         <div class=" col-sm">
             <label for="txtIdAlcohotest">Codigo</label>
             <input type="text" class=" form-control form-control-sm" id="txtIdAlcohotest" placeholder="Codigo" readonly="readonly" />
@@ -37,17 +38,27 @@
         </div>
 
         <div class="col-sm">
-            <label for="dtFechaPrueba">Fecha de Prueba</label>
-            <input type="date" class="form-control form-control-sm" id="dtFechaPrueba" placeholder="Fecha de Prueba" />
+            <label for="txtPuestoTrabajo">Cargo</label>
+            <select class="form-control form-control-sm form-control-modal P" id="cboPuestoTrabajo" @*required="required"*@></select>
         </div>
+
+
+
     </div>
 
     <div class="form-row">
+
+
+        <div class="col-sm">
+            <label for="dtFechaPrueba">Fecha de Prueba</label>
+            <input type="date" class="form-control form-control-sm" id="dtFechaPrueba" placeholder="Fecha de Prueba" />
+        </div>
 
         <div class=" col-sm">
             <label for="cboTurnos">Turno de Prueba</label>
             <select class="form-control form-control-sm" id="cboTurnos" @*required="required"*@></select>
         </div>
+
         <div class="col-sm">
             <label for="cboResultados">Resultado</label>
             <select class="form-control form-control-sm" id="cboResultados" @*required="required"*@></select>
@@ -58,9 +69,12 @@
             <input class="form-control form-control-sm" id="txtCodigoPruebaAlc" placeholder="Codigo Prueba 01-01-2060" />
         </div>
 
+    </div>
+
+    <div class="form-row">
         <div class="col-sm">
             <label for="txtdetalleRegAlcohotest">Detalles</label>
-            <textarea id="txtdetalleRegAlcohotest" class="form-control" rows="5" cols="0" maxlength="240"></textarea>
+            <textarea id="txtdetalleRegAlcohotest" class="form-control" rows="2" cols="1" maxlength="140"></textarea>
         </div>
 
         <div class="col-sm" style="visibility: hidden; display:inline;">
@@ -68,12 +82,13 @@
             <input class="form-control form-control-sm" id="txthora" hidden />
         </div>
 
+        <div class="col-sm">
+            <br />
+            <br />
+            <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>
+            <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
+        </div>
 
-    </div>
-
-    <div class="text-right">
-        <button class="btn btn-primary" type="button" id="bntNuevo">Nuevo</button>
-        <input class="btn btn-success" id="btnGrabar" type="button" value="Guardar">
     </div>
 
 

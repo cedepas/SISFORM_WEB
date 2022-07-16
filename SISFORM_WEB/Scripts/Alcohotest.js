@@ -14,6 +14,7 @@ var cantidadTrabajadores;
 var lstActualizacion = [];
 var lstTrabajadores;
 
+var idPuestoTrabajo;
 
 
 let fechaActual = new Date();
@@ -31,7 +32,7 @@ window.onload = function () {
         //funcion para crear la lista general
         //Listar registros
         Http.get("Alcohotest/ListarRegistroAlcohotest", CrearTablaCsv);
-
+            
         var fechaConsultaCodigo = fechaActual.toISOString().split('T')[0];
         txtCodigoPruebaAlc.value = Http.get("Alcohotest/ObtenerCodigoAlcohotestActualCsv?BuscarFechaCodigo=" + fechaConsultaCodigo, ActualizarFechaCodigo);
 
@@ -45,7 +46,7 @@ window.onload = function () {
     }
 
     //Codigo provisional 
-    var rptaturno = '1|Dia¬2|Noche';
+    var rptaturno = '1|Dia¬2|Noche¬3|Tarde';
     lstCboTurno = rptaturno.split('¬');
     CrearCombo(lstCboTurno, cboTurnos, "Seleccione");
     //Codigo Provisional,
@@ -54,16 +55,25 @@ window.onload = function () {
     CrearCombo(lstCboResultado, cboResultados, "Seleccione");
 
     //pre cargar Codigo de Prueba
-
+    //console.log(horaActual.getHours());
 
     //PRE CARGADO DE DATOS NUEVOS 
     dtFechaPrueba.value = fechaActual.toISOString().split('T')[0];
-    //Turno
-    if ((horaActual.getHours())<=12)
-        cboTurnos.value = '1';
-    else
-        cboTurnos.value = '2';
     
+    //Turno
+    if      ( ((horaActual.getHours()) >= 3 ) && (( horaActual.getHours()) <= 8))
+    {
+        cboTurnos.value = '1';
+    }
+    else if ( ((horaActual.getHours()) >= 9 ) && (( horaActual.getHours()) <= 14))
+    {
+        cboTurnos.value = '3';
+    }
+    else if (((horaActual.getHours()) >= 15) && ((horaActual.getHours()) <= 21)) 
+    {
+        cboTurnos.value = '2';
+    }
+
     cboResultados.value = '1';
     //txtCodigoPruebaAlc.value -> se tiene que obtener el ultimo codigo ingresado
 
@@ -88,6 +98,7 @@ window.onload = function () {
         frm.append("FK_ID_Resultado", cboResultados.value);
         frm.append("codigo", txtCodigoPruebaAlc.value);
         frm.append("detalles", txtdetalleRegAlcohotest.value);
+        frm.append("FK_ID_puestoTrabajo", cboPuestoTrabajo.value);
 
         if (validarRequeridos('E')) {
            // checkSubmit(btnGrabar);
@@ -116,9 +127,14 @@ window.onload = function () {
                     idEmpresa = objeto.IDEmpr;
                     //Http.get("Trabajador/ListarTrabajadorPorEmpresaCsv?idEmpresa=" + idEmpresa, mostrarTrabajadoresEmpresa);
                     //btnActualizar.style.display = "inline-block";
+
+                    //llamar a funcion que buscara los cargos
+                    listarPuestoTrabajo();
+
                     closeAllLists();
 
-                    txtBuscarPorEmpresaAlcohotest.disabled = true;
+
+                    //txtBuscarPorEmpresaAlcohotest.disabled = true;
 
                 });
                 a.appendChild(b);
@@ -157,7 +173,55 @@ window.onload = function () {
         location.reload();
     }
 
+    //para buscar los puestos de trabajo, luego de seleccionar empresa
+    //txtbuscarPorEmpresa.onkeyup = function () {
+    //    var a, b;
+    //    closeAllLists();
+    //    a = document.createElement("div");
+    //    a.setAttribute("id", this.id + "predictivo-list");
+    //    a.setAttribute("class", "predictivo-items");
+    //    this.parentNode.appendChild(a);
+    //    textoBusqueda = txtbuscarPorEmpresa.value.toLowerCase();
+    //    for (let objeto of objetoBusqueda) {
+    //        let Nombre = objeto.NombreComercial.toLowerCase();
+    //        if (Nombre.indexOf(textoBusqueda) !== -1) {
+    //            b = document.createElement("div");
+    //            b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
+    //            b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
+    //            b.addEventListener("click", function (e) {
+    //                txtbuscarPorEmpresa.value = this.getElementsByTagName("input")[0].value;
+    //                idEmpresaPuesto = objeto.IDEmpr;
+    //                listarPuestoTrabajo();
+    //                closeAllLists();
+    //            });
+    //            a.appendChild(b);
+    //        }
+    //    }
+    //}
+
+
+
 }
+
+function listarPuestoTrabajo() {
+    //idEmpresa = campos[1];
+    
+    Http.get("Trabajador/ListarPuestoTrabajoPorEmpresaCboCsv?idEmpresa=" + idEmpresa, mostrarPuestoTrabajoCbo);
+    //console.log(idEmpresa);
+
+}
+
+function mostrarPuestoTrabajoCbo(rpta) {
+    if (rpta) {
+        lstCboPuesto = rpta.split("¬");
+        CrearCombo(lstCboPuesto, cboPuestoTrabajo, "Seleccione");
+
+        //asignamos el cargo
+        cboPuestoTrabajo.value = idPuestoTrabajo;//campos[12];
+
+    }
+}
+
 
 function ActualizarFechaCodigo(rpta) {
     if (rpta) {
@@ -317,6 +381,7 @@ function CrearTablaCsvObs(rpta) {
 
 function obtenerRegistroPorId(id) {
     Http.get("Alcohotest/ObtenerRegistroAlcohotestPorIdCsv?IDRegistroAlcohotest=" + id, AsignarCampos);
+    
 }
 
 function AsignarCampos(rpta) {
@@ -324,8 +389,16 @@ function AsignarCampos(rpta) {
         campos = rpta.split('|');
         txtIdAlcohotest.value = campos[0];
         ID_RegistroAlcohotest = campos[0];
+
+        idPuestoTrabajo = campos[12];
+
         idEmpresa = campos[1];
+
+        listarPuestoTrabajo();
+        //setTimeout('', 10000);
+
         txtBuscarPorEmpresaAlcohotest.value = campos[2];
+        
         idRepresentante = campos[3];
         txtTrabajadorAlcohotest.value = campos[5];
         dtFechaPrueba.value = campos[6];
@@ -334,6 +407,12 @@ function AsignarCampos(rpta) {
         cboResultados.value = campos[9];
         txtCodigoPruebaAlc.value = campos[10];
         txtdetalleRegAlcohotest.value = campos[11];
+
+        //cboPuestoTrabajo.value = campos[12];
+
+
+        //cboPuestoTrabajo.value = campos[12];
+
         //txtSede.value = campos[8];
         //txtAñoFabricacion.value = campos[9];
         //txtFechaVencimientoSOAT.value = campos[10];
@@ -368,9 +447,14 @@ function AsignarCamposBusqueda(rpta) {
         
         var campos = rpta.split('|');
         idEmpresa = campos[1];
+        idPuestoTrabajo = campos[12];
+        listarPuestoTrabajo();
+
         txtBuscarPorEmpresaAlcohotest.value = campos[2];
         idRepresentante = campos[3];
         txtTrabajadorAlcohotest.value = campos[5];
+        
+        cboPuestoTrabajo.value = campos[12];
 
         toastSuccessAlert("Registro encontrado con Exito!");
 

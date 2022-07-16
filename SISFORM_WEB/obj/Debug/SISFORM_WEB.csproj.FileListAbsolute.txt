@@ -471,10 +471,11 @@ D:\GITHUB\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.Razor.resources.dll
 D:\GITHUB\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.resources.dll
 D:\GITHUB\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\GITHUB\SISFORM_WEB\SISFORM_WEB\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\GITHUB\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csprojAssemblyReference.cache
 D:\GITHUB\SISFORM_WEB\SISFORM_WEB\obj\Debug\Interop.MMCInternalWebOcx.dll
 D:\GITHUB\SISFORM_WEB\SISFORM_WEB\obj\Debug\Interop.MsRdpWebAccessLib.dll
 D:\GITHUB\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.ResolveComReference.cache
 D:\GITHUB\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.CopyComplete
 D:\GITHUB\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.dll
 D:\GITHUB\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.pdb
+D:\GITHUB\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.AssemblyReference.cache
+D:\GITHUB\SISFORM_WEB\SISFORM_WEB\obj\Debug\SISFORM_WEB.csproj.CoreCompileInputs.cache
