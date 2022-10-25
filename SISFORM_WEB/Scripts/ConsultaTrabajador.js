@@ -163,6 +163,7 @@ window.onload = function () {
 
     btnNuevo.onclick = function () {
         limpiarControles('form-control');
+        idTrabajador = 0;
         btnModal.style.visibility = "hidden";
         btnNuevo.style.visibility = "hidden";
         btnModalVacuna.style.visibility = "hidden";
