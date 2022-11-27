@@ -352,6 +352,7 @@
     <Content Include="Scripts\ConsultaTrabajadorMasivo.js" />
     <Content Include="Scripts\ConsultaDirectorioECM.js" />
     <Content Include="Scripts\Cosulta_VPCartaPre.js" />
+    <Content Include="Scripts\CrntSanidad.js" />
     <Content Include="Scripts\SeguimientoIncidencia.js" />
     <Content Include="Scripts\AplazarIncidencia.js" />
     <Content Include="Styles\apexcharts.css" />
@@ -494,6 +495,7 @@
     <None Include="Properties\PublishProfiles\cedepasweb - Web Deploy.pubxml" />
     <Content Include="Views\PruebaAlcohotest\Operacion.cshtml" />
     <Content Include="Views\Alcohotest\Operacion.cshtml" />
+    <Content Include="Views\SeguimientoNegocios\CrntSanidad.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

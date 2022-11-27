@@ -52,6 +52,9 @@ window.onload = function () {
         frm.append("FK_ID_TRABAJADOR", idUsuario);
         frm.append("FK_ID_UnidadGestion", idUnidadGestion);
         frm.append("FK_ID_TipoServicio", idTipoServicio);
+        //add newchecklist 2022-11-24
+        frm.append("FK_ID_tipoCheckList", cboTipoCheckList.value)
+
         frm.append("PUNTAJES", lstPuntajes);
         frm.append("DESCRIPCIONES", lstDescripciones);
         if (validarRequeridos('E')) {
@@ -175,6 +178,12 @@ function mostrarPreguntas(rpta) {
             else if (lstValores[7] == 4 ) {
                 b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='2'>2</option><option value='4'>4</option>";
             }
+
+            else if (lstValores[7] == 3) {
+                b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>";
+            }
+
+
             else {
                 b.innerHTML += "<select class='form-control-sm E' id='select" + i + "' required='required'><option value='0' >0</option><option value='1'>1</option><option value='2'>2</option>";
             }

@@ -111,6 +111,22 @@ namespace SISFORM_WEB.Controllers
             }
         }
 
+        /********************************  ***************************************/
+        public async Task<string> ListarEmpresaPorTipoCboCsv(string idTipoEmpresa)
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarEmpresaPorTipoCboCsvAsync(idTipoEmpresa);
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
 
     }
     

@@ -7,6 +7,10 @@ var ID_RegistroAlcohotest;
 var objetoParametrizadoAllEmpresas = [];
 var objetoBusquedaAllEmpresas = [];
 
+var objetoParametrizadoEmpresaHospedaje = [];
+var objetoBusquedaEmpresaHospedaje = [];
+var idEmpresaHospedaje;
+
 var objetoBusqueda = [];
 var filtro;
 var textoBusqueda;
@@ -27,6 +31,7 @@ window.onload = function () {
         idUsuario = window.sessionStorage.getItem('idUsuario');
         Http.get("Incidencia/ListarEmpresaBusquedaCsv", CrearListaCsv);
         Http.get("Incidencia/ListarTrabajadorBusquedaCsv", CrearListaCsvAllEmpresas);
+        Http.get("Alcohotest/ListarEmpresaPorTipoCboCsv?idTipoEmpresa=" + 3, CrearListaHospedajesCsv)
         //focus
         document.getElementById("txtDNITrabajador").focus();
         //funcion para crear la lista general
@@ -53,6 +58,12 @@ window.onload = function () {
     var rptaresultado = '1|NEGATIVO¬2|POSITIVO';
     lstCboResultado = rptaresultado.split('¬');
     CrearCombo(lstCboResultado, cboResultados, "Seleccione");
+
+    var rptaTipoHab = '1|STAFF¬2|OBRERO';
+    lstCboTipoHab = rptaTipoHab.split('¬');
+    CrearCombo(lstCboTipoHab, cboTipoHab, "Seleccione");
+
+
 
     //pre cargar Codigo de Prueba
     //console.log(horaActual.getHours());
@@ -100,6 +111,10 @@ window.onload = function () {
         frm.append("detalles", txtdetalleRegAlcohotest.value);
         frm.append("FK_ID_puestoTrabajo", cboPuestoTrabajo.value);
 
+        frm.append("FK_ID_EmpresaHospedaje", idEmpresaHospedaje);
+        frm.append("NroHabitacion", txtHabitacion.value);
+        frm.append("FK_ID_TipoHabitacion", cboTipoHab.value);
+
         if (validarRequeridos('E')) {
            // checkSubmit(btnGrabar);
             Http.post("Alcohotest/Grabar", MostrarGrabar, frm);
@@ -141,6 +156,44 @@ window.onload = function () {
             }
         }
     }
+
+    txtBuscarPorEmpresaHospedajeAlcohotest.onkeyup = function () {
+        var a, b;
+        closeAllListsHosp();
+        a = document.createElement("div");
+        a.setAttribute("id", this.id + "predictivo-list");
+        a.setAttribute("class", "predictivo-items");
+        this.parentNode.appendChild(a);
+        textoBusquedaHospedaje = txtBuscarPorEmpresaHospedajeAlcohotest.value.toLowerCase();
+        for (let objeto of objetoBusquedaEmpresaHospedaje) {
+            let Nombre = objeto.NombreComercial.toLowerCase();
+            if (Nombre.indexOf(textoBusquedaHospedaje) !== -1) {
+                b = document.createElement("div");
+                b.innerHTML = "<strong>" + objeto.NombreComercial + "</strong>";
+                b.innerHTML += "<input type='hidden' value='" + objeto.NombreComercial + "'>";
+
+                b.addEventListener("click", function (e) {
+                    txtBuscarPorEmpresaHospedajeAlcohotest.value = this.getElementsByTagName("input")[0].value;
+                    idEmpresaHospedaje = objeto.IDEmpr;
+                    //Http.get("Trabajador/ListarTrabajadorPorEmpresaCsv?idEmpresa=" + idEmpresa, mostrarTrabajadoresEmpresa);
+                    //btnActualizar.style.display = "inline-block";
+
+                    //llamar a funcion que buscara los cargos
+                    //listarPuestoTrabajo();
+
+                    closeAllListsHosp();
+
+
+                    //txtBuscarPorEmpresaAlcohotest.disabled = true;
+
+                });
+                a.appendChild(b);
+            }
+        }
+    }
+
+
+
     //Buscar Trabajador
     txtTrabajadorAlcohotest.onkeyup = function () {
         var a, b;
@@ -263,6 +316,16 @@ function closeAllListsAllEmpresas(elmnt) {
     }
 }
 
+function closeAllListsHosp(elmnt) {
+    var x = document.getElementsByClassName("predictivo-items");
+    for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != textoBusquedaHospedaje) {
+            x[i].parentNode.removeChild(x[i]);
+        }
+    }
+}
+
+
 
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("predictivo-items");
@@ -316,7 +379,43 @@ function crearObjetoAllEmpresas() {
 }
 
 
+//crear lista para EmpresaHospedaje
+function CrearListaHospedajesCsv(rpta) {
+    if (rpta) {
+        lista = rpta.split('¬');
+        crearObjetoHospedaje(lista)
+    }
+}
 
+//Crear el Objeto para EmpresaHospedaje
+function crearObjetoHospedaje() {
+    //crea el objeto para busqueda segun los datos
+    cabeceras = lista[0].split("|");
+    var nRegistros = lista.length;
+    var nCampos = cabeceras.length;
+    objetoBusquedaEmpresaHospedaje = [];
+    //var nCamposObejetoFinal = 3;
+    var clave;
+    var valor;
+    for (var i = 1; i <= nRegistros - 1; i++) {
+        for (var j = 0; j < nCampos; j++) {
+            datos = lista[i].split("|");
+        }
+        objetoParametrizadoEmpresaHospedaje.push(datos);
+    }
+    for (var i = 0; i < nRegistros - 1; i++) {
+        var valoresAInsertar = {};
+        for (var j = 0; j < nCampos; j++) {
+            clave = cabeceras[j];
+            valor = objetoParametrizadoEmpresaHospedaje[i][j];
+            Object.defineProperty(valoresAInsertar, clave.toString(), {
+                value: valor,
+                writable: false
+            });
+        }
+        objetoBusquedaEmpresaHospedaje.push(valoresAInsertar);
+    }
+}
 
 
 
@@ -408,6 +507,11 @@ function AsignarCampos(rpta) {
         txtCodigoPruebaAlc.value = campos[10];
         txtdetalleRegAlcohotest.value = campos[11];
 
+        idEmpresaHospedaje = campos[13];
+        txtBuscarPorEmpresaHospedajeAlcohotest.value = campos[14];
+        txtHabitacion.value = campos[15];
+        cboTipoHab.value = campos[16];
+
         //cboPuestoTrabajo.value = campos[12];
 
 
@@ -455,6 +559,11 @@ function AsignarCamposBusqueda(rpta) {
         txtTrabajadorAlcohotest.value = campos[5];
         
         cboPuestoTrabajo.value = campos[12];
+
+        idEmpresaHospedaje = campos[13];
+        txtBuscarPorEmpresaHospedajeAlcohotest.value = campos[14];
+        txtHabitacion.value = campos[15];
+        cboTipoHab.value = campos[16];
 
         toastSuccessAlert("Registro encontrado con Exito!");
 

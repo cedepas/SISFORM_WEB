@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section modals{
+    <script>
+        var siteActive = document.getElementById("docs-section-id");
+        siteActive.value = "CrntSanidad";
+    </script>
+}
+
+
+<div class="content">
+    <div class="title text-center"><h5>Seguimiento Comedores: Carnet de Sanidad</h5></div>
+    <div class="form-row">
+        <div class="col-sm-6">
+            @*<label for="txtEmpresaNNLL" class="required">Política de Gestión</label>
+                <img src="~/Content/logo-white.svg" class="hidden-lm mr-5 mr-sm-10" alt="bamani-logo-white">*@
+        </div>
+        <div class="col-sm-6">
+            <label for="txtEmpresaNNLL" class="required">Listado de Datos</label>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <hr class="mb-20" />
+</div>
+<div class="mw-full">
+    <div class="card p-0 bg-very-dark-dm">
+        <div id="divTabla" class="table-responsive">
+            <table id="tablaDatos" class="table table-inner-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+
+
+
+@section scripts{
+    @Scripts.Render("~/Scripts/CrntSanidad.js")
+}
+
+

@@ -33,10 +33,18 @@ namespace SISFORM_WEB.Controllers
         {
             return View();
         }
+
         public ActionResult SIG()
         {
             return View();
         }
+
+        public ActionResult CrntSanidad()
+        {
+            return View();
+        }
+
+
         public ActionResult detalleComedores()
         {
             return View();
@@ -438,5 +446,25 @@ namespace SISFORM_WEB.Controllers
                 throw;
             }
         }
+
+
+        public async Task<string> ListarCarnetEmisionCsv()
+        {
+            try
+            {
+                string rpta = "";
+                ServicioClient servicio = new ServicioClient("BasicHttpBinding_IServicio");
+                rpta = await servicio.ListarCarnetEmisionCsvAsync();
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+
+
+
     }
 }

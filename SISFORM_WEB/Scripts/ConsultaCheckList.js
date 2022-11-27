@@ -52,6 +52,9 @@ window.onload = function () {
         frm.append("FK_ID_TRABAJADOR", idUsuario);
         frm.append("FK_ID_UnidadGestion", idUnidadGestion);
         frm.append("FK_ID_TipoServicio", idTipoServicio);
+        //add newchecklist 2022-11-24
+        frm.append("FK_ID_tipoCheckList", cboTipoCheckList.value)
+
         frm.append("PUNTAJES", lstPuntajes);
         frm.append("DESCRIPCIONES", lstDescripciones);
         if (validarRequeridos('E')) {
